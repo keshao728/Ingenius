@@ -190,40 +190,40 @@ const HomePage = () => {
       </div>
 
       {/* VIDEOS - ALL PLACEHOLDERS RN!!!!!!!!! */}
-      <div class="video-page">
-        <div class="video-wrapper">
-          <div class="video-title">
+      <div className="video-page">
+        <div className="video-wrapper">
+          <div className="video-title">
             VIDEOS
           </div>
-          <div class="video-series">
+          <div className="video-series">
             GENIUS ORIGINAL SERIES
           </div>
 
-          <div class="video-verified">
+          <div className="video-verified">
             <div>
-              <iframe class="video"
-              //IT'S AUTOPLAYING!!! STAHP IT
+              <iframe className="video"
+                //IT'S AUTOPLAYING!!! STAHP IT
                 src='//players.brightcove.net/4863540648001/S1ZcmcOC1x_default/index.html?videoId=6315238407112' width="850"
                 height="480" frameborder="0" allow="fullscreen" allowfullscreen></iframe>
             </div>
-            <div class="video-right">
-              <div class="video-right-verified">
+            <div className="video-right">
+              <div className="video-right-verified">
                 VERIFIED
               </div>
-              <div class="video-verified-wrapper">
-                <div class="video-verified-title">
+              <div className="video-verified-wrapper">
+                <div className="video-verified-title">
                   Chlöe Breaks Down The Meaning of “For The Night”
                 </div>
-                <div class="video-verified-description">
+                <div className="video-verified-description">
                   Learn about the song’s lyrics on the latest episode of ‘Verified.’
                 </div>
 
-                <div class="video-verified-author-date">
-                  <div class="video-verified-author">
+                <div className="video-verified-author-date">
+                  <div className="video-verified-author">
                     by ButterflyHoney /
                   </div>
 
-                  <div class="top-feature-date">
+                  <div className="top-feature-date">
                     Nov 9 2022
                   </div>
                 </div>
@@ -231,8 +231,8 @@ const HomePage = () => {
 
             </div>
           </div>
-          <div class="video-button">
-            <button class="video-load-more">
+          <div className="video-button">
+            <button className="video-load-more">
               LOAD MORE
             </button>
           </div>
@@ -242,12 +242,100 @@ const HomePage = () => {
 
 
 
+      {/* LATEST - ALL PLACEHOLDERS RN!!!!!!!!! */}
+      <div className="latest-page">
+        <div className="latest-wrapper">
+          <div className="latest-title">
+            LATEST
+          </div>
+          <div className="latest-des">
+            MOST RECENT NEWS
+          </div>
+        </div>
+
+        <div className="latest-items">
+
+          <div className="bottom-latest">
+            <div className="bottom-latest-1">
+              <div id="latest-dev">DEV</div>
+              <img id="individual-latest" src={simon} alt="Logo"></img>
+              <div>
+                Simon Tan - Da sleepy one-shot beast, piupiupiu
+              </div>
+              <div className="top-feature-author-date">
+                <div className="top-feature-author">
+                  by Kelly Shao /
+                </div>
+
+                <div className="top-feature-date">
+                  Nov 8 2022
+                </div>
+              </div>
+            </div>
+            <div className="bottom-latest-2">
+              <div id="latest-dev">DEV</div>
+              <img id="individual-latest" src={kelly} alt="Logo"></img>
+              <div>
+                Kelly Shao - This girl just won't get out of bed
+              </div>
+              <div className="top-feature-author-date">
+                <div className="top-feature-author">
+                  by Kelly Shao /
+                </div>
+
+                <div className="top-feature-date">
+                  Nov 8 2022
+                </div>
+              </div>
+            </div>
+            <div className="bottom-latest-3">
+              <div id="latest-dev">DEV</div>
+              <img id="individual-latest" src={andrew} alt="Logo"></img>
+              <div>
+                Andrew Kim - Ditches teammate and Omen teleport on site by himself
+              </div>
+              <div className="top-feature-author-date">
+                <div className="top-feature-author">
+                  by Kelly Shao /
+                </div>
+
+                <div className="top-feature-date">
+                  Nov 8 2022
+                </div>
+              </div>
+            </div>
+            <div className="bottom-latest-4">
+              <div id="latest-dev">DEV</div>
+              <img id="individual-latest" src={schaeffer} alt="Logo"></img>
+              <div>
+                Schaeffer Ahn - Big arms with tattoos, on Valo all day
+              </div>
+              <div className="top-feature-author-date">
+                <div className="top-feature-author">
+                  by Kelly Shao /
+                </div>
+
+                <div className="top-feature-date">
+                  Nov 8 2022
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="latest-button">
+          <button className="latest-load-more">
+            LOAD MORE
+          </button>
+        </div>
+      </div>
 
 
+      <div className="footer">
+        <div className="footer-message">
+          Genius is the world’s biggest collection of song lyrics and musical knowledge
+        </div>
 
-
-
-
+      </div>
     </div>
 
 

@@ -310,3 +310,130 @@
   color: gray;
   margin-left: 6px;
 }
+
+
+/* LATEST */
+.latest-page{
+  background-color: white;
+  margin-top: 50px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  list-style: none;
+  justify-items: center;
+}
+
+.latest-title{
+  color: black;
+  font-weight: bold;
+  font-size: 60px;
+}
+
+.latest-wrapper{
+  padding: 10px;
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.latest-des{
+  color: #F31464;
+  padding: 10px 0px;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.latest-items{
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  list-style: none;
+  padding: 0% 20%;
+  justify-items: center;
+}
+
+
+.bottom-latest {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  margin-top: 50px;
+  height: 370px;
+  gap:20px
+}
+
+
+.bottom-latest-1,
+.bottom-latest-2,
+.bottom-latest-3,
+.bottom-latest-4 {
+  border-top: black 2px solid;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  width: 25%;
+  font-size: 20px;
+}
+
+#latest-dev {
+  position: absolute;
+  top: 2676px;
+  background-color: white;
+  padding-right: 10px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+#individual-latest {
+  display: flex;
+  position: relative;
+  width: 100%;
+  /* object-fit: cover; */
+  height: 180px;
+  margin-bottom: 15px;
+  margin-top: 20px;
+}
+
+/* FOOTER */
+.footer{
+  margin-top: 80px;
+  background-color: black;
+  height: 500px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  padding: 20px 20px;
+  justify-content: space-between;
+  margin-top: 90px;
+}
+
+.footer-message{
+  color: white;
+  margin-top: 50px;
+  width: 500px;
+  font-size: 35px;
+  margin-left: 360px;
+}
+
+.latest-load-more {
+  height: 40px;
+  width: 130px;
+  border: black 2px solid;
+  background-color: white;
+  font-weight: bold;
+  font-size: 12px;
+}
+
+.latest-load-more:hover{
+  cursor: pointer;
+  background-color: black;
+  color: white;
+
+}
+
+.latest-button {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
