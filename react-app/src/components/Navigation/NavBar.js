@@ -34,6 +34,8 @@ const NavBar = () => {
             <img id="icon" src={logo} alt="Logo"></img>
           </NavLink>
         </div>
+
+        {/* if not logged in, these will show  */}
         <div className='right-nav'>
           <div>
             <NavLink to='/sign-up' exact={true} id="nav-buttons" activeClassName='active'>
