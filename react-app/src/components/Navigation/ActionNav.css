@@ -1,0 +1,32 @@
+.main-nav {
+  height: 40px;
+  background-color: black;
+}
+
+.main-nav-list {
+  display: flex;
+  font-size: 12px;
+  justify-content: center;
+  margin: auto;
+}
+
+#action-nav-links {
+  color: white;
+  font-size: 14px;
+  font-weight: bold;
+  margin: 10px;
+  padding-right: 40px;
+  padding-left: 20px;
+}
+
+#action-nav-links:hover {
+  cursor: pointer;
+  color:#FFFF64;
+  transition: .4s;
+}
+
+.main-nav-list-1,
+.main-nav-list-2,
+.main-nav-list-3 {
+  border-right: white 1px solid;
+}

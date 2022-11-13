@@ -2,11 +2,15 @@ import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import { login } from '../../store/session';
+import { Modal } from '../../context/Modal';
+import "./LoginForm.css"
 
 const LoginForm = () => {
   const [errors, setErrors] = useState([]);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [showModal, setShowModal] = useState(false);
+
   const user = useSelector(state => state.session.user);
   const dispatch = useDispatch();
 
@@ -31,6 +35,10 @@ const LoginForm = () => {
   }
 
   return (
+    <>
+    <button className="login-button" onClick={() => setShowModal(true)}>SIGN IN</button>
+    {showModal && (
+      <Modal onClose={() => setShowModal(false)}>
     <form onSubmit={onLogin}>
       <div>
         {errors.map((error, ind) => (
@@ -59,6 +67,9 @@ const LoginForm = () => {
         <button type='submit'>Login</button>
       </div>
     </form>
+    </Modal>
+      )}
+    </>
   );
 };
 
