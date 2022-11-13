@@ -6,6 +6,7 @@ import logo from './NavImage/logo.png';
 import './NavBar.css'
 import { useSelector } from 'react-redux';
 import SignUpForm from '../auth/SignUpForm';
+import LoginForm from '../auth/LoginForm';
 
 
 const NavBar = () => {
@@ -43,9 +44,7 @@ const NavBar = () => {
               <SignUpForm />
             </div>
             <div>
-              <NavLink to='/login' exact={true} id="nav-buttons" activeClassName='active'>
-                SIGN IN
-              </NavLink>
+              <LoginForm />
             </div>
           </div>
         )}

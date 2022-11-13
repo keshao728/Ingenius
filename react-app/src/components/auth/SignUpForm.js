@@ -47,7 +47,6 @@ const SignUpForm = () => {
     return <Redirect to='/' />;
   }
 
-  console.log(showModal)
   return (
     <>
       <button className="sign-up-button" onClick={() => setShowModal(true)}>SIGN UP</button>
