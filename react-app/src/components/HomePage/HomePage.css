@@ -1,4 +1,4 @@
-
+/* FEATURES */
 .featured-page {
   display: flex;
   justify-content: flex-start;
@@ -105,4 +105,107 @@
   width: 244px;
   /* object-fit: cover; */
   height: 180px;
+}
+
+/* CHARTS */
+.chart-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  list-style: none;
+  padding: 1% 20%;
+  justify-items: center;
+}
+
+.chart-heading {
+  font-size: 60px;
+  font-weight: bold;
+  margin-bottom: 30px;
+}
+
+.individual-tracks {
+  display: flex;
+  flex-direction: row;
+  height: 70px;
+  align-items: center;
+  border-bottom: #E9E9E9 solid 2px;
+  padding-top: 5px;
+}
+
+.individual-tracks:hover{
+  cursor: pointer;
+  background-color: #E9E9E9
+  /* color: white; */
+}
+
+/* .individual-tracks:last-child{
+  border-bottom: #E9E9E9;
+} */
+
+.track-num {
+  font-size: 20px;
+  padding: 10px 20px;
+  margin-right: 60px;
+  align-items: center;
+  width: 10px;
+}
+
+#track-cover {
+  object-fit: cover;
+  height: 60px;
+  width: 60px;
+}
+
+.track-cover-name {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 500px;
+}
+
+.track-name-lyric {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  margin-left: 30px;
+  align-items: center;
+}
+
+.track-artist {
+  justify-content: flex-end;
+  font-size: 18px;
+  margin-left: 80px;
+}
+
+.track-lyric {
+  color: gray;
+  font-size: 12px;
+}
+
+.track-name {
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.track-load-more {
+  height: 40px;
+  width: 130px;
+  border: black 2px solid;
+  background-color: white;
+  font-weight: bold;
+  font-size: 12px;
+}
+
+.track-load-more:hover{
+  cursor: pointer;
+  background-color: black;
+  color: white;
+
+}
+
+.track-button {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
 }
