@@ -36,21 +36,23 @@ const NavBar = () => {
         </div>
 
         {/* if not logged in, these will show  */}
-        <div className='right-nav'>
-          <div>
-            <NavLink to='/sign-up' exact={true} id="nav-buttons" activeClassName='active'>
-              SIGN UP
-            </NavLink>
+        {!sessionUser && (
+          <div className='right-nav'>
+            <div>
+              <NavLink to='/sign-up' exact={true} id="nav-buttons" activeClassName='active'>
+                SIGN UP
+              </NavLink>
+            </div>
+            <div>
+              <NavLink to='/login' exact={true} id="nav-buttons" activeClassName='active'>
+                SIGN IN
+              </NavLink>
+            </div>
           </div>
-          <div>
-            <NavLink to='/login' exact={true} id="nav-buttons" activeClassName='active'>
-              SIGN IN
-            </NavLink>
-          </div>
+        )}
+        <div className='session-right-nav'>
+          {sessionLinks}
         </div>
-      </div>
-      <div>
-        {sessionLinks}
       </div>
     </nav>
   );

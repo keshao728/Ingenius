@@ -37,7 +37,8 @@ body {
   align-items: flex-end;
   display: flex;
   justify-content: flex-end;
-  grid-column-start: 3;
+  position: static;
+  /* grid-column-start: 3; */
   margin-right: 10px;
 }
 
@@ -47,6 +48,17 @@ body {
   justify-content: flex-end;
   grid-column-start: 3;
   margin-right: 10px;
+}
+
+.profile-pic:hover {
+  cursor: pointer;
+}
+
+.profile-pic {
+  border-radius: 30px;
+  color: #717171;
+  width: 25px;
+  height: 25px;
 }
 
 #nav-buttons{
