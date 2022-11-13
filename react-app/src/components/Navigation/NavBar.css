@@ -1,0 +1,35 @@
+#icon {
+  height: 28px;
+  width: auto;
+  display: flex;
+  margin-right: 5px;
+}
+
+
+.mt {
+  grid-column-start: 1;
+  /* text-align: center; */
+}
+
+.left-nav {
+  grid-column-start: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+body {
+  margin: 0;
+  /* background-color: #191414; */
+}
+
+
+.full-navigation {
+  display: grid;
+  align-content: center;
+  grid-template-columns: repeat(3, 1fr);
+  border-bottom: 1px solid #EBEBEB;
+  background-color: #FFFF64;
+  height: 40px;
+  z-index: 1;
+}
