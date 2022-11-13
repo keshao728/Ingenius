@@ -21,6 +21,8 @@
 
 #action-nav-links:hover {
   cursor: pointer;
+  color:#FFFF64;
+  transition: .4s;
 }
 
 .main-nav-list-1,

@@ -5,6 +5,7 @@ import LogoutButton from '../auth/LogoutButton';
 import logo from './NavImage/logo.png';
 import './NavBar.css'
 import { useSelector } from 'react-redux';
+import SignUpForm from '../auth/SignUpForm';
 
 
 const NavBar = () => {
@@ -39,9 +40,7 @@ const NavBar = () => {
         {!sessionUser && (
           <div className='right-nav'>
             <div>
-              <NavLink to='/sign-up' exact={true} id="nav-buttons" activeClassName='active'>
-                SIGN UP
-              </NavLink>
+              <SignUpForm />
             </div>
             <div>
               <NavLink to='/login' exact={true} id="nav-buttons" activeClassName='active'>
