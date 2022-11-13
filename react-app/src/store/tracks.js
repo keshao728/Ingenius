@@ -209,6 +209,8 @@ export const trackReducer = (state = initialState, action) => {
             delete newState[action.track.id]
             return newState
         }
+        default:
+            return state
     }
 }
 
