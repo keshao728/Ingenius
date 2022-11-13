@@ -188,6 +188,66 @@ const HomePage = () => {
           </div>
         </div>
       </div>
+
+      {/* VIDEOS - ALL PLACEHOLDERS RN!!!!!!!!! */}
+      <div class="video-page">
+        <div class="video-wrapper">
+          <div class="video-title">
+            VIDEOS
+          </div>
+          <div class="video-series">
+            GENIUS ORIGINAL SERIES
+          </div>
+
+          <div class="video-verified">
+            <div>
+              <iframe class="video"
+              //IT'S AUTOPLAYING!!! STAHP IT
+                src='//players.brightcove.net/4863540648001/S1ZcmcOC1x_default/index.html?videoId=6315238407112' width="850"
+                height="480" frameborder="0" allow="fullscreen" allowfullscreen></iframe>
+            </div>
+            <div class="video-right">
+              <div class="video-right-verified">
+                VERIFIED
+              </div>
+              <div class="video-verified-wrapper">
+                <div class="video-verified-title">
+                  Chlöe Breaks Down The Meaning of “For The Night”
+                </div>
+                <div class="video-verified-description">
+                  Learn about the song’s lyrics on the latest episode of ‘Verified.’
+                </div>
+
+                <div class="video-verified-author-date">
+                  <div class="video-verified-author">
+                    by ButterflyHoney /
+                  </div>
+
+                  <div class="top-feature-date">
+                    Nov 9 2022
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+          <div class="video-button">
+            <button class="video-load-more">
+              LOAD MORE
+            </button>
+          </div>
+        </div>
+      </div>
+
+
+
+
+
+
+
+
+
+
     </div>
 
 
