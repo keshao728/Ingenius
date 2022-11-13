@@ -64,7 +64,7 @@ const actionDeleteComment = (commendId) => {
 //get all comments
 
 export const getAllComments =(trackId) => async (dispatch) => {
-    const response = await csrfFetch(`/api/tracks/${trackId}/comments`)
+    const response = await fetch(`/api/tracks/${trackId}/comments`)
 
     if (response.ok) {
         const comments = await response.json();
@@ -77,7 +77,7 @@ export const getAllComments =(trackId) => async (dispatch) => {
 //create comment
 
 export const createComment = ({trackId, comment}) => async (dispatch) => {
-    const response = await csrfFetch(`/api/tracks/${trackId}/comments`, {
+    const response = await fetch(`/api/tracks/${trackId}/comments`, {
         method: "POST",
         headers: {"Content-Type": "application/json"},
         body: JSON.stringify({body:comment})
@@ -94,7 +94,7 @@ export const createComment = ({trackId, comment}) => async (dispatch) => {
 //edit a comment
 
 export const editComment = ({commentId, body}) => async (dispatch) => {
-    const response = await csrfFetch(`/api/comments/${commentId}`, {
+    const response = await fetch(`/api/comments/${commentId}`, {
         method: "PUT",
         headers: {"Content-Type": "application/json"},
         body: JSON.stringify({body: body})
@@ -111,7 +111,7 @@ export const editComment = ({commentId, body}) => async (dispatch) => {
 //delete comment
 
 export const deleteComment = (commentId) => async (dispatch) => {
-    const response = await csrfFetch(`/api/comments/${commentId}`, {
+    const response = await fetch(`/api/comments/${commentId}`, {
         method: "DELETE",
     })
 

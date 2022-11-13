@@ -103,7 +103,7 @@ export const getOneTrack = () => async dispatch => {
 // get all tracks by user
 
 export const getUserTracks = () => async dispatch => {
-    const response = await csrfFetch('/api/tracks/current')
+    const response = await fetch('/api/tracks/current')
     if (response.ok) {
         const userTracks = await response.json()
         await dispatch(actionGetUserTracks(userTracks))
@@ -113,7 +113,7 @@ export const getUserTracks = () => async dispatch => {
 
 // create track
 
-export const createTrack = () => async dispatch => {
+export const createTrack = (track) => async dispatch => {
     const response = await fetch('/api/tracks', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },

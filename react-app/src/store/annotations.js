@@ -64,8 +64,8 @@ const actionDeleteAnnotation = (commendId) => {
 //get all annotations
 
 export const getAllAnnotations =(trackId) => async (dispatch) => {
-    const response = await csrfFetch(`/api/tracks/${trackId}/annotations`)
-    // const response = await csrfFetch(`/api/annotations`)
+    const response = await fetch(`/api/tracks/${trackId}/annotations`)
+    // const response = await fetch(`/api/annotations`)
 
     if (response.ok) {
         const annotations = await response.json();
@@ -78,8 +78,8 @@ export const getAllAnnotations =(trackId) => async (dispatch) => {
 //create annotation
 
 export const createAnnotation = ({trackId, annotation}) => async (dispatch) => {
-    const response = await csrfFetch(`/api/tracks/${trackId}/annotations`, {
-    // const response = await csrfFetch(`/api/annotations`, {
+    const response = await fetch(`/api/tracks/${trackId}/annotations`, {
+    // const response = await fetch(`/api/annotations`, {
         method: "POST",
         headers: {"Content-Type": "application/json"},
         body: JSON.stringify({body:annotation})
@@ -96,7 +96,7 @@ export const createAnnotation = ({trackId, annotation}) => async (dispatch) => {
 //edit a annotation
 
 export const editAnnotation = ({annotationId, body}) => async (dispatch) => {
-    const response = await csrfFetch(`/api/annotations/${annotationId}`, {
+    const response = await fetch(`/api/annotations/${annotationId}`, {
         method: "PUT",
         headers: {"Content-Type": "application/json"},
         body: JSON.stringify({body: body})
@@ -113,7 +113,7 @@ export const editAnnotation = ({annotationId, body}) => async (dispatch) => {
 //delete annotation
 
 export const deleteAnnotation = (annotationId) => async (dispatch) => {
-    const response = await csrfFetch(`/api/annotations/${annotationId}`, {
+    const response = await fetch(`/api/annotations/${annotationId}`, {
         method: "DELETE",
     })
 
