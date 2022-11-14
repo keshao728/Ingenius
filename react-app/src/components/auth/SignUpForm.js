@@ -52,50 +52,66 @@ const SignUpForm = () => {
       <button className="sign-up-button" onClick={() => setShowModal(true)}>SIGN UP</button>
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
+
           <form onSubmit={onSignUp}>
             <div>
               {errors.map((error, ind) => (
                 <div key={ind}>{error}</div>
               ))}
             </div>
-            <div>
-              <label>User Name</label>
-              <input
-                type='text'
-                name='username'
-                onChange={updateUsername}
-                value={username}
-              ></input>
+
+            <div className='sign-up-form-wrapper'>
+              <div className='sign-up-form-child'>
+
+                <div className='sign-up-message'> Sign Up </div>
+                <div className='sign-up-input-box'>
+                  <label className='sign-up-input-label'>User Name</label>
+                  <input
+                    className='sign-up-input'
+                    type='text'
+                    name='username'
+                    onChange={updateUsername}
+                    value={username}
+                    required={true}
+                  ></input>
+                </div>
+                <div className='sign-up-input-box'>
+                  <label className='sign-up-input-label'>Email</label>
+                  <input
+                    className='sign-up-input'
+                    type='text'
+                    name='email'
+                    onChange={updateEmail}
+                    value={email}
+                    required={true}
+                  ></input>
+                </div>
+                <div className='sign-up-input-box'>
+                  <label className='sign-up-input-label'>Password</label>
+                  <input
+                    className='sign-up-input'
+                    type='password'
+                    name='password'
+                    onChange={updatePassword}
+                    value={password}
+                    required={true}
+                  ></input>
+                </div>
+                <div className='sign-up-input-box'>
+                  <label className='sign-up-input-label'>Repeat Password</label>
+                  <input
+                    className='sign-up-input'
+                    type='password'
+                    name='repeat_password'
+                    onChange={updateRepeatPassword}
+                    value={repeatPassword}
+                    required={true}
+                  ></input>
+                </div>
+              </div>
+
+              <button className='submit-sign-up-button' type='submit'>Sign Up</button>
             </div>
-            <div>
-              <label>Email</label>
-              <input
-                type='text'
-                name='email'
-                onChange={updateEmail}
-                value={email}
-              ></input>
-            </div>
-            <div>
-              <label>Password</label>
-              <input
-                type='password'
-                name='password'
-                onChange={updatePassword}
-                value={password}
-              ></input>
-            </div>
-            <div>
-              <label>Repeat Password</label>
-              <input
-                type='password'
-                name='repeat_password'
-                onChange={updateRepeatPassword}
-                value={repeatPassword}
-                required={true}
-              ></input>
-            </div>
-            <button type='submit'>Sign Up</button>
           </form>
         </Modal>
       )}
