@@ -34,7 +34,7 @@
 }
 .sign-up-input-box input{
   width: 98%;
-  padding: 10px 0px;
+  padding: 10px;
   font-size: 12px;
   margin-bottom: 30px;
   border: 1px solid black;
@@ -46,7 +46,7 @@
   position: absolute;
   top: 0;
   left: 0;
-  padding: 10px 0px;
+  padding: 10px;
   font-size: 12px;
   pointer-events: none;
   transition:.5s;
