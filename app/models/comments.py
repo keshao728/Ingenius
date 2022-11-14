@@ -10,3 +10,6 @@ class Comment(db.Model):
     comment_body = db.Column(db.String(500), nullable=False)
     created_at = db.Column(db.DateTime(timezone=True), server_default=func.current_timestamp())
     updated_at = db.Column(db.DateTime(timezone=True), onupdate=func.current_timestamp())
+
+
+
