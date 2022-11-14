@@ -11,7 +11,7 @@ const AllComments = () => {
 
   const comments = useSelector((state) => state.comments.comments);
   const commentsArr = Object.values(comments);
-  console.log("COMMENTS", commentsArr);
+  // console.log("COMMENTS", commentsArr);
 
 
   useEffect(() => {
