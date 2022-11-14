@@ -9,7 +9,11 @@ from .models import db, User
 from .api.user_routes import user_routes
 from .api.auth_routes import auth_routes
 from .api.track_routes import track_routes
+<<<<<<< HEAD
+from .api.upvote_routes import upvote_routes
+=======
 # from .api.upvote_routes import upvote_routes
+>>>>>>> 9cffe6dcfdc3175031a2bb1472b3860084ee1b8b
 
 from .seeds import seed_commands
 
