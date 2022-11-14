@@ -34,6 +34,6 @@ def seed_vote():
     db.session.add(vote5)
     db.session.commit()
 
-    def undo_vote():
+def undo_vote():
         db.session.execute('TRUNCATE votes RESTART IDENTITY CASCADE;')
         db.session.commit()
