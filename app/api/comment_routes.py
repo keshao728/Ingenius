@@ -3,7 +3,7 @@ from ..models.db import db
 
 comment_routes = Blueprint('tracks', __name__)
 
-@comment_routes('/<:artist>-<:song>')
+@comment_routes('/<int:id>')
 def comments():
     # return render_template("meowmeowmeowmeowmeowmeowmeowmeowmeow")
         #if form.errors:
@@ -17,7 +17,7 @@ def comments():
     #   }'
     pass
 
-@comment_routes('/<:artist>-<:song>',methods=["POST"])
+@comment_routes('/new',methods=["POST"])
 def create_comments():
     #form = formforcomment()
     #if form.validate_on_submit():
@@ -37,7 +37,7 @@ def create_comments():
     #   }'
     pass
 
-@comment_routes('/<:artist>-<:song>',methods=["PUT"])
+@comment_routes('/<int:id>',methods=["PUT"])
 def edit_comment():
     #form = formforcomment()
     #if form.validate_on_submit():
@@ -56,7 +56,7 @@ def edit_comment():
     #   }'
     pass
 
-@comment_routes('/<:artist>-<:song>',methods=["DELETE"])
+@comment_routes('/<int:id>',methods=["DELETE"])
 def delete_comment():
     # query = dbforcomment.query.filter(dbforcomment.userid.is("artist") and dbforcomment.id.is("song")).all()
     #   db.session.delete(query)
