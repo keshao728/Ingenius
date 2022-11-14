@@ -1,9 +1,11 @@
 from flask.cli import AppGroup
+
 from .users import seed_users, undo_users
 from .tracks import seed_tracks, undo_tracks
 from .annotations import seed_annotations, undo_annotations
 from .comments import seed_comments, undo_comments
 from .votes import seed_vote, undo_vote
+
 from app.models.db import db, environment, SCHEMA
 
 # Creates a seed group to hold our commands
@@ -22,13 +24,13 @@ def seed():
         undo_users()
         undo_tracks()
         undo_annotations()
-        undo_comments
-        undo_vote
+        undo_comments()
+        undo_vote()
 
     seed_users()
     # Add other seed functions here
     seed_tracks()
-    seed_annotations
+    seed_annotations()
     seed_comments()
     seed_vote()
 
@@ -38,6 +40,6 @@ def undo():
     undo_users()
     undo_tracks()
     undo_annotations()
-    undo_comments
-    undo_vote
+    undo_comments()
+    undo_vote()
     # Add other undo functions here

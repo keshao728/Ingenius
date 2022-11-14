@@ -48,7 +48,7 @@ function App() {
         </Route>
         <Route path='/tracks/:trackId'>
           <AllComments />
-          <TrackInfo />
+          {/* <TrackInfo /> */}
         </Route>
 
       </Switch>
