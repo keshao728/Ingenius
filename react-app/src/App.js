@@ -49,11 +49,14 @@ function App() {
         <Route path='/tracks' exact={true}>
           <AllTracks />
         </Route>
+<<<<<<< HEAD
 
 <<<<<<< HEAD
         <Route exact path = "/tracks/:trackId">
           <TrackInfo />
 =======
+=======
+>>>>>>> 5f86829950639c3d953034fe1701e34afd5e480b
         <Route path='/tracks/:trackId'>
           <AllComments />
 >>>>>>> 66dbcc7dec59bf9dfbd232d0b31ac64e09b81314
