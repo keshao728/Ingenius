@@ -57,30 +57,47 @@ def create_track():
     return {'errors': validation_errors(form.errors), "statusCode": 401}
 
 
-# @track_routes('/tracks/<int:id>', methods=["PUT"])
-# @login_required
-# def edittrack(id):
-#     form = TrackForm()
-#     form['csrf_token'].data = request.cookies['csrf_token']
-#     track = Track.query.get(id)
-#     if current_user.id != track.user_id:
-#         return {'errors': 'Unauthorized', 'statusCode':401}
+@track_routes('/tracks/<int:id>', methods=["PUT"])
+@login_required
+def edittrack(id):
+    form = TrackForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
+    track = Track.query.get(id)
+    if current_user.id != track.user_id:
+        return {'errors': 'Unauthorized', 'statusCode':401}
 
-#     if not track:
+    if not track:
+        return {'errors': 'Track not found', 'statusCode':404}
+
+    if form.validate_on_submit():
+        track.track_title = form.track_title.data
+        track.artist = form.artist.data
+        track.album = form.album.data
+        track.release_date = form.release_date.data
+        track.produced_by = form.produced_by.data
+        track.lyrics = form.lyrics.data
+        track.track_art = form.track_art.data
+        track.track_url = form.track_url.data
+
+        db.session.commit()
+        return track.to_dict()
+    return {'errors': validation_errors(form.errors), "statusCode": 401}
+
+# @track_routes('/tracks/<int:id>', methods=["DELETE"])
+# @login_required
+# def deletetrack(id):
+#     delete_track = Track.query.get(id)
+
+#     if not delete_track:
 #         return {'errors': 'Track not found', 'statusCode':404}
 
-#     if form.validate_on_submit():
-#         track.track_title = form.track_title.data
-#         track.artist = form.artist.data
-#         track.album = form.album.data
-#         track.release_date = form.release_date.data
-#         track.produced_by = form.produced_by.data
-#         track.lyrics = form.lyrics.data
-#         track.track_art = form.track_art.data
-#         track.track_url = form.track_url.data
-
-#         db.session.commit()
-#         return track.to_dict()
-#     return {'errors': validation_errors(form.errors), "statusCode": 401}
+#     if current_user.id != delete_track.user_id:
+#         return {'errors': 'Unauthorized', 'statusCode':401}
 
 
+#     db.session.delete(delete_track)
+#     db.session.commit()
+#     return {'
+#         "message": "Successfully deleted",
+#         "statusCode": 200
+#         }'
