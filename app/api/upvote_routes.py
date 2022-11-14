@@ -3,4 +3,8 @@ from ..models.db import db
 
 upvote_routes = Blueprint('upvotes',__name__)
 
+@upvote_routes('/annotations/:id/upvote')
+def upvote():
+    pass
+
 
