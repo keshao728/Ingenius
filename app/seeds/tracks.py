@@ -1,13 +1,13 @@
-from ..models import db, Track
-from ..__init__ import app
+from app.models import db, Track
+from datetime import date
 
-with app.app_context():
+def seed_tracks():
     track1 = Track(
         user_id=1,
         track_title="Skeletons",
         artist = "Keshi",
         album = "trilogy",
-        release_date = "2019-07-15",
+        release_date = date(2019,7,15),
         produced_by = "Keshi",
         lyrics =
         '''
@@ -56,4 +56,12 @@ with app.app_context():
         ''' ,
         track_art = 'https://t2.genius.com/unsafe/331x331/https%3A%2F%2Fimages.genius.com%2F0c68f4642eadc6d1160d3815cf66ec96.831x831x1.jpg',
         track_url = 'https://www.youtube.com/watch?v=w_6fWYY6pRw',
-)
+    )
+
+    db.session.add(track1)
+    db.session.commit()
+
+
+def undo_tracks():
+    db.session.execute('TRUNCATE tracks RESTART IDENTITY CASCADE;')
+    db.session.commit()
