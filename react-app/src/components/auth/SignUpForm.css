@@ -35,11 +35,12 @@
 .sign-up-input-box input{
   width: 98%;
   padding: 10px;
-  font-size: 12px;
+  font-size: 14px;
   margin-bottom: 30px;
   border: 1px solid black;
   background: transparent;
   font: inherit;
+  color: black;
 }
 
 .sign-up-input-box label{
@@ -47,16 +48,18 @@
   top: 0;
   left: 0;
   padding: 10px;
-  font-size: 12px;
+  font-size: 14px;
   pointer-events: none;
   transition:.5s;
+  color: black;
 }
 
 .sign-up-input-box input:valid + label,
-.sign-up-input-box input:focus + label{
-  top: -20px;
-  /* color: brown;
-  transform: translateY(0); */
+.sign-up-input-box input:focus + label
+{
+  /* top: -20px; */
+  color: red;
+  /* transform: translateY(0); */
 }
 
 .submit-sign-up-button {
