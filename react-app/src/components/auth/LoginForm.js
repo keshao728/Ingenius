@@ -61,6 +61,7 @@ const LoginForm = () => {
                     type='text'
                     value={email}
                     onChange={updateEmail}
+                    required
                   />
                   <label htmlFor='email'>Email</label>
                 </div>
@@ -70,6 +71,7 @@ const LoginForm = () => {
                     type='password'
                     value={password}
                     onChange={updatePassword}
+                    required
                   />
                   <label htmlFor='password'>Password</label>
                 </div>
