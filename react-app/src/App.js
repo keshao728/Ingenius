@@ -10,6 +10,7 @@ import User from './components/User';
 import { authenticate } from './store/session';
 import HomePage from './components/HomePage/HomePage';
 import AllTracks from './components/Tracks';
+import TrackInfo from './components/TrackInfo';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -43,6 +44,10 @@ function App() {
 
         <Route path='/tracks' exact={true}>
           <AllTracks />
+        </Route>
+
+        <Route exact path = "/tracks/:trackId">
+          <TrackInfo />
         </Route>
 
       </Switch>
