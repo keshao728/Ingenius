@@ -151,6 +151,7 @@
   object-fit: cover;
   height: 60px;
   width: 60px;
+  border: 1px solid rgb(197, 197, 197);
 }
 
 .track-cover-name {
