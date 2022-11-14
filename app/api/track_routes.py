@@ -83,21 +83,21 @@ def edittrack(id):
         return track.to_dict()
     return {'errors': validation_errors(form.errors), "statusCode": 401}
 
-# @track_routes('/tracks/<int:id>', methods=["DELETE"])
-# @login_required
-# def deletetrack(id):
-#     delete_track = Track.query.get(id)
+@track_routes('/tracks/<int:id>', methods=["DELETE"])
+@login_required
+def deletetrack(id):
+    delete_track = Track.query.get(id)
 
-#     if not delete_track:
-#         return {'errors': 'Track not found', 'statusCode':404}
+    if not delete_track:
+        return {'errors': 'Track not found', 'statusCode':404}
 
-#     if current_user.id != delete_track.user_id:
-#         return {'errors': 'Unauthorized', 'statusCode':401}
+    if current_user.id != delete_track.user_id:
+        return {'errors': 'Unauthorized', 'statusCode':401}
 
 
-#     db.session.delete(delete_track)
-#     db.session.commit()
-#     return {'
-#         "message": "Successfully deleted",
-#         "statusCode": 200
-#         }'
+    db.session.delete(delete_track)
+    db.session.commit()
+    return {'
+        "message": "Successfully deleted",
+        "statusCode": 200
+        }'
