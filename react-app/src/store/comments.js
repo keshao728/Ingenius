@@ -18,7 +18,7 @@ const DELETE_COMMENT = 'tracks/deleteComment';
 
 const actionGetComments = (trackId) => {
     return {
-        type: "GET_ALL_COMMENTS",
+        type: GET_ALL_COMMENTS,
         trackId
     }
 }
@@ -64,11 +64,12 @@ const actionDeleteComment = (commendId) => {
 //get all comments
 
 export const getAllComments =(trackId) => async (dispatch) => {
-    const response = await fetch(`/api/tracks/${trackId}/comments`)
+    const response = await fetch(`/api/tracks/${trackId}`)
 
     if (response.ok) {
         const comments = await response.json();
         await dispatch(actionGetComments(comments));
+        return comments
     }
 }
 
@@ -77,7 +78,7 @@ export const getAllComments =(trackId) => async (dispatch) => {
 //create comment
 
 export const createComment = ({trackId, comment}) => async (dispatch) => {
-    const response = await fetch(`/api/tracks/${trackId}/comments`, {
+    const response = await fetch(`/api/tracks/${trackId}`, {
         method: "POST",
         headers: {"Content-Type": "application/json"},
         body: JSON.stringify({body:comment})
@@ -126,16 +127,30 @@ export const deleteComment = (commentId) => async (dispatch) => {
 
 
 
-const initialState = {};
+const initialState = {
+    comments: {}
+};
 
-export const commentReducer = (state = initialState, action) => {
+const commentReducer = (state = initialState, action) => {
     let newState
     switch (action.type) {
+        // case GET_ALL_COMMENTS: {
+        //     newState = {};
+        //     action.trackId.forEach(comment => {
+        //         newState[comment.id] = comment
+        //     })
+        //     return newState
+        // }
         case GET_ALL_COMMENTS: {
-            newState = {}
+            let newAllCommentsObject = {}
+            newState = {
+                ...state,
+                comments: {...state.comments}
+            }
             action.trackId.Comments.forEach(comment => {
-                newState[comment.id] = comment
+                newAllCommentsObject[comment.id] = comment
             });
+            newState.comments = newAllCommentsObject
             return newState
         }
         case CREATE_COMMENT: {
@@ -157,3 +172,4 @@ export const commentReducer = (state = initialState, action) => {
             return state
     }
 }
+export default commentReducer

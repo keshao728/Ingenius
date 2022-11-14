@@ -16,9 +16,9 @@ class User(db.Model, UserMixin):
 
 # RESET THESE STUFF
     user_track = db.relationship('Track', back_populates='track_user')
-    # user_annotation = db.relationship('Annotation', back_populates='annotation_user')
-    # user_vote = db.relationship('Vote', back_populates='vote_user')
-    # user_comment = db.relationship('Comment', back_populates='comment_user')
+    user_annotation = db.relationship('Annotation', back_populates='annotation_user')
+    user_vote = db.relationship('Vote', back_populates='vote_user')
+    user_comment = db.relationship('Comment', back_populates='comment_user')
 
     @property
     def password(self):

@@ -11,8 +11,8 @@ class Comment(db.Model):
     created_at = db.Column(db.DateTime(timezone=True), server_default=func.current_timestamp())
     updated_at = db.Column(db.DateTime(timezone=True), onupdate=func.current_timestamp())
 
-    # comment_user = db.relationship('User', back_populates='user_comment')
-    # comment_track = db.relationship('Track', back_populates='track_comment')
+    comment_user = db.relationship('User', back_populates='user_comment')
+    comment_track = db.relationship('Track', back_populates='track_comment')
 
     def to_dict(self):
         return {
