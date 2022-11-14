@@ -5,7 +5,7 @@ def seed_annotations():
         user_id=1,
         track_id=1,
         annotation_body='first annotation',
-        startIndex=0,
+        startIndex=1,
         endIndex=10,
     )
 
