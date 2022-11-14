@@ -6,12 +6,29 @@ import simon from "./HomePageImage/simon.png"
 import fries from "./HomePageImage/Fries.png"
 import './HomePage.css'
 
+import { useSelector, useDispatch } from "react-redux";
+import { useState, useEffect } from "react";
+import { NavLink, useParams } from "react-router-dom"
+import { getAllComments } from "../../store/comments";
+import { getAllTracks } from '../../store/tracks';
+
 const HomePage = () => {
+  const dispatch = useDispatch();
+  const [isLoaded, setIsLoaded] = useState(false)
+
+  //TRACKS
+  const tracks = useSelector(state => state.tracks)
+  const allTracks = Object.values(tracks)
 
 
+  useEffect(() => {
+    dispatch(getAllTracks())
+      .then(() => dispatch(getAllTracks()))
+      // return (() => dispatch(resetData()))
+      .then(() => setIsLoaded(true))
+  }, [dispatch])
 
-
-  return (
+  return isLoaded && (
     // FEATURES - ALL PLACEHOLDERS RN!!!!!!!!!
     <div>
       <div className="featured-page">
@@ -89,104 +106,40 @@ const HomePage = () => {
       {/* CHARTS - ALL PLACEHOLDERS RN!!!!!!!!! */}
       <div className="chart-page">
         <div className="chart-heading">CHARTS</div>
-        <div className="all-tracks">
-          <div className="individual-tracks">
-            <div className="track-num">
-              1
-            </div>
-            <div className="track-cover-name">
-              <div>
-                <img id="track-cover" src={kelly} alt="Logo"></img>
-              </div>
-              <div className="track-name-lyric">
-                <div className="track-name">
-                  Track Name
+        {allTracks.map((track) => {
+          return (
+            <div key={track.id} className="all-tracks">
+              <div className="individual-tracks">
+                <div className="track-num">
+                  {track.id}
                 </div>
-                <div className="track-lyric">
-                  LYRICS
+                <div className="track-cover-name">
+                  <div>
+                    <img id="track-cover" src={track.track_art} alt="Logo"></img>
+                  </div>
+                  <div className="track-name-lyric">
+                    <div className="track-name">
+                    {track.track_title}
+                    </div>
+                    <div className="track-lyric">
+                      LYRICS
+                    </div>
+                  </div>
                 </div>
-              </div>
-            </div>
-            <div className="track-artist">
-              Artist Name
-            </div>
-
-          </div>
-          <div className="individual-tracks">
-            <div className="track-num">
-              2
-            </div>
-            <div className="track-cover-name">
-              <div>
-                <img id="track-cover" src={schaeffer} alt="Logo"></img>
-              </div>
-              <div className="track-name-lyric">
-                <div className="track-name">
-                  Track Name
-                </div>
-                <div className="track-lyric">
-                  LYRICS
+                <div className="track-artist">
+                  {track.artist}
                 </div>
               </div>
-            </div>
-            <div className="track-artist">
-              Artist Name
-            </div>
-
-          </div>
 
 
-          <div className="individual-tracks">
-            <div className="track-num">
-              3
             </div>
-            <div className="track-cover-name">
-              <div>
-                <img id="track-cover" src={simon} alt="Logo"></img>
+          )
+        })}
+              <div className="track-button">
+                <button className="track-load-more">
+                  LOAD MORE
+                </button>
               </div>
-              <div className="track-name-lyric">
-                <div className="track-name">
-                  Track Name
-                </div>
-                <div className="track-lyric">
-                  LYRICS
-                </div>
-              </div>
-            </div>
-            <div className="track-artist">
-              Artist Name
-            </div>
-
-          </div>
-
-          <div className="individual-tracks">
-            <div className="track-num">
-              4
-            </div>
-            <div className="track-cover-name">
-              <div>
-                <img id="track-cover" src={andrew} alt="Logo"></img>
-              </div>
-              <div className="track-name-lyric">
-                <div className="track-name">
-                  Track Name
-                </div>
-                <div className="track-lyric">
-                  LYRICS
-                </div>
-              </div>
-            </div>
-            <div className="track-artist">
-              Artist Name
-            </div>
-          </div>
-
-          <div className="track-button">
-            <button className="track-load-more">
-              LOAD MORE
-            </button>
-          </div>
-        </div>
       </div>
 
       {/* VIDEOS - ALL PLACEHOLDERS RN!!!!!!!!! */}
