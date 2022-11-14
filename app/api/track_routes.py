@@ -97,7 +97,7 @@ def deletetrack(id):
 
     db.session.delete(delete_track)
     db.session.commit()
-    return {'
+    return {
         "message": "Successfully deleted",
         "statusCode": 200
-        }'
+       }
