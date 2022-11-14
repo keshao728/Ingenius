@@ -1,4 +1,4 @@
-from app.model import db, Annotation
+from app.models import db, Annotation
 
 def seed_annotations():
     annotation1 = Annotation(
