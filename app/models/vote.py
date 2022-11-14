@@ -4,7 +4,7 @@ from sqlalchemy import func
 
 
 
-class Votes(db.Model):
+class Vote(db.Model):
   __tablename__ = 'votes'
 
   id = db.Column(db.Integer, primary_key=True)
@@ -19,5 +19,4 @@ class Votes(db.Model):
 
 
 
-  
-  
+

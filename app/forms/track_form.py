@@ -21,5 +21,9 @@ def valid_lyrics(form, field):
 class TrackForm(FlaskForm):
     track_title = StringField("Title", validators=[DataRequired(), valid_track_title])
     artist = StringField("Artist", validators=[DataRequired(), valid_artist])
-    release_date = DateField("Release Date", validators=DataRequired())
+    album = StringField("Album")
+    release_date = DateField("Release Date")
+    produced_by = StringField("Produced By")
     lyrics = TextAreaField("Lyrics", validators=[DataRequired(), valid_lyrics])
+    track_art = StringField("Track Art")
+    track_url = StringField("Track URL")
