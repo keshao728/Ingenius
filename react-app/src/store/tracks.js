@@ -139,7 +139,7 @@ export const editTrack = (track) => async dispatch => {
 
     if (response.ok) {
         const editedTrack = await response.json();
-        dispatch(actionCreateTrack(editedTrack))
+        dispatch(actionEditTrack(editedTrack))
         return editedTrack
     }
     return
@@ -155,7 +155,7 @@ export const deleteTrack = (trackId) => async (dispatch) => {
 
     if (response.ok) {
         const deletedTrack = await response.json();
-        dispatch(actionCreateTrack(deletedTrack))
+        dispatch(actionDeleteTrack(deletedTrack))
         return deletedTrack
     }
     return
