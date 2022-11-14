@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { Redirect } from 'react-router-dom';
 import { signUp } from '../../store/session';
 import { Modal } from '../../context/Modal';
+import LoginForm from '../auth/LoginForm';
 import './SignUpForm.css';
 
 const SignUpForm = () => {
@@ -12,6 +13,7 @@ const SignUpForm = () => {
   const [password, setPassword] = useState('');
   const [repeatPassword, setRepeatPassword] = useState('');
   const [showModal, setShowModal] = useState(false);
+  const [showLoginModal, setShowLoginModal] = useState(false);
 
 
   const user = useSelector(state => state.session.user);
@@ -42,6 +44,12 @@ const SignUpForm = () => {
   const updateRepeatPassword = (e) => {
     setRepeatPassword(e.target.value);
   };
+
+  //closes signup and opens login
+//   const OpenLogCloseSign=()=>{
+//     setShowModal(false)
+//     setShowLoginModal(true);
+// }
 
   if (user) {
     return <Redirect to='/' />;
@@ -109,10 +117,21 @@ const SignUpForm = () => {
                   <label className='sign-up-input-label'>Repeat Password</label>
                 </div>
               </div>
-
               <button className='submit-sign-up-button' type='submit'>Sign Up</button>
             </div>
           </form>
+              {/* ADD THIS LATER
+               <div>
+                Already have an account?
+                <div>
+                <button className="login-button" onClick={() => OpenLogCloseSign()}><LoginForm /> </button>
+                  {showLoginModal && (
+                    <Modal onClose={() => setShowLoginModal(false)}>
+                      <LoginForm />
+                    </Modal>
+                  )}
+                </div>
+              </div> */}
         </Modal>
       )}
     </>
