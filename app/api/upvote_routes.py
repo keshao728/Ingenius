@@ -7,4 +7,8 @@ upvote_routes = Blueprint('upvotes',__name__)
 def upvote():
     pass
 
+@upvote_routes('/annotations/:id/downvote')
+def downvote():
+    pass
+
 
