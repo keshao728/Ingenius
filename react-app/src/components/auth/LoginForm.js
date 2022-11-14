@@ -74,7 +74,22 @@ const LoginForm = () => {
                   <label htmlFor='password'>Password</label>
                 </div>
               </div>
-              <button type='submit'>Login</button>
+              <div className='submit-login-wrapper'>
+                <button className='submit-login-button' type='submit'>Sign In</button>
+              </div>
+              <div className="demo-user">
+                <div className='login-or'>
+                  or
+                </div>
+                <button className='demo-login-button'
+                  type="submit"
+                  onClick={() => {
+                    setEmail("demo@aa.io")
+                    setPassword("password")
+                  }}>
+                  Demo User
+                </button>
+              </div>
             </div>
           </form>
         </Modal>

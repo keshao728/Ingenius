@@ -42,7 +42,7 @@
   padding-right: 10px;
   padding-bottom: 5px;
   font-size: 16px;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   border: 1px solid black;
   background: transparent;
   font: inherit;
@@ -59,7 +59,66 @@
   transition: .5s;
   color: black;
 }
+.login-input-box input:valid + label,
 .login-input-box input:focus + label{
   font-size: 10px;
   top: -6px;
 }
+
+.submit-login-button{
+  border: 1px solid black;
+  border-radius: 25px;
+  font-size: 20px;
+  width: 150px;
+  padding: 10px 15px;
+  font-weight: bold;
+  background: none;
+  font-size: 14px;
+  display: flex;
+  justify-content: center;
+  margin: 0px auto;
+  cursor: pointer;
+}
+
+.submit-login-button:hover{
+  background-color: black;
+  color: white;
+}
+
+.demo-login-button{
+  border: 1px solid black;
+  border-radius: 25px;
+  font-size: 20px;
+  width: 150px;
+  padding: 10px 15px;
+  font-weight: bold;
+  background: none;
+  font-size: 14px;
+  display: flex;
+  justify-content: center;
+  margin: 0px auto;
+  cursor: pointer;
+  margin-top: 30px;
+}
+.submit-login-wrapper{
+  margin-bottom: 30px;
+}
+
+.demo-login-button:hover{
+  background-color: black;
+  color: white;
+}
+
+.demo-user {
+  border-top: 1px solid black;
+}
+.login-or{
+  position: absolute;
+  top:310px;
+  left:185px;
+  background-color: #FFFF64;
+  font-size: 12px;
+  font-weight: bold;
+  padding: 0px 10px;
+}
+
