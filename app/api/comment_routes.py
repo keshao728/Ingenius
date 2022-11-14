@@ -36,3 +36,22 @@ def create_comments():
     #       }
     #   }'
     pass
+
+@comment_routes('/<:artist>-<:song>',methods=["PUT"])
+def edit_comment():
+    #form = formforcomment()
+    #if form.validate_on_submit():
+    #   data = dbforcomment()
+    #   form.populate_obj(data)
+    #   db.session.add(data)
+    #   db.session.commit()
+    #   return redirect ('/tosomewhere?')
+    #if form.errors:(note:body validation)
+    #   return '{
+    #   "message": "Validation Error",
+    #   "statusCode": 400,
+    #   "errors": {
+    #     "body": "Comment body text is required"
+    #       }
+    #   }'
+    pass
