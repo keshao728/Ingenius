@@ -6,7 +6,7 @@ def seed_comments():
     track_id=1,
     comment_body='hello my name is kelly and this is a sad boy song',
   )
-  
+
   comment2 = Comment(
     user_id=3,
     track_id=1,
@@ -30,10 +30,10 @@ def seed_comments():
     comment_body='generic comment'
   )
 
-  all_comments = [comment1, comment2, comment3, comment4]
+  all_comments = [comment1, comment2, comment3, comment4,comment5]
   saved_comments = [db.session.add(comment) for comment in all_comments]
   db.session.commit()
-    
+
 def undo_comments():
     db.session.execute('TRUNCATE tracks RESTART IDENTITY CASCADE;')
     db.session.commit()

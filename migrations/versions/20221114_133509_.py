@@ -23,6 +23,8 @@ def upgrade():
     sa.Column('user_id', sa.Integer(), nullable=True),
     sa.Column('track_id', sa.Integer(), nullable=True),
     sa.Column('annotation_body', sa.String(length=500), nullable=False),
+    sa.Column('startIndex', sa.Integer(), nullable=False),
+    sa.Column('endIndex', sa.Integer(), nullable=False),
     sa.Column('created_at', sa.DateTime(timezone=True), server_default=sa.text('(CURRENT_TIMESTAMP)'), nullable=True),
     sa.Column('updated_at', sa.DateTime(timezone=True), nullable=True),
     sa.ForeignKeyConstraint(['track_id'], ['tracks.id'], ),
