@@ -19,7 +19,7 @@ def annotation_by_id(id):
   annotation = Annotation.query.get(id)
   annotation_dictionary = annotation.to_dict()
 
-  return annotation_dictionary
+  return annotation_dictionary["annotation_body"]
 
 # create annotation
 # @annotation_routes.route('/')
