@@ -8,8 +8,8 @@ class Annotation(db.Model):
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
     track_id = db.Column(db.Integer, db.ForeignKey('tracks.id'))
     annotation_body = db.Column(db.String(500), nullable=False)
-    startIndex: db.Column(db.Integer, nullable=False) # need to figure out how to do validate not allow on used index
-    endIndex: db.Column(db.Integer, nullable=False)
+    startIndex = db.Column(db.Integer, nullable=False) # need to figure out how to do validate not allow on used index
+    endIndex = db.Column(db.Integer, nullable=False)
     # vote_count = db.Column(db.Integer)
     created_at = db.Column(db.DateTime(timezone=True), server_default=func.current_timestamp())
     updated_at = db.Column(db.DateTime(timezone=True), onupdate=func.current_timestamp())

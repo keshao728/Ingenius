@@ -1,8 +1,8 @@
 """empty message
 
-Revision ID: 66d5c52beb03
+Revision ID: c4c3688db781
 Revises: 0d684bcd682a
-Create Date: 2022-11-14 13:35:09.622328
+Create Date: 2022-11-14 14:10:29.092481
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = '66d5c52beb03'
+revision = 'c4c3688db781'
 down_revision = '0d684bcd682a'
 branch_labels = None
 depends_on = None
@@ -23,8 +23,6 @@ def upgrade():
     sa.Column('user_id', sa.Integer(), nullable=True),
     sa.Column('track_id', sa.Integer(), nullable=True),
     sa.Column('annotation_body', sa.String(length=500), nullable=False),
-    sa.Column('startIndex', sa.Integer(), nullable=False),
-    sa.Column('endIndex', sa.Integer(), nullable=False),
     sa.Column('created_at', sa.DateTime(timezone=True), server_default=sa.text('(CURRENT_TIMESTAMP)'), nullable=True),
     sa.Column('updated_at', sa.DateTime(timezone=True), nullable=True),
     sa.ForeignKeyConstraint(['track_id'], ['tracks.id'], ),
