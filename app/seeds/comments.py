@@ -34,9 +34,6 @@ def seed_comments():
   saved_comments = [db.session.add(comment) for comment in all_comments]
   db.session.commit()
     
-
-
-
 def undo_comments():
     db.session.execute('TRUNCATE tracks RESTART IDENTITY CASCADE;')
     db.session.commit()

@@ -19,7 +19,7 @@ track_routes = Blueprint('tracks', __name__)
 # individual tracks
 
 
-@track_routes('/tracks/<int:id>')
+@track_routes('/<int:id>')
 def tracks(id):
     track = Track.query.get(id)
     track_dictionary = track.to_dict()
@@ -57,7 +57,7 @@ def create_track():
     return {'errors': validation_errors(form.errors), "statusCode": 401}
 
 
-@track_routes('/tracks/<int:id>', methods=["PUT"])
+@track_routes('/<int:id>', methods=["PUT"])
 @login_required
 def edittrack(id):
     form = TrackForm()
@@ -83,7 +83,7 @@ def edittrack(id):
         return track.to_dict()
     return {'errors': validation_errors(form.errors), "statusCode": 401}
 
-@track_routes('/tracks/<int:id>', methods=["DELETE"])
+@track_routes('/<int:id>', methods=["DELETE"])
 @login_required
 def deletetrack(id):
     delete_track = Track.query.get(id)
