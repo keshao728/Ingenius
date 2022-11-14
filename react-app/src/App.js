@@ -10,11 +10,8 @@ import User from './components/User';
 import { authenticate } from './store/session';
 import HomePage from './components/HomePage/HomePage';
 import AllTracks from './components/Tracks';
-<<<<<<< HEAD
-import TrackInfo from './components/TrackInfo';
-=======
 import AllComments from './components/Comments/comments';
->>>>>>> 66dbcc7dec59bf9dfbd232d0b31ac64e09b81314
+import TrackInfo from './components/TrackInfo';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -49,17 +46,9 @@ function App() {
         <Route path='/tracks' exact={true}>
           <AllTracks />
         </Route>
-<<<<<<< HEAD
-
-<<<<<<< HEAD
-        <Route exact path = "/tracks/:trackId">
-          <TrackInfo />
-=======
-=======
->>>>>>> 5f86829950639c3d953034fe1701e34afd5e480b
         <Route path='/tracks/:trackId'>
           <AllComments />
->>>>>>> 66dbcc7dec59bf9dfbd232d0b31ac64e09b81314
+          <TrackInfo />
         </Route>
 
       </Switch>
