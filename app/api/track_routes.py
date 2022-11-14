@@ -1,6 +1,7 @@
 from flask import Blueprint, render_template, redirect, request
 from ..models import db, Track, Comment, Annotation, Vote, User
 from ..forms import TrackForm, AnnotationForm, CommentForm
+from flask_login import login_required, current_user
 
 
 def validation_errors(validation_errors):
@@ -34,6 +35,7 @@ def tracks(id):
 
 
 @track_routes('/new', methods=["POST"])
+@login_required
 def create_track():
     form = TrackForm()
     form['csrf_token'].data = request.cookies['csrf_token']
@@ -55,47 +57,30 @@ def create_track():
     return {'errors': validation_errors(form.errors), "statusCode": 401}
 
 
-@track_routes('/<:artist>-<:song>/edit', methods=["PUT"])
-def edittrack():
-    #form = formforsong()
-    # if form.validate_on_submit():  line 44 to 49 might be different from above
-    #   data = dbforsong()
-    #   form.populate_obj(data)
-    #   db.session.add(data)
-    #   db.session.commit()
-    #   return redirect ('/tosomewhere?')
-    # if form.errors:(note:body validation)
-    #   return '{
-    #   "message": "Validation Error",
-    #   "statusCode": 400,
-    #   "errors": {
-    #     "title": "Song title is required",
-    #     "url": "Audio is required"
-    #       }
-    #   }'
-    # if form.errors:(note:authorization validation)
-    #   return '
-    #    {
-    #   "message": "Artist couldn't be found",
-    #   "statusCode": 404
-    #   }
-    #   '
-    pass
+# @track_routes('/tracks/<int:id>', methods=["PUT"])
+# @login_required
+# def edittrack(id):
+#     form = TrackForm()
+#     form['csrf_token'].data = request.cookies['csrf_token']
+#     track = Track.query.get(id)
+#     if current_user.id != track.user_id:
+#         return {'errors': 'Unauthorized', 'statusCode':401}
+
+#     if not track:
+#         return {'errors': 'Track not found', 'statusCode':404}
+
+#     if form.validate_on_submit():
+#         track.track_title = form.track_title.data
+#         track.artist = form.artist.data
+#         track.album = form.album.data
+#         track.release_date = form.release_date.data
+#         track.produced_by = form.produced_by.data
+#         track.lyrics = form.lyrics.data
+#         track.track_art = form.track_art.data
+#         track.track_url = form.track_url.data
+
+#         db.session.commit()
+#         return track.to_dict()
+#     return {'errors': validation_errors(form.errors), "statusCode": 401}
 
 
-@track_routes('/<:artist>-<:song>', methods=["DELETE"])
-def deletetrack():
-    # query = dbforsong.query.filter(dbforsong.userid.is("artist") and dbforsong.id.is("song")).all() note:artist and song can be grab from the link
-    # if query:
-    #   db.session.delete(query)
-    #   db.session.commit()
-    #   return '{
-    #       "message": "Successfully deleted",
-    #       "statusCode": 200
-    #       }'
-    # else
-    #    return '{
-    # "message": "Track couldn't be found",
-    # "statusCode": 404
-    # }'
-    pass
