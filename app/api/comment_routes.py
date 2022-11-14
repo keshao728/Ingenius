@@ -55,3 +55,19 @@ def edit_comment():
     #       }
     #   }'
     pass
+
+@comment_routes('/<:artist>-<:song>',methods=["DELETE"])
+def delete_comment():
+    # query = dbforcomment.query.filter(dbforcomment.userid.is("artist") and dbforcomment.id.is("song")).all()
+    #   db.session.delete(query)
+    #   db.session.commit()
+    #   return '{
+    #       "message": "Successfully deleted",
+    #       "statusCode": 200
+    #       }'
+    #else
+    #    return '{
+            # "message": "Comment couldn't be found",
+            # "statusCode": 404
+            # }'
+    pass
