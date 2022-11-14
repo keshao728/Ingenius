@@ -1,21 +1,20 @@
-from flask import Blueprint,render_template,redirect
+from flask import Blueprint,render_template,redirect, jsonify
+from ..models import db, Track, Comment, Annotation, Vote, User
 from ..models.db import db
 
 comment_routes = Blueprint('tracks', __name__)
 
 @comment_routes('/<int:id>')
 def comments():
-    # return render_template("meowmeowmeowmeowmeowmeowmeowmeowmeow")
-        #if form.errors:
-    #   return '{
-    #   "message": "Validation Error",
-    #   "statusCode": 400,
-    #   "errors": {
-            #"message": "Track couldn't be found",
-            #"statusCode": 404
-    #       }
-    #   }'
-    pass
+    comments = Comment.query.all()
+
+    comment_list = []
+    for comment in comments:
+        comment_dict = comment.to_dict()
+        comment_list.append(comment_dict)
+
+    return jsonify(comment_list)
+
 
 @comment_routes('/new',methods=["POST"])
 def create_comments():

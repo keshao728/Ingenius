@@ -13,3 +13,13 @@ class Comment(db.Model):
 
     # comment_user = db.relationship('User', back_populates='user_comment')
     # comment_track = db.relationship('Track', back_populates='track_comment')
+
+    def to_dict(self):
+        return {
+            "id": self.id,
+            "user_id": self.user_id,
+            "track_id": self.track_id,
+            "comment_body": self.comment_body,
+            "created_at": self.created_at,
+            "updated_at": self.updated_at
+        }
