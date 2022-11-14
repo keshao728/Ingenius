@@ -349,6 +349,8 @@ def seed_tracks():
         track_art='https://t2.genius.com/unsafe/222x222/https%3A%2F%2Fimages.genius.com%2Fe99160501d4dc49fa6767573cdaf0aaa.1000x1000x1.jpg',
         track_url='https://www.youtube.com/watch?v=mj0XInqZMHY',
     )
+
+    
     db.session.add(track1)
     db.session.add(track2)
     db.session.add(track3)

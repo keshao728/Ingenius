@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, redirect, request
+from flask import Blueprint, render_template, redirect, request, jsonify
 from ..models import db, Track, Comment, Annotation, Vote, User
 from ..forms import TrackForm, AnnotationForm, CommentForm
 from flask_login import login_required, current_user
@@ -16,10 +16,21 @@ track_routes = Blueprint('tracks', __name__)
 
 # CHANGE THE API DOCUMENTATION ON ID!!!!!
 
+@track_routes.route('/')
+def get_all_tracks():
+    tracks = Track.query.all()
+
+    track_list = []
+    for track in tracks:
+        track_dict = track.to_dict()
+        track_list.append(track_dict)
+    return jsonify(track_list)
+
+
 # individual tracks
 
 
-@track_routes('/tracks/<int:id>')
+@track_routes.route('/<int:id>')
 def tracks(id):
     track = Track.query.get(id)
     track_dictionary = track.to_dict()
@@ -34,7 +45,7 @@ def tracks(id):
     return track_dictionary
 
 
-@track_routes('/new', methods=["POST"])
+@track_routes.route('/new', methods=["POST"])
 @login_required
 def create_track():
     form = TrackForm()
@@ -57,7 +68,7 @@ def create_track():
     return {'errors': validation_errors(form.errors), "statusCode": 401}
 
 
-@track_routes('/tracks/<int:id>', methods=["PUT"])
+@track_routes.route('/<int:id>', methods=["PUT"])
 @login_required
 def edittrack(id):
     form = TrackForm()
@@ -83,7 +94,7 @@ def edittrack(id):
         return track.to_dict()
     return {'errors': validation_errors(form.errors), "statusCode": 401}
 
-@track_routes('/tracks/<int:id>', methods=["DELETE"])
+@track_routes.route('/<int:id>', methods=["DELETE"])
 @login_required
 def deletetrack(id):
     delete_track = Track.query.get(id)

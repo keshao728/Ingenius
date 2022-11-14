@@ -9,6 +9,7 @@ import ProtectedRoute from './components/auth/ProtectedRoute';
 import User from './components/User';
 import { authenticate } from './store/session';
 import HomePage from './components/HomePage/HomePage';
+import AllTracks from './components/Tracks';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -30,6 +31,7 @@ function App() {
       <NavBar />
       <ActionNav />
 
+
       <Switch>
         <Route path='/' exact={true} >
           <HomePage />
@@ -38,6 +40,10 @@ function App() {
         <ProtectedRoute path='/users/:userId' exact={true} >
           <User />
         </ProtectedRoute>
+
+        <Route path='/tracks' exact={true}>
+          <AllTracks />
+        </Route>
 
       </Switch>
     </BrowserRouter>

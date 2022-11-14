@@ -3,15 +3,14 @@ from ..models.db import db
 
 upvote_routes = Blueprint('upvotes',__name__)
 
-@upvote_routes('/annotations/:id/upvote')
+@upvote_routes('/:id/upvote')
 def upvote():
     pass
 
-@upvote_routes('/annotations/:id/downvote')
+@upvote_routes('/:id/downvote')
 def downvote():
     pass
 
-@upvote_routes('/annotations/:id/unvote')
+@upvote_routes('/:id/unvote')
 def unvote():
     pass
-
