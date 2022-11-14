@@ -1,11 +1,14 @@
+import { createPortal } from 'react-dom';
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
 import session from './session'
 import trackReducer from './tracks';
+import commentReducer from './comments';
 
 const rootReducer = combineReducers({
   session,
-  tracks: trackReducer
+  tracks: trackReducer,
+  comments: commentReducer
 });
 
 

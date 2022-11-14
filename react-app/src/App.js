@@ -10,6 +10,7 @@ import User from './components/User';
 import { authenticate } from './store/session';
 import HomePage from './components/HomePage/HomePage';
 import AllTracks from './components/Tracks';
+import AllComments from './components/Comments/comments';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -43,6 +44,9 @@ function App() {
 
         <Route path='/tracks' exact={true}>
           <AllTracks />
+        </Route>
+        <Route path='/tracks/:trackId'>
+          <AllComments />
         </Route>
 
       </Switch>
