@@ -29,6 +29,14 @@ const SignUpForm = () => {
     }
   };
 
+  const onCloseModal = () => {
+    setUsername("")
+    setEmail("")
+    setPassword("")
+    setRepeatPassword("")
+    setShowModal(false);
+  }
+
   const updateUsername = (e) => {
     setUsername(e.target.value);
   };
@@ -59,7 +67,7 @@ const SignUpForm = () => {
     <>
       <button className="sign-up-button" onClick={() => setShowModal(true)}>SIGN UP</button>
       {showModal && (
-        <Modal onClose={() => setShowModal(false)}>
+        <Modal showModal={showModal} onClose={() => onCloseModal()}>
 
           <form onSubmit={onSignUp}>
             <div>

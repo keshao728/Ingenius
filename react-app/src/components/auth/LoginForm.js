@@ -22,6 +22,12 @@ const LoginForm = () => {
     }
   };
 
+  const onCloseModal = () => {
+    setEmail("")
+    setPassword("")
+    setShowModal(false);
+  }
+
   const updateEmail = (e) => {
     setEmail(e.target.value);
   };
@@ -38,7 +44,7 @@ const LoginForm = () => {
     <>
       <button className="login-button" onClick={() => setShowModal(true)}>SIGN IN</button>
       {showModal && (
-        <Modal onClose={() => setShowModal(false)}>
+        <Modal onClose={() => onCloseModal()}>
           <form onSubmit={onLogin}>
             <div>
               {errors.map((error, ind) => (
@@ -51,10 +57,8 @@ const LoginForm = () => {
                 <div className='login-message'> Sign In </div>
                 <div className='login-input-box'>
                   <input
-                    className='login-input'
                     name='email'
                     type='text'
-                    placeholder='Email'
                     value={email}
                     onChange={updateEmail}
                   />
@@ -62,10 +66,8 @@ const LoginForm = () => {
                 </div>
                 <div className='login-input-box'>
                   <input
-                    className='login-input'
                     name='password'
                     type='password'
-                    placeholder='Password'
                     value={password}
                     onChange={updatePassword}
                   />

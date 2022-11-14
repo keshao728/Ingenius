@@ -13,6 +13,53 @@
   font-size: 30px;
   font-weight: bold;
   padding: 0px 10px;
- margin-bottom: 30px;
+  margin-bottom: 30px;
   justify-content: center;
+}
+
+.login-form-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  padding: 50px 50px;
+}
+
+.login-form-child {
+  margin-bottom: 25px;
+  width: 300px;
+}
+
+
+.login-input-box {
+  position: relative;
+  width: 100%;
+}
+
+.login-input-box input {
+  width: 95.5%;
+  padding-top: 18px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 5px;
+  font-size: 16px;
+  margin-bottom: 20px;
+  border: 1px solid black;
+  background: transparent;
+  font: inherit;
+  color: black;
+}
+
+.login-input-box label {
+  position: absolute;
+  top: 2px;
+  left: 0;
+  padding: 10px;
+  font-size: 16px;
+  pointer-events: none;
+  transition: .5s;
+  color: black;
+}
+.login-input-box input:focus + label{
+  font-size: 10px;
+  top: -6px;
 }
