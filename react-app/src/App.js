@@ -11,6 +11,7 @@ import { authenticate } from './store/session';
 import HomePage from './components/HomePage/HomePage';
 import AllTracks from './components/Tracks';
 import AllComments from './components/Comments/comments';
+import TrackInfo from './components/TrackInfo';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -47,6 +48,7 @@ function App() {
         </Route>
         <Route path='/tracks/:trackId'>
           <AllComments />
+          {/* <TrackInfo /> */}
         </Route>
 
       </Switch>

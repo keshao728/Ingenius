@@ -89,8 +89,8 @@ export const getAllTracks = () => async dispatch => {
 
 // get one track
 
-export const getOneTrack = () => async dispatch => {
-    const response = await fetch('/api/tracks/current')
+export const getOneTrack = (trackId) => async dispatch => {
+    const response = await fetch(`/api/tracks/${trackId}`)
 
     if (response.ok) {
         const oneTrack = await response.json();

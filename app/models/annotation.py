@@ -16,3 +16,16 @@ class Annotation(db.Model):
     annotation_user = db.relationship('User', back_populates='user_annotation')
     annotation_vote = db.relationship('Vote', back_populates='vote_annotation')
     annotation_track = db.relationship('Track', back_populates='track_annotation')
+
+    def to_dict(self):
+        return {
+            "id": self.id,
+            "user_id": self.user_id,
+            "track_id": self.track_id,
+            "annotation_body": self.annotation_body,
+            "startIndex": self.startIndex,
+            "endIndex": self.endIndex,
+            # "vote_count": self.vote_count,
+            "created_at": self.created_at,
+            "updated_at": self.updated_at
+        }
