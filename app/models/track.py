@@ -20,3 +20,20 @@ class Track(db.Model):
     track_user = db.relationship('User', back_populates='user_track')
     # track_annotation = db.relationship('Annotation', back_populates='annotation_track')
     # track_comment = db.relationship('Comment', back_populates='comment_track')
+
+
+    def to_dict(self):
+        return {
+            "id": self.id,
+            "user_id": self.user_id,
+            "track_title": self.track_title,
+            "artist": self.artist,
+            "album": self.album,
+            "release_date": self.release_date,
+            "produced_by": self.produced_by,
+            "lyrics": self.lyrics,
+            "track_art": self.track_art,
+            "track_url": self.track_url,
+            "created_at": self.created_at,
+            "updated_at": self.updated_at
+        }
