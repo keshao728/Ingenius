@@ -14,9 +14,5 @@ class Vote(db.Model):
   created_at = db.Column(db.DateTime(timezone=True), server_default=func.current_timestamp())
   updated_at = db.Column(db.DateTime(timezone=True), onupdate=func.current_timestamp())
 
-  vote_user = db.relationship('User', back_populates='user_vote')
-  vote_annotation = db.relationship('Annotation', back_populates='annotation_vote')
-
-
-
-
+  # vote_user = db.relationship('User', back_populates='user_vote')
+  # vote_annotation = db.relationship('Annotation', back_populates='annotation_vote')
