@@ -65,7 +65,6 @@ const SignUpForm = () => {
 
                 <div className='sign-up-message'> Sign Up </div>
                 <div className='sign-up-input-box'>
-                  <label className='sign-up-input-label'>User Name</label>
                   <input
                     className='sign-up-input'
                     type='text'
@@ -74,9 +73,9 @@ const SignUpForm = () => {
                     value={username}
                     required={true}
                   ></input>
+                  <label className='sign-up-input-label'>User Name</label>
                 </div>
                 <div className='sign-up-input-box'>
-                  <label className='sign-up-input-label'>Email</label>
                   <input
                     className='sign-up-input'
                     type='text'
@@ -85,9 +84,9 @@ const SignUpForm = () => {
                     value={email}
                     required={true}
                   ></input>
+                  <label className='sign-up-input-label'>Email</label>
                 </div>
                 <div className='sign-up-input-box'>
-                  <label className='sign-up-input-label'>Password</label>
                   <input
                     className='sign-up-input'
                     type='password'
@@ -96,9 +95,9 @@ const SignUpForm = () => {
                     value={password}
                     required={true}
                   ></input>
+                  <label className='sign-up-input-label'>Password</label>
                 </div>
                 <div className='sign-up-input-box'>
-                  <label className='sign-up-input-label'>Repeat Password</label>
                   <input
                     className='sign-up-input'
                     type='password'
@@ -107,6 +106,7 @@ const SignUpForm = () => {
                     value={repeatPassword}
                     required={true}
                   ></input>
+                  <label className='sign-up-input-label'>Repeat Password</label>
                 </div>
               </div>
 
