@@ -11,4 +11,7 @@ def upvote():
 def downvote():
     pass
 
+@upvote_routes('/annotations/:id/unvote')
+def unvote():
+    pass
 
