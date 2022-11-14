@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { Redirect } from 'react-router-dom';
 import { signUp } from '../../store/session';
 import { Modal } from '../../context/Modal';
-import LoginForm from '../auth/LoginForm';
+// import LoginForm from '../auth/LoginForm';
 import './SignUpForm.css';
 
 const SignUpForm = () => {
@@ -13,7 +13,7 @@ const SignUpForm = () => {
   const [password, setPassword] = useState('');
   const [repeatPassword, setRepeatPassword] = useState('');
   const [showModal, setShowModal] = useState(false);
-  const [showLoginModal, setShowLoginModal] = useState(false);
+  // const [showLoginModal, setShowLoginModal] = useState(false);
 
 
   const user = useSelector(state => state.session.user);

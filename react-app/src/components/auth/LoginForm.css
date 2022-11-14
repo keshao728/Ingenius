@@ -7,3 +7,12 @@
   padding: 0px 10px;
   cursor: pointer;
 }
+
+.login-message {
+  display: flex;
+  font-size: 30px;
+  font-weight: bold;
+  padding: 0px 10px;
+ margin-bottom: 30px;
+  justify-content: center;
+}

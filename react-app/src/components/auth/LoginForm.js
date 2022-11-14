@@ -36,39 +36,48 @@ const LoginForm = () => {
 
   return (
     <>
-    <button className="login-button" onClick={() => setShowModal(true)}>SIGN IN</button>
-    {showModal && (
-      <Modal onClose={() => setShowModal(false)}>
-    <form onSubmit={onLogin}>
-      <div>
-        {errors.map((error, ind) => (
-          <div key={ind}>{error}</div>
-        ))}
-      </div>
-      <div>
-        <label htmlFor='email'>Email</label>
-        <input
-          name='email'
-          type='text'
-          placeholder='Email'
-          value={email}
-          onChange={updateEmail}
-        />
-      </div>
-      <div>
-        <label htmlFor='password'>Password</label>
-        <input
-          name='password'
-          type='password'
-          placeholder='Password'
-          value={password}
-          onChange={updatePassword}
-        />
-        <button type='submit'>Login</button>
-      </div>
-    </form>
-    </Modal>
-      )}
+      <button className="login-button" onClick={() => setShowModal(true)}>SIGN IN</button>
+      {showModal && (
+        <Modal onClose={() => setShowModal(false)}>
+          <form onSubmit={onLogin}>
+            <div>
+              {errors.map((error, ind) => (
+                <div key={ind}>{error}</div>
+              ))}
+            </div>
+            <div className='login-form-wrapper'>
+              <div className='login-form-child'>
+
+                <div className='login-message'> Sign In </div>
+                <div className='login-input-box'>
+                  <input
+                    className='login-input'
+                    name='email'
+                    type='text'
+                    placeholder='Email'
+                    value={email}
+                    onChange={updateEmail}
+                  />
+                  <label htmlFor='email'>Email</label>
+                </div>
+                <div className='login-input-box'>
+                  <input
+                    className='login-input'
+                    name='password'
+                    type='password'
+                    placeholder='Password'
+                    value={password}
+                    onChange={updatePassword}
+                  />
+                  <label htmlFor='password'>Password</label>
+                </div>
+              </div>
+              <button type='submit'>Login</button>
+            </div>
+          </form>
+        </Modal>
+      )
+      }
     </>
   );
 };
