@@ -5,9 +5,9 @@ from datetime import date
 def seed_tracks():
     track1 = Track(
         user_id=1,
-        track_title="skeletons",
+        track_title="Skeletons",
         artist="Keshi",
-        album="skeletons",
+        album="Skeletons",
         release_date=date(2019, 7, 15),
         produced_by="Keshi",
         lyrics='''
@@ -60,9 +60,9 @@ def seed_tracks():
 
     track2 = Track(
         user_id=1,
-        track_title="summer",
+        track_title="Summer",
         artist="Keshi",
-        album="skeletons",
+        album="Skeletons",
         release_date=date(2019, 5, 13),
         produced_by="Keshi",
         lyrics='''
@@ -133,9 +133,9 @@ def seed_tracks():
     )
     track3 = Track(
         user_id=2,
-        track_title="right here",
+        track_title="Right Here",
         artist="Keshi",
-        album="right here",
+        album="Right Here",
         release_date=date(2019, 5, 13),
         produced_by="Keshi",
         lyrics='''
@@ -350,7 +350,7 @@ def seed_tracks():
         track_url='https://www.youtube.com/watch?v=mj0XInqZMHY',
     )
 
-    
+
     db.session.add(track1)
     db.session.add(track2)
     db.session.add(track3)

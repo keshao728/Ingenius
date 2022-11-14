@@ -206,6 +206,10 @@
   justify-content: center;
   margin-top: 40px;
 }
+.tracks-navlink{
+  text-decoration: none;
+  color: inherit;
+}
 
 /* VIDEO */
 

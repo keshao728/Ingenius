@@ -109,37 +109,38 @@ const HomePage = () => {
         {allTracks.map((track) => {
           return (
             <div key={track.id} className="all-tracks">
-              <div className="individual-tracks">
-                <div className="track-num">
-                  {track.id}
-                </div>
-                <div className="track-cover-name">
-                  <div>
-                    <img id="track-cover" src={track.track_art} alt="Logo"></img>
+              <NavLink class="tracks-navlink" to={`/tracks/${track.id}`}>
+                <div className="individual-tracks">
+                  <div className="track-num">
+                    {track.id}
                   </div>
-                  <div className="track-name-lyric">
-                    <div className="track-name">
-                    {track.track_title}
+                  <div className="track-cover-name">
+                    <div>
+                      <img id="track-cover" src={track.track_art} alt="Logo"></img>
                     </div>
-                    <div className="track-lyric">
-                      LYRICS
+                    <div className="track-name-lyric">
+                      <div className="track-name">
+                        {track.track_title}
+                      </div>
+                      <div className="track-lyric">
+                        LYRICS
+                      </div>
                     </div>
                   </div>
+                  <div className="track-artist">
+                    {track.artist}
+                  </div>
                 </div>
-                <div className="track-artist">
-                  {track.artist}
-                </div>
-              </div>
 
-
+              </NavLink>
             </div>
           )
         })}
-              <div className="track-button">
-                <button className="track-load-more">
-                  LOAD MORE
-                </button>
-              </div>
+        <div className="track-button">
+          <button className="track-load-more">
+            LOAD MORE
+          </button>
+        </div>
       </div>
 
       {/* VIDEOS - ALL PLACEHOLDERS RN!!!!!!!!! */}
