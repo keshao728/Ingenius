@@ -59,6 +59,7 @@
   transition: .5s;
   color: black;
 }
+
 .login-input-box input:valid + label,
 .login-input-box input:focus + label{
   font-size: 10px;
