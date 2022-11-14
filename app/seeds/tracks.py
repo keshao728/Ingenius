@@ -205,9 +205,156 @@ def seed_tracks():
         track_art='https://t2.genius.com/unsafe/222x222/https%3A%2F%2Fimages.genius.com%2Fc04671d3a6d390614bec909a0c129169.830x830x1.jpg',
         track_url='https://www.youtube.com/watch?v=RivEsavD6ZE',
     )
+    track4 = Track(
+        user_id=2,
+        track_title="Perfect",
+        artist="Ed Sheeran",
+        album="Perfect",
+        release_date=date(2017, 5, 3),
+        produced_by="​Benny Blanco, Ed Sheeran & Will Hicks",
+        lyrics='''
+        [Verse 1]
+        I found a love for me
+        Oh, darling, just dive right in and follow my lead
+        Well, I found a girl, beautiful and sweet
+        Oh, I never knew you were the someone waiting for me
+
+        [Pre-Chorus]
+        'Cause we were just kids when we fell in love
+        Not knowing what it was
+        I will not give you up this time
+        But darling, just kiss me slow, your heart is all I own
+        And in your eyes, you're holding mine
+
+        [Chorus]
+        Baby, I'm dancing in the dark with you between my arms
+        Barefoot on the grass, listening to our favourite song
+        When you said you looked a mess, I whispered underneath my breath
+        But you heard it, darling, you look perfect tonight
+
+        [Verse 2]
+        Well I found a woman, stronger than anyone I know
+        She shares my dreams, I hope that someday I'll share her home
+        I found a love, to carry more than just my secrets
+        To carry love, to carry children of our own
+
+        [Pre-Chorus]
+        We are still kids, but we're so in love
+        Fighting against all odds
+        I know we'll be alright this time
+        Darling, just hold my hand
+        Be my girl, I'll be your man
+        I see my future in your eyes
+
+        [Chorus 2]
+        Baby, I'm dancing in the dark, with you between my arms
+        Barefoot on the grass, listening to our favourite song
+        When I saw you in that dress, looking so beautiful
+        I don't deserve this, darling, you look perfect tonight
+
+        [Instrumental]
+
+        [Chorus 3]
+        Baby, I'm dancing in the dark, with you between my arms
+        Barefoot on the grass, listening to our favourite song
+        I have faith in what I see
+        Now I know I have met an angel in person
+        And she looks perfect
+
+        [Outro]
+        I don't deserve this
+        You look perfect tonight
+        ''',
+        track_art='https://t2.genius.com/unsafe/222x222/https%3A%2F%2Fimages.genius.com%2F35fad95b68ee49ae50eb71a918075e75.1000x1000x1.png',
+        track_url='https://www.youtube.com/watch?v=BgoImewGGMo',
+    )
+    track5 = Track(
+        user_id=2,
+        track_title="Beautiful People",
+        artist="Ed Sheeran",
+        album="Beautiful People",
+        release_date=date(2019, 6, 28),
+        produced_by="Ed Sheeran, Max Martin, Shellback & Fred Again",
+        lyrics='''
+        [Intro: Ed Sheeran]
+        We are, we are, we are
+
+        [Verse 1: Ed Sheeran]
+        L.A. on a Saturday night in the summer
+        Sundown and they all come out
+        Lamborghinis and their rented Hummers
+        The party's on, so they're headin' downtown ('Round here)
+        Everybody's lookin' for a come up
+        And they wanna know what you're about
+        Me in the middle with the one I love and
+        We're just tryna figure everything out
+
+        [Pre-Chorus: Ed Sheeran]
+        We don't fit in well 'cause we are just ourselves
+        I could use some help gettin' out of this conversation, yeah
+        You look stunning, dear, so don't ask that question here
+        This is my only fear: that we become
+
+        [Chorus: Ed Sheeran]
+        Beautiful people
+        Drop top, designer clothes
+        Front row at fashion shows
+        "What d'you do?" and "Who d'you know?"
+        Inside the world of beautiful people
+        Champagne and rolled-up notes
+        Prenups and broken homes
+        Surrounded, but still alone
+        Let's leave the party
+
+        [Post-Chorus: Ed Sheeran]
+        That's not who we are (We are, we are, we are)
+        We are not beautiful
+        Yeah, that's not who we are (We are, we are, we are)
+        We are not beautiful (Beautiful)
+
+        [Verse 2: Khalid]
+        L.A., mmm
+        Drove for hours last night and we made it nowhere (Nowhere, nowhere)
+        I see stars in your eyes when we're halfway there (All night)
+        I'm not fazed by all them lights and flashin' cameras
+        'Cause with my arms around you, there's no need to care
+
+        [Pre-Chorus: Khalid]
+        We don't fit in well, we are just ourselves
+        I could use some help gettin' out of this conversation, yeah
+        You look stunning, dear, so don't ask that question here
+        This is my only fear: that we become
+
+        [Chorus: Ed Sheeran]
+        Beautiful people
+        Drop top, designer clothes
+        Front row at fashion shows
+        "What d'you do?" and "Who d'you know?"
+        Inside the world of beautiful people
+        Champagne and rolled-up notes
+        Prenups and broken homes
+        Surrounded, but still alone
+        Let's leave the party
+
+        [Post-Chorus: Ed Sheeran, Both, Khalid]
+        That's not who we are (We are, we are, we are)
+        We are not beautiful, yeah
+        Yeah, that's not who we are (We are, we are, we are)
+        We are not beautiful (Beautiful)
+
+        [Outro: Ed Sheeran]
+        We are, we are, we are
+        We are not beautiful
+        ''',
+        track_art='https://t2.genius.com/unsafe/222x222/https%3A%2F%2Fimages.genius.com%2Fe99160501d4dc49fa6767573cdaf0aaa.1000x1000x1.jpg',
+        track_url='https://www.youtube.com/watch?v=mj0XInqZMHY',
+    )
     db.session.add(track1)
     db.session.add(track2)
     db.session.add(track3)
+    db.session.add(track4)
+    db.session.add(track5)
+
     db.session.commit()
 
 
