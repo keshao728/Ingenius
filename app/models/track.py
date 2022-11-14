@@ -18,5 +18,5 @@ class Track(db.Model):
     updated_at = db.Column(db.DateTime(timezone=True), onupdate=func.current_timestamp())
 
     track_user = db.relationship('User', back_populates='user_track')
-    track_annotation = db.relationship('Annotation', back_populates='annotation_track')
-    track_comment = db.relationship('Comment', back_populates='comment_track')
+    # track_annotation = db.relationship('Annotation', back_populates='annotation_track')
+    # track_comment = db.relationship('Comment', back_populates='comment_track')
