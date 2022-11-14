@@ -10,9 +10,9 @@ const AllComments = () => {
   const { trackId } = useParams();
   const sessionUser = useSelector((state) => state.session.user);
 
-  const comments = useSelector((state) => state.comments);
-  console.log("COMMENTS", comments);
+  const comments = useSelector((state) => state.comments.comments);
   const commentsArr = Object.values(comments);
+  console.log("COMMENTS", commentsArr);
 
 
   useEffect(() => {

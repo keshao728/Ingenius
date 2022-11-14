@@ -134,25 +134,25 @@ const initialState = {
 const commentReducer = (state = initialState, action) => {
     let newState
     switch (action.type) {
-        case GET_ALL_COMMENTS: {
-            newState = {};
-            action.trackId.forEach(comment => {
-                newState[comment.id] = comment
-            })
-            return newState
-        }
         // case GET_ALL_COMMENTS: {
-        //     let newAllCommentsObject = {}
-        //     newState = {
-        //         ...state,
-        //         comments: {...state.comments}
-        //     }
+        //     newState = {};
         //     action.trackId.forEach(comment => {
-        //         newAllCommentsObject[comment.id] = comment
-        //     });
-        //     newState.comments = newAllCommentsObject
+        //         newState[comment.id] = comment
+        //     })
         //     return newState
         // }
+        case GET_ALL_COMMENTS: {
+            let newAllCommentsObject = {}
+            newState = {
+                ...state,
+                comments: {...state.comments}
+            }
+            action.trackId.Comments.forEach(comment => {
+                newAllCommentsObject[comment.id] = comment
+            });
+            newState.comments = newAllCommentsObject
+            return newState
+        }
         case CREATE_COMMENT: {
             newState = {...state}
             newState[action.comment.id] = action.comment
