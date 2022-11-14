@@ -7,3 +7,74 @@
   padding: 0px 10px;
   cursor: pointer;
 }
+
+.sign-up-message {
+  display: flex;
+  font-size: 30px;
+  font-weight: bold;
+  padding: 0px 10px;
+  justify-content: center;
+}
+
+.sign-up-form-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  padding: 50px 50px;
+}
+
+.sign-up-form-child {
+  margin-bottom: 25px;
+  width: 100%;
+}
+
+.sign-up-input-box {
+  position: relative;
+  width: 100%;
+}
+.sign-up-input-box input{
+  width: 98%;
+  padding: 10px 0px;
+  font-size: 12px;
+  margin-bottom: 30px;
+  border: 1px solid black;
+  background: transparent;
+  font: inherit;
+}
+
+.sign-up-input-box label{
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 10px 0px;
+  font-size: 12px;
+  pointer-events: none;
+  transition:.5s;
+}
+
+.sign-up-input-box input:valid + label,
+.sign-up-input-box input:focus + label{
+  top: -20px;
+  /* color: brown;
+  transform: translateY(0); */
+}
+
+.submit-sign-up-button {
+  border: 1px solid black;
+  border-radius: 25px;
+  font-size: 12px;
+  width: 40%;
+  padding: 10px 15px;
+  font-weight: bold;
+  background: none;
+  font-size: 14px;
+  display: flex;
+  justify-content: center;
+  margin: 0px auto;
+  cursor: pointer;
+}
+
+.submit-sign-up-button:hover {
+  background-color: black;
+  color: white;
+}
