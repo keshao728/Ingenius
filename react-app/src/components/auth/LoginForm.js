@@ -22,6 +22,12 @@ const LoginForm = () => {
     }
   };
 
+  const onCloseModal = () => {
+    setEmail("")
+    setPassword("")
+    setShowModal(false);
+  }
+
   const updateEmail = (e) => {
     setEmail(e.target.value);
   };
@@ -36,39 +42,61 @@ const LoginForm = () => {
 
   return (
     <>
-    <button className="login-button" onClick={() => setShowModal(true)}>SIGN IN</button>
-    {showModal && (
-      <Modal onClose={() => setShowModal(false)}>
-    <form onSubmit={onLogin}>
-      <div>
-        {errors.map((error, ind) => (
-          <div key={ind}>{error}</div>
-        ))}
-      </div>
-      <div>
-        <label htmlFor='email'>Email</label>
-        <input
-          name='email'
-          type='text'
-          placeholder='Email'
-          value={email}
-          onChange={updateEmail}
-        />
-      </div>
-      <div>
-        <label htmlFor='password'>Password</label>
-        <input
-          name='password'
-          type='password'
-          placeholder='Password'
-          value={password}
-          onChange={updatePassword}
-        />
-        <button type='submit'>Login</button>
-      </div>
-    </form>
-    </Modal>
-      )}
+      <button className="login-button" onClick={() => setShowModal(true)}>SIGN IN</button>
+      {showModal && (
+        <Modal onClose={() => onCloseModal()}>
+          <form onSubmit={onLogin}>
+            <div>
+              {errors.map((error, ind) => (
+                <div key={ind}>{error}</div>
+              ))}
+            </div>
+            <div className='login-form-wrapper'>
+              <div className='login-form-child'>
+
+                <div className='login-message'> Sign In </div>
+                <div className='login-input-box'>
+                  <input
+                    name='email'
+                    type='text'
+                    value={email}
+                    onChange={updateEmail}
+                    required
+                  />
+                  <label htmlFor='email'>Email</label>
+                </div>
+                <div className='login-input-box'>
+                  <input
+                    name='password'
+                    type='password'
+                    value={password}
+                    onChange={updatePassword}
+                    required
+                  />
+                  <label htmlFor='password'>Password</label>
+                </div>
+              </div>
+              <div className='submit-login-wrapper'>
+                <button className='submit-login-button' type='submit'>Sign In</button>
+              </div>
+              <div className="demo-user">
+                <div className='login-or'>
+                  or
+                </div>
+                <button className='demo-login-button'
+                  type="submit"
+                  onClick={() => {
+                    setEmail("demo@aa.io")
+                    setPassword("password")
+                  }}>
+                  Demo User
+                </button>
+              </div>
+            </div>
+          </form>
+        </Modal>
+      )
+      }
     </>
   );
 };

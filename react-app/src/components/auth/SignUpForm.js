@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { Redirect } from 'react-router-dom';
 import { signUp } from '../../store/session';
 import { Modal } from '../../context/Modal';
+// import LoginForm from '../auth/LoginForm';
 import './SignUpForm.css';
 
 const SignUpForm = () => {
@@ -12,6 +13,7 @@ const SignUpForm = () => {
   const [password, setPassword] = useState('');
   const [repeatPassword, setRepeatPassword] = useState('');
   const [showModal, setShowModal] = useState(false);
+  // const [showLoginModal, setShowLoginModal] = useState(false);
 
 
   const user = useSelector(state => state.session.user);
@@ -26,6 +28,14 @@ const SignUpForm = () => {
       }
     }
   };
+
+  const onCloseModal = () => {
+    setUsername("")
+    setEmail("")
+    setPassword("")
+    setRepeatPassword("")
+    setShowModal(false);
+  }
 
   const updateUsername = (e) => {
     setUsername(e.target.value);
@@ -43,6 +53,12 @@ const SignUpForm = () => {
     setRepeatPassword(e.target.value);
   };
 
+  //closes signup and opens login
+//   const OpenLogCloseSign=()=>{
+//     setShowModal(false)
+//     setShowLoginModal(true);
+// }
+
   if (user) {
     return <Redirect to='/' />;
   }
@@ -51,7 +67,7 @@ const SignUpForm = () => {
     <>
       <button className="sign-up-button" onClick={() => setShowModal(true)}>SIGN UP</button>
       {showModal && (
-        <Modal onClose={() => setShowModal(false)}>
+        <Modal showModal={showModal} onClose={() => onCloseModal()}>
 
           <form onSubmit={onSignUp}>
             <div>
@@ -65,7 +81,6 @@ const SignUpForm = () => {
 
                 <div className='sign-up-message'> Sign Up </div>
                 <div className='sign-up-input-box'>
-                  <label className='sign-up-input-label'>User Name</label>
                   <input
                     className='sign-up-input'
                     type='text'
@@ -74,9 +89,9 @@ const SignUpForm = () => {
                     value={username}
                     required={true}
                   ></input>
+                  <label className='sign-up-input-label'>User Name</label>
                 </div>
                 <div className='sign-up-input-box'>
-                  <label className='sign-up-input-label'>Email</label>
                   <input
                     className='sign-up-input'
                     type='text'
@@ -85,9 +100,9 @@ const SignUpForm = () => {
                     value={email}
                     required={true}
                   ></input>
+                  <label className='sign-up-input-label'>Email</label>
                 </div>
                 <div className='sign-up-input-box'>
-                  <label className='sign-up-input-label'>Password</label>
                   <input
                     className='sign-up-input'
                     type='password'
@@ -96,9 +111,9 @@ const SignUpForm = () => {
                     value={password}
                     required={true}
                   ></input>
+                  <label className='sign-up-input-label'>Password</label>
                 </div>
                 <div className='sign-up-input-box'>
-                  <label className='sign-up-input-label'>Repeat Password</label>
                   <input
                     className='sign-up-input'
                     type='password'
@@ -107,12 +122,24 @@ const SignUpForm = () => {
                     value={repeatPassword}
                     required={true}
                   ></input>
+                  <label className='sign-up-input-label'>Repeat Password</label>
                 </div>
               </div>
-
               <button className='submit-sign-up-button' type='submit'>Sign Up</button>
             </div>
           </form>
+              {/* ADD THIS LATER
+               <div>
+                Already have an account?
+                <div>
+                <button className="login-button" onClick={() => OpenLogCloseSign()}><LoginForm /> </button>
+                  {showLoginModal && (
+                    <Modal onClose={() => setShowLoginModal(false)}>
+                      <LoginForm />
+                    </Modal>
+                  )}
+                </div>
+              </div> */}
         </Modal>
       )}
     </>
