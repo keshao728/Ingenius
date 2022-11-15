@@ -84,6 +84,16 @@ export const getAllAnnotations =(trackId) => async (dispatch) => {
     }
     return null
 }
+ // get all user annotations
+export const getUserAnnotations = (userId) => async dispatch => {
+    const response = await fetch(`/api/users/${userId}/annotations`);
+    if (response.ok) {
+        const annotations = await response.json();
+        await dispatch(actionGetUserAnnotations(annotations));
+        return annotations
+    }
+    return null
+}
 
 //get an annotation inside a track
 // export const getOneAnnotation = (trackId, annotationId) => async (dispatch) => {
