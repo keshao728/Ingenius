@@ -9,20 +9,20 @@ export default function CreateTrack() {
   const history = useHistory()
 
 
-    const date = new Date();
-    const futureDate = date.getDate() + 3;
-    date.setDate(futureDate);
-    const defaultDate = date.toLocaleDateString('en-CA');
+  const date = new Date();
+  const futureDate = date.getDate() + 3;
+  date.setDate(futureDate);
+  const defaultDate = date.toLocaleDateString('en-CA');
 
-    const [trackTitle, setTrackTitle] = useState('')
-    const [artist, setArtist] = useState('')
-    const [album, setAlbum] = useState('')
-    const [releaseDate, setReleaseDate] = useState(defaultDate)
-    const [producedBy, setProducedBy] = useState('')
-    const [lyrics, setLyrics] = useState('')
-    const [trackArt, setTrackArt] = useState('')
-    const [trackUrl, setTrackUrl] = useState('')
-    const [errors, setErrors] = useState([])
+  const [trackTitle, setTrackTitle] = useState('')
+  const [artist, setArtist] = useState('')
+  const [album, setAlbum] = useState('')
+  const [releaseDate, setReleaseDate] = useState(defaultDate)
+  const [producedBy, setProducedBy] = useState('')
+  const [lyrics, setLyrics] = useState('')
+  const [trackArt, setTrackArt] = useState('')
+  const [trackUrl, setTrackUrl] = useState('')
+  const [errors, setErrors] = useState([])
 
 
 
@@ -104,14 +104,30 @@ export default function CreateTrack() {
                 </div>
               </div>
               <div>
-                <label>LYRICS</label>
-                <textarea
-                  type="text"
-                  className='add-song-input-box'
-                  value={lyrics}
-                  onChange={(e) => setLyrics(e.target.value)}
-                >
-                </textarea>
+                <div>
+                  <label>LYRICS</label>
+                  <textarea
+                    type="text"
+                    className='add-song-input-box'
+                    id="lyric-input"
+                    value={lyrics}
+                    onChange={(e) => setLyrics(e.target.value)}
+                  >
+                  </textarea>
+                </div>
+
+                <div>
+                  <div className="add-song-primart-text">
+                    First time transcribing?
+                  </div>
+                  <ol>
+                    Here are a few helpful tips for getting started:
+                  </ol>
+
+                  Type out all lyrics, even when a section of the song is repeated. Everything in the song should be transcribed, including adlibs, producer tags, etc. If you don’t understand a lyric, use “[?]” instead.
+                  Make sure to break transcriptions up into individual lines and use section headers above different song parts.
+                  Only add a song to Genius if it has been officially released. Fan-made mashups, songs that leak pre-release, and songs that violate our community policy are not allowed on Genius.
+                </div>
               </div>
             </div>
 

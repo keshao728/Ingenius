@@ -64,3 +64,12 @@ body {
   color: white;
   border-bottom: 1px solid gray;
 }
+
+#lyric-input{
+  resize: none;
+  width: 100%;
+  /* width: 700px;
+  height: 200px; */
+  padding: 10px;
+  margin-bottom: 20px;
+}
