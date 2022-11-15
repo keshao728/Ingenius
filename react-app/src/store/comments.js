@@ -37,23 +37,23 @@ const actionCreateComment = (trackId, commentCreated) => {
 
 
 
-//edit a comment
+// //edit a comment
 
-const actionEditComment = (commentEdit) => {
-    return {
-        type: "EDIT_COMMENT",
-        commentEdit
-    }
-}
+// const actionEditComment = (commentEdit) => {
+//     return {
+//         type: "EDIT_COMMENT",
+//         commentEdit
+//     }
+// }
 
 
 
 //delete a comment
 
-const actionDeleteComment = (commendId) => {
+const actionDeleteComment = (commentId) => {
     return {
-        type: "DELETE_COMMENT",
-        commendId
+        type: DELETE_COMMENT,
+        commentId
     }
 }
 
@@ -64,7 +64,7 @@ const actionDeleteComment = (commendId) => {
 
 //get all comments
 
-export const getAllComments =(trackId) => async (dispatch) => {
+export const getAllComments = (trackId) => async (dispatch) => {
     const response = await fetch(`/api/tracks/${trackId}`)
 
     if (response.ok) {
@@ -79,11 +79,11 @@ export const getAllComments =(trackId) => async (dispatch) => {
 //create comment
 
 export const createComment = (trackId, comment) => async (dispatch) => {
-    console.log("THIS IS TRACK ID IN CREATECOMMENT", trackId)
-    console.log("THIS IS COMMENT IN CREATECOMMENT", comment)
+    // console.log("THIS IS TRACK ID IN CREATECOMMENT", trackId)
+    // console.log("THIS IS COMMENT IN CREATECOMMENT", comment)
     const response = await fetch(`/api/tracks/${trackId}/comment`, {
         method: "POST",
-        headers: {"Content-Type": "application/json"},
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify(comment)
     })
 
@@ -96,28 +96,10 @@ export const createComment = (trackId, comment) => async (dispatch) => {
 }
 
 
-
-//edit a comment
-
-export const editComment = ({commentId, body}) => async (dispatch) => {
-    const response = await fetch(`/api/comments/${commentId}`, {
-        method: "PUT",
-        headers: {"Content-Type": "application/json"},
-        body: JSON.stringify({body: body})
-    })
-
-    if (response.ok) {
-        const editedComment = await response.json();
-        await dispatch(actionEditComment(editedComment))
-    }
-}
-
-
-
 //delete comment
 
 export const deleteComment = (commentId) => async (dispatch) => {
-    const response = await fetch(`/api/comments/${commentId}`, {
+    const response = await fetch(`/api/tests/${commentId}`, {
         method: "DELETE",
     })
 
@@ -129,12 +111,9 @@ export const deleteComment = (commentId) => async (dispatch) => {
 }
 
 
-
-
-
 const initialState = {
     comments: {},
-    user:{}
+    user: {}
 };
 
 const commentReducer = (state = initialState, action) => {
@@ -144,8 +123,8 @@ const commentReducer = (state = initialState, action) => {
             let newAllCommentsObject = {}
             newState = {
                 ...state,
-                comments: {...state.comments},
-                user: {...state.user}
+                comments: { ...state.comments },
+                user: { ...state.user }
             }
             action.trackId.Comments.forEach(comment => {
                 newAllCommentsObject[comment.id] = comment
@@ -156,21 +135,27 @@ const commentReducer = (state = initialState, action) => {
         case CREATE_COMMENT: {
             newState = {
                 ...state,
-                comments: {...state.comments},
-                user: {...state.user}
-              }
-              newState.comments[action.commentCreated.id] = action.commentCreated
-              newState.user = action.commentCreated
-              return newState
+                comments: { ...state.comments },
+                user: { ...state.user }
+            }
+            newState.comments[action.commentCreated.id] = action.commentCreated
+            newState.user = action.commentCreated
+            return newState
         }
         case EDIT_COMMENT: {
-            newState = {...state}
+            newState = { ...state }
             newState[action.comment.id] = action.comment
             return newState
         }
         case DELETE_COMMENT: {
-            newState = {...state}
-            delete newState[action.comment.id]
+            newState = {
+                ...state,
+                comments: { ...state.comments },
+                user: { ...state.user }
+            }
+            delete newState.user[action.commentId]
+            delete newState.comments[action.commentId]
+            // newState.comments = {}
             return newState
         }
         default:

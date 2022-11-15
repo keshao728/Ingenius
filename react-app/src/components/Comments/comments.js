@@ -3,7 +3,7 @@ import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useState, useEffect } from "react";
 import { NavLink, useParams } from "react-router-dom"
-import { getAllComments, createComment } from "../../store/comments";
+import { getAllComments, createComment, deleteComment } from "../../store/comments";
 // import { getOneTrack } from '../../store/tracks';
 
 const AllComments = () => {
@@ -32,7 +32,7 @@ const AllComments = () => {
     await dispatch(createComment(trackId, newComment))
   }
   // if (!sessionUser) {
-    // MAKE USER SIGN IN
+  // MAKE USER SIGN IN
   // }
 
   return (
@@ -64,8 +64,15 @@ const AllComments = () => {
       <div>
         {commentsArr.map((comment) => {
           return (
-            <div key={comment.id}>
-              <div>{comment.comment_body}</div>
+            <div>
+
+              <div key={comment.id}>
+                <div>{comment.comment_body}</div>
+              </div>
+              <button className="delete-edit"
+                onClick={async () => await dispatch(deleteComment(comment.id))}>
+                Delete
+              </button>
             </div>
           )
         })}

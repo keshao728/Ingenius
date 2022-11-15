@@ -10,6 +10,8 @@ from .api.user_routes import user_routes
 from .api.auth_routes import auth_routes
 from .api.track_routes import track_routes
 from .api.annotation_routes import annotation_routes
+from .api.test import tests_routes
+# from .api.comment_routes import comment_routes
 # from .api.upvote_routes import upvote_routes
 
 from .seeds import seed_commands
@@ -35,7 +37,9 @@ app.config.from_object(Config)
 app.register_blueprint(user_routes, url_prefix='/api/users')
 app.register_blueprint(auth_routes, url_prefix='/api/auth')
 app.register_blueprint(track_routes, url_prefix='/api/tracks')
-app.register_blueprint(annotation_routes, url_prefix='/api/annotations')
+app.register_blueprint(tests_routes, url_prefix='/api/tests')
+# app.register_blueprint(comment_routes, url_prefix='/api/comments')
+app.register_blueprint(annotation_routes, url_prefix='/api')
 # app.register_blueprint(upvote_routes, url_prefix='/api/upvote')
 
 db.init_app(app)
