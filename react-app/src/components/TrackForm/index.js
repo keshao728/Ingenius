@@ -7,10 +7,16 @@ export default function CreateTrack() {
     const dispatch = useDispatch()
     const history = useHistory()
 
+
+    const date = new Date();
+    const futureDate = date.getDate() + 3;
+    date.setDate(futureDate);
+    const defaultDate = date.toLocaleDateString('en-CA');
+
     const [trackTitle, setTrackTitle] = useState('')
     const [artist, setArtist] = useState('')
     const [album, setAlbum] = useState('')
-    const [releaseDate, setReleaseDate] = useState('')
+    const [releaseDate, setReleaseDate] = useState(defaultDate)
     const [producedBy, setProducedBy] = useState('')
     const [lyrics, setLyrics] = useState('')
     const [trackArt, setTrackArt] = useState('')
