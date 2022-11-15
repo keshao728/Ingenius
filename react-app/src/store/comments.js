@@ -99,7 +99,7 @@ export const createComment = (trackId, comment) => async (dispatch) => {
 //delete comment
 
 export const deleteComment = (commentId) => async (dispatch) => {
-    const response = await fetch(`/api/test/${commentId}`, {
+    const response = await fetch(`/api/tests/${commentId}`, {
         method: "DELETE",
     })
 
@@ -154,7 +154,8 @@ const commentReducer = (state = initialState, action) => {
                 user: { ...state.user }
             }
             delete newState.user[action.commentId]
-            newState.comments = {}
+            delete newState.comments[action.commentId]
+            // newState.comments = {}
             return newState
         }
         default:

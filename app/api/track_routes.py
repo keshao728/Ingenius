@@ -79,6 +79,7 @@ def create_comments(id):
     if form.validate_on_submit():
         comment = Comment(
             track_id=id,
+            user_id = current_user.id,
             comment_body=form.comment_body.data
         )
         db.session.add(comment)
