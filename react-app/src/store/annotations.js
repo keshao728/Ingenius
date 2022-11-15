@@ -83,7 +83,7 @@ const actionDeleteAnnotation = (commendId) => {
 // }
 
 export const getUserAnnotations = (userId) => async dispatch => {
-    const response = await fetch(`/api/users/${userId}`);
+    const response = await fetch(`/api/users/${userId}/annotations`);
     if (response.ok) {
         const annotations = await response.json();
         await dispatch(actionGetUserAnnotations(annotations));
@@ -159,12 +159,13 @@ export const annotationReducer = (state = initialState, action) => {
         //     });
         //     return newState
         // }
-        // case GET_USER_ANNOTATIONS: {
-        //     newState = {}
-        //     action.
-        // }
-
-
+        case GET_USER_ANNOTATIONS: {
+            newState = {}
+            action.annotations.forEach(annotation => {
+                newState[annotation.id] = annotation
+            })
+            return newState
+        }
         case CREATE_ANNOTATION: {
             newState = {...state}
             newState[action.annotation.id] = action.annotation
@@ -184,3 +185,5 @@ export const annotationReducer = (state = initialState, action) => {
             return state
     }
 }
+
+export default annotationReducer

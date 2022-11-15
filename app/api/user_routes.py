@@ -27,7 +27,7 @@ def user(id):
     return user.to_dict()
 
 # user annotations [CARE: ROUTE (USERNAME? ID? WHAAT)]
-@user_routes.route('/<int:id>')
+@user_routes.route('/<int:id>/annotations')
 @login_required
 def annotations_by_userId(user_id):
     user_annotations = Annotation.query.filter(Annotation.user_id == user_id).all()
