@@ -48,13 +48,13 @@ function App() {
           <AllTracks />
         </Route>
 
+        <Route path='/tracks/new'>
+          <CreateTrack />
+        </Route>
+
         <Route path='/tracks/:trackId'>
           <TrackInfo />
           <AllComments />
-        </Route>
-
-        <Route exact path='/tracks/new'>
-          <CreateTrack />
         </Route>
 
       </Switch>

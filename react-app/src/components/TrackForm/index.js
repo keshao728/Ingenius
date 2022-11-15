@@ -56,7 +56,9 @@ export default function CreateTrack() {
     return (
         <>
             <div>
-                Hi
+                <h1>
+                    Create a Track
+                </h1>
             </div>
 
             <div>
@@ -151,30 +153,6 @@ export default function CreateTrack() {
                             placeholder="Track Url"
                             required
                             onChange={(e) => setTrackUrl(e.target.value)} />
-                    </div>
-
-                    <div>
-                        <label>
-                            Artist
-                        </label>
-                        <input
-                            type="text"
-                            value={artist}
-                            placeholder="Artist"
-                            required
-                            onChange={(e) => setArtist(e.target.value)} />
-                    </div>
-
-                    <div>
-                        <label>
-                            Artist
-                        </label>
-                        <input
-                            type="text"
-                            value={artist}
-                            placeholder="Artist"
-                            required
-                            onChange={(e) => setArtist(e.target.value)} />
                     </div>
 
                     <div>
