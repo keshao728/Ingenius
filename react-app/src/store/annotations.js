@@ -1,10 +1,10 @@
 // import { csrfFetch } from './csrf'
 
-const GET_ALL_ANNOTATIONS = 'tracks/getAllAnnotations';
+const GET_ALL_ANNOTATIONS = 'annotations/getAllAnnotations';
 
 const GET_ONE_ANNOTATION = 'tracks/getOneAnnotation';
 
-const GET_USER_ANNOTATIONS = 'tracks/getUserAnnotations';
+// const GET_USER_ANNOTATIONS = 'tracks/getUserAnnotations';
 
 const CREATE_ANNOTATION = 'tracks/createAnnotation';
 
@@ -28,12 +28,17 @@ const DELETE_ANNOTATION = 'tracks/deleteAnnotation';
 // get all user annotations
 const actionGetUserAnnotations = (userId) => {
     return {
-        type: "GET_ALL_ANNOTATIONS",
+        type: GET_ALL_ANNOTATIONS,
         userId
     }
 }
 
-
+const actionGetOneAnnotation = (annotationId) => {
+    return {
+        type: GET_ONE_ANNOTATION,
+        annotationId
+    }
+}
 
 //create a annotation
 
@@ -84,7 +89,7 @@ const actionDeleteAnnotation = (commendId) => {
 // }
  // get all user annotations
 export const getUserAnnotations = (userId) => async dispatch => {
-    const response = await fetch(`/api/users/${userId}/annotations`);
+    const response = await fetch(`/api/annotations/${userId}`);
     if (response.ok) {
         const annotations = await response.json();
         await dispatch(actionGetUserAnnotations(annotations));
@@ -152,7 +157,8 @@ export const deleteAnnotation = (annotationId) => async (dispatch) => {
 
 
 const initialState = {
-
+    allAnnotations: {},
+    oneAnnotation: {}
 };
 
 export const annotationReducer = (state = initialState, action) => {
@@ -165,13 +171,22 @@ export const annotationReducer = (state = initialState, action) => {
         //     });
         //     return newState
         // }
-        case GET_USER_ANNOTATIONS: {
-            newState = {}
+        case GET_ALL_ANNOTATIONS: {
+            let annotationState
+            newState = { ...state, allAnnotations: {...state.allAnnotations}}
             action.annotations.forEach(annotation => {
-                newState[annotation.id] = annotation
+                annotationState[annotation.id] = annotation
             })
+            newState.allAnnotations = annotationState
             return newState
         }
+
+        case GET_ONE_ANNOTATION:
+            newState = {...state, oneAnnotation: {...state.oneAnnotation}}
+            newState.oneAnnotation = {...action.annotation}
+            return newState
+
+
         case CREATE_ANNOTATION: {
             newState = {...state}
             newState[action.annotation.id] = action.annotation
