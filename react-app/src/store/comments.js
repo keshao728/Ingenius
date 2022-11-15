@@ -1,12 +1,12 @@
 const GET_ALL_COMMENTS = 'tracks/getAllComments';
 
-const GET_ONE_COMMENT = 'tracks/getOneComment';
+// const GET_ONE_COMMENT = 'tracks/getOneComment';
 
-const GET_USER_COMMENTS = 'tracks/getUserComments';
+// const GET_USER_COMMENTS = 'tracks/getUserComments';
 
 const CREATE_COMMENT = 'tracks/createComment';
 
-const EDIT_COMMENT = 'tracks/editComment';
+// const EDIT_COMMENT = 'tracks/editComment';
 
 const DELETE_COMMENT = 'tracks/deleteComment';
 
@@ -99,7 +99,7 @@ export const createComment = (trackId, comment) => async (dispatch) => {
 //delete comment
 
 export const deleteComment = (commentId) => async (dispatch) => {
-    const response = await fetch(`/api/tests/${commentId}`, {
+    const response = await fetch(`/api/comment/${commentId}`, {
         method: "DELETE",
     })
 
@@ -142,11 +142,11 @@ const commentReducer = (state = initialState, action) => {
             newState.user = action.commentCreated
             return newState
         }
-        case EDIT_COMMENT: {
-            newState = { ...state }
-            newState[action.comment.id] = action.comment
-            return newState
-        }
+        // case EDIT_COMMENT: {
+        //     newState = { ...state }
+        //     newState[action.comment.id] = action.comment
+        //     return newState
+        // }
         case DELETE_COMMENT: {
             newState = {
                 ...state,

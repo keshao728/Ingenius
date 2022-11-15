@@ -1,0 +1,75 @@
+.full-screen-add-song {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  background-color: black;
+  color: white;
+}
+
+.add-song-wrapper {
+  margin-top: 50px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  list-style: none;
+  width: 1000px;
+  font-size: 14px;
+}
+
+#trackForm {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+.add-song-message {
+  display: flex;
+  font-size: 30px;
+  font-weight: bold;
+  margin-bottom: 30px;
+  color: white;
+  /* justify-content: center; */
+}
+
+.add-song-primary {
+  display: flex;
+  flex-direction: column;
+
+}
+
+.add-by-title-album {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+}
+
+.add-song-input-box {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+.add-song-primart-text{
+  display: flex;
+  font-size: 16px;
+  font-weight: bold;
+  color: white;
+  border-bottom: 1px solid gray;
+}
+
+#lyric-input{
+  resize: none;
+  width: 100%;
+  /* width: 700px;
+  height: 200px; */
+  padding: 10px;
+  margin-bottom: 20px;
+}

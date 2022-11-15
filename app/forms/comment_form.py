@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms import TextAreaField
+from wtforms import TextAreaField, StringField
 from wtforms.validators import DataRequired, ValidationError
 
 def valid_comment(form, field):
@@ -9,3 +9,6 @@ def valid_comment(form, field):
 
 class CommentForm(FlaskForm):
     comment_body = TextAreaField("Comment", validators=[DataRequired(), valid_comment])
+    # non_session_username = StringField("Username")
+    # email = StringField("Email")
+
