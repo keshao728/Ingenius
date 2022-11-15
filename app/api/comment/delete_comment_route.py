@@ -1,11 +1,11 @@
 from flask import Blueprint, render_template, redirect, request, jsonify
-from ..models import db, Track, Comment, Annotation, Vote, User
-from ..forms import TrackForm, AnnotationForm, CommentForm
+from ...models import db, Track, Comment, Annotation, Vote, User
+from ...forms import TrackForm, AnnotationForm, CommentForm
 from flask_login import login_required, current_user
 
-tests_routes = Blueprint('tests', __name__)
+comment_routes = Blueprint('comment', __name__)
 
-@tests_routes.route('/<int:comment_id>', methods=["DELETE"])
+@comment_routes.route('/<int:comment_id>', methods=["DELETE"])
 @login_required
 def delete_comment(comment_id):
     delete_user_comment = Comment.query.get(comment_id)
