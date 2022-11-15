@@ -75,7 +75,7 @@ def create_comments(id):
 
     form = CommentForm()
     form['csrf_token'].data = request.cookies['csrf_token']
-    print("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\----------------------------------------", request.json)
+    # print("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\----------------------------------------", request.json)
     if form.validate_on_submit():
         comment = Comment(
             track_id=id,
@@ -85,6 +85,7 @@ def create_comments(id):
         db.session.commit()
         return comment.to_dict()
     return {'errors': validation_errors(form.errors), "statusCode": 401}
+
 
 
 @track_routes.route('/<int:id>', methods=["PUT"])
