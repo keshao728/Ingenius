@@ -1,25 +1,65 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
+import { createAnnotation } from '../../store/annotations';
 // import { useHistory } from 'react-router-dom'
 
-// const EditAnnotation = (annotation) => {
-//   const dispatch = useDispatch()
-//   // annotation = useSelector(state => state.annotation)
+const EditAnnotation = (annotation) => {
+  const dispatch = useDispatch()
+  // annotation = useSelector(state => state.annotation)
+  const [annotation, setAnnotation] = useState(annotation.annotation_body)
+  const [validationErrors, setValidationErrors] = useState([])
+  const [displayErrors, setDisplayErrors] = useState(false);
 
+  const updateAnnotation = (e) => setAnnotation(e.target.value);
 
-//   const [annotation, setAnnotation] = useState()
-//   const [validationErrors, setValidationErrors] = useState([])
-//   const [displayErrors, setDisplayErrors] = useState(false);
+  useEffect(() => {
+    const errors = []
+    if (!annotation) errors.push('Need more info pls')
 
-//   const updateAnnotation = (e) => setAnnotation(e.target.value);
+    setValidationErrors(errors)
+  }, [annotation])
 
-//   useEffect(() => {
-//     const errors = []
-//     if (!annotation) errors.push('Need more info pls')
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setDisplayErrors(true)
 
-//     setValidationErrors(errors)
-//   }, [annotation])
+    if (!validationErrors.length) {
+      const payload = {
+        ...annotation,
+        annotation_body: annotation.annotation_body
+      }
 
-//   const handleSubmit = async (e) =>
+      let newAnnotation = await dispatch(createAnnotation(payload))
 
-// }
+      if (newAnnotation) {
+        setDisplayErrors(false)
+      }
+    }
+  }
+
+  // const handleCancelClick = (e) => {
+  //   e.preventDefault();
+  //   setShowModal(false)
+  // };
+
+  return (
+    <form onSubmit={handleSubmit}>
+      <textarea
+        type='text'
+        value={annotation}
+        onChange={updateAnnotation} />
+      <button type='submit'>Save</button>
+      {/* <button type="button" onClick={handleCancelClick}>Cancel</button> */}
+
+      <div>
+        <ul>
+          {displayErrors && validationErrors.length > 0 && validationErrors.map(error => (
+            <li key={error}>{error}</li>
+          ))}
+        </ul>
+      </div>
+    </form>
+  )
+}
+
+export default EditAnnotation
