@@ -44,7 +44,6 @@ function App() {
 
         <ProtectedRoute path='/users/:userId' exact={true} >
           <User />
-          <UserAnnotations />
         </ProtectedRoute>
 
         <Route path='/tracks' exact={true}>
