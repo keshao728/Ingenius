@@ -81,7 +81,7 @@ export const createComment = ({trackId, comment}) => async (dispatch) => {
     const response = await fetch(`/api/tracks/${trackId}`, {
         method: "POST",
         headers: {"Content-Type": "application/json"},
-        body: JSON.stringify({body:comment})
+        body: JSON.stringify(comment)
     })
 
     if (response.ok) {
