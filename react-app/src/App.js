@@ -13,6 +13,7 @@ import AllTracks from './components/Tracks';
 import AllComments from './components/Comments/comments';
 import TrackInfo from './components/TrackInfo';
 import Annotation from './components/Annotation/annotations';
+import CreateTrack from './components/TrackForm';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -48,10 +49,14 @@ function App() {
           <AllTracks />
         </Route>
 
+        <Route path='/tracks/new'>
+          <CreateTrack />
+        </Route>
+
         <Route path='/tracks/:trackId'>
-          <AllComments />
           <TrackInfo />
           <Annotation />
+          <AllComments />
         </Route>
 
       </Switch>
