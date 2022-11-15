@@ -67,6 +67,25 @@ def create_track():
         return track.to_dict()
     return {'errors': validation_errors(form.errors), "statusCode": 401}
 
+# CREATE COMMENT
+@track_routes.route('/<int:id>/comment', methods=["POST"])
+@login_required
+def create_comments(id):
+    # track = Track.query.get(id)
+
+    form = CommentForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
+    print("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\----------------------------------------", request.json)
+    if form.validate_on_submit():
+        comment = Comment(
+            track_id=id,
+            comment_body=form.comment_body.data
+        )
+        db.session.add(comment)
+        db.session.commit()
+        return comment.to_dict()
+    return {'errors': validation_errors(form.errors), "statusCode": 401}
+
 
 @track_routes.route('/<int:id>', methods=["PUT"])
 @login_required

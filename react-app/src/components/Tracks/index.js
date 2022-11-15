@@ -11,7 +11,6 @@ export default function AllTracks() {
     const dispatch = useDispatch()
     // const {trackId} = params
     const tracks = useSelector(state => state.tracks)
-    console.log("TRACKS", tracks)
     const allTracks = Object.values(tracks)
 
     useEffect(() => {
