@@ -1,12 +1,12 @@
 const GET_ALL_COMMENTS = 'tracks/getAllComments';
 
-const GET_ONE_COMMENT = 'tracks/getOneComment';
+// const GET_ONE_COMMENT = 'tracks/getOneComment';
 
-const GET_USER_COMMENTS = 'tracks/getUserComments';
+// const GET_USER_COMMENTS = 'tracks/getUserComments';
 
 const CREATE_COMMENT = 'tracks/createComment';
 
-const EDIT_COMMENT = 'tracks/editComment';
+// const EDIT_COMMENT = 'tracks/editComment';
 
 const DELETE_COMMENT = 'tracks/deleteComment';
 
