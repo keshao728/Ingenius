@@ -99,7 +99,7 @@ export const createComment = (trackId, comment) => async (dispatch) => {
 //delete comment
 
 export const deleteComment = (commentId) => async (dispatch) => {
-    const response = await fetch(`/api/tests/${commentId}`, {
+    const response = await fetch(`/api/comment/${commentId}`, {
         method: "DELETE",
     })
 
