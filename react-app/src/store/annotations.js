@@ -61,7 +61,7 @@ const actionDeleteAnnotation = (commendId) => {
 
 //thunks
 
-//get all annotations
+//get all annotations for user
 
 export const getAllAnnotations =(trackId) => async (dispatch) => {
     const response = await fetch(`/api/tracks/${trackId}/annotations`)
@@ -73,7 +73,10 @@ export const getAllAnnotations =(trackId) => async (dispatch) => {
     }
 }
 
+//get an annotation inside a track
+// export const getOneAnnotation = (trackId, annotationId) => async (dispatch) => {
 
+// }
 
 //create annotation
 

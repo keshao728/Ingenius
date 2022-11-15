@@ -5,11 +5,13 @@ import { NavLink, useParams } from 'react-router-dom'
 
 
 const Annotations = () => {
-    // const dispatch = useDispatch();
-    // const { trackId } = useParams();
+    const dispatch = useDispatch();
+    const { trackId } = useParams();
     // const sessionUser = useSelector((state) => state.session.user);
 
-    // useEffect(() => {}, [dispatch])
+    // useEffect(() => {
+    //     dispatch(getAllAnnotations(trackId))
+    // }, [dispatch])
     return (
         <div>
             <h1>Annotations placeholder</h1>
