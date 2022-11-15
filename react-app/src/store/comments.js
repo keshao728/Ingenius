@@ -78,7 +78,9 @@ export const getAllComments =(trackId) => async (dispatch) => {
 
 //create comment
 
-export const createComment = ({trackId, comment}) => async (dispatch) => {
+export const createComment = (trackId, comment) => async (dispatch) => {
+    console.log("THIS IS TRACK ID IN CREATECOMMENT", trackId)
+    console.log("THIS IS COMMENT IN CREATECOMMENT", comment)
     const response = await fetch(`/api/tracks/${trackId}`, {
         method: "POST",
         headers: {"Content-Type": "application/json"},
