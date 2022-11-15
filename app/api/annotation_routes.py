@@ -34,7 +34,7 @@ def annotations_by_userId(user_id):
   user_annotations = Annotation.query.filter(Annotation.user_id == user_id).all()
   annotation_dictionary = [annotation.to_dict() for annotation in user_annotations]
 
-  return annotation_dictionary
+#   return annotation_dictionary
 
 # CREATE Annotation // NEED TO FIGURE OUT HOW TO SELECT WORDS AND STUFF *NOT FINISHED*
 @annotation_routes.route('/tracks/<int:trackId>/annotation', methods=["POST"])

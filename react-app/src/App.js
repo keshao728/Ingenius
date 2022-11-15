@@ -14,6 +14,7 @@ import AllComments from './components/Comments/comments';
 import TrackInfo from './components/TrackInfo';
 import Annotation from './components/Annotation/annotations';
 import CreateTrack from './components/TrackForm';
+import UserAnnotations from './components/UserProfile';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -43,6 +44,7 @@ function App() {
 
         <ProtectedRoute path='/users/:userId' exact={true} >
           <User />
+          <UserAnnotations />
         </ProtectedRoute>
 
         <Route path='/tracks' exact={true}>

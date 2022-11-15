@@ -1,3 +1,5 @@
+// import { csrfFetch } from './csrf'
+
 const GET_ALL_ANNOTATIONS = 'tracks/getAllAnnotations';
 
 const GET_ONE_ANNOTATION = 'tracks/getOneAnnotation';
@@ -16,10 +18,18 @@ const DELETE_ANNOTATION = 'tracks/deleteAnnotation';
 
 //get all annotations
 
-const actionGetAnnotations = (trackId) => {
+// const actionGetAnnotations = (trackId) => {
+//     return {
+//         type: "GET_ALL_ANNOTATIONS",
+//         trackId
+//     }
+// }
+
+// get all user annotations
+const actionGetUserAnnotations = (userId) => {
     return {
         type: "GET_ALL_ANNOTATIONS",
-        trackId
+        userId
     }
 }
 
@@ -69,8 +79,10 @@ export const getAllAnnotations =(trackId) => async (dispatch) => {
 
     if (response.ok) {
         const annotations = await response.json();
-        await dispatch(actionGetAnnotations(annotations));
+        await dispatch(actionGetUserAnnotations(annotations));
+        return annotations
     }
+    return null
 }
 
 //get an annotation inside a track
@@ -131,16 +143,25 @@ export const deleteAnnotation = (annotationId) => async (dispatch) => {
 
 
 
-const initialState = {};
+const initialState = {
+
+};
 
 export const annotationReducer = (state = initialState, action) => {
     let newState
     switch (action.type) {
-        case GET_ALL_ANNOTATIONS: {
+        // case GET_ALL_ANNOTATIONS: {
+        //     newState = {}
+        //     action.trackId.Annotations.forEach(annotation => {
+        //         newState[annotation.id] = annotation
+        //     });
+        //     return newState
+        // }
+        case GET_USER_ANNOTATIONS: {
             newState = {}
-            action.trackId.Annotations.forEach(annotation => {
+            action.annotations.forEach(annotation => {
                 newState[annotation.id] = annotation
-            });
+            })
             return newState
         }
         case CREATE_ANNOTATION: {
@@ -162,3 +183,5 @@ export const annotationReducer = (state = initialState, action) => {
             return state
     }
 }
+
+export default annotationReducer
