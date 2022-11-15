@@ -62,7 +62,7 @@ export default function CreateTrack() {
             </div>
 
             <div>
-                <form onSubmit={handleSubmit}>
+                <form id="trackForm" onSubmit={handleSubmit}>
 
                     <div>
                         <label>
@@ -82,8 +82,8 @@ export default function CreateTrack() {
                         </label>
                         <input
                             type="text"
-                            value={releaseDate}
-                            placeholder="Release Date"
+                            value={artist}
+                            placeholder="Artist"
                             onChange={(e) => setArtist(e.target.value)} />
                     </div>
 
@@ -103,7 +103,7 @@ export default function CreateTrack() {
                             Release Date
                         </label>
                         <input
-                            type="text"
+                            type="date"
                             value={releaseDate}
                             placeholder="Release Date"
                             onChange={(e) => setReleaseDate(e.target.value)} />
@@ -120,17 +120,7 @@ export default function CreateTrack() {
                             onChange={(e) => setProducedBy(e.target.value)} />
                     </div>
 
-                    <div>
-                        <label>
-                            Lyrics
-                        </label>
-                        <input
-                            type="text"
-                            value={lyrics}
-                            placeholder="Lyrics"
-                            required
-                            onChange={(e) => setLyrics(e.target.value)} />
-                    </div>
+
 
                     <div>
                         <label>
@@ -153,6 +143,20 @@ export default function CreateTrack() {
                             placeholder="Track Url"
                             required
                             onChange={(e) => setTrackUrl(e.target.value)} />
+                    </div>
+
+                    <div>
+                        <label>
+                            Lyrics
+                        </label>
+                        {/* <input
+                            type="textarea"
+                            value={lyrics}
+                            placeholder="Lyrics"
+                            required
+                            onChange={(e) => setLyrics(e.target.value)} /> */}
+
+                            <textarea id="trackForm" cols="50" rows='30' name="trackFormLyrics"></textarea>
                     </div>
 
                     <div>
