@@ -1,15 +1,10 @@
 // import { csrfFetch } from './csrf'
 
 const GET_ALL_ANNOTATIONS = 'annotations/getAllAnnotations';
-
-const GET_ONE_ANNOTATION = 'tracks/getOneAnnotation';
-
+const GET_ONE_ANNOTATION = 'annotations/getOneAnnotation';
 // const GET_USER_ANNOTATIONS = 'tracks/getUserAnnotations';
-
-const CREATE_ANNOTATION = 'tracks/createAnnotation';
-
-const EDIT_ANNOTATION = 'tracks/editAnnotation';
-
+const CREATE_ANNOTATION = 'annotations/createAnnotation';
+const EDIT_ANNOTATION = 'annotations/editAnnotation';
 const DELETE_ANNOTATION = 'annotations/deleteAnnotation';
 
 
@@ -41,7 +36,6 @@ const actionGetOneAnnotation = (annotationId) => {
 }
 
 //create a annotation
-
 const actionCreateAnnotation = (annotation) => {
     return {
         type: "CREATE_ANNOTATION",
@@ -49,28 +43,21 @@ const actionCreateAnnotation = (annotation) => {
     }
 }
 
-
-
 //edit a annotation
-
 const actionEditAnnotation = (annotation) => {
     return {
-        type: "EDIT_ANNOTATION",
+        type: EDIT_ANNOTATION,
         annotation
     }
 }
 
-
-
 //delete a annotation
-
 const actionDeleteAnnotation = (annotation) => {
     return {
         type: DELETE_ANNOTATION,
         annotation
     }
 }
-
 
 //thunks
 
@@ -87,7 +74,8 @@ const actionDeleteAnnotation = (annotation) => {
 //     }
 //     return null
 // }
- // get all user annotations
+
+// get all user annotations
 export const getUserAnnotations = (userId) => async dispatch => {
     const response = await fetch(`/api/users/${userId}/annotations`);
     if (response.ok) {
@@ -106,7 +94,6 @@ export const getUserAnnotations = (userId) => async dispatch => {
 // }
 
 //create annotation
-
 export const createAnnotation = ({trackId, annotation}) => async (dispatch) => {
     const response = await fetch(`/api/tracks/${trackId}/annotations`, {
     // const response = await fetch(`/api/annotations`, {
@@ -120,8 +107,6 @@ export const createAnnotation = ({trackId, annotation}) => async (dispatch) => {
         await dispatch(actionCreateAnnotation(annotation))
     }
 }
-
-
 
 //edit a annotation
 
@@ -137,8 +122,6 @@ export const editAnnotation = ({annotationId, body}) => async (dispatch) => {
         await dispatch(actionEditAnnotation(editedAnnotation))
     }
 }
-
-
 
 //delete annotation
 
