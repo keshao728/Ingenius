@@ -28,7 +28,7 @@ const AllComments = () => {
     e.preventDefault();
     const newComment = {
       comment_body: userComments,
-    }
+    };
     await dispatch(createComment(trackId, newComment))
   }
   // if (!sessionUser) {
