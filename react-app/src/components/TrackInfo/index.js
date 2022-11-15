@@ -24,7 +24,7 @@ export default function TrackInfo() {
 
     return (
         <div>
-            {user.id === track.user_id && <EditTrackModal />}
+            {user?.id === track.user_id && <EditTrackModal />}
 
             <div>
                 Track Title: {track.track_title}
