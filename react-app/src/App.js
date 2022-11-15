@@ -49,8 +49,8 @@ function App() {
         </Route>
 
         <Route path='/tracks/:trackId'>
-          <AllComments />
           <TrackInfo />
+          <AllComments />
         </Route>
 
         <Route exact path='/tracks/new'>

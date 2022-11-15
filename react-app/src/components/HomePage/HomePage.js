@@ -8,8 +8,7 @@ import './HomePage.css'
 
 import { useSelector, useDispatch } from "react-redux";
 import { useState, useEffect } from "react";
-import { NavLink, useParams } from "react-router-dom"
-import { getAllComments } from "../../store/comments";
+import { NavLink } from "react-router-dom"
 import { getAllTracks } from '../../store/tracks';
 
 const HomePage = () => {

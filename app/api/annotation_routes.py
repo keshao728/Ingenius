@@ -29,7 +29,7 @@ def annotation_by_id(id):
   return annotation_dictionary["annotation_body"]
 
 # user annotations [CARE: ROUTE (USERNAME? ID? WHAAT)]
-@annotation_routes.route('/<:user_id>')
+@annotation_routes.route('/<int:userId>')
 def annotations_by_userId(user_id):
   user_annotations = Annotation.query.filter(Annotation.user_id == user_id).all()
   annotation_dictionary = [annotation.to_dict() for annotation in user_annotations]
