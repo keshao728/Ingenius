@@ -5,6 +5,7 @@ import { useState, useEffect } from "react";
 import { NavLink, useParams } from "react-router-dom"
 import { getAllComments, createComment, deleteComment } from "../../store/comments";
 import LoginForm from "../auth/LoginForm";
+import * as moment from 'moment';
 // import { getOneTrack } from '../../store/tracks';
 import "./comments.css"
 
@@ -36,6 +37,34 @@ const AllComments = () => {
     setUserComments("");
     await dispatch(createComment(trackId, newComment))
   }
+
+  // function timeSince(date) {
+
+  //   var seconds = Math.floor((new Date() - date) / 1000);
+
+  //   var interval = seconds / 31536000;
+
+  //   if (interval > 1) {
+  //     return Math.floor(interval) + " years";
+  //   }
+  //   interval = seconds / 2592000;
+  //   if (interval > 1) {
+  //     return Math.floor(interval) + " months";
+  //   }
+  //   interval = seconds / 86400;
+  //   if (interval > 1) {
+  //     return Math.floor(interval) + " days";
+  //   }
+  //   interval = seconds / 3600;
+  //   if (interval > 1) {
+  //     return Math.floor(interval) + " hours";
+  //   }
+  //   interval = seconds / 60;
+  //   if (interval > 1) {
+  //     return Math.floor(interval) + " minutes";
+  //   }
+  //   return Math.floor(seconds) + " seconds";
+  // }
 
   let sessionLinks;
   if (sessionUser) {
@@ -127,7 +156,8 @@ const AllComments = () => {
             <div className="comment-display">
               <div className="individual-comment-display" key={comment?.id}>
                 <div>{comment?.User?.username}</div>
-                <div>{comment.created_at.split(' ').slice(0, -2).join(' ')}</div>
+                <div>{ moment(comment.created_at).fromNow()}</div>
+                {/* <div>{comment.created_at.split(' ').slice(0, -2).join(' ')}</div> */}
                 <div>{comment.comment_body} </div>
               </div>
               {sessionUser?.id === comment.user_id && (
