@@ -10,7 +10,7 @@ const CREATE_ANNOTATION = 'tracks/createAnnotation';
 
 const EDIT_ANNOTATION = 'tracks/editAnnotation';
 
-const DELETE_ANNOTATION = 'tracks/deleteAnnotation';
+const DELETE_ANNOTATION = 'annotations/deleteAnnotation';
 
 
 //actions
@@ -64,10 +64,10 @@ const actionEditAnnotation = (annotation) => {
 
 //delete a annotation
 
-const actionDeleteAnnotation = (commendId) => {
+const actionDeleteAnnotation = (annotation) => {
     return {
-        type: "DELETE_ANNOTATION",
-        commendId
+        type: DELETE_ANNOTATION,
+        annotation
     }
 }
 
@@ -92,9 +92,9 @@ export const getUserAnnotations = (userId) => async dispatch => {
     const response = await fetch(`/api/users/${userId}/annotations`);
     if (response.ok) {
         const annotations = await response.json();
-        console.log('IS IT WORKING YET', annotations)
+        // console.log('IS IT WORKING YET', annotations)
         await dispatch(actionGetUserAnnotations(annotations));
-        console.log('HOW BOUT NOW', annotations)
+        // console.log('HOW BOUT NOW', annotations)
         return annotations
     }
     return null
@@ -146,12 +146,10 @@ export const deleteAnnotation = (annotationId) => async (dispatch) => {
     const response = await fetch(`/api/annotations/${annotationId}`, {
         method: "DELETE",
     })
-
     if (response.ok) {
-        const deletedAnnotation = await response.json();
-        await dispatch(actionDeleteAnnotation(annotationId));
-        return deletedAnnotation
+        dispatch(actionDeleteAnnotation(annotationId));
     }
+    return null
 }
 
 
@@ -173,16 +171,16 @@ export const annotationReducer = (state = initialState, action) => {
         //     });
         //     return newState
         // }
-        case GET_ALL_ANNOTATIONS: {
+        case GET_ALL_ANNOTATIONS: 
             let annotationState = {}
             newState = { ...state, allAnnotations: {...state.allAnnotations}}
             console.log('GET_ALL_ANNOTATIONSACTION', action)
-            action.payload.data.forEach(annotation => {
+            action.payload.annotations.forEach(annotation => {
                 annotationState[annotation.id] = annotation
             })
             newState.allAnnotations = annotationState
             return newState
-        }
+        
 
         case GET_ONE_ANNOTATION:
             newState = {...state, oneAnnotation: {...state.oneAnnotation}}
@@ -200,11 +198,12 @@ export const annotationReducer = (state = initialState, action) => {
             newState[action.annotation.id] = action.annotation
             return newState
         }
-        case DELETE_ANNOTATION: {
-            newState = {...state}
-            delete newState[action.annotation.id]
+        case DELETE_ANNOTATION: 
+            newState = {...state, allAnnotations: {...state.allAnnotations}}
+            // console.log('DELETE ANNOTATION', action)
+            delete newState.allAnnotations[action.annotation]
             return newState
-        }
+        
         default:
             return state
     }
