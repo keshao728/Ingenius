@@ -4,36 +4,36 @@ import { useSelector, useDispatch } from "react-redux";
 import { useState, useEffect } from "react";
 import { NavLink, useParams } from "react-router-dom"
 import { getAllComments, createComment } from "../../store/comments";
+// import { getOneTrack } from '../../store/tracks';
 
 const AllComments = () => {
   const dispatch = useDispatch();
   const { trackId } = useParams();
-  const sessionUser = useSelector((state) => state.session.user);
+  // const sessionUser = useSelector((state) => state.session.user);
+  // const track = useSelector(state => state.tracks)
 
   const comments = useSelector((state) => state.comments.comments);
   const commentsArr = Object.values(comments);
   // console.log("COMMENTS", commentsArr);
 
-  const [userComments, setUserComments] = useState([]);
+  const [userComments, setUserComments] = useState("");
 
 
   useEffect(() => {
     dispatch(getAllComments(trackId))
+    // dispatch(getOneTrack(trackId))
   }, [dispatch, trackId])
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     const newComment = {
-      userComments
-    }
-    let createdComment = await dispatch(createComment(trackId, newComment))
-
-    // const comment = e.target.comment.value;
-    // const userId = sessionUser.id;
-    // const trackId = trackId;
-    // const newComment = await dispatch(createComment({comment, userId, trackId}))
-    // setUserComments([...userComments, newComment])
+      comment_body: userComments,
+    };
+    await dispatch(createComment(trackId, newComment))
   }
+  // if (!sessionUser) {
+    // MAKE USER SIGN IN
+  // }
 
   return (
     <div>
