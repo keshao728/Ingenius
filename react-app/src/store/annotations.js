@@ -4,7 +4,7 @@ const GET_ALL_ANNOTATIONS = 'annotations/getAllAnnotations';
 const GET_ONE_ANNOTATION = 'annotations/getOneAnnotation';
 // const GET_USER_ANNOTATIONS = 'tracks/getUserAnnotations';
 const CREATE_ANNOTATION = 'annotations/createAnnotation';
-const EDIT_ANNOTATION = 'annotations/editAnnotation';
+// const EDIT_ANNOTATION = 'annotations/editAnnotation';
 const DELETE_ANNOTATION = 'annotations/deleteAnnotation';
 
 
@@ -38,18 +38,18 @@ const actionGetOneAnnotation = (annotationId) => {
 //create a annotation
 const actionCreateAnnotation = (annotation) => {
     return {
-        type: "CREATE_ANNOTATION",
+        type: CREATE_ANNOTATION,
         annotation
     }
 }
 
 //edit a annotation
-const actionEditAnnotation = (annotation) => {
-    return {
-        type: EDIT_ANNOTATION,
-        annotation
-    }
-}
+// const actionEditAnnotation = (annotation) => {
+//     return {
+//         type: EDIT_ANNOTATION,
+//         annotation
+//     }
+// }
 
 //delete a annotation
 const actionDeleteAnnotation = (annotation) => {
@@ -109,22 +109,21 @@ export const createAnnotation = ({trackId, annotation}) => async (dispatch) => {
 }
 
 //edit a annotation
-
-export const editAnnotation = ({annotationId, body}) => async (dispatch) => {
-    const response = await fetch(`/api/annotations/${annotationId}`, {
+export const editAnnotation = (annotation) => async (dispatch) => {
+    const response = await fetch(`/api/annotations/${annotation.id}`, {
         method: "PUT",
         headers: {"Content-Type": "application/json"},
-        body: JSON.stringify({body: body})
+        body: JSON.stringify(annotation)
     })
 
     if (response.ok) {
         const editedAnnotation = await response.json();
-        await dispatch(actionEditAnnotation(editedAnnotation))
+        await dispatch(actionCreateAnnotation(editedAnnotation))
+        return editedAnnotation
     }
 }
 
 //delete annotation
-
 export const deleteAnnotation = (annotationId) => async (dispatch) => {
     const response = await fetch(`/api/annotations/${annotationId}`, {
         method: "DELETE",
@@ -134,10 +133,6 @@ export const deleteAnnotation = (annotationId) => async (dispatch) => {
     }
     return null
 }
-
-
-
-
 
 const initialState = {
     allAnnotations: {},
@@ -164,23 +159,23 @@ export const annotationReducer = (state = initialState, action) => {
             newState.allAnnotations = annotationState
             return newState
         
-
         case GET_ONE_ANNOTATION:
             newState = {...state, oneAnnotation: {...state.oneAnnotation}}
             newState.oneAnnotation = {...action.annotation}
             return newState
 
-
-        case CREATE_ANNOTATION: {
-            newState = {...state}
-            newState[action.annotation.id] = action.annotation
+        case CREATE_ANNOTATION: 
+            newState = {...state, allAnnotations: {...state.allAnnotations}}
+            newState.allAnnotations[action.annotation.id] = action.annotation
+            
+            newState.oneAnnotation = action.annotation
             return newState
-        }
-        case EDIT_ANNOTATION: {
-            newState = {...state}
-            newState[action.annotation.id] = action.annotation
-            return newState
-        }
+        
+        // case EDIT_ANNOTATION: 
+        //     newState = {...state}
+        //     newState[action.annotation.id] = action.annotation
+        //     return newState
+        
         case DELETE_ANNOTATION: 
             newState = {...state, allAnnotations: {...state.allAnnotations}}
             // console.log('DELETE ANNOTATION', action)

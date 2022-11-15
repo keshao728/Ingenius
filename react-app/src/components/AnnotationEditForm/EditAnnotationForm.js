@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux'
-import { createAnnotation } from '../../store/annotations';
+import { useDispatch } from 'react-redux'
+import { editAnnotation } from '../../store/annotations';
 // import { useHistory } from 'react-router-dom'
 
 const EditAnnotation = (annotation) => {
@@ -29,14 +29,13 @@ const EditAnnotation = (annotation) => {
         annotation_body: annotation.annotation_body
       }
 
-      let newAnnotation = await dispatch(createAnnotation(payload))
+      let newAnnotation = await dispatch(editAnnotation(payload))
 
       if (newAnnotation) {
         setDisplayErrors(false)
       }
     }
   }
-
   // const handleCancelClick = (e) => {
   //   e.preventDefault();
   //   setShowModal(false)
