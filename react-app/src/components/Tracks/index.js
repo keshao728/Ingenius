@@ -22,18 +22,19 @@ export default function AllTracks() {
             {allTracks.map((track) => {
                 return (
                     <div key={track.id}>
-                        <div>
-                            {track.track_title}
-                        </div>
+                        <div className='top box wrapper'>
+                            <div>
+                                {track.track_title}
+                            </div>
 
-                        <div>
-                            {track.artist}
-                        </div>
+                            <div>
+                                {track.artist}
+                            </div>
 
-                        <div>
-                            {track.album}
+                            <div>
+                                {track.album}
+                            </div>
                         </div>
-
                         <div>
                             {track.lyrics}
                         </div>
