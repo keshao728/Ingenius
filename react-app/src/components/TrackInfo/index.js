@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useParams, useHistory, Link, NavLink } from 'react-router-dom';
 import { getOneTrack } from '../../store/tracks';
+import EditTrackModal from '../TrackEditForm/index';
 
 import React from 'react';
 
@@ -19,6 +20,7 @@ export default function TrackInfo() {
 
     return (
         <div>
+            <EditTrackModal />
 
             <div>
                 Track Title: {track.track_title}
