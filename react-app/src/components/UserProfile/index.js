@@ -15,6 +15,7 @@ const UserAnnotations = () => {
   const [isLoaded, setIsLoaded ] = useState(false)
 
   const annotations = Object.values(getAnnotations)
+  console.log('ANNOTATIONS', annotations)
 
   useEffect(() => {
     dispatch(getUserAnnotations(userId))
@@ -25,9 +26,9 @@ const UserAnnotations = () => {
     return null
   } else {
     return isLoaded && 
-        Object.values(annotations).map(annotation => {
-          <div>{annotation.id} {annotation.annotation_body}</div>
-        })
+        annotations.map(annotation => (
+          <div> testing {annotation.id} {annotation.annotation_body}</div>
+        ))
     
   }
 }

@@ -35,7 +35,7 @@ function User() {
           <div id='pp-status'></div>
           <div id='pp-contributions'>
             <div>
-              {/* <UserAnnotations/> */}
+              <UserAnnotations/>
             </div>
           </div>
         </div>
