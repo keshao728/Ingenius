@@ -15,7 +15,7 @@ def validation_errors(validation_errors):
 comment_routes = Blueprint('tracks', __name__)
 
 
-@comment_routes('/<int:id>')
+@comment_routes.route('/<int:id>')
 def comments():
     comments = Comment.query.all()
 
@@ -27,7 +27,7 @@ def comments():
     return jsonify(comment_list)
 
 
-@comment_routes('/<int:id>', methods=["POST"])
+@comment_routes.route('/<int:id>', methods=["POST"])
 def create_comments(id):
     # track = Track.query.get(id)
 
@@ -47,7 +47,7 @@ def create_comments(id):
 
 
 
-@comment_routes('/<int:id>', methods=["PUT"])
+@comment_routes.route('/<int:id>', methods=["PUT"])
 def edit_comment():
     #form = formforcomment()
     # if form.validate_on_submit():
@@ -67,7 +67,7 @@ def edit_comment():
     pass
 
 
-@comment_routes('/<int:id>', methods=["DELETE"])
+@comment_routes.route('/<int:id>', methods=["DELETE"])
 def delete_comment():
     # query = dbforcomment.query.filter(dbforcomment.userid.is("artist") and dbforcomment.id.is("song")).all()
     #   db.session.delete(query)
