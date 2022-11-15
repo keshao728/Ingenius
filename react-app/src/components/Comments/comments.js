@@ -9,7 +9,7 @@ import { getAllComments, createComment, deleteComment } from "../../store/commen
 const AllComments = () => {
   const dispatch = useDispatch();
   const { trackId } = useParams();
-  // const sessionUser = useSelector((state) => state.session.user);
+  const sessionUser = useSelector((state) => state.session.user);
   // const track = useSelector(state => state.tracks)
 
   const comments = useSelector((state) => state.comments.comments);
@@ -34,6 +34,7 @@ const AllComments = () => {
   // if (!sessionUser) {
   // MAKE USER SIGN IN
   // }
+
 
   return (
     <div>
@@ -65,14 +66,15 @@ const AllComments = () => {
         {commentsArr.map((comment) => {
           return (
             <div>
-
               <div key={comment.id}>
                 <div>{comment.comment_body}</div>
               </div>
-              <button className="delete-edit"
-                onClick={async () => await dispatch(deleteComment(comment.id))}>
-                Delete
-              </button>
+              {sessionUser.id === comment.user_id && (
+                <button className="delete-edit"
+                  onClick={async () => await dispatch(deleteComment(comment.id))}>
+                  Delete
+                </button>
+              )}
             </div>
           )
         })}
