@@ -84,7 +84,7 @@ export default function CreateTrack() {
                             type="text"
                             value={releaseDate}
                             placeholder="Release Date"
-                            onChange={(e) => setReleaseDate(e.target.value)} />
+                            onChange={(e) => setArtist(e.target.value)} />
                     </div>
 
                     <div>
