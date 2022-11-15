@@ -67,23 +67,21 @@ const actionDeleteAnnotation = (commendId) => {
 }
 
 
-
-
 //thunks
 
 //get all annotations for user
 
-export const getAllAnnotations =(trackId) => async (dispatch) => {
-    const response = await fetch(`/api/tracks/${trackId}/annotations`)
-    // const response = await fetch(`/api/annotations`)
+// export const getAllAnnotations =(trackId) => async (dispatch) => {
+//     const response = await fetch(`/api/tracks/${trackId}/annotations`)
+//     // const response = await fetch(`/api/annotations`)
 
-    if (response.ok) {
-        const annotations = await response.json();
-        await dispatch(actionGetUserAnnotations(annotations));
-        return annotations
-    }
-    return null
-}
+//     if (response.ok) {
+//         const annotations = await response.json();
+//         await dispatch(actionGetUserAnnotations(annotations));
+//         return annotations
+//     }
+//     return null
+// }
  // get all user annotations
 export const getUserAnnotations = (userId) => async dispatch => {
     const response = await fetch(`/api/users/${userId}/annotations`);
