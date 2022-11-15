@@ -1,0 +1,34 @@
+#pp-outer {
+  width: auto;
+  height: 878px;
+  display: flex;
+  justify-content: center;
+  border: 10px solid red;
+}
+#pp-cover-content-footer-container {
+  border: 10px solid red;
+  width: 45%;
+  height: auto;
+  display: flex;
+  flex-flow: column;
+
+
+}
+#pp-cover-content-footer-container>* {
+  padding: 1em;
+}
+#pp-cover {
+  border: 10px solid pink;
+  height: 100px; /* change up */
+}
+#pp-content {
+  flex: 1;
+  border: 10px solid purple;
+    /* optionnal if you want to keep footer at screen 
+  overflow:auto; */
+
+}
+#pp-footer {
+  border: 10px solid orange;
+
+}

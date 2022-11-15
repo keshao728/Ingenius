@@ -4,11 +4,13 @@ import thunk from 'redux-thunk';
 import session from './session'
 import trackReducer from './tracks';
 import commentReducer from './comments';
+import annotationReducer from './annotations';
 
 const rootReducer = combineReducers({
   session,
   tracks: trackReducer,
-  comments: commentReducer
+  comments: commentReducer,
+  annotations: annotationReducer
 });
 
 
