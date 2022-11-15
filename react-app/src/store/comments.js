@@ -27,10 +27,11 @@ const actionGetComments = (trackId) => {
 
 //create a comment
 
-const actionCreateComment = (comment) => {
+const actionCreateComment = (trackId, commentCreated) => {
     return {
-        type: "CREATE_COMMENT",
-        comment
+        type: CREATE_COMMENT,
+        trackId,
+        commentCreated
     }
 }
 
@@ -38,10 +39,10 @@ const actionCreateComment = (comment) => {
 
 //edit a comment
 
-const actionEditComment = (comment) => {
+const actionEditComment = (commentEdit) => {
     return {
         type: "EDIT_COMMENT",
-        comment
+        commentEdit
     }
 }
 
@@ -77,16 +78,20 @@ export const getAllComments =(trackId) => async (dispatch) => {
 
 //create comment
 
-export const createComment = ({trackId, comment}) => async (dispatch) => {
-    const response = await fetch(`/api/tracks/${trackId}`, {
+export const createComment = (trackId, comment) => async (dispatch) => {
+    console.log("THIS IS TRACK ID IN CREATECOMMENT", trackId)
+    console.log("THIS IS COMMENT IN CREATECOMMENT", comment)
+    const response = await fetch(`/api/tracks/${trackId}/comment`, {
         method: "POST",
         headers: {"Content-Type": "application/json"},
-        body: JSON.stringify({body:comment})
+        body: JSON.stringify(comment)
     })
 
     if (response.ok) {
         const comment = await response.json();
-        await dispatch(actionCreateComment(comment))
+        console.log("THIS IS RESPONSE OK - COMMENT IN CREATECOMMENT", comment)
+        await dispatch(actionCreateComment(trackId, comment))
+        return comment
     }
 }
 
@@ -128,24 +133,19 @@ export const deleteComment = (commentId) => async (dispatch) => {
 
 
 const initialState = {
-    comments: {}
+    comments: {},
+    user:{}
 };
 
 const commentReducer = (state = initialState, action) => {
     let newState
     switch (action.type) {
-        // case GET_ALL_COMMENTS: {
-        //     newState = {};
-        //     action.trackId.forEach(comment => {
-        //         newState[comment.id] = comment
-        //     })
-        //     return newState
-        // }
         case GET_ALL_COMMENTS: {
             let newAllCommentsObject = {}
             newState = {
                 ...state,
-                comments: {...state.comments}
+                comments: {...state.comments},
+                user: {...state.user}
             }
             action.trackId.Comments.forEach(comment => {
                 newAllCommentsObject[comment.id] = comment
@@ -154,9 +154,14 @@ const commentReducer = (state = initialState, action) => {
             return newState
         }
         case CREATE_COMMENT: {
-            newState = {...state}
-            newState[action.comment.id] = action.comment
-            return newState
+            newState = {
+                ...state,
+                comments: {...state.comments},
+                user: {...state.user}
+              }
+              newState.comments[action.commentCreated.id] = action.commentCreated
+              newState.user = action.commentCreated
+              return newState
         }
         case EDIT_COMMENT: {
             newState = {...state}

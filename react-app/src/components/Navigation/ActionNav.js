@@ -1,5 +1,5 @@
 import React from 'react';
-// import { NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import './ActionNav.css'
 import { useSelector } from 'react-redux';
 
@@ -11,15 +11,18 @@ const ActionNav = () => {
     // ADD LINK TO ADD A SONG
     sessionLinks = (
       <div className='main-nav-list'>
-        <div className='main-nav-list-4' id='action-nav-links'>
-          ADD A SONG
-        </div>
+        <NavLink to={`/tracks/new`}>
+          <div className='main-nav-list-4' id='action-nav-links'>
+            ADD A SONG
+          </div>
+        </NavLink>
       </div>
     )
   } else {
     // ADD LINK TO PROMOTE MUSIC PAGE
     sessionLinks = (
       <div className='main-nav-list'>
+        {/* FORCE USER TO SIGN IN */}
         <div className='main-nav-list-4' id='action-nav-links'>
           PROMOTE YOUR MUSIC
         </div>

@@ -55,7 +55,7 @@ function App() {
           <CreateTrack />
         </Route>
 
-        <Route path='/tracks/:trackId'>
+        <Route exact path='/tracks/:trackId'>
           <TrackInfo />
           <Annotation />
           <AllComments />
