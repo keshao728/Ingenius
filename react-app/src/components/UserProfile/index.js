@@ -12,24 +12,40 @@ const UserAnnotations = () => {
   const { userId } = useParams()
   const dispatch = useDispatch()
 
-  const [isLoaded, setIsLoaded ] = useState(false)
+  const [isLoaded, setIsLoaded] = useState(false)
 
   const annotations = Object.values(getAnnotations)
   console.log('ANNOTATIONS', annotations)
 
   useEffect(() => {
     dispatch(getUserAnnotations(userId))
-    .then(() => setIsLoaded(true))
+      .then(() => setIsLoaded(true))
   }, [dispatch, userId])
 
   if (!annotations) {
     return null
   } else {
-    return isLoaded && 
-        annotations.map(annotation => (
-          <div> testing {annotation.id} {annotation.annotation_body}</div>
-        ))
-    
+    return isLoaded &&
+      annotations.map(annotation => (
+        <div id='pp-annotations-outer-container'> testing {annotation.id} {annotation.annotation_body}
+          <div id='pp-annotation-created-at'>
+          </div>
+          <div id='pp-annotation-inner-container'>
+            <div id='pp-annotation-song'>
+              
+
+            </div>
+            <div id='pp-annotation-lyric'>
+
+            </div>
+            <div id='pp-annotation-inner-content'>
+
+            </div>
+          </div>
+        </div>
+
+      ))
+
   }
 }
 
