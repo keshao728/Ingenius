@@ -28,14 +28,15 @@ def comments():
 
 
 @comment_routes('/<int:id>', methods=["POST"])
-def create_comments():
-    track = Track.query.get(id)
+def create_comments(id):
+    # track = Track.query.get(id)
 
     form = CommentForm()
     form['csrf_token'].data = request.cookies['csrf_token']
 
     if form.validate_on_submit():
         comment = Comment(
+            track_id=id,
             comment_body=form.comment_body.data
         )
         db.session.add(comment)

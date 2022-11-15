@@ -27,9 +27,10 @@ const actionGetComments = (trackId) => {
 
 //create a comment
 
-const actionCreateComment = (commentCreated) => {
+const actionCreateComment = (trackId, commentCreated) => {
     return {
         type: CREATE_COMMENT,
+        trackId,
         commentCreated
     }
 }
@@ -86,7 +87,7 @@ export const createComment = ({trackId, comment}) => async (dispatch) => {
 
     if (response.ok) {
         const comment = await response.json();
-        await dispatch(actionCreateComment(comment))
+        await dispatch(actionCreateComment(trackId, comment))
         return comment
     }
 }

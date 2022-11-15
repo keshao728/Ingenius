@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { useState, useEffect } from "react";
 import { NavLink, useParams } from "react-router-dom"
 import { getAllComments, createComment } from "../../store/comments";
-import { getOneTrack } from '../../store/tracks';
+// import { getOneTrack } from '../../store/tracks';
 
 const AllComments = () => {
   const dispatch = useDispatch();
@@ -16,12 +16,12 @@ const AllComments = () => {
   const commentsArr = Object.values(comments);
   // console.log("COMMENTS", commentsArr);
 
-  const [userComments, setUserComments] = useState([]);
+  const [userComments, setUserComments] = useState("");
 
 
   useEffect(() => {
     dispatch(getAllComments(trackId))
-    dispatch(getOneTrack(trackId))
+    // dispatch(getOneTrack(trackId))
   }, [dispatch, trackId])
 
   const handleSubmit = async (e) => {
