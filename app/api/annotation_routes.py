@@ -75,7 +75,7 @@ def annotation_edit(id):
   return {'errors': validation_errors(form.errors), "statusCode": 401}
 
 # DELETE Annotation
-@annotation_routes.route('/annotations/<int:annotationid>', methods=["DELETE"])
+@annotation_routes.route('/annotations/<int:id>', methods=["DELETE"])
 @login_required
 def deleteannotation(id):
   delete_annotation = Annotation.query.get(id)
