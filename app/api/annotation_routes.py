@@ -36,21 +36,27 @@ def annotations_by_userId(user_id):
 
   return annotation_dictionary
 
-# create annotation // NEED TO FIGURE OUT HOW TO SELECT WORDS AND STUFF *NOT FINISHED*
+# CREATE Annotation // NEED TO FIGURE OUT HOW TO SELECT WORDS AND STUFF *NOT FINISHED*
 @annotation_routes.route('/annotation', methods=["POST"])
 @login_required
-def annotation_post():
+def annotation_post(id):
   form = AnnotationForm()
   form['csrf_token'].data = request.cookies['csrf_token']
   if form.validate_on_submit():
-    annotation = Annotation()
-    form.populate_obj(annotation)
+    annotation = Annotation(
+      user_id = current_user.id,
+      track_id = id, 
+      annotation_body = form.annotation_body.data,
+      # startIndex = idk what to put here,
+      # endIndex = idk what to put here,
+    )
+
     db.session.add(annotation)
     db.session.commit()
     return annotation.to_dict()
   return {'errors': validation_errors(form.errors), "statusCode": 401}
 
-# edit annotation
+# EDIT Annotation
 @annotation_routes.route('/annotation', methods=["PUT"])
 @login_required
 def annotation_edit(id):
@@ -61,17 +67,25 @@ def annotation_edit(id):
     return {'errors': 'Unauthorized', 'statusCode':401}
  
   if form.validate_on_submit():
-    annotation.body = form.annotation_body.data
+    annotation.annotation_body = form.annotation_body.data
   
     db.session.commit()
     return annotation.to_dict()
   return {'errors': validation_errors(form.errors), "statusCode": 401}
 
+# DELETE Annotation
+@annotation_routes.route('/<int:id>', methods=["DELETE"])
+@login_required
+def deleteannotation(id):
+  delete_annotation = Annotation.query.get(id)
 
+  if current_user.id != delete_annotation.user_id:
+    return {'errors': 'Unauthorized', 'statusCode': 401}
 
-# @annotation_routes.route('/annotation')
-# def annotation_post():
-# #   form = AnnotationForm()
-# #   return render_template('', form=form)
-#   pass
+  db.session.delete(delete_annotation)
+  db.session.commit()
+  return {
+    "message": "Successfully deleted",
+    "statusCode": 200
+    }
 
