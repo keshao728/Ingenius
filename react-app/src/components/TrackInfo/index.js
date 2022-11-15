@@ -11,7 +11,7 @@ import React from 'react';
 export default function TrackInfo() {
     const { trackId } = useParams()
     const dispatch = useDispatch()
-    const track = useSelector(state => state.track)
+    const track = useSelector(state => state.tracks)
 
     useEffect(() => {
         dispatch(getOneTrack(trackId))
@@ -21,19 +21,23 @@ export default function TrackInfo() {
         <div>
 
             <div>
-                {track.track_title}
+                Track Title: {track.track_title}
             </div>
 
             <div>
-                {track.artist}
+                Track Artist: {track.artist}
             </div>
 
             <div>
-                {track.album}
+                Track Album: {track.album}
             </div>
 
             <div>
+                Track Lyrics:
+                <span>
                 {track.lyrics}
+                </span>
+
             </div>
 
 
