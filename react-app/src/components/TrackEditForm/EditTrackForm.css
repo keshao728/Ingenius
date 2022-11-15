@@ -15,7 +15,7 @@
 }
 
 .edit-track-form-child{
-  margin-bottom: 25px;
+  margin-bottom: 10px;
   width: 300px;
 }
 
@@ -25,7 +25,7 @@
 }
 
 .edit-track-input-box input{
-  width: 95.5%;
+  width: 93%;
   padding-top: 18px;
   padding-left: 10px;
   padding-right: 10px;
@@ -66,7 +66,7 @@
   font-size: 14px;
   display: flex;
   justify-content: center;
-  margin: 0px auto;
+  margin: 10px auto;
   cursor: pointer;
 }
 
