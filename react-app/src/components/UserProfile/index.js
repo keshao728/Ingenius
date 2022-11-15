@@ -8,9 +8,9 @@ import React from 'react';
 const UserAnnotations = () => {
   const getAnnotations = useSelector(state => state.annotations.allAnnotations)
 
-  console.log('GETANNOTATIONS', getAnnotations)
-  const dispatch = useDispatch()
+  console.log('ALLANOTATIONS', getAnnotations)
   const { userId } = useParams()
+  const dispatch = useDispatch()
 
   const [isLoaded, setIsLoaded ] = useState(false)
 
@@ -24,14 +24,11 @@ const UserAnnotations = () => {
   if (!annotations) {
     return null
   } else {
-    return isLoaded (
-      <div>
-        {Object.values(annotations).map(annotation => {
-          <div>{annotation.id}</div>
-        })}
-
-      </div>
-    )
+    return isLoaded && 
+        Object.values(annotations).map(annotation => {
+          <div>{annotation.id} {annotation.annotation_body}</div>
+        })
+    
   }
 }
 
