@@ -33,6 +33,7 @@ const AllComments = () => {
       comment_body: userComments
       // user_id:
     };
+    setUserComments("");
     await dispatch(createComment(trackId, newComment))
   }
 
