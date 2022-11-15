@@ -12,6 +12,7 @@ import HomePage from './components/HomePage/HomePage';
 import AllTracks from './components/Tracks';
 import AllComments from './components/Comments/comments';
 import TrackInfo from './components/TrackInfo';
+import CreateTrack from './components/TrackForm';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -50,6 +51,10 @@ function App() {
         <Route path='/tracks/:trackId'>
           <AllComments />
           <TrackInfo />
+        </Route>
+
+        <Route exact path='/tracks/new'>
+          <CreateTrack />
         </Route>
 
       </Switch>
