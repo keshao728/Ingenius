@@ -5,7 +5,6 @@ import { createAnnotation } from '../../store/annotations';
 
 const AnnotationForm = () => {
   const dispatch = useDispatch();
-
   const [annotation, setAnnotation] = useState('')
   const [validationErrors, setValidationErrors] = useState([])
   const [displayErrors, setDisplayErrors] = useState(false)
@@ -25,7 +24,7 @@ const AnnotationForm = () => {
 
     if (!validationErrors.length) {
       const payload = {
-        'annotation_body': annotation
+        annotation_body: annotation
       }
 
       let newAnnotation = await dispatch(createAnnotation(payload))
@@ -52,13 +51,5 @@ const AnnotationForm = () => {
       </div>
     </form>
   )
-
-
-
-
-
-
-
-
-
 }
+export default AnnotationForm
