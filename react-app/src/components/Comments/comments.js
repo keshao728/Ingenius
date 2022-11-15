@@ -27,7 +27,7 @@ const AllComments = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const newComment = {
-      userComments
+      comment_body: userComments,
     }
     await dispatch(createComment(trackId, newComment))
   }

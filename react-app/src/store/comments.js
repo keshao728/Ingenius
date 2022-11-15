@@ -81,7 +81,7 @@ export const getAllComments =(trackId) => async (dispatch) => {
 export const createComment = (trackId, comment) => async (dispatch) => {
     console.log("THIS IS TRACK ID IN CREATECOMMENT", trackId)
     console.log("THIS IS COMMENT IN CREATECOMMENT", comment)
-    const response = await fetch(`/api/tracks/${trackId}`, {
+    const response = await fetch(`/api/tracks/${trackId}/comment`, {
         method: "POST",
         headers: {"Content-Type": "application/json"},
         body: JSON.stringify(comment)
@@ -89,6 +89,7 @@ export const createComment = (trackId, comment) => async (dispatch) => {
 
     if (response.ok) {
         const comment = await response.json();
+        console.log("THIS IS RESPONSE OK - COMMENT IN CREATECOMMENT", comment)
         await dispatch(actionCreateComment(trackId, comment))
         return comment
     }

@@ -1,4 +1,5 @@
 from flask import Blueprint, render_template, redirect, jsonify, request
+from flask_login import login_required
 from ..models import db, Track, Comment, Annotation, Vote, User
 from ..models.db import db
 from ..forms import CommentForm
@@ -27,22 +28,23 @@ def comments():
     return jsonify(comment_list)
 
 
-@comment_routes.route('/<int:id>', methods=["POST"])
-def create_comments(id):
-    # track = Track.query.get(id)
+# @comment_routes.route('/<int:id>/comment', methods=["POST"])
+# @login_required
+# def create_comments(id):
+#     # track = Track.query.get(id)
 
-    form = CommentForm()
-    form['csrf_token'].data = request.cookies['csrf_token']
-
-    if form.validate_on_submit():
-        comment = Comment(
-            track_id=id,
-            comment_body=form.comment_body.data
-        )
-        db.session.add(comment)
-        db.session.commit()
-        return comment.to_dict()
-    return {'errors': validation_errors(form.errors), "statusCode": 401}
+#     form = CommentForm()
+#     form['csrf_token'].data = request.cookies['csrf_token']
+#     print("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\------------------------------------------abfdjkhbdkawjbdawkhk", request.json)
+#     if form.validate_on_submit():
+#         comment = Comment(
+#             track_id=id,
+#             comment_body=form.comment_body.data
+#         )
+#         db.session.add(comment)
+#         db.session.commit()
+#         return comment.to_dict()
+#     return {'errors': validation_errors(form.errors), "statusCode": 401}
 
 
 
