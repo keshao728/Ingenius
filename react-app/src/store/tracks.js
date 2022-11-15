@@ -10,6 +10,8 @@ const EDIT_TRACK = 'tracks/editTrack';
 
 const DELETE_TRACK = 'tracks/deleteTrack';
 
+const RESET_TRACK = 'tracks/resetTrack';
+
 
 
 
@@ -72,6 +74,13 @@ const actionDeleteTrack = (track) => {
 }
 
 
+// reset track
+
+export const actionResetTrack = () => ({
+    type: RESET_TRACK
+})
+
+
 //thunks
 
 // get all tracks
@@ -130,9 +139,9 @@ export const createTrack = (track) => async dispatch => {
 
 // edit track
 
-export const editTrack = (track) => async dispatch => {
-    const response = await fetch(`/api/tracks/${track.id}`, {
-        method: 'POST',
+export const editTrack = (track, trackId) => async dispatch => {
+    const response = await fetch(`/api/tracks/${trackId}`, {
+        method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(track)
     });
@@ -209,6 +218,10 @@ export const trackReducer = (state = initialState, action) => {
             delete newState[action.track.id]
             return newState
         }
+
+        case RESET_TRACK:
+            return initialState
+
         default:
             return state
     }

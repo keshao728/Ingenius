@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useHistory } from 'react-router-dom'
-import { editTrack, getOneTrack } from '../../store/tracks'
+import { editTrack, getOneTrack, actionResetTrack } from '../../store/tracks'
 import { useParams } from 'react-router-dom'
 
 
@@ -18,32 +18,35 @@ export default function EditTrack({ setModalOpen }) {
     const [artist, setArtist] = useState(track.artist)
     const [releaseDate, setReleaseDate] = useState(track.releaseDate)
     const [producedBy, setProducedBy] = useState(track.producedBy)
-    // const [lyrics, setLyrics] = useState(track.lyrics)
+    const [lyrics, setLyrics] = useState(track.lyrics)
     const [trackArt, setTrackArt] = useState(track.trackArt)
     const [trackUrl, setTrackUrl] = useState(track.trackUrl)
     const [errors, setErrors] = useState([])
 
     const [displayErrors, setDisplayErrors] = useState(false);
 
-    let validate = () => {
-        let validationErrors = [];
+    // let validate = () => {
+    //     let validationErrors = [];
 
-        setErrors(validationErrors);
+    //     setErrors(validationErrors);
 
-        if (validationErrors.length) setDisplayErrors(true)
+    //     if (validationErrors.length) setDisplayErrors(true)
 
-        return validationErrors
+    //     return validationErrors
 
-    }
+    // }
 
 
-    useEffect(() => {
-        if (displayErrors) validate()
-    }, [])
+    // useEffect(() => {
+    //     if (displayErrors) validate()
+    // }, [])
 
 
     useEffect(() => {
         dispatch(getOneTrack(id))
+
+        return () => dispatch(getOneTrack(id))
+        // return () => dispatch(actionResetTrack())
     }, [dispatch, id])
 
 
@@ -54,21 +57,22 @@ export default function EditTrack({ setModalOpen }) {
         if (!errors.length) {
             setErrors([])
             setDisplayErrors(false)
-            let validationErrors = validate()
-            if (validationErrors.length) return
+            // let validationErrors = validate()
+            // if (validationErrors.length) return
             setModalOpen(false)
 
             const trackEdits = {
+                id,
                 track_title: trackTitle,
                 artist,
                 release_date: releaseDate,
                 produced_by: producedBy,
-                // lyrics,
+                lyrics,
                 track_art: trackArt,
                 track_url: trackUrl
             }
 
-            return dispatch(editTrack(trackEdits)).catch(async (res) => {
+            return dispatch(editTrack(trackEdits, id)).catch(async (res) => {
                 const data = await res.json()
                 if (data && data.errors) setErrors(data.errors)
 
