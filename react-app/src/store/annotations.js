@@ -89,10 +89,11 @@ const actionDeleteAnnotation = (commendId) => {
 // }
  // get all user annotations
 export const getUserAnnotations = (userId) => async dispatch => {
-    const response = await fetch(`/api/annotations/${userId}`);
+    const response = await fetch(`/api/user/${userId}/annotations`);
     if (response.ok) {
         const annotations = await response.json();
         await dispatch(actionGetUserAnnotations(annotations));
+        console.log('IS IT WORKING YET', annotations)
         return annotations
     }
     return null

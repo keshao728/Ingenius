@@ -6,7 +6,7 @@ import React from 'react';
 
 
 const UserAnnotations = () => {
-  const getAnnotations = useSelector(state => state.annotations.getUserAnnotations)
+  const getAnnotations = useSelector(state => state.annotations.allAnnotations)
 
   console.log('GETANNOTATIONS', getAnnotations)
   const dispatch = useDispatch()
