@@ -1,0 +1,76 @@
+.edit-track-message {
+  display: flex;
+  font-size: 30px;
+  font-weight: bold;
+  padding: 0px 10px;
+  margin-bottom: 30px;
+  justify-content: center;
+}
+
+.edit-track-form-wrapper{
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  padding: 50px 50px;
+}
+
+.edit-track-form-child{
+  margin-bottom: 25px;
+  width: 300px;
+}
+
+.edit-track-input-box{
+  position: relative;
+  width: 100%;
+}
+
+.edit-track-input-box input{
+  width: 95.5%;
+  padding-top: 18px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 5px;
+  font-size: 16px;
+  margin-bottom: 20px;
+  border: 1px solid black;
+  background: transparent;
+  font: inherit;
+  color: black;
+}
+
+.edit-track-input-box label{
+  position: absolute;
+  top: 2px;
+  left: 0;
+  padding: 10px;
+  font-size: 16px;
+  pointer-events: none;
+  transition:.5s;
+  color: black;
+}
+
+.edit-track-input-box input:valid + label,
+.edit-track-input-box input:focus + label{
+  font-size: 10px;
+  top: -6px;
+}
+
+.submit-cancel-edit-track-button{
+  border: 1px solid black;
+  border-radius: 25px;
+  font-size: 20px;
+  width: 150px;
+  padding: 10px 15px;
+  font-weight: bold;
+  background: none;
+  font-size: 14px;
+  display: flex;
+  justify-content: center;
+  margin: 0px auto;
+  cursor: pointer;
+}
+
+.submit-cancel-edit-track-button:hover{
+  background-color: black;
+  color: white;
+}
