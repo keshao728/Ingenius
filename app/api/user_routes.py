@@ -29,8 +29,12 @@ def user(id):
 # user annotations [CARE: ROUTE (USERNAME? ID? WHAAT)]
 @user_routes.route('/<int:id>/annotations')
 @login_required
-def annotations_by_userId(user_id):
-    user_annotations = Annotation.query.filter(Annotation.user_id == user_id).all()
+def annotations_by_userId(id):
+    # user = Annotation.query.get(user_id)
+    # print('annotationUSER<========',user)
+    user_annotations = Annotation.query.filter(Annotation.user_id == id).all()
+    print('userANNOTATIONS', user_annotations)
     annotation_dictionary = [annotation.to_dict() for annotation in user_annotations]
-
-    return annotation_dictionary
+    # print(annotation_dictionary)
+    print('annotation_dictionary', annotation_dictionary)
+    return {'data': annotation_dictionary}
