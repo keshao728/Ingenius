@@ -16,6 +16,7 @@ export default function EditTrack({ setModalOpen }) {
     const [id, setId] = useState(track.id)
     const [trackTitle, setTrackTitle] = useState(track.track_title)
     const [artist, setArtist] = useState(track.artist)
+    const [album, setAlbum] = useState(track.album)
     const [releaseDate, setReleaseDate] = useState(track.releaseDate)
     const [producedBy, setProducedBy] = useState(track.producedBy)
     const [lyrics, setLyrics] = useState(track.lyrics)
@@ -65,6 +66,7 @@ export default function EditTrack({ setModalOpen }) {
                 id,
                 track_title: trackTitle,
                 artist,
+                album,
                 release_date: releaseDate,
                 produced_by: producedBy,
                 lyrics,
@@ -101,6 +103,13 @@ export default function EditTrack({ setModalOpen }) {
                 <div>
                     <label>
                         <input className="" type="text" value={artist} placeholder={artist || "Enter artist name"} required onChange={(e) => setArtist(e.target.value)} />
+                    </label>
+                </div>
+
+
+                <div>
+                    <label>
+                        <input className="" type="text" value={album} placeholder={album || "Enter album name"} required onChange={(e) => setAlbum(e.target.value)} />
                     </label>
                 </div>
 

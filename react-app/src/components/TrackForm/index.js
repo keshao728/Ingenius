@@ -141,7 +141,6 @@ export default function CreateTrack() {
                             type="text"
                             value={trackUrl}
                             placeholder="Track Url"
-                            required
                             onChange={(e) => setTrackUrl(e.target.value)} />
                     </div>
 
@@ -156,7 +155,7 @@ export default function CreateTrack() {
                             required
                             onChange={(e) => setLyrics(e.target.value)} /> */}
 
-                            <textarea id="trackForm" cols="50" rows='30' name="trackFormLyrics"></textarea>
+                            <textarea value={lyrics} onChange={(e) => setLyrics(e.target.value)} id="trackForm" cols="50" rows='30' name="trackFormLyrics"></textarea>
                     </div>
 
                     <div>
