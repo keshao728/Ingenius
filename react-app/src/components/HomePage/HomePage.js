@@ -23,8 +23,35 @@ const HomePage = () => {
   const tracks = useSelector(state => state.tracks.allTracks)
   const allTracks = Object.values(tracks)
 
-  const ref = useRef(null)
-  
+  //FEATURE REF
+  //we want ref here bc it holds the ele we wanna scroll to
+  const featureRef = useRef(null)
+
+  //references da ref we wanna scroll to
+  const featureRefScroll = (e) => {
+    e.preventDefault();
+    featureRef.current.scrollIntoView({ behavior: "smooth" });
+  };
+
+  //CHARTS REF
+  const chartsRef = useRef(null)
+
+  const chartsRefScroll = (e) => {
+    e.preventDefault();
+    chartsRef.current.scrollIntoView({ behavior: "smooth" });
+  };
+
+  //VIDEO REF
+  const videoRef = useRef(null)
+
+  const videoRefScroll = (e) => {
+    e.preventDefault();
+    videoRef.current.scrollIntoView({ behavior: "smooth" });
+  }
+
+
+
+
   useEffect(() => {
     dispatch(getAllTracks())
       .then(() => dispatch(getAllTracks()))
@@ -36,15 +63,16 @@ const HomePage = () => {
     // FEATURES - ALL PLACEHOLDERS RN!!!!!!!!!
     <div>
       <NavBar />
-      <ActionNav />
-      <div className="featured-page" id="featured-page-id">
+      <ActionNav
+        featureRefScroll={featureRefScroll}
+        chartsRefScroll={chartsRefScroll}
+        videoRefScroll={videoRefScroll}
+      />
+      <div className="featured-page" id="featured-page-id" ref={featureRef}>
         <div className="top-feature">
           <div className="top-feature-left">
             <div className="top-feature-news" >
-              {/* <section id="featured-page-id"> */}
               NEWS
-
-              {/* </section> */}
             </div>
             <div className="top-feature-news-wrapper">
               <div className="top-feature-title">
@@ -113,7 +141,7 @@ const HomePage = () => {
       </div>
 
       {/* CHARTS - ALL PLACEHOLDERS RN!!!!!!!!! */}
-      <div className="chart-page" id="chart-id">
+      <div className="chart-page" id="chart-id" ref={chartsRef}>
         <div className="chart-heading">CHARTS</div>
         {allTracks.map((track) => {
           return (
@@ -153,7 +181,7 @@ const HomePage = () => {
       </div>
 
       {/* VIDEOS - ALL PLACEHOLDERS RN!!!!!!!!! */}
-      <div className="video-page">
+      <div className="video-page" ref={videoRef}>
         <div className="video-wrapper">
           <div className="video-title">
             VIDEOS

@@ -1,13 +1,11 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import { HashLink } from 'react-router-hash-link';
+// import { HashLink } from 'react-router-hash-link';
 import './ActionNav.css'
 
-const ActionNav = (ref) => {
+const ActionNav = (props) => {
   const sessionUser = useSelector(state => state.session.user);
-
-  
 
   let sessionLinks;
   if (sessionUser) {
@@ -35,17 +33,26 @@ const ActionNav = (ref) => {
   return (
     <div className="main-nav">
       <div className="main-nav-list">
-        <div className="main-nav-list-1" id='action-nav-links'>
-          {/* <HashLink to={'/tracks/new'}> */}
-            FEATURED
-          {/* </HashLink> */}
+        <div
+          className="main-nav-list-1"
+          id='action-nav-links'
+          onClick={(props.featureRefScroll)}
+        >
+          FEATURED
         </div>
 
-        <div className="main-nav-list-2" id='action-nav-links'>
+        <div
+          className="main-nav-list-2"
+          id='action-nav-links'
+          onClick={(props.chartsRefScroll)}>
           CHARTS
         </div>
 
-        <div className="main-nav-list-3" id='action-nav-links'>
+        <div
+        className="main-nav-list-3"
+        id='action-nav-links'
+        onClick={(props.videoRefScroll)}
+        >
           VIDEOS
         </div>
         <div>

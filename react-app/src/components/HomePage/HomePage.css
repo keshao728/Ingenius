@@ -27,12 +27,13 @@
 }
 
 .top-feature-news {
-  position: absolute;
-  top:170px;
-  background-color: white;
-  padding-right: 10px;
-  font-size: 12px;
-  font-weight: bold;
+    position: relative;
+    bottom: -8px;
+    width: 35px;
+    background-color: white;
+    padding-right: 10px;
+    font-size: 12px;
+    font-weight: bold;
 }
 
 .top-feature-news-wrapper {
@@ -381,9 +382,19 @@
   font-size: 20px;
 }
 
-#latest-dev {
+/* #latest-dev {
   position: absolute;
   top: 2676px;
+  background-color: white;
+  padding-right: 10px;
+  font-size: 12px;
+  font-weight: bold;
+} */
+
+#latest-dev {
+  position: relative;
+  top: -10px;
+  width: 20px;
   background-color: white;
   padding-right: 10px;
   font-size: 12px;
