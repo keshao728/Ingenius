@@ -58,9 +58,10 @@ export default function TrackInfo() {
 
             <div>
                 Track Lyrics:
-                <span>
-                    {track.lyrics}
-                </span>
+
+                <div>
+                    {track.lyrics?.split('\n').map(chunk => <div key={chunk}>{chunk}</div>)}
+                </div>
 
             </div>
 
