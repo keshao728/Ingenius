@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useParams, useHistory, Link, NavLink } from 'react-router-dom';
 import { getOneTrack } from '../../store/tracks';
 import EditTrackModal from '../TrackEditForm/index';
+import DeleteTrackModal from '../TrackDelete/index';
 import { actionResetTrack } from '../../store/tracks';
 import ReactPlayer from 'react-player'
 
@@ -26,6 +27,7 @@ export default function TrackInfo() {
     return (
         <div>
             {user?.id === track.user_id && <EditTrackModal />}
+            {user?.id === track.user_id && <DeleteTrackModal />}
 
             <div>
                 <img src={track.track_art}></img>
