@@ -229,11 +229,11 @@ const HomePage = () => {
 
             </div>
           </div>
-          <div className="video-button">
+          {/* <div className="video-button">
             <button className="video-load-more">
               LOAD MORE
             </button>
-          </div>
+          </div> */}
         </div>
       </div>
 
@@ -370,11 +370,11 @@ const HomePage = () => {
 
           </div>
         </div>
-        <div className="latest-button">
+        {/* <div className="latest-button">
           <button className="latest-load-more">
             LOAD MORE
           </button>
-        </div>
+        </div> */}
       </div>
 
 
