@@ -237,10 +237,10 @@ const HomePage = () => {
       <div className="latest-page">
         <div className="latest-wrapper">
           <div className="latest-title">
-            LATEST
+            FULL STACK DEVS
           </div>
           <div className="latest-des">
-            MOST RECENT NEWS
+            HOVER OVER TO SEE MORE INFO
           </div>
         </div>
 
