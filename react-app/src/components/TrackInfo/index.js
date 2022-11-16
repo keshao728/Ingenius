@@ -43,7 +43,10 @@ export default function TrackInfo() {
             </div>
 
             <div>
-                Track Release Date: {track.release_date}
+                Track Release Date:
+                <div>
+                    {track.release_date?.split(' ').slice(0, -2).slice(1).join(' ')}
+                </div>
             </div>
 
             <div>
@@ -53,7 +56,7 @@ export default function TrackInfo() {
             <div>
                 Track Lyrics:
                 <span>
-                {track.lyrics}
+                    {track.lyrics}
                 </span>
 
             </div>
