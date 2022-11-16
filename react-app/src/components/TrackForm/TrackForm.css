@@ -181,3 +181,12 @@ li {
 #errors-list > li{
   color: red;
 }
+
+.add-song-submit{
+  background-color: #262626;
+  color: white;
+  padding: 6px 10px;
+  font-size: 12px;
+  font-weight: bold;
+  margin-bottom: 50px;
+}

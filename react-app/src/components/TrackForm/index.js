@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import { useParams, Redirect } from 'react-router-dom'
+
 import { createTrack } from '../../store/tracks';
 import { useHistory } from 'react-router-dom';
 import "./TrackForm.css"
@@ -7,6 +9,8 @@ import "./TrackForm.css"
 export default function CreateTrack() {
   const dispatch = useDispatch()
   const history = useHistory()
+  const sessionUser = useSelector(state => state.session.user)
+
 
 
   const date = new Date();
@@ -24,6 +28,7 @@ export default function CreateTrack() {
   const [trackUrl, setTrackUrl] = useState('')
   const [errors, setErrors] = useState([])
   const [displayErrors, setDisplayErrors] = useState(false);
+
 
 
 
@@ -45,8 +50,11 @@ export default function CreateTrack() {
 
   useEffect(() => {
     if (displayErrors) validate()
-}, [trackTitle, artist, lyrics, displayErrors])
+  }, [trackTitle, artist, lyrics])
 
+  if (!sessionUser) {
+    return <Redirect to="/" />
+  }
 
   const handleSubmit = async (e) => {
     e.preventDefault()
@@ -94,51 +102,51 @@ export default function CreateTrack() {
             </div>
             <div className='add-song-primary'>
 
-            <div className='add-song-lyric-info'>
+              <div className='add-song-lyric-info'>
 
-              <div className='add-by-title-album'>
+                <div className='add-by-title-album'>
 
 
-                <div className='add-song-input-box'>
-                  <label>BY *</label>
-                  <input
-                    className='add-song-input'
-                    type="text"
-                    value={artist}
-                    placeholder="The primary artist, author, creator, etc."
-                    onChange={(e) => setArtist(e.target.value)} />
+                  <div className='add-song-input-box'>
+                    <label>BY *</label>
+                    <input
+                      className='add-song-input'
+                      type="text"
+                      value={artist}
+                      placeholder="The primary artist, author, creator, etc."
+                      onChange={(e) => setArtist(e.target.value)} />
+                  </div>
+
+                  <div className='add-song-input-box'>
+                    <label>TITLE *</label>
+                    <input
+                      type="text"
+                      className='add-song-input'
+                      value={trackTitle}
+                      placeholder="Track Title"
+                      required
+                      onChange={(e) => setTrackTitle(e.target.value)} />
+                  </div>
+
+
+                  <div className='add-song-input-box'>
+                    <label>ALBUM</label>
+                    <input
+                      className='add-song-input'
+                      type="text"
+                      value={album}
+                      placeholder="Album"
+                      onChange={(e) => setAlbum(e.target.value)} />
+                  </div>
+
                 </div>
 
-                <div className='add-song-input-box'>
-                  <label>TITLE *</label>
-                  <input
-                    type="text"
-                    className='add-song-input'
-                    value={trackTitle}
-                    placeholder="Track Title"
-                    required
-                    onChange={(e) => setTrackTitle(e.target.value)} />
+                <div className='add-by-title-album'>
+                  <ul id='errors-list'>
+                    {errors && errors.map((error, idx) => <li key={idx}>{error}</li>)}
+                  </ul>
                 </div>
-
-
-                <div className='add-song-input-box'>
-                  <label>ALBUM</label>
-                  <input
-                    className='add-song-input'
-                    type="text"
-                    value={album}
-                    placeholder="Album"
-                    onChange={(e) => setAlbum(e.target.value)} />
-                </div>
-
               </div>
-
-              <div className='add-by-title-album'>
-                <ul id='errors-list'>
-                  {errors && errors.map((error, idx) => <li key={idx}>{error}</li>)}
-                </ul>
-              </div>
-            </div>
 
               <div className='add-song-lyric-info'>
                 <div className='add-song-input-box' id='add-song-lyric'>
@@ -236,7 +244,7 @@ export default function CreateTrack() {
             </div>
           </div>
           <div>
-            <button type="submit">Create Track</button>
+            <button className="add-song-submit" type="submit">Submit</button>
           </div>
         </div>
       </form>

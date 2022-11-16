@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import LogoutButton from '../auth/LogoutButton';
 import logo from './NavImage/logo.png';
@@ -10,28 +10,56 @@ import LoginForm from '../auth/LoginForm';
 
 const NavBar = () => {
   const sessionUser = useSelector(state => state.session.user);
-  console.log("THIS IS SESSION USER IN NAVBAR", sessionUser)
-  // const sessionUserId = useSelector(state => state.session.user.id);
+  const [showMenu, setShowMenu] = useState(false);
+
+  const openMenu = () => {
+    if (showMenu) return;
+    setShowMenu(true);
+  };
+
+  useEffect(() => {
+    if (!showMenu) return;
+
+    const closeMenu = () => {
+      setShowMenu(false);
+    };
+
+    document.addEventListener('click', closeMenu);
+
+    return () => document.removeEventListener("click", closeMenu);
+  }, [showMenu]);
+
+
   let sessionLinks;
   if (sessionUser) {
     sessionLinks = (
       //Signed in user - profile pic and drop down(logout button + view profile)
       <div className='session-right-nav' id="navs">
-        <NavLink to={`/users/${sessionUser.id}`}>
-
           <img
+          onClick={openMenu}
             className='profile-pic'
             src="https://drive.google.com/uc?export=view&id=1e6AIQpUAr0_HcNJNaptcQAHEdO5aib5k"
             alt="Default Profile"
           >
-
           </img>
-        </NavLink>
-        {/* ADD A DROP DOWN HERE */}
-        <div>
-          <LogoutButton />
-        </div>
-      </div>
+
+        {showMenu && (
+          <div>
+            <div>
+              <NavLink to={`/users/${sessionUser.id}`}>
+                <button className='drop-down-user-profile'>
+                  View Profile
+                  </button>
+              </NavLink>
+            </div>
+            <div>
+               <LogoutButton>
+                Sign Out
+               </LogoutButton>
+            </div>
+          </div>
+        )}
+      </div >
     )
   }
 

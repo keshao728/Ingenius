@@ -49,13 +49,11 @@ const HomePage = () => {
     videoRef.current.scrollIntoView({ behavior: "smooth" });
   }
 
-  //DEV REF
-  const devRef = useRef(null)
 
-  const devRefScroll = (e) => {
-    e.preventDefault();
-    devRef.current.scrollIntoView({ behavior: "smooth" });
-  }
+  // const devRefScroll = (e) => {
+  //   e.preventDefault();
+  //   devRef.current.scrollIntoView({ behavior: "smooth" });
+  // }
 
 
   useEffect(() => {
@@ -188,7 +186,7 @@ const HomePage = () => {
       </div>
 
       {/* VIDEOS - ALL PLACEHOLDERS RN!!!!!!!!! */}
-      <div className="video-page" ref={videoRef}>
+      <div className="video-page" ref={videoRef} id='testing'>
         <div className="video-wrapper">
           <div className="video-title">
             VIDEOS
@@ -229,11 +227,11 @@ const HomePage = () => {
 
             </div>
           </div>
-          <div className="video-button">
+          {/* <div className="video-button">
             <button className="video-load-more">
               LOAD MORE
             </button>
-          </div>
+          </div> */}
         </div>
       </div>
 
@@ -370,11 +368,11 @@ const HomePage = () => {
 
           </div>
         </div>
-        <div className="latest-button">
+        {/* <div className="latest-button">
           <button className="latest-load-more">
             LOAD MORE
           </button>
-        </div>
+        </div> */}
       </div>
 
 
@@ -392,3 +390,8 @@ const HomePage = () => {
 }
 
 export default HomePage;
+
+// const devRefScroll = (e) => {
+//   e.preventDefault();
+//   devRef.current.scrollIntoView({ behavior: "smooth" });
+// }
