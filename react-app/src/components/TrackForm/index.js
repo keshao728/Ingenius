@@ -202,7 +202,7 @@ export default function CreateTrack() {
             </div>
           </div>
           <div>
-            <button type="submit">Create Track</button>
+            <button className="add-song-submit" type="submit">Submit</button>
           </div>
         </div>
       </form>
