@@ -74,11 +74,12 @@
 
 .user-contributions-title {
   text-transform: uppercase;
-  font-size: small;
-  font-weight: bold;
-  color: rgb(187, 187, 187);
+  font-size: 12px;
+  font-weight:600;
+  color: darkgray;
   margin-top: 15px;
   padding-bottom: 10px;
+  padding-left: 7px;
   border-bottom: 1px solid lightgray;
 }
 
