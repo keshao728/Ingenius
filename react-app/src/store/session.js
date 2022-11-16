@@ -2,6 +2,8 @@
 const SET_USER = 'session/SET_USER';
 const REMOVE_USER = 'session/REMOVE_USER';
 const GET_USER_INFORMATION = 'session/getAllAnnotations';
+const EDIT_ANNOTATION = 'annotations/editAnnotation';
+const DELETE_ANNOTATION = 'annotations/deleteAnnotation';
 
 
 const setUser = (user) => ({
@@ -17,6 +19,20 @@ const actionGetUserInfo = (payload) => {
   return {
       type: GET_USER_INFORMATION,
       payload
+  }
+}
+
+const actionEditAnnotation = (annotation) => {
+  return {
+      type: EDIT_ANNOTATION,
+      annotation
+  }
+}
+
+const actionDeleteAnnotation = (annotation) => {
+  return {
+      type: DELETE_ANNOTATION,
+      annotation
   }
 }
 
@@ -121,6 +137,32 @@ export const getUserInfo = (userId) => async dispatch => {
   return null
 }
 
+//edit a annotation
+export const editAnnotation = (annotation) => async (dispatch) => {
+  const response = await fetch(`/api/annotations/${annotation.id}`, {
+      method: "PUT",
+      headers: {"Content-Type": "application/json"},
+      body: JSON.stringify(annotation)
+  })
+
+  if (response.ok) {
+      const editedAnnotation = await response.json();
+      await dispatch(actionEditAnnotation(editedAnnotation))
+      return editedAnnotation
+  }
+}
+
+//delete annotation
+export const deleteAnnotation = (annotationId) => async (dispatch) => {
+  const response = await fetch(`/api/annotations/${annotationId}`, {
+      method: "DELETE",
+  })
+  if (response.ok) {
+      dispatch(actionDeleteAnnotation(annotationId));
+  }
+  return null
+}
+
 export default function reducer(state = initialState, action) {
   let newState;
   switch (action.type) {
@@ -162,7 +204,15 @@ export default function reducer(state = initialState, action) {
       newState.votes = votes
       console.log('NEWNEWSTATESTATE', newState)
       return newState
+    case EDIT_ANNOTATION: 
+      newState = {...state, annotations: {...state.annotations}}
+      newState.annotations[action.annotation.id] = action.annotation
 
+      return newState
+    case DELETE_ANNOTATION:
+      newState = {...state, annotations: {...state.annotations}}
+      delete newState.annotations[action.annotation]
+      return newState
     default:
       return state;
   }

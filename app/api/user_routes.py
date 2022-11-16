@@ -59,7 +59,7 @@ def annotations_by_userId(id):
         E
         ''',
         user_dictionary)
-    users = User.query.get(id)
+    current_user = User.query.get(id)
     current_user_annotations = current_user.user_annotation
     current_user_tracks = current_user.user_track
     current_user_comment = current_user.user_comment
@@ -103,7 +103,7 @@ def annotations_by_userId(id):
     #     me
     #     me
 
-    return {'annotations': annotation_dictionary}
+    # return {'annotations': annotation_dictionary}
     #     ''',
     #     annotation_dictionary)
     # # votes = Vote.query.filter(Vote.user_id == id).all()

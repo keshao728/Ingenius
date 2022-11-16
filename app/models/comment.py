@@ -33,5 +33,6 @@ class Comment(db.Model):
             "comment_user": self.comment_user.to_dict(),
             "comment_body": self.comment_body,
             "created_at": self.created_at,
-            "updated_at": self.updated_at
+            "updated_at": self.updated_at,
+            "commentter": self.comment_user.to_dict()
         }

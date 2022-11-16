@@ -1,11 +1,13 @@
 #pp-annotations-outer-container {
   border: 2px solid red;
-  width: 100%;
+  /* width: fit; */
   height: fit-content;
+  background-color: white;
+  margin: 12px 5px;
 }
 
 #pp-annotation-created-at {
-
+  background-color:floralwhite;
 }
 
 #pp-annotation-inner-container {

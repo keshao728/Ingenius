@@ -1,7 +1,8 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import './ActionNav.css'
 import { useSelector } from 'react-redux';
+import { HashLink } from 'react-router-hash-link';
+import './ActionNav.css'
 
 const ActionNav = () => {
   const sessionUser = useSelector(state => state.session.user);
@@ -34,7 +35,9 @@ const ActionNav = () => {
     <div className="main-nav">
       <div className="main-nav-list">
         <div className="main-nav-list-1" id='action-nav-links'>
-          FEATURED
+          <HashLink to={'/tracks/new'}>
+            FEATURED
+          </HashLink>
         </div>
 
         <div className="main-nav-list-2" id='action-nav-links'>

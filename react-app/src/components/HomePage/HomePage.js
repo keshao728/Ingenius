@@ -30,7 +30,7 @@ const HomePage = () => {
   return isLoaded && (
     // FEATURES - ALL PLACEHOLDERS RN!!!!!!!!!
     <div>
-      <div className="featured-page">
+      <div className="featured-page" id="featured-page-id">
         <div className="top-feature">
           <div className="top-feature-left">
             <div className="top-feature-news">
