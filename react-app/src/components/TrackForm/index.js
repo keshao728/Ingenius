@@ -7,7 +7,6 @@ import "./TrackForm.css"
 export default function CreateTrack() {
   const dispatch = useDispatch()
   const history = useHistory()
-  // const user = useSelector((state) => state.session.user);
 
 
   const date = new Date();
@@ -15,7 +14,6 @@ export default function CreateTrack() {
   date.setDate(futureDate);
   const defaultDate = date.toLocaleDateString('en-CA');
 
-  // const [userId, setUserId] = useState(user.id)
   const [trackTitle, setTrackTitle] = useState('')
   const [artist, setArtist] = useState('')
   const [album, setAlbum] = useState('')
