@@ -4,12 +4,13 @@ import { useSelector } from 'react-redux';
 import { HashLink } from 'react-router-hash-link';
 import './ActionNav.css'
 
-const ActionNav = () => {
+const ActionNav = (ref) => {
   const sessionUser = useSelector(state => state.session.user);
+
+  
 
   let sessionLinks;
   if (sessionUser) {
-    // ADD LINK TO ADD A SONG
     sessionLinks = (
       <div className='main-nav-list'>
         <NavLink to={`/tracks/new`}>

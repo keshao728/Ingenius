@@ -1,17 +1,19 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import andrew from "./HomePageImage/andrew.png"
 import kelly from "./HomePageImage/kelly.png"
 import schaeffer from "./HomePageImage/schaeffer.png"
 import simon from "./HomePageImage/simon.png"
 import fries from "./HomePageImage/Fries.png"
-import './HomePage.css'
 import NavBar from '../Navigation/NavBar';
 import ActionNav from '../Navigation/ActionNav';
+
 
 import { useSelector, useDispatch } from "react-redux";
 import { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom"
 import { getAllTracks } from '../../store/tracks';
+
+import './HomePage.css'
 
 const HomePage = () => {
   const dispatch = useDispatch();
@@ -21,7 +23,8 @@ const HomePage = () => {
   const tracks = useSelector(state => state.tracks.allTracks)
   const allTracks = Object.values(tracks)
 
-
+  const ref = useRef(null)
+  
   useEffect(() => {
     dispatch(getAllTracks())
       .then(() => dispatch(getAllTracks()))
