@@ -16,3 +16,14 @@ class Vote(db.Model):
 
   vote_user = db.relationship('User', back_populates='user_vote')
   vote_annotation = db.relationship('Annotation', back_populates='annotation_vote')
+
+
+  def to_dict(self):
+    return {
+      "id": self.id,
+      "annotation_id": self.annotation_id,
+      "user_id": self.user_id,
+      "vote": self.vote,
+      "created_at": self.created_at,
+      "updated_at": self.updated_at
+    }
