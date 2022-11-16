@@ -598,3 +598,18 @@ figure figcaption button {
     padding: 0 2%;
   }
 }
+
+.fa-brands{
+font-size: 50px;
+color: white;
+}
+
+.fa-brands:hover{
+  color: #FCFF68;
+}
+
+.dev-socials{
+display: flex;
+justify-content: center;
+gap: 20px
+}
