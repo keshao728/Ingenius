@@ -35,27 +35,30 @@ const NavBar = () => {
     sessionLinks = (
       //Signed in user - profile pic and drop down(logout button + view profile)
       <div className='session-right-nav' id="navs">
-          <img
+        <img
           onClick={openMenu}
-            className='profile-pic'
-            src="https://drive.google.com/uc?export=view&id=1e6AIQpUAr0_HcNJNaptcQAHEdO5aib5k"
-            alt="Default Profile"
-          >
-          </img>
+          className='profile-pic'
+          src="https://drive.google.com/uc?export=view&id=1e6AIQpUAr0_HcNJNaptcQAHEdO5aib5k"
+          alt="Default Profile"
+        >
+        </img>
 
         {showMenu && (
-          <div>
+          <div className='user-dropdown-menu'>
+            <div className='user-account-text'>ACCOUNT</div>
             <div>
               <NavLink to={`/users/${sessionUser.id}`}>
-                <button className='drop-down-user-profile'>
+                <button className='drop-down-button' id="drop-user-profile">
                   View Profile
-                  </button>
+                </button>
               </NavLink>
             </div>
             <div>
-               <LogoutButton>
-                Sign Out
-               </LogoutButton>
+              <div>
+                <LogoutButton className='drop-down-button'>
+                  Sign Out
+                </LogoutButton>
+              </div>
             </div>
           </div>
         )}
