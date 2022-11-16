@@ -123,7 +123,7 @@ export const getUserTracks = () => async dispatch => {
 // create track
 
 export const createTrack = (track) => async dispatch => {
-    const response = await fetch('/api/tracks', {
+    const response = await fetch('/api/tracks/new', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(track)

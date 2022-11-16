@@ -27,6 +27,10 @@ export default function TrackInfo() {
             {user?.id === track.user_id && <EditTrackModal />}
 
             <div>
+                Track Art: {track.track_art}
+            </div>
+
+            <div>
                 Track Title: {track.track_title}
             </div>
 
@@ -39,11 +43,23 @@ export default function TrackInfo() {
             </div>
 
             <div>
+                Track Release Date: {track.release_date}
+            </div>
+
+            <div>
+                Track Producer: {track.produced_by}
+            </div>
+
+            <div>
                 Track Lyrics:
                 <span>
                 {track.lyrics}
                 </span>
 
+            </div>
+
+            <div>
+                Track Url: {track.track_url}
             </div>
 
 
