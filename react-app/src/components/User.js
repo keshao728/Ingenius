@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import UserAnnotations from './UserProfile';
-// import './UserProfile/UserProfile.css'
+import './UserProfile/UserProfile.css'
 
 function User() {
   const [user, setUser] = useState({});
@@ -35,6 +35,7 @@ function User() {
           <div id='pp-status'></div>
           <div id='pp-contributions'>
             <div>
+              <div className='uppercase'> {user.username}'s Contributions</div>
               <UserAnnotations/>
             </div>
           </div>

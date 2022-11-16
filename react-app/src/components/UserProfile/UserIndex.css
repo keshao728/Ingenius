@@ -1,0 +1,27 @@
+#pp-annotations-outer-container {
+  border: 2px solid red;
+  width: 100%;
+  height: fit-content;
+}
+
+#pp-annotation-created-at {
+
+}
+
+#pp-annotation-inner-container {
+  border: 1px solid pink;
+
+}
+
+#pp-annotation-song {
+  border: 1px solid pink;
+}
+
+#pp-annotation-lyric {
+  border: 1px solid pink;
+}
+
+#pp-annotation-inner-content {
+  border: 1px solid pink;
+
+}
