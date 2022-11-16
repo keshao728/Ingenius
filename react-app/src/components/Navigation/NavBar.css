@@ -31,6 +31,7 @@ body {
   background-color: #FFFF64;
   height: 40px;
   z-index: 1;
+  min-width: 700px;
 }
 
 .session-right-nav {

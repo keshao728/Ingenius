@@ -23,8 +23,35 @@ const HomePage = () => {
   const tracks = useSelector(state => state.tracks.allTracks)
   const allTracks = Object.values(tracks)
 
-  const ref = useRef(null)
-  
+  //FEATURE REF
+  //we want ref here bc it holds the ele we wanna scroll to
+  const featureRef = useRef(null)
+
+  //references da ref we wanna scroll to
+  const featureRefScroll = (e) => {
+    e.preventDefault();
+    featureRef.current.scrollIntoView({ behavior: "smooth" });
+  };
+
+  //CHARTS REF
+  const chartsRef = useRef(null)
+
+  const chartsRefScroll = (e) => {
+    e.preventDefault();
+    chartsRef.current.scrollIntoView({ behavior: "smooth" });
+  };
+
+  //VIDEO REF
+  const videoRef = useRef(null)
+
+  const videoRefScroll = (e) => {
+    e.preventDefault();
+    videoRef.current.scrollIntoView({ behavior: "smooth" });
+  }
+
+
+
+
   useEffect(() => {
     dispatch(getAllTracks())
       .then(() => dispatch(getAllTracks()))
@@ -36,15 +63,16 @@ const HomePage = () => {
     // FEATURES - ALL PLACEHOLDERS RN!!!!!!!!!
     <div>
       <NavBar />
-      <ActionNav />
-      <div className="featured-page" id="featured-page-id">
+      <ActionNav
+        featureRefScroll={featureRefScroll}
+        chartsRefScroll={chartsRefScroll}
+        videoRefScroll={videoRefScroll}
+      />
+      <div className="featured-page" id="featured-page-id" ref={featureRef}>
         <div className="top-feature">
           <div className="top-feature-left">
             <div className="top-feature-news" >
-              {/* <section id="featured-page-id"> */}
               NEWS
-
-              {/* </section> */}
             </div>
             <div className="top-feature-news-wrapper">
               <div className="top-feature-title">
@@ -113,7 +141,7 @@ const HomePage = () => {
       </div>
 
       {/* CHARTS - ALL PLACEHOLDERS RN!!!!!!!!! */}
-      <div className="chart-page" id="chart-id">
+      <div className="chart-page" id="chart-id" ref={chartsRef}>
         <div className="chart-heading">CHARTS</div>
         {allTracks.map((track) => {
           return (
@@ -153,7 +181,7 @@ const HomePage = () => {
       </div>
 
       {/* VIDEOS - ALL PLACEHOLDERS RN!!!!!!!!! */}
-      <div className="video-page">
+      <div className="video-page" ref={videoRef}>
         <div className="video-wrapper">
           <div className="video-title">
             VIDEOS
@@ -209,80 +237,133 @@ const HomePage = () => {
       <div className="latest-page">
         <div className="latest-wrapper">
           <div className="latest-title">
-            LATEST
+            FULL STACK DEVS
           </div>
           <div className="latest-des">
-            MOST RECENT NEWS
+            HOVER OVER TO SEE MORE INFO
           </div>
         </div>
 
         <div className="latest-items">
 
           <div className="bottom-latest">
-            <div className="bottom-latest-1">
-              <div id="latest-dev">DEV</div>
-              <img id="individual-latest" src={simon} alt="Logo"></img>
-              <div>
-                Simon Tan - Da sleepy one-shot beast, piupiupiu
-              </div>
-              <div className="top-feature-author-date">
-                <div className="top-feature-author">
-                  by Kelly Shao /
-                </div>
 
-                <div className="top-feature-date">
-                  Nov 8 2022
-                </div>
-              </div>
-            </div>
-            <div className="bottom-latest-2">
-              <div id="latest-dev">DEV</div>
-              <img id="individual-latest" src={kelly} alt="Logo"></img>
-              <div>
-                Kelly Shao - This girl just won't get out of bed
-              </div>
-              <div className="top-feature-author-date">
-                <div className="top-feature-author">
-                  by Kelly Shao /
-                </div>
 
-                <div className="top-feature-date">
-                  Nov 8 2022
-                </div>
-              </div>
-            </div>
-            <div className="bottom-latest-3">
-              <div id="latest-dev">DEV</div>
-              <img id="individual-latest" src={andrew} alt="Logo"></img>
-              <div>
-                Andrew Kim - Ditches teammate and Omen teleport on site by himself
-              </div>
-              <div className="top-feature-author-date">
-                <div className="top-feature-author">
-                  by Kelly Shao /
-                </div>
+            <figure className="bottom-latest-1">
+              {/* <div id="latest-dev">DEV</div> */}
+              <img src={simon} alt="Logo"></img>
+              <figcaption>
 
-                <div className="top-feature-date">
-                  Nov 8 2022
-                </div>
-              </div>
-            </div>
-            <div className="bottom-latest-4">
-              <div id="latest-dev">DEV</div>
-              <img id="individual-latest" src={schaeffer} alt="Logo"></img>
-              <div>
-                Schaeffer Ahn - Big arms with tattoos, on Valo all day
-              </div>
-              <div className="top-feature-author-date">
-                <div className="top-feature-author">
-                  by Kelly Shao /
-                </div>
+                <h3>
+                  Simon Tan
+                </h3>
+                <div className="dev-socials">
+                  <div>
+                    <p className="dev-socials-links">
+                      <a href="https://github.com/SimonMTan" target="_blank" rel="noreferrer">
+                        <i className="fa-brands fa-github"></i></a>
+                    </p>
+                  </div>
 
-                <div className="top-feature-date">
-                  Nov 8 2022
+                  <br></br>
+                  <div>
+                    <p className="dev-socials-links">
+                      <a href="https://www.linkedin.com/in/simonmtan/" target="_blank" rel="noreferrer">
+                        <i className="fa-brands fa-linkedin"></i>
+                      </a>
+                    </p>
+                  </div>
                 </div>
-              </div>
-            </div>
+              </figcaption>
+            </figure>
+
+            <figure className="bottom-latest-2">
+              {/* <div id="latest-dev">DEV</div> */}
+              <img src={kelly} alt="Logo"></img>
+              <figcaption>
+
+                <h3>
+                  Kelly Shao
+                </h3>
+                <div className="dev-socials">
+                  <div>
+                    <p className="dev-socials-links">
+                      <a href="https://github.com/keshao728" target="_blank" rel="noreferrer">
+                        <i className="fa-brands fa-github"></i></a>
+                    </p>
+                  </div>
+
+                  <br></br>
+                  <div>
+                    <p className="dev-socials-links">
+                      <a href="https://www.linkedin.com/in/keyingshao/" target="_blank" rel="noreferrer">
+                        <i className="fa-brands fa-linkedin"></i>
+                      </a>
+                    </p>
+                  </div>
+                </div>
+              </figcaption>
+            </figure>
+
+            <figure className="bottom-latest-3">
+              {/* <div id="latest-dev">DEV</div> */}
+              <img src={andrew} alt="Logo"></img>
+              <figcaption>
+
+                <h3>
+                  Andrew Kim
+                </h3>
+                <div className="dev-socials">
+                  <div>
+                    <p className="dev-socials-links">
+                      <a href="https://github.com/k-rewd" target="_blank" rel="noreferrer">
+                        <i className="fa-brands fa-github"></i></a>
+                    </p>
+                  </div>
+
+                  <br></br>
+                  <div>
+                    <p className="dev-socials-links">
+                      <a href="https://www.linkedin.com/in/andrew-k-474479123/" target="_blank" rel="noreferrer">
+                        <i className="fa-brands fa-linkedin"></i>
+                      </a>
+                    </p>
+                  </div>
+                </div>
+              </figcaption>
+            </figure>
+
+            <figure className="bottom-latest-4">
+              {/* <div id="latest-dev">DEV</div> */}
+              <img src={schaeffer} alt="Logo"></img>
+              <figcaption>
+
+                <h3>
+                  Schaeffer Ahn
+                </h3>
+                <div className="dev-socials">
+                  <div>
+                    <p className="dev-socials-links">
+                      <a href="https://github.com/Schaeffy" target="_blank" rel="noreferrer">
+                        <i className="fa-brands fa-github"></i></a>
+                    </p>
+                  </div>
+
+                  <br></br>
+                  <div>
+                    <p className="dev-socials-links">
+                      <a href="https://github.com/Schaeffy" target="_blank" rel="noreferrer">
+                        <i className="fa-brands fa-linkedin"></i>
+                      </a>
+                    </p>
+                  </div>
+                </div>
+              </figcaption>
+            </figure>
+
+
+
+
           </div>
         </div>
         <div className="latest-button">
@@ -299,7 +380,7 @@ const HomePage = () => {
         </div>
 
       </div>
-    </div>
+    </div >
 
 
 
