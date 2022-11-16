@@ -71,3 +71,29 @@ body {
   padding: 0px 10px;
   cursor: pointer;
 }
+
+.user-dropdown-menu{
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  z-index: 2;
+  margin-top: 10px;
+  height: 185px;
+  width: 200px;
+  background-color: white;
+  box-shadow: 0px 1px 8px #dddddd;
+  border: 1px solid #dddddd;
+  right: 20px;
+  top: 45px
+}
+
+.drop-down-button{
+  font-size: 14px;
+  border: 0;
+  background-color: white;
+  color: black;
+  width: 100%;
+  padding: 8px 15px;
+  text-align: left;
+  margin-top: 3px;
+}

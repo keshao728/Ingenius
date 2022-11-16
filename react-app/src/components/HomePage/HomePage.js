@@ -25,29 +25,29 @@ const HomePage = () => {
 
   //FEATURE REF
   //we want ref here bc it holds the ele we wanna scroll to
-  const featureRef = useRef(null)
+  // const featureRef = useRef(null)
 
   //references da ref we wanna scroll to
-  const featureRefScroll = (e) => {
-    e.preventDefault();
-    featureRef.current.scrollIntoView({ behavior: "smooth" });
-  };
+  // const featureRefScroll = (e) => {
+  //   e.preventDefault();
+  //   featureRef.current.scrollIntoView({ behavior: "smooth" });
+  // };
 
   //CHARTS REF
-  const chartsRef = useRef(null)
+  // const chartsRef = useRef(null)
 
-  const chartsRefScroll = (e) => {
-    e.preventDefault();
-    chartsRef.current.scrollIntoView({ behavior: "smooth" });
-  };
+  // const chartsRefScroll = (e) => {
+  //   e.preventDefault();
+  //   chartsRef.current.scrollIntoView({ behavior: "smooth" });
+  // };
 
   //VIDEO REF
-  const videoRef = useRef(null)
+  // const videoRef = useRef(null)
 
-  const videoRefScroll = (e) => {
-    e.preventDefault();
-    videoRef.current.scrollIntoView({ behavior: "smooth" });
-  }
+  // const videoRefScroll = (e) => {
+  //   e.preventDefault();
+  //   videoRef.current.scrollIntoView({ behavior: "smooth" });
+  // }
 
 
   // const devRefScroll = (e) => {
@@ -68,12 +68,14 @@ const HomePage = () => {
     <div>
       <NavBar />
       <ActionNav
-        featureRefScroll={featureRefScroll}
-        chartsRefScroll={chartsRefScroll}
-        videoRefScroll={videoRefScroll}
+        // featureRefScroll={featureRefScroll}
+        // chartsRefScroll={chartsRefScroll}
+        // videoRefScroll={videoRefScroll}
         // devRefScroll={devRefScroll}
       />
-      <div className="featured-page" id="featured-page-id" ref={featureRef}>
+      {/* <div className="featured-page" id="featured-page-id" ref={featureRef}> */}
+      <div className="featured-page" id="featured-page-id">
+
         <div className="top-feature">
           <div className="top-feature-left">
             <div className="top-feature-news" >
@@ -146,7 +148,9 @@ const HomePage = () => {
       </div>
 
       {/* CHARTS - ALL PLACEHOLDERS RN!!!!!!!!! */}
-      <div className="chart-page" id="chart-id" ref={chartsRef}>
+      {/* <div className="chart-page" id="chart-id" ref={chartsRef}> */}
+      <div className="chart-page" id="chart-id">
+
         <div className="chart-heading">CHARTS</div>
         {allTracks.map((track) => {
           return (
@@ -186,7 +190,9 @@ const HomePage = () => {
       </div>
 
       {/* VIDEOS - ALL PLACEHOLDERS RN!!!!!!!!! */}
-      <div className="video-page" ref={videoRef} id='testing'>
+      {/* <div className="video-page" ref={videoRef} id='testing'> */}
+      <div className="video-page" id='testing'>
+
         <div className="video-wrapper">
           <div className="video-title">
             VIDEOS
@@ -238,9 +244,9 @@ const HomePage = () => {
 
 
 
-      <div className="latest-page"
-      ref={devRef}
-      >
+      {/* <div className="latest-page" ref={devRef}> */}
+
+      <div className="latest-page">
         <div className="latest-wrapper">
           <div className="latest-title">
             FULL STACK DEVS
