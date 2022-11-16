@@ -16,7 +16,7 @@ const HomePage = () => {
   const [isLoaded, setIsLoaded] = useState(false)
 
   //TRACKS
-  const tracks = useSelector(state => state.tracks)
+  const tracks = useSelector(state => state.tracks.allTracks)
   const allTracks = Object.values(tracks)
 
 

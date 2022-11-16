@@ -9,7 +9,7 @@ const Annotations = () => {
     const { trackId } = useParams();
     // const [isLoaded, setIsLoaded] = useState(false);
     // const sessionUser = useSelector((state) => state.session.user);
-    const annotations = useSelector((state) => state.tracks.Annotations);
+    const annotations = useSelector((state) => state.tracks.oneTrack.Annotations);
     console.log('ANNOTATIONS', annotations)
 
     if(!annotations) {

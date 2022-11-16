@@ -171,50 +171,114 @@ export const deleteTrack = (trackId) => async (dispatch) => {
 }
 
 
-const initialState = {
+// const initialState = {
 
+// }
+
+// export const trackReducer = (state = initialState, action) => {
+//     let newState
+//     switch (action.type) {
+
+//         case GET_ALL_TRACKS: {
+//             newState = {};
+//             action.tracks.forEach(track => {
+//                 newState[track.id] = track
+//             })
+//             return newState
+//         }
+
+//         case GET_ONE_TRACK: {
+//             newState = { ...action.track };
+//             return newState
+//         }
+
+//         case GET_USER_TRACKS: {
+//             newState = {};
+//             action.tracks.forEach(track => {
+//                 newState[track.id] = track
+//             })
+//             return newState
+//         }
+
+//         case CREATE_TRACK: {
+//             newState = { ...state };
+//             newState[action.track.id] = action.track
+//             return newState
+//         }
+
+//         case EDIT_TRACK: {
+//             newState = { ...state };
+//             newState[action.track.id] = action.track
+//             return newState;
+
+//         }
+
+//         case DELETE_TRACK: {
+//             newState = { ...state };
+//             delete newState[action.track.id]
+//             return newState
+//         }
+
+//         case RESET_TRACK:
+//             return initialState
+
+//         default:
+//             return state
+//     }
+// }
+
+// export default trackReducer;
+
+
+const initialState = {
+    allTracks: {},
+    oneTrack: {}
 }
 
 export const trackReducer = (state = initialState, action) => {
     let newState
+    const allTracks = {}
     switch (action.type) {
 
         case GET_ALL_TRACKS: {
-            newState = {};
             action.tracks.forEach(track => {
-                newState[track.id] = track
+                allTracks[track.id] = track
             })
-            return newState
+            return {
+                ...state,
+                allTracks
+            }
         }
 
         case GET_ONE_TRACK: {
-            newState = { ...action.track };
-            return newState
+            newState = { ...state, allTracks:{...state.allTracks}, oneTrack: {...state.oneTrack} };
+            newState.oneTrack = action.track
+            return {...newState}
         }
 
         case GET_USER_TRACKS: {
-            newState = {};
             action.tracks.forEach(track => {
-                newState[track.id] = track
+                allTracks[track.id] = track
             })
-            return newState
+            return {...state}
         }
 
         case CREATE_TRACK: {
-            newState = { ...state };
-            newState[action.track.id] = action.track
+            newState = { allTracks: {...state.allTracks} };
+            newState.oneTrack = action.track
             return newState
         }
 
         case EDIT_TRACK: {
-            newState = { ...state };
-            newState[action.track.id] = action.track
+            newState = { allTracks: {...state.allTracks} }
+            newState.oneTrack = action.track
             return newState;
         }
 
         case DELETE_TRACK: {
-            newState = { ...state };
-            delete newState[action.track.id]
+            newState = { allTracks: { ...state.allTracks }, oneTrack: { ...state.oneTrack } }
+            delete newState.allTracks[action.trackId]
+            if (newState.oneTrack.id === action.trackId) {newState.oneTrack = {}}
             return newState
         }
 

@@ -4,6 +4,7 @@ import { useParams, useHistory, Link, NavLink } from 'react-router-dom';
 import { getOneTrack } from '../../store/tracks';
 import EditTrackModal from '../TrackEditForm/index';
 import { actionResetTrack } from '../../store/tracks';
+import ReactPlayer from 'react-player'
 
 import React from 'react';
 
@@ -13,7 +14,7 @@ import React from 'react';
 export default function TrackInfo() {
     const { trackId } = useParams()
     const dispatch = useDispatch()
-    const track = useSelector(state => state.tracks)
+    const track = useSelector(state => state.tracks.oneTrack)
     const user = useSelector(state => state.session.user)
 
     useEffect(() => {
@@ -62,7 +63,8 @@ export default function TrackInfo() {
             </div>
 
             <div>
-                <iframe
+                <ReactPlayer url={track.track_url} />
+                {/* <iframe
                     width="560"
                     height="315"
                     src={track.track_url}
@@ -71,7 +73,7 @@ export default function TrackInfo() {
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowfullscreen
                 >
-                </iframe>
+                </iframe> */}
 
                 {/* Track Url: {track.track_url} */}
             </div>
