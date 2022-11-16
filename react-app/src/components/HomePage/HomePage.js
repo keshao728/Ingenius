@@ -257,12 +257,22 @@ const HomePage = () => {
                 <h3>
                   Simon Tan
                 </h3>
-                <div className="top-feature-author-date">
-                  <p className="top-feature-author">
-                    Github: <a href="https://github.com">Link</a>
-                    <br></br>
-                    LinkdIn: <a href="https://github.com">Link</a>
-                  </p>
+                <div className="dev-socials">
+                  <div>
+                    <p className="dev-socials-links">
+                      <a href="https://github.com/SimonMTan" target="_blank" rel="noreferrer">
+                        <i className="fa-brands fa-github"></i></a>
+                    </p>
+                  </div>
+
+                  <br></br>
+                  <div>
+                    <p className="dev-socials-links">
+                      <a href="https://www.linkedin.com/in/simonmtan/" target="_blank" rel="noreferrer">
+                        <i className="fa-brands fa-linkedin"></i>
+                      </a>
+                    </p>
+                  </div>
                 </div>
               </figcaption>
             </figure>
@@ -275,13 +285,22 @@ const HomePage = () => {
                 <h3>
                   Kelly Shao
                 </h3>
-                <div className="top-feature-author-date">
-                  <p className="top-feature-author">
-                    Github: <a href="https://github.com">Link</a>
-                    <br></br>
-                    LinkdIn: <a href="https://github.com">Link</a>
-                  </p>
+                <div className="dev-socials">
+                  <div>
+                    <p className="dev-socials-links">
+                      <a href="https://github.com/keshao728" target="_blank" rel="noreferrer">
+                        <i className="fa-brands fa-github"></i></a>
+                    </p>
+                  </div>
 
+                  <br></br>
+                  <div>
+                    <p className="dev-socials-links">
+                      <a href="https://www.linkedin.com/in/keyingshao/" target="_blank" rel="noreferrer">
+                        <i className="fa-brands fa-linkedin"></i>
+                      </a>
+                    </p>
+                  </div>
                 </div>
               </figcaption>
             </figure>
@@ -294,13 +313,22 @@ const HomePage = () => {
                 <h3>
                   Andrew Kim
                 </h3>
-                <div className="top-feature-author-date">
-                  <p className="top-feature-author">
-                    Github: <a href="https://github.com">Link</a>
-                    <br></br>
-                    LinkdIn: <a href="https://github.com">Link</a>
-                  </p>
+                <div className="dev-socials">
+                  <div>
+                    <p className="dev-socials-links">
+                      <a href="https://github.com/k-rewd" target="_blank" rel="noreferrer">
+                        <i className="fa-brands fa-github"></i></a>
+                    </p>
+                  </div>
 
+                  <br></br>
+                  <div>
+                    <p className="dev-socials-links">
+                      <a href="https://www.linkedin.com/in/andrew-k-474479123/" target="_blank" rel="noreferrer">
+                        <i className="fa-brands fa-linkedin"></i>
+                      </a>
+                    </p>
+                  </div>
                 </div>
               </figcaption>
             </figure>
@@ -313,13 +341,22 @@ const HomePage = () => {
                 <h3>
                   Schaeffer Ahn
                 </h3>
-                <div className="top-feature-author-date">
-                  <p className="top-feature-author">
-                    Github: <a href="https://github.com">Link</a>
-                    <br></br>
-                    LinkdIn: <a href="https://github.com">Link</a>
-                  </p>
+                <div className="dev-socials">
+                  <div>
+                    <p className="dev-socials-links">
+                      <a href="https://github.com/Schaeffy" target="_blank" rel="noreferrer">
+                        <i className="fa-brands fa-github"></i></a>
+                    </p>
+                  </div>
 
+                  <br></br>
+                  <div>
+                    <p className="dev-socials-links">
+                      <a href="https://github.com/Schaeffy" target="_blank" rel="noreferrer">
+                        <i className="fa-brands fa-linkedin"></i>
+                      </a>
+                    </p>
+                  </div>
                 </div>
               </figcaption>
             </figure>
@@ -343,7 +380,7 @@ const HomePage = () => {
         </div>
 
       </div>
-    </div>
+    </div >
 
 
 
