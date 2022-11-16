@@ -3,7 +3,7 @@ import andrew from "./HomePageImage/andrew.png"
 import kelly from "./HomePageImage/kelly.png"
 import schaeffer from "./HomePageImage/schaeffer.png"
 import simon from "./HomePageImage/simon.png"
-import fries from "./HomePageImage/Fries.png"
+import fries from "./HomePageImage/devs.png"
 import NavBar from '../Navigation/NavBar';
 import ActionNav from '../Navigation/ActionNav';
 
@@ -50,6 +50,12 @@ const HomePage = () => {
   }
 
 
+  // const devRefScroll = (e) => {
+  //   e.preventDefault();
+  //   devRef.current.scrollIntoView({ behavior: "smooth" });
+  // }
+
+
   useEffect(() => {
     dispatch(getAllTracks())
       .then(() => dispatch(getAllTracks()))
@@ -65,6 +71,7 @@ const HomePage = () => {
         featureRefScroll={featureRefScroll}
         chartsRefScroll={chartsRefScroll}
         videoRefScroll={videoRefScroll}
+        devRefScroll={devRefScroll}
       />
       <div className="featured-page" id="featured-page-id" ref={featureRef}>
         <div className="top-feature">
@@ -220,19 +227,18 @@ const HomePage = () => {
 
             </div>
           </div>
-          <div className="video-button">
+          {/* <div className="video-button">
             <button className="video-load-more">
               LOAD MORE
             </button>
-          </div>
+          </div> */}
         </div>
       </div>
 
 
 
 
-      {/* LATEST - ALL PLACEHOLDERS RN!!!!!!!!! */}
-      <div className="latest-page">
+      <div className="latest-page" ref={devRef}>
         <div className="latest-wrapper">
           <div className="latest-title">
             FULL STACK DEVS
@@ -248,38 +254,55 @@ const HomePage = () => {
 
 
             <figure className="bottom-latest-1">
-              {/* <div id="latest-dev">DEV</div> */}
               <img src={simon} alt="Logo"></img>
               <figcaption>
 
                 <h3>
                   Simon Tan
                 </h3>
-                <div className="top-feature-author-date">
-                  <p className="top-feature-author">
-                    Github: <a href="https://github.com">Link</a>
-                    <br></br>
-                    LinkdIn: <a href="https://github.com">Link</a>
-                  </p>
+                <div className="dev-socials">
+                  <div>
+                    <p className="dev-socials-links">
+                      <a href="https://github.com/SimonMTan" target="_blank" rel="noreferrer">
+                        <i className="fa-brands fa-github"></i></a>
+                    </p>
+                  </div>
+
+                  <br></br>
+                  <div>
+                    <p className="dev-socials-links">
+                      <a href="https://www.linkedin.com/in/simonmtan/" target="_blank" rel="noreferrer">
+                        <i className="fa-brands fa-linkedin"></i>
+                      </a>
+                    </p>
+                  </div>
                 </div>
               </figcaption>
             </figure>
 
             <figure className="bottom-latest-2">
-              {/* <div id="latest-dev">DEV</div> */}
               <img src={kelly} alt="Logo"></img>
               <figcaption>
 
                 <h3>
                   Kelly Shao
                 </h3>
-                <div className="top-feature-author-date">
-                  <p className="top-feature-author">
-                    Github: <a href="https://github.com">Link</a>
-                    <br></br>
-                    LinkdIn: <a href="https://github.com">Link</a>
-                  </p>
+                <div className="dev-socials">
+                  <div>
+                    <p className="dev-socials-links">
+                      <a href="https://github.com/keshao728" target="_blank" rel="noreferrer">
+                        <i className="fa-brands fa-github"></i></a>
+                    </p>
+                  </div>
 
+                  <br></br>
+                  <div>
+                    <p className="dev-socials-links">
+                      <a href="https://www.linkedin.com/in/keyingshao/" target="_blank" rel="noreferrer">
+                        <i className="fa-brands fa-linkedin"></i>
+                      </a>
+                    </p>
+                  </div>
                 </div>
               </figcaption>
             </figure>
@@ -292,13 +315,22 @@ const HomePage = () => {
                 <h3>
                   Andrew Kim
                 </h3>
-                <div className="top-feature-author-date">
-                  <p className="top-feature-author">
-                    Github: <a href="https://github.com">Link</a>
-                    <br></br>
-                    LinkdIn: <a href="https://github.com">Link</a>
-                  </p>
+                <div className="dev-socials">
+                  <div>
+                    <p className="dev-socials-links">
+                      <a href="https://github.com/k-rewd" target="_blank" rel="noreferrer">
+                        <i className="fa-brands fa-github"></i></a>
+                    </p>
+                  </div>
 
+                  <br></br>
+                  <div>
+                    <p className="dev-socials-links">
+                      <a href="https://www.linkedin.com/in/andrew-k-474479123/" target="_blank" rel="noreferrer">
+                        <i className="fa-brands fa-linkedin"></i>
+                      </a>
+                    </p>
+                  </div>
                 </div>
               </figcaption>
             </figure>
@@ -311,13 +343,22 @@ const HomePage = () => {
                 <h3>
                   Schaeffer Ahn
                 </h3>
-                <div className="top-feature-author-date">
-                  <p className="top-feature-author">
-                    Github: <a href="https://github.com">Link</a>
-                    <br></br>
-                    LinkdIn: <a href="https://github.com">Link</a>
-                  </p>
+                <div className="dev-socials">
+                  <div>
+                    <p className="dev-socials-links">
+                      <a href="https://github.com/Schaeffy" target="_blank" rel="noreferrer">
+                        <i className="fa-brands fa-github"></i></a>
+                    </p>
+                  </div>
 
+                  <br></br>
+                  <div>
+                    <p className="dev-socials-links">
+                      <a href="https://github.com/Schaeffy" target="_blank" rel="noreferrer">
+                        <i className="fa-brands fa-linkedin"></i>
+                      </a>
+                    </p>
+                  </div>
                 </div>
               </figcaption>
             </figure>
@@ -327,11 +368,11 @@ const HomePage = () => {
 
           </div>
         </div>
-        <div className="latest-button">
+        {/* <div className="latest-button">
           <button className="latest-load-more">
             LOAD MORE
           </button>
-        </div>
+        </div> */}
       </div>
 
 
@@ -341,7 +382,7 @@ const HomePage = () => {
         </div>
 
       </div>
-    </div>
+    </div >
 
 
 
@@ -349,3 +390,8 @@ const HomePage = () => {
 }
 
 export default HomePage;
+
+// const devRefScroll = (e) => {
+//   e.preventDefault();
+//   devRef.current.scrollIntoView({ behavior: "smooth" });
+// }

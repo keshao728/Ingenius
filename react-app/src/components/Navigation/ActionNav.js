@@ -89,6 +89,14 @@ const ActionNav = (props) => {
         >
           VIDEOS
         </Link>
+        {/* </div>
+        <div
+        className="main-nav-list-5"
+        id='action-nav-links'
+        onClick={(props.devRefScroll)}
+        >
+          DEVS
+        </div> */}
         <div>
           {sessionLinks}
         </div>
@@ -98,3 +106,12 @@ const ActionNav = (props) => {
 }
 
 export default ActionNav;
+
+// </div>
+// <div
+// className="main-nav-list-5"
+// id='action-nav-links'
+// onClick={(props.devRefScroll)}
+// >
+//   DEVS
+// </div>

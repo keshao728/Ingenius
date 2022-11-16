@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import { useParams, Redirect } from 'react-router-dom'
+
 import { createTrack } from '../../store/tracks';
 import { useHistory } from 'react-router-dom';
 import "./TrackForm.css"
@@ -7,6 +9,8 @@ import "./TrackForm.css"
 export default function CreateTrack() {
   const dispatch = useDispatch()
   const history = useHistory()
+  const sessionUser = useSelector(state => state.session.user)
+
 
 
   const date = new Date();
@@ -24,6 +28,9 @@ export default function CreateTrack() {
   const [trackUrl, setTrackUrl] = useState('')
   const [errors, setErrors] = useState([])
 
+  if (!sessionUser) {
+    return <Redirect to="/" />
+  }
 
 
   // let validate = () => {
@@ -202,7 +209,7 @@ export default function CreateTrack() {
             </div>
           </div>
           <div>
-            <button type="submit">Create Track</button>
+            <button className="add-song-submit" type="submit">Submit</button>
           </div>
         </div>
       </form>
