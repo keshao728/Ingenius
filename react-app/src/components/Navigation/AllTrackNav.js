@@ -15,15 +15,15 @@ const AllTrackNav = () => {
         sessionLinks = (
             <>
                 <div className="main-nav-list-1-track" >
-                FEATURED
+                Featured
                 </div>
 
                 <div className="main-nav-list-1-track" >
-                CHARTS
+                Charts
                 </div>
 
-                <div className="main-nav-list-2-track" >
-                VIDEOS
+                <div className="main-nav-list-1-track" >
+                Videos
                 </div>
 
                 <div className="main-nav-list-1-track" >
@@ -31,11 +31,11 @@ const AllTrackNav = () => {
                 </div>
 
                 <div className="main-nav-list-1-track" >
-                Forms
+                Forums
                 </div>
 
                 <div className="main-nav-list-1-track" >
-                Add a Song
+                Add A Song
                 </div>
             </>
         )
@@ -67,19 +67,19 @@ const AllTrackNav = () => {
         sessionLinks = (
             <>
                 <div className="main-nav-list-1-track" >
-                FEATURED
+                Featured
                 </div>
 
                 <div className="main-nav-list-1-track" >
-                CHARTS
+                Charts
                 </div>
 
                 <div className="main-nav-list-2-track" >
-                VIDEOS
+                Videos
                 </div>
 
                 <div className="main-nav-list-1-track" >
-                Promote
+                Promote your music
                 </div>
             </>
         )
