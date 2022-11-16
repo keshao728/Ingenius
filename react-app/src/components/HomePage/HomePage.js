@@ -3,7 +3,7 @@ import andrew from "./HomePageImage/andrew.png"
 import kelly from "./HomePageImage/kelly.png"
 import schaeffer from "./HomePageImage/schaeffer.png"
 import simon from "./HomePageImage/simon.png"
-import fries from "./HomePageImage/Fries.png"
+import fries from "./HomePageImage/devs.png"
 import NavBar from '../Navigation/NavBar';
 import ActionNav from '../Navigation/ActionNav';
 
