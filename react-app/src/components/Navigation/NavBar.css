@@ -78,7 +78,7 @@ body {
   position: absolute;
   z-index: 2;
   margin-top: 10px;
-  height: 185px;
+  height: 115px;
   width: 200px;
   background-color: white;
   box-shadow: 0px 1px 8px #dddddd;
@@ -93,7 +93,29 @@ body {
   background-color: white;
   color: black;
   width: 100%;
+  padding: 10px 15px;
+  text-align: left;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+
+.drop-down-button:hover{
+  background-color: #F7F7F7;
+  cursor: pointer;
+}
+
+#drop-user-profile{
+  border-bottom: #E9E9E9 2px solid;
+}
+
+.user-account-text{
+  font-size: 14px;
+  color: black;
   padding: 8px 15px;
   text-align: left;
   margin-top: 3px;
+  border-bottom: #E9E9E9 2px solid;
+  font-size: 14px;
+  font-weight: bold;
 }

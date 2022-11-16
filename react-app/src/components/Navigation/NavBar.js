@@ -45,16 +45,16 @@ const NavBar = () => {
 
         {showMenu && (
           <div className='user-dropdown-menu'>
-            <div>ACCOUNT</div>
+            <div className='user-account-text'>ACCOUNT</div>
             <div>
               <NavLink to={`/users/${sessionUser.id}`}>
-                <button className='drop-down-button'>
+                <button className='drop-down-button' id="drop-user-profile">
                   View Profile
                 </button>
               </NavLink>
             </div>
             <div>
-              <div className='drop-down-button'>
+              <div>
                 <LogoutButton className='drop-down-button'>
                   Sign Out
                 </LogoutButton>
