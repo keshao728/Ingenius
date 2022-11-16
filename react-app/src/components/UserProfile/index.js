@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom'
 // import { deleteAnnotation, getUserAnnotations } from '../../store/session'
-import { getUserInfo, deleteAnnotation } from '../../store/session';
+import { getUserInfo, deleteAnnotation, editAnnotation } from '../../store/session';
 import React from 'react';
 import './UserIndex.css'
 
