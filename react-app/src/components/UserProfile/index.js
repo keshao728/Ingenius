@@ -5,6 +5,7 @@ import { useParams } from 'react-router-dom'
 import { getUserInfo, deleteAnnotation, editAnnotation } from '../../store/session';
 import React from 'react';
 import './UserIndex.css'
+import EditAnnotation from '../AnnotationEditForm/EditAnnotationForm';
 
 
 const UserAnnotations = () => {
@@ -18,20 +19,38 @@ const UserAnnotations = () => {
   console.log('ANNOTATIONAAARR', annotationArr)
 
   const [isLoaded, setIsLoaded] = useState(false)
+  const [showEdit, setShowEdit] = useState(false)
+
 
   useEffect(() => {
     dispatch(getUserInfo(userId))
       .then(() => setIsLoaded(true))
   }, [dispatch, userId])
 
+  // useEffect(() => {
+  //   if (!showEdit) return
+  //   const closeEdit = () => {
+  //     setShowEdit(false)
+  //   }
+  //   document.addEventListener('click', closeEdit);
+    
+  //   return () => document.removeEventListener("click", closeEdit)
+    
+  // }, [showEdit])
+
   // handleDelete = (e) => {
   //   const id = 
   // }
+  // const handleEditClick = async (e) => {
+  //   e.preventDefault()
+  //   setShowEdit(true)
+  // }
+
 
   if (!annotationArr) return null
   else return isLoaded &&
-  annotationArr.map(annotation => (
-      <div id='pp-annotations-outer-container' key={annotation.id}> 
+    annotationArr.map(annotation => (
+      <div id='pp-annotations-outer-container' key={annotation.id}>
         <div id='pp-annotation-created-at'> {annotation.created_at}</div>
         <div id='pp-annotation-inner-container'>
           <div id='pp-song-info'>
@@ -51,19 +70,19 @@ const UserAnnotations = () => {
           </div>
           <div id='pp-annotation-inner-content'>
             <div id='pp-annotation-username-icon-container'>
-            <img id='pp-annotation-username-icon' src={'https://64.media.tumblr.com/eca7c1a0c4df7688d52cf781e53142d1/3e3c47d5fa9f904a-71/s540x810/1ee4b3b16a25a49c4f61326f895cbf341088041e.jpg'}/>
-            <div id='pp-annotation-username'>{annotation.user.username}</div>
+              <img id='pp-annotation-username-icon' src={'https://64.media.tumblr.com/eca7c1a0c4df7688d52cf781e53142d1/3e3c47d5fa9f904a-71/s540x810/1ee4b3b16a25a49c4f61326f895cbf341088041e.jpg'} />
+              <div id='pp-annotation-username'>{annotation.user.username}</div>
             </div>
-            <div id='pp-annotation-annotation-body'>{annotation.annotation_body}</div>
-            <div id='pp-annotation-delete-edit'>
-              <button id='pp-annotation-edit'onClick={() => dispatch(editAnnotation(annotation.id))}>Edit</button>
-              <button id='pp-annotation-delete' onClick={() => dispatch(deleteAnnotation(annotation.id))}>Delete</button>
-            </div>
+            <div id='pp-annotation-annotation-body'>{showEdit == annotation.id ? <EditAnnotation show = {showEdit} /> : annotation.annotation_body }</div>
+              <div id='pp-annotation-delete-edit'>
+                <button id='pp-annotation-edit' onClick={() => setShowEdit(annotation.id)} >Edit</button>
+                <button id='pp-annotation-delete' onClick={() => dispatch(deleteAnnotation(annotation.id))}>Delete</button>
+              </div>
+            
             <div id='pp-annotation-upvote'>Upvote {annotation.vote_count}</div>
           </div>
         </div>
       </div>
-
     ))
 
 }
