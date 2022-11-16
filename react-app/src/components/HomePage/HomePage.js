@@ -247,70 +247,86 @@ const HomePage = () => {
         <div className="latest-items">
 
           <div className="bottom-latest">
-            <div className="bottom-latest-1">
-              <div id="latest-dev">DEV</div>
-              <img id="individual-latest" src={simon} alt="Logo"></img>
-              <div>
-                Simon Tan - Da sleepy one-shot beast, piupiupiu
-              </div>
-              <div className="top-feature-author-date">
-                <div className="top-feature-author">
-                  by Kelly Shao /
-                </div>
 
-                <div className="top-feature-date">
-                  Nov 8 2022
-                </div>
-              </div>
-            </div>
-            <div className="bottom-latest-2">
-              <div id="latest-dev">DEV</div>
-              <img id="individual-latest" src={kelly} alt="Logo"></img>
-              <div>
-                Kelly Shao - This girl just won't get out of bed
-              </div>
-              <div className="top-feature-author-date">
-                <div className="top-feature-author">
-                  by Kelly Shao /
-                </div>
 
-                <div className="top-feature-date">
-                  Nov 8 2022
-                </div>
-              </div>
-            </div>
-            <div className="bottom-latest-3">
-              <div id="latest-dev">DEV</div>
-              <img id="individual-latest" src={andrew} alt="Logo"></img>
-              <div>
-                Andrew Kim - Ditches teammate and Omen teleport on site by himself
-              </div>
-              <div className="top-feature-author-date">
-                <div className="top-feature-author">
-                  by Kelly Shao /
-                </div>
+            <figure className="bottom-latest-1">
+              {/* <div id="latest-dev">DEV</div> */}
+              <img src={simon} alt="Logo"></img>
+              <figcaption>
 
-                <div className="top-feature-date">
-                  Nov 8 2022
+                <h3>
+                  Simon Tan
+                </h3>
+                <div className="top-feature-author-date">
+                  <p className="top-feature-author">
+                    Github: <a href="https://github.com">Link</a>
+                    <br></br>
+                    LinkdIn: <a href="https://github.com">Link</a>
+                  </p>
                 </div>
-              </div>
-            </div>
-            <div className="bottom-latest-4">
-              <div id="latest-dev">DEV</div>
-              <img id="individual-latest" src={schaeffer} alt="Logo"></img>
-              <div>
-                Schaeffer Ahn - Big arms with tattoos, on Valo all day
-              </div>
-              <div className="top-feature-author-date">
-                <div className="top-feature-author">
-                  by Kelly Shao /
-                </div>
+              </figcaption>
+            </figure>
 
-                <div className="top-feature-date">
-                  Nov 8 2022
+            <figure className="bottom-latest-2">
+              {/* <div id="latest-dev">DEV</div> */}
+              <img src={kelly} alt="Logo"></img>
+              <figcaption>
+
+                <h3>
+                  Kelly Shao
+                </h3>
+                <div className="top-feature-author-date">
+                  <p className="top-feature-author">
+                    Github: <a href="https://github.com">Link</a>
+                    <br></br>
+                    LinkdIn: <a href="https://github.com">Link</a>
+                  </p>
+
                 </div>
-              </div>
-            </div>
+              </figcaption>
+            </figure>
+
+            <figure className="bottom-latest-3">
+              {/* <div id="latest-dev">DEV</div> */}
+              <img src={andrew} alt="Logo"></img>
+              <figcaption>
+
+                <h3>
+                  Andrew Kim
+                </h3>
+                <div className="top-feature-author-date">
+                  <p className="top-feature-author">
+                    Github: <a href="https://github.com">Link</a>
+                    <br></br>
+                    LinkdIn: <a href="https://github.com">Link</a>
+                  </p>
+
+                </div>
+              </figcaption>
+            </figure>
+
+            <figure className="bottom-latest-4">
+              {/* <div id="latest-dev">DEV</div> */}
+              <img src={schaeffer} alt="Logo"></img>
+              <figcaption>
+
+                <h3>
+                  Schaeffer Ahn
+                </h3>
+                <div className="top-feature-author-date">
+                  <p className="top-feature-author">
+                    Github: <a href="https://github.com">Link</a>
+                    <br></br>
+                    LinkdIn: <a href="https://github.com">Link</a>
+                  </p>
+
+                </div>
+              </figcaption>
+            </figure>
+
+
+
+
           </div>
         </div>
         <div className="latest-button">
