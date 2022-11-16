@@ -49,7 +49,13 @@ const HomePage = () => {
     videoRef.current.scrollIntoView({ behavior: "smooth" });
   }
 
+  //DEV REF
+  const devRef = useRef(null)
 
+  const devRefScroll = (e) => {
+    e.preventDefault();
+    devRef.current.scrollIntoView({ behavior: "smooth" });
+  }
 
 
   useEffect(() => {
@@ -67,6 +73,7 @@ const HomePage = () => {
         featureRefScroll={featureRefScroll}
         chartsRefScroll={chartsRefScroll}
         videoRefScroll={videoRefScroll}
+        devRefScroll={devRefScroll}
       />
       <div className="featured-page" id="featured-page-id" ref={featureRef}>
         <div className="top-feature">
@@ -233,8 +240,7 @@ const HomePage = () => {
 
 
 
-      {/* LATEST - ALL PLACEHOLDERS RN!!!!!!!!! */}
-      <div className="latest-page">
+      <div className="latest-page" ref={devRef}>
         <div className="latest-wrapper">
           <div className="latest-title">
             FULL STACK DEVS
@@ -250,7 +256,6 @@ const HomePage = () => {
 
 
             <figure className="bottom-latest-1">
-              {/* <div id="latest-dev">DEV</div> */}
               <img src={simon} alt="Logo"></img>
               <figcaption>
 
@@ -278,7 +283,6 @@ const HomePage = () => {
             </figure>
 
             <figure className="bottom-latest-2">
-              {/* <div id="latest-dev">DEV</div> */}
               <img src={kelly} alt="Logo"></img>
               <figcaption>
 

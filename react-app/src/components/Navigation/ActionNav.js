@@ -55,6 +55,13 @@ const ActionNav = (props) => {
         >
           VIDEOS
         </div>
+        <div
+        className="main-nav-list-5"
+        id='action-nav-links'
+        onClick={(props.devRefScroll)}
+        >
+          DEVS
+        </div>
         <div>
           {sessionLinks}
         </div>
