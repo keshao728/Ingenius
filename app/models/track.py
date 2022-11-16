@@ -1,11 +1,14 @@
-from .db import db
+from .db import db, environment, SCHEMA, add_prefix_for_prod
 from sqlalchemy.sql import func
 
 class Track(db.Model):
     __tablename__ = 'tracks'
 
+    if environment == "production":
+        __table_args__ = {'schema': SCHEMA}
+
     id = db.Column(db.Integer, primary_key=True)
-    user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
+    user_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('users.id')))
     track_title = db.Column(db.String(100), nullable=False)
     artist = db.Column(db.String(50), nullable=False)
     album = db.Column(db.String, nullable=True)

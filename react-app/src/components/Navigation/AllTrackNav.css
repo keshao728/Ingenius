@@ -1,0 +1,55 @@
+.survey {
+    background-color: rgba(255,20,100);
+    height: 50px;
+    /* display:flex; */
+}
+
+.work_in_progress {
+    display: flex;
+    color:white;
+    justify-content: center;
+    /* align-items: center; */
+    padding-top:15px;
+    font-size: 13px;
+}
+
+.main-nav-alltrack {
+    height: 150px;
+    background: #B395A9;
+
+}
+
+.main-nav-alltrack-container{
+    display: flex;
+    justify-content: space-between;
+}
+
+.main-nav-list-alltrack-left {
+    display: flex;
+    font-size: 12px;
+    /* justify-content: center; */
+    /* margin: auto; */
+  }
+
+.main-nav-list-alltrack-right {
+    display: flex;
+    font-size: 12px;
+    justify-content: flex-end;
+  }
+
+.main-nav-list-1-track, .main-nav-list-2-track  {
+    color: black;
+    font-size: 10px;
+    font-weight: bold;
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-right: 20px;
+    margin-left: 10px;
+}
+
+.main-nav-list-1-track:hover {
+    cursor: pointer;
+    /* color:#FFFF64; */
+    transition: .4s;
+    border-bottom: 1px solid black
+}
