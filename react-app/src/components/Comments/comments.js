@@ -18,7 +18,7 @@ const AllComments = () => {
 
   const comments = useSelector((state) => state.comments.comments);
   const commentsArr = Object.values(comments);
-  // console.log("COMMENTS", commentsArr);
+  console.log("COMMENTS", commentsArr);
 
   const [userComments, setUserComments] = useState("");
 
@@ -155,7 +155,8 @@ const AllComments = () => {
           return (
             <div className="comment-display">
               <div className="individual-comment-display" key={comment?.id}>
-                <div>{comment?.User?.username}</div>
+                <div>{comment.username}</div>
+                <div>{comment.user_id}</div>
                 <div>{moment(comment.created_at).fromNow()}</div>
                 {/* <div>{comment.created_at.split(' ').slice(0, -2).join(' ')}</div> */}
                 <div>{comment.comment_body} </div>
