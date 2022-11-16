@@ -80,12 +80,35 @@
 
 #pp-annotation-annotation-body {
   margin: 14px 0px 14px 0px;
-  text-transform: uppercase;
   word-wrap: break-word;
 }
-#pp-annotation-delete-edit{
+#pp-annotation-delete-edit {
   display: flex;
   flex-direction: row;
+  gap: 5px;
+  margin-bottom: 20px;
+
+  
+}
+#pp-annotation-edit {
+  background-color: white;
+  font-weight: bold;
+  padding: 7px 8px 9px 8px
+
+}
+#pp-annotation-delete {
+  background-color: white;
+  font-weight: bold;
+  border:none;
+  color: darkgray;
 
 
 }
+
+/* .review-pink-buttons {
+  width: 200px;
+  background-color: #FF385C;
+  color: white;
+  font-weight: bold;
+  border: 1px solid gray;
+} */
