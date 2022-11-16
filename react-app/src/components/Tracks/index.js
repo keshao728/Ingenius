@@ -10,7 +10,7 @@ export default function AllTracks() {
     // const params = useParams()
     const dispatch = useDispatch()
     // const {trackId} = params
-    const tracks = useSelector(state => state.tracks)
+    const tracks = useSelector(state => state.tracks.allTracks)
     const allTracks = Object.values(tracks)
 
     useEffect(() => {

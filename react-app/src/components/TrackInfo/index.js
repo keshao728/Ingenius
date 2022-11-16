@@ -13,7 +13,7 @@ import React from 'react';
 export default function TrackInfo() {
     const { trackId } = useParams()
     const dispatch = useDispatch()
-    const track = useSelector(state => state.tracks)
+    const track = useSelector(state => state.tracks.oneTrack)
     const user = useSelector(state => state.session.user)
 
     useEffect(() => {

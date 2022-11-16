@@ -11,7 +11,7 @@ export default function EditTrack({ setModalOpen }) {
   const dispatch = useDispatch()
   const history = useHistory()
   // const { id } = useParams()
-  const track = useSelector(state => state.tracks)
+  const track = useSelector(state => state.tracks.oneTrack)
   const user = useSelector(state => state.session.user)
 
   const date = new Date();
