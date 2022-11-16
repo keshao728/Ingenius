@@ -1,6 +1,7 @@
 .main-nav {
   height: 40px;
   background-color: black;
+  min-width: 700px
 }
 
 .main-nav-list {
