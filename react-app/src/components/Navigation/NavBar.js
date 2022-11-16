@@ -10,14 +10,23 @@ import LoginForm from '../auth/LoginForm';
 
 const NavBar = () => {
   const sessionUser = useSelector(state => state.session.user);
-
+  console.log("THIS IS SESSION USER IN NAVBAR", sessionUser)
+  // const sessionUserId = useSelector(state => state.session.user.id);
   let sessionLinks;
   if (sessionUser) {
     sessionLinks = (
       //Signed in user - profile pic and drop down(logout button + view profile)
       <div className='session-right-nav' id="navs">
-        <img className='profile-pic' src="https://drive.google.com/uc?export=view&id=1e6AIQpUAr0_HcNJNaptcQAHEdO5aib5k"
-          alt="Default Profile"></img>
+        <NavLink to={`/users/${sessionUser.id}`}>
+
+          <img
+            className='profile-pic'
+            src="https://drive.google.com/uc?export=view&id=1e6AIQpUAr0_HcNJNaptcQAHEdO5aib5k"
+            alt="Default Profile"
+          >
+
+          </img>
+        </NavLink>
         {/* ADD A DROP DOWN HERE */}
         <div>
           <LogoutButton />
@@ -31,7 +40,7 @@ const NavBar = () => {
       <div className='full-navigation'>
         <div className="empty-placeholder"></div>
         <div className='site-logo' id="navs">
-          <NavLink to='/' exact={true} activeClassName='active'>
+          <NavLink to={`/`} exact={true} activeClassName='active'>
             <img id="icon" src={logo} alt="Logo"></img>
           </NavLink>
         </div>
