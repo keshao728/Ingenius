@@ -208,7 +208,7 @@ export default function EditTrack({ setModalOpen }) {
                 value={trackUrl}
                 onChange={(e) => setTrackUrl(e.target.value)}
               />
-              <label className='edit-track-input-label'>Youtube Url</label>
+              <label className='edit-track-input-label'>Youtube Url (embeded link only)</label>
             </div>
 
             {/* <div>

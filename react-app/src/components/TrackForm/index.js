@@ -189,7 +189,7 @@ export default function CreateTrack() {
                   </div>
 
                   <div className='add-song-input-box'>
-                    <label>YOUTUBE URL</label>
+                    <label>YOUTUBE URL  (embeded link only)</label>
                     <input
                       type="text"
                       value={trackUrl}
