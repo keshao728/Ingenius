@@ -53,7 +53,6 @@ def create_track():
 
     if form.validate_on_submit():
         track = Track(
-            user_id = current_user.id,
             track_title=form.track_title.data,
             artist=form.artist.data,
             album=form.album.data,

@@ -5,6 +5,8 @@ import schaeffer from "./HomePageImage/schaeffer.png"
 import simon from "./HomePageImage/simon.png"
 import fries from "./HomePageImage/Fries.png"
 import './HomePage.css'
+import NavBar from '../Navigation/NavBar';
+import ActionNav from '../Navigation/ActionNav';
 
 import { useSelector, useDispatch } from "react-redux";
 import { useState, useEffect } from "react";
@@ -30,11 +32,16 @@ const HomePage = () => {
   return isLoaded && (
     // FEATURES - ALL PLACEHOLDERS RN!!!!!!!!!
     <div>
-      <div className="featured-page">
+      <NavBar />
+      <ActionNav />
+      <div className="featured-page" id="featured-page-id">
         <div className="top-feature">
           <div className="top-feature-left">
-            <div className="top-feature-news">
+            <div className="top-feature-news" >
+              {/* <section id="featured-page-id"> */}
               NEWS
+
+              {/* </section> */}
             </div>
             <div className="top-feature-news-wrapper">
               <div className="top-feature-title">
@@ -103,7 +110,7 @@ const HomePage = () => {
       </div>
 
       {/* CHARTS - ALL PLACEHOLDERS RN!!!!!!!!! */}
-      <div className="chart-page">
+      <div className="chart-page" id="chart-id">
         <div className="chart-heading">CHARTS</div>
         {allTracks.map((track) => {
           return (

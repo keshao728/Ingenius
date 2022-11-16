@@ -70,15 +70,15 @@ export const getAllComments = (trackId) => async (dispatch) => {
     if (response.ok) {
         const comments = await response.json();
         // console.log('this is the comments', comments)
-        // const valuearr = Object.values(comments.Comments)
+        const valuearr = Object.values(comments.Comments)
         // console.log('this is valuearr',valuearr)
-        // valuearr.forEach(async (comment) => {
-        // const usernamedict = await fetch(`/api/users/${comment.user_id}/special`)
-        // console.log('usernamedict', usernamedict)
-        // const username = await usernamedict.json()
-        // console.log('username', username)
-        // comment.username = username.username
-        // })
+        valuearr.forEach(async (comment) => {
+            const usernamedict = await fetch(`/api/users/${comment.user_id}/special`)
+            // console.log('usernamedict', usernamedict)
+            const username = await usernamedict.json()
+            // console.log('username', username)
+            comment.username = username.username
+        })
         await dispatch(actionGetComments(comments));
         // console.log('this is the comments', comments)
         return comments

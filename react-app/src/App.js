@@ -38,9 +38,9 @@ function App() {
 
 
       <Switch>
-        <Route path='/' exact={true} >
-          <NavBar />
-          <ActionNav />
+        <Route path='/' exact={true}>
+          {/* <NavBar />
+          <ActionNav /> */}
           <HomePage />
         </Route>
 

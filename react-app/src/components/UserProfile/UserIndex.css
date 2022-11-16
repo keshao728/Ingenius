@@ -1,9 +1,7 @@
 #pp-annotations-outer-container {
   border: 2px solid red;
-  /* width: fit; */
+  width: 100%;
   height: fit-content;
-  background-color: white;
-  margin: 12px 5px;
 }
 
 #pp-annotation-created-at {
