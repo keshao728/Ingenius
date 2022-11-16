@@ -260,7 +260,7 @@ const HomePage = () => {
                 <div className="dev-socials">
                   <div>
                     <p className="dev-socials-links">
-                      <a href="https://github.com">
+                      <a href="https://github.com/SimonMTan" target="_blank" rel="noreferrer">
                         <i className="fa-brands fa-github"></i></a>
                     </p>
                   </div>
@@ -268,7 +268,7 @@ const HomePage = () => {
                   <br></br>
                   <div>
                     <p className="dev-socials-links">
-                      <a href="https://github.com">
+                      <a href="https://www.linkedin.com/in/simonmtan/" target="_blank" rel="noreferrer">
                         <i className="fa-brands fa-linkedin"></i>
                       </a>
                     </p>
@@ -288,7 +288,7 @@ const HomePage = () => {
                 <div className="dev-socials">
                   <div>
                     <p className="dev-socials-links">
-                      <a href="https://github.com">
+                      <a href="https://github.com/keshao728" target="_blank" rel="noreferrer">
                         <i className="fa-brands fa-github"></i></a>
                     </p>
                   </div>
@@ -296,7 +296,7 @@ const HomePage = () => {
                   <br></br>
                   <div>
                     <p className="dev-socials-links">
-                      <a href="https://github.com">
+                      <a href="https://www.linkedin.com/in/keyingshao/" target="_blank" rel="noreferrer">
                         <i className="fa-brands fa-linkedin"></i>
                       </a>
                     </p>
@@ -316,7 +316,7 @@ const HomePage = () => {
                 <div className="dev-socials">
                   <div>
                     <p className="dev-socials-links">
-                      <a href="https://github.com">
+                      <a href="https://github.com/k-rewd" target="_blank" rel="noreferrer">
                         <i className="fa-brands fa-github"></i></a>
                     </p>
                   </div>
@@ -324,7 +324,7 @@ const HomePage = () => {
                   <br></br>
                   <div>
                     <p className="dev-socials-links">
-                      <a href="https://github.com">
+                      <a href="https://www.linkedin.com/in/andrew-k-474479123/" target="_blank" rel="noreferrer">
                         <i className="fa-brands fa-linkedin"></i>
                       </a>
                     </p>
@@ -344,7 +344,7 @@ const HomePage = () => {
                 <div className="dev-socials">
                   <div>
                     <p className="dev-socials-links">
-                      <a href="https://github.com">
+                      <a href="https://github.com/Schaeffy" target="_blank" rel="noreferrer">
                         <i className="fa-brands fa-github"></i></a>
                     </p>
                   </div>
@@ -352,7 +352,7 @@ const HomePage = () => {
                   <br></br>
                   <div>
                     <p className="dev-socials-links">
-                      <a href="https://github.com">
+                      <a href="https://github.com/Schaeffy" target="_blank" rel="noreferrer">
                         <i className="fa-brands fa-linkedin"></i>
                       </a>
                     </p>
