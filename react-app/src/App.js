@@ -38,28 +38,30 @@ function App() {
 
 
       <Switch>
-        <Route path='/' exact={true} >
-        <NavBar />
-        <ActionNav />
-        <HomePage />
+        <Route path='/' exact={true}>
+          {/* <NavBar />
+          <ActionNav /> */}
+          <HomePage />
         </Route>
 
         <ProtectedRoute path='/users/:userId' exact={true} >
-        <NavBar />
-        <ActionNav />
-        <User />
+          <NavBar />
+          <ActionNav />
+          <User />
         </ProtectedRoute>
 
         <Route path='/tracks' exact={true}>
-        <AllTracks />
+          <AllTracks />
         </Route>
 
         <Route path='/tracks/new'>
+          <NavBar />
+          <ActionNav />
           <CreateTrack />
         </Route>
 
         <Route exact path='/tracks/:trackId'>
-          <AllTrackNav/>
+          <AllTrackNav />
           <TrackInfo />
           <Annotation />
           <AllComments />

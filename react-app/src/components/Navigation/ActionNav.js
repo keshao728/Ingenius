@@ -35,9 +35,9 @@ const ActionNav = () => {
     <div className="main-nav">
       <div className="main-nav-list">
         <div className="main-nav-list-1" id='action-nav-links'>
-          <HashLink to={'/tracks/new'}>
+          {/* <HashLink to={'/tracks/new'}> */}
             FEATURED
-          </HashLink>
+          {/* </HashLink> */}
         </div>
 
         <div className="main-nav-list-2" id='action-nav-links'>
