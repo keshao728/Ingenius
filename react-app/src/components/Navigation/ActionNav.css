@@ -31,4 +31,6 @@
 .main-nav-list-3,
 .main-nav-list-5 {
   border-right: white 1px solid;
+  text-decoration: none;
+  color: inherit;
 }

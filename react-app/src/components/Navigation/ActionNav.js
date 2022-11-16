@@ -65,29 +65,40 @@ const ActionNav = (props) => {
   return (
     <div className="main-nav">
       <div className="main-nav-list">
-        <div
+        <Link
           className="main-nav-list-1"
           id='action-nav-links'
-          onClick={(props.featureRefScroll)}
+          smooth to="/#featured"
+          // onClick={(props.featureRefScroll)}
           // onClick={navigatetohome}
         >
           FEATURED
-        </div>
+        </Link>
 
-        <div
+        <Link
           className="main-nav-list-2"
           id='action-nav-links'
-          onClick={(props.chartsRefScroll)}>
+          smooth to="/#charts">
+          {/* // onClick={(props.chartsRefScroll)}> */}
           CHARTS
-        </div>
+        </Link>
 
         <Link
         className="main-nav-list-3"
         id='action-nav-links'
-        smooth to="/#testing"
+        smooth to="/#video"
        // onClick={(props.videoRefScroll)
         >
           VIDEOS
+        </Link>
+
+        <Link
+        className="main-nav-list-5"
+        id='action-nav-links'
+        smooth to="/#devs"
+       // onClick={(props.videoRefScroll)
+        >
+          DEVS
         </Link>
         {/* </div>
         <div

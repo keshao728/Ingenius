@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+// import React, { useRef } from 'react';
 import andrew from "./HomePageImage/andrew.png"
 import kelly from "./HomePageImage/kelly.png"
 import schaeffer from "./HomePageImage/schaeffer.png"
@@ -74,7 +74,7 @@ const HomePage = () => {
         // devRefScroll={devRefScroll}
       />
       {/* <div className="featured-page" id="featured-page-id" ref={featureRef}> */}
-      <div className="featured-page" id="featured-page-id">
+      <div className="featured-page" id="featured">
 
         <div className="top-feature">
           <div className="top-feature-left">
@@ -149,7 +149,7 @@ const HomePage = () => {
 
       {/* CHARTS - ALL PLACEHOLDERS RN!!!!!!!!! */}
       {/* <div className="chart-page" id="chart-id" ref={chartsRef}> */}
-      <div className="chart-page" id="chart-id">
+      <div className="chart-page" id="charts">
 
         <div className="chart-heading">CHARTS</div>
         {allTracks.map((track) => {
@@ -191,7 +191,7 @@ const HomePage = () => {
 
       {/* VIDEOS - ALL PLACEHOLDERS RN!!!!!!!!! */}
       {/* <div className="video-page" ref={videoRef} id='testing'> */}
-      <div className="video-page" id='testing'>
+      <div className="video-page" id='video'>
 
         <div className="video-wrapper">
           <div className="video-title">
@@ -256,7 +256,7 @@ const HomePage = () => {
           </div>
         </div>
 
-        <div className="latest-items">
+        <div className="latest-items" id="devs">
 
           <div className="bottom-latest">
 
