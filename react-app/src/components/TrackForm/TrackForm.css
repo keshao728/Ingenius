@@ -14,12 +14,15 @@
   list-style: none;
   width: 1000px;
   font-size: 14px;
+  gap: 25px;
+
 }
 
 #trackForm {
   display: flex;
   justify-content: center;
   align-items: center;
+
 
 }
 
@@ -44,6 +47,7 @@ body {
   flex-direction: column;
   gap: 25px;
   padding: 10px 10px;
+  border-top: 1px solid gray;
 }
 
 .add-song-additional {
@@ -52,6 +56,7 @@ body {
   gap: 25px;
   padding: 10px 10px;
   border-bottom: 1px solid gray;
+  border-top: 1px solid gray;
 
 }
 
@@ -59,25 +64,38 @@ body {
   display: flex;
   flex-direction: column;
   width: 50%;
+  margin-top: 20px;
 }
 
-.add-song-input-box {
+.add-song-input {
   display: flex;
   flex-direction: row;
-  width: 90%;
+  width: 93%;
   padding: 4px;
+  margin-top: 5px;
 }
 
-.add-song-primart-text {
+.add-song-primary-text {
   display: flex;
   font-size: 16px;
   font-weight: bold;
-
-  border-bottom: 1px solid gray;
+  margin-bottom: 5px;
 }
 
+.add-song-primary-text-req {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  /* align-content: space-between; */
+}
 
-.add-song-lyric {
+.add-song-primary-req{
+  display: flex;
+  margin-left: 83%;
+  color: #CCCCCC;
+}
+
+#add-song-lyric {
   display: flex;
   flex-direction: column;
   width: 50%;
@@ -97,10 +115,16 @@ body {
   width: 100%;
 }
 
+.add-song-input-box {
+  margin-bottom: 20px;
+  width: 97%;
+
+}
+
 .add-song-info {
   display: flex;
   flex-direction: column;
-  margin-left: 10px;
+  /* margin-left: 10px; */
   margin-top: 17px;
   width: 45%;
 }
@@ -110,7 +134,8 @@ body {
   font-size: 16px;
   font-weight: bold;
 }
-.add-song-first-time-des{
+
+.add-song-first-time-des {
   display: flex;
   font-size: 13px;
   font-weight: bold;
@@ -128,22 +153,25 @@ li {
 }
 
 
-.add-song-others{
+.add-song-others {
   display: flex;
   flex-direction: row;
   width: 100%;
+  margin-top: 30px;
+  margin-bottom: 30px;
 }
 
 
-.add-song-others-left{
+.add-song-others-left {
   display: flex;
   flex-direction: column;
   width: 50%;
-  /* margin-right: 40px; */
 }
 
-.add-song-others-right{
+.add-song-others-right {
+  /* margin-left: 10px; */
   display: flex;
   flex-direction: column;
   width: 50%;
+  /* align-content: flex-end; */
 }

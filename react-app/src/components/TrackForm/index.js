@@ -66,26 +66,29 @@ export default function CreateTrack() {
         <div className='add-song-wrapper'>
           <div className='add-song-child'>
             <div className='add-song-message'>Add Song</div>
-            <div className='add-song-primart-text'>Primary info</div>
+            <div className='add-song-primary-text-req'>
+              <div className='add-song-primary-text'>Primary info</div>
+              <div className='add-song-primary-req'>* required</div>
+            </div>
             <div className='add-song-primary'>
               <div className='add-by-title-album'>
 
 
-                <div>
-                  <label>BY</label>
+                <div className='add-song-input-box'>
+                  <label>BY *</label>
                   <input
-                    className='add-song-input-box'
+                    className='add-song-input'
                     type="text"
                     value={artist}
                     placeholder="The primary artist, author, creator, etc."
                     onChange={(e) => setArtist(e.target.value)} />
                 </div>
 
-                <div>
-                  <label>TITLE</label>
+                <div className='add-song-input-box'>
+                  <label>TITLE *</label>
                   <input
                     type="text"
-                    className='add-song-input-box'
+                    className='add-song-input'
                     value={trackTitle}
                     placeholder="Track Title"
                     required
@@ -93,10 +96,10 @@ export default function CreateTrack() {
                 </div>
 
 
-                <div>
-                  <label>ALBUM</label>
+                <div className='add-song-input-box'>
+                  <label>ALBUM *</label>
                   <input
-                    className='add-song-input-box'
+                    className='add-song-input'
                     type="text"
                     value={album}
                     placeholder="Album"
@@ -104,8 +107,8 @@ export default function CreateTrack() {
                 </div>
               </div>
               <div className='add-song-lyric-info'>
-                <div className='add-song-lyric'>
-                  <label>LYRICS</label>
+                <div className='add-song-input-box' id='add-song-lyric'>
+                  <label>LYRICS *</label>
                   <textarea
                     type="text"
                     className='add-song-input-box'
@@ -145,29 +148,29 @@ export default function CreateTrack() {
               </div>
             </div>
 
-            <div className='add-song-primart-text'>Additional Metadata</div>
+            <div className='add-song-primary-text'>Additional Metadata</div>
             <div className='add-song-additional'>
               <div className='add-song-others'>
 
 
                 <div className='add-song-others-left'>
-                  <div>
+                  <div className='add-song-input-box'>
                     <label>PRODUCER</label>
                     <input
                       type="text"
                       value={producedBy}
-                      className='add-song-input-box'
+                      className='add-song-input'
                       placeholder="Producer"
                       onChange={(e) => setProducedBy(e.target.value)} />
                   </div>
 
 
 
-                  <div>
+                  <div className='add-song-input-box'>
                     <label>ALBUM COVER</label>
                     <input
                       type="text"
-                      className='add-song-input-box'
+                      className='add-song-input'
                       value={trackArt}
                       placeholder="Track Art"
                       onChange={(e) => setTrackArt(e.target.value)} />
@@ -175,22 +178,22 @@ export default function CreateTrack() {
                 </div>
 
                 <div className='add-song-others-right'>
-                  <div>
+                  <div className='add-song-input-box'>
                     <label>RELEASED DATE</label>
                     <input
                       type="date"
-                      className='add-song-input-box'
+                      className='add-song-input'
                       value={releaseDate}
                       placeholder="Release Date"
                       onChange={(e) => setReleaseDate(e.target.value)} />
                   </div>
 
-                  <div>
+                  <div className='add-song-input-box'>
                     <label>YOUTUBE URL</label>
                     <input
                       type="text"
                       value={trackUrl}
-                      className='add-song-input-box'
+                      className='add-song-input'
                       placeholder="Track Url"
                       onChange={(e) => setTrackUrl(e.target.value)} />
                   </div>
