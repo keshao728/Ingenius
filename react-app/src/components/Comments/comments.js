@@ -155,7 +155,7 @@ const AllComments = () => {
           return (
             <div className="comment-display">
               <div className="individual-comment-display" key={comment?.id}>
-                <div>{comment.username}</div>
+                <div>{comment.commentter.username}</div>
                 <div>{comment.user_id}</div>
                 <div>{moment(comment.created_at).fromNow()}</div>
                 {/* <div>{comment.created_at.split(' ').slice(0, -2).join(' ')}</div> */}
