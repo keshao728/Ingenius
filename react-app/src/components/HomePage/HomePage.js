@@ -1,9 +1,9 @@
-import React, { useRef } from 'react';
+// import React, { useRef } from 'react';
 import andrew from "./HomePageImage/andrew.png"
 import kelly from "./HomePageImage/kelly.png"
 import schaeffer from "./HomePageImage/schaeffer.png"
 import simon from "./HomePageImage/simon.png"
-import fries from "./HomePageImage/Fries.png"
+import fries from "./HomePageImage/devs.png"
 import NavBar from '../Navigation/NavBar';
 import ActionNav from '../Navigation/ActionNav';
 
@@ -25,31 +25,35 @@ const HomePage = () => {
 
   //FEATURE REF
   //we want ref here bc it holds the ele we wanna scroll to
-  const featureRef = useRef(null)
+  // const featureRef = useRef(null)
 
   //references da ref we wanna scroll to
-  const featureRefScroll = (e) => {
-    e.preventDefault();
-    featureRef.current.scrollIntoView({ behavior: "smooth" });
-  };
+  // const featureRefScroll = (e) => {
+  //   e.preventDefault();
+  //   featureRef.current.scrollIntoView({ behavior: "smooth" });
+  // };
 
   //CHARTS REF
-  const chartsRef = useRef(null)
+  // const chartsRef = useRef(null)
 
-  const chartsRefScroll = (e) => {
-    e.preventDefault();
-    chartsRef.current.scrollIntoView({ behavior: "smooth" });
-  };
+  // const chartsRefScroll = (e) => {
+  //   e.preventDefault();
+  //   chartsRef.current.scrollIntoView({ behavior: "smooth" });
+  // };
 
   //VIDEO REF
-  const videoRef = useRef(null)
+  // const videoRef = useRef(null)
 
-  const videoRefScroll = (e) => {
-    e.preventDefault();
-    videoRef.current.scrollIntoView({ behavior: "smooth" });
-  }
+  // const videoRefScroll = (e) => {
+  //   e.preventDefault();
+  //   videoRef.current.scrollIntoView({ behavior: "smooth" });
+  // }
 
 
+  // const devRefScroll = (e) => {
+  //   e.preventDefault();
+  //   devRef.current.scrollIntoView({ behavior: "smooth" });
+  // }
 
 
   useEffect(() => {
@@ -64,11 +68,14 @@ const HomePage = () => {
     <div>
       <NavBar />
       <ActionNav
-        featureRefScroll={featureRefScroll}
-        chartsRefScroll={chartsRefScroll}
-        videoRefScroll={videoRefScroll}
+        // featureRefScroll={featureRefScroll}
+        // chartsRefScroll={chartsRefScroll}
+        // videoRefScroll={videoRefScroll}
+        // devRefScroll={devRefScroll}
       />
-      <div className="featured-page" id="featured-page-id" ref={featureRef}>
+      {/* <div className="featured-page" id="featured-page-id" ref={featureRef}> */}
+      <div className="featured-page" id="featured">
+
         <div className="top-feature">
           <div className="top-feature-left">
             <div className="top-feature-news" >
@@ -141,7 +148,9 @@ const HomePage = () => {
       </div>
 
       {/* CHARTS - ALL PLACEHOLDERS RN!!!!!!!!! */}
-      <div className="chart-page" id="chart-id" ref={chartsRef}>
+      {/* <div className="chart-page" id="chart-id" ref={chartsRef}> */}
+      <div className="chart-page" id="charts">
+
         <div className="chart-heading">CHARTS</div>
         {allTracks.map((track) => {
           return (
@@ -181,7 +190,9 @@ const HomePage = () => {
       </div>
 
       {/* VIDEOS - ALL PLACEHOLDERS RN!!!!!!!!! */}
-      <div className="video-page" ref={videoRef}>
+      {/* <div className="video-page" ref={videoRef} id='testing'> */}
+      <div className="video-page" id='video'>
+
         <div className="video-wrapper">
           <div className="video-title">
             VIDEOS
@@ -222,18 +233,19 @@ const HomePage = () => {
 
             </div>
           </div>
-          <div className="video-button">
+          {/* <div className="video-button">
             <button className="video-load-more">
               LOAD MORE
             </button>
-          </div>
+          </div> */}
         </div>
       </div>
 
 
 
 
-      {/* LATEST - ALL PLACEHOLDERS RN!!!!!!!!! */}
+      {/* <div className="latest-page" ref={devRef}> */}
+
       <div className="latest-page">
         <div className="latest-wrapper">
           <div className="latest-title">
@@ -244,13 +256,12 @@ const HomePage = () => {
           </div>
         </div>
 
-        <div className="latest-items">
+        <div className="latest-items" id="devs">
 
           <div className="bottom-latest">
 
 
             <figure className="bottom-latest-1">
-              {/* <div id="latest-dev">DEV</div> */}
               <img src={simon} alt="Logo"></img>
               <figcaption>
 
@@ -278,7 +289,6 @@ const HomePage = () => {
             </figure>
 
             <figure className="bottom-latest-2">
-              {/* <div id="latest-dev">DEV</div> */}
               <img src={kelly} alt="Logo"></img>
               <figcaption>
 
@@ -366,11 +376,11 @@ const HomePage = () => {
 
           </div>
         </div>
-        <div className="latest-button">
+        {/* <div className="latest-button">
           <button className="latest-load-more">
             LOAD MORE
           </button>
-        </div>
+        </div> */}
       </div>
 
 
@@ -388,3 +398,8 @@ const HomePage = () => {
 }
 
 export default HomePage;
+
+// const devRefScroll = (e) => {
+//   e.preventDefault();
+//   devRef.current.scrollIntoView({ behavior: "smooth" });
+// }

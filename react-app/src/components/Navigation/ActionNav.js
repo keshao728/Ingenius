@@ -1,11 +1,43 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink} from 'react-router-dom';
 import { useSelector } from 'react-redux';
 // import { HashLink } from 'react-router-hash-link';
 import './ActionNav.css'
+// import {useRef} from 'react';
+// import {useHistory} from 'react-router-dom';
+import { HashLink as Link } from 'react-router-hash-link';
 
 const ActionNav = (props) => {
   const sessionUser = useSelector(state => state.session.user);
+  // const History = useHistory();
+  // const featureRef = useRef(null)
+
+  // //references da ref we wanna scroll to
+  // const featureRefScroll = (e) => {
+  //   e.preventDefault();
+  //   featureRef.current.scrollIntoView({ behavior: "smooth" });
+  // };
+
+  // //CHARTS REF
+  // const chartsRef = useRef(null)
+
+  // const chartsRefScroll = (e) => {
+  //   e.preventDefault();
+  //   chartsRef.current.scrollIntoView({ behavior: "smooth" });
+  // };
+
+  // //VIDEO REF
+  // const videoRef = useRef(null)
+
+  // const videoRefScroll = (e) => {
+  //   e.preventDefault();
+  //   videoRef.current.scrollIntoView({ behavior: "smooth" });
+  // }
+
+  // const navigatetohome = () => {
+  //   History.push("/");
+  //   props.videoRefScroll()
+  // }
 
   let sessionLinks;
   if (sessionUser) {
@@ -33,28 +65,49 @@ const ActionNav = (props) => {
   return (
     <div className="main-nav">
       <div className="main-nav-list">
-        <div
+        <Link
           className="main-nav-list-1"
           id='action-nav-links'
-          onClick={(props.featureRefScroll)}
+          smooth to="/#featured"
+          // onClick={(props.featureRefScroll)}
+          // onClick={navigatetohome}
         >
           FEATURED
-        </div>
+        </Link>
 
-        <div
+        <Link
           className="main-nav-list-2"
           id='action-nav-links'
-          onClick={(props.chartsRefScroll)}>
+          smooth to="/#charts">
+          {/* // onClick={(props.chartsRefScroll)}> */}
           CHARTS
-        </div>
+        </Link>
 
-        <div
+        <Link
         className="main-nav-list-3"
         id='action-nav-links'
-        onClick={(props.videoRefScroll)}
+        smooth to="/#video"
+       // onClick={(props.videoRefScroll)
         >
           VIDEOS
-        </div>
+        </Link>
+
+        <Link
+        className="main-nav-list-5"
+        id='action-nav-links'
+        smooth to="/#devs"
+       // onClick={(props.videoRefScroll)
+        >
+          DEVS
+        </Link>
+        {/* </div>
+        <div
+        className="main-nav-list-5"
+        id='action-nav-links'
+        onClick={(props.devRefScroll)}
+        >
+          DEVS
+        </div> */}
         <div>
           {sessionLinks}
         </div>
@@ -64,3 +117,12 @@ const ActionNav = (props) => {
 }
 
 export default ActionNav;
+
+// </div>
+// <div
+// className="main-nav-list-5"
+// id='action-nav-links'
+// onClick={(props.devRefScroll)}
+// >
+//   DEVS
+// </div>
