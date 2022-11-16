@@ -103,7 +103,7 @@ def annotations_by_userId(id):
     #     me
     #     me
 
-    # return {'annotations': annotation_dictionary}
+    return {'annotations': annotation_dictionary}
     #     ''',
     #     annotation_dictionary)
     # # votes = Vote.query.filter(Vote.user_id == id).all()

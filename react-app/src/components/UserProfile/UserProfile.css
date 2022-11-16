@@ -1,48 +1,26 @@
 #pp-outer {
   width: auto;
-  /* height: 878px; */
+  height: 878px;
   display: flex;
   justify-content: center;
-  /* border: 10px solid red; */
-  /* background-color:white; */
-  position: relative;
-}
-#pp-cover {
-   /* whatever width you want for the cover div */
-  width: 100%;
-  height: 250px;
-  background-color:floralwhite;
-  overflow: hidden;
-  border: 10px solid green;
-  position: absolute;
-  
-  /* position:relative; */
-}
-#pp-cover{
-  z-index: 10;
-}
-/* .cover > img {
-  width: 100%;
-} */
-
-#pp-top-content-footer-container {
   border: 10px solid red;
-  width: 50%;
+}
+#pp-cover-content-footer-container {
+  border: 10px solid red;
+  width: 45%;
   height: auto;
   display: flex;
   flex-flow: column;
-  justify-content: space-between;
+
 
 }
 #pp-cover-content-footer-container>* {
   padding: 1em;
 }
-#pp-top {
+#pp-cover {
   border: 5px solid pink;
-  height: 250px; /* change up */
-
+  height: 100px; /* change up */
 }
-
 #pp-content {
   display: flex;
   flex: 1;
@@ -50,19 +28,19 @@
     /* optionnal if you want to keep footer at screen 
   overflow:auto; */
   flex-direction: row;
-  /* row-gap: 10px; */
 
 }
-#pp-left {
+#pp-status {
   border: 5px solid blue;
   height: auto;
-  width: 40%;
+  width: 50%;
 
 }
-#pp-right {
+#pp-contributions {
   border: 5px solid blueviolet;
   height: auto;
-  width: 60%;
+  width: 50%;
+
 
 }
 #pp-footer {
@@ -72,14 +50,8 @@
 
 
 
-.user-contributions-title {
+.uppercase {
   text-transform: uppercase;
-  font-size: small;
-  font-weight: bold;
-  color: rgb(187, 187, 187);
-  margin-top: 15px;
-  padding-bottom: 10px;
-  border-bottom: 1px solid lightgray;
 }
 
 
