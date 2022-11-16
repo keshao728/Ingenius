@@ -103,8 +103,8 @@ export default function CreateTrack() {
                     onChange={(e) => setAlbum(e.target.value)} />
                 </div>
               </div>
-              <div>
-                <div>
+              <div className='add-song-lyric-info'>
+                <div className='add-song-lyric'>
                   <label>LYRICS</label>
                   <textarea
                     type="text"
@@ -116,17 +116,31 @@ export default function CreateTrack() {
                   </textarea>
                 </div>
 
-                <div>
-                  <div className="add-song-primart-text">
+                <div className='add-song-info'>
+                  <div className='add-song-first-time'>
                     First time transcribing?
                   </div>
-                  <ol>
+
+                  <div className='add-song-first-time-des'>
                     Here are a few helpful tips for getting started:
+                  </div>
+
+                  <ol>
+
+                    <li>
+                      Type out all lyrics, even when a section of the song is repeated. Everything in the song should be transcribed, including adlibs, producer tags, etc. If you don’t understand a lyric, use “[?]” instead.
+                    </li>
+
+                    <li>
+                      Make sure to break transcriptions up into individual lines and use section headers above different song parts.
+                    </li>
+
+                    <li>
+                      Only add a song to Genius if it has been officially released. Fan-made mashups, songs that leak pre-release, and songs that violate our community policy are not allowed on Genius.
+                    </li>
+
                   </ol>
 
-                  Type out all lyrics, even when a section of the song is repeated. Everything in the song should be transcribed, including adlibs, producer tags, etc. If you don’t understand a lyric, use “[?]” instead.
-                  Make sure to break transcriptions up into individual lines and use section headers above different song parts.
-                  Only add a song to Genius if it has been officially released. Fan-made mashups, songs that leak pre-release, and songs that violate our community policy are not allowed on Genius.
                 </div>
               </div>
             </div>

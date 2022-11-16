@@ -42,6 +42,13 @@ body {
 .add-song-primary {
   display: flex;
   flex-direction: column;
+  gap: 25px;
+}
+
+.add-song-child {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
 
 }
 
@@ -57,19 +64,61 @@ body {
   width: 100%;
 }
 
-.add-song-primart-text{
+.add-song-primart-text {
   display: flex;
   font-size: 16px;
   font-weight: bold;
-  color: white;
+
   border-bottom: 1px solid gray;
 }
 
-#lyric-input{
+
+.add-song-lyric {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+}
+
+#lyric-input {
   resize: none;
-  width: 100%;
-  /* width: 700px;
-  height: 200px; */
+  width: 97%;
+  height: 400px;
   padding: 10px;
   margin-bottom: 20px;
+}
+
+.add-song-lyric-info {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+.add-song-info {
+  display: flex;
+  flex-direction: column;
+  margin-left: 25px;
+  margin-top: 17px;
+  width: 45%;
+}
+
+.add-song-first-time {
+  display: flex;
+  font-size: 16px;
+  font-weight: bold;
+}
+.add-song-first-time-des{
+  display: flex;
+  font-size: 13px;
+  font-weight: bold;
+  color: #CCCCCC;
+  margin-top: 10px;
+}
+
+li {
+  margin-bottom: 10px;
+  line-height: 25px;
+  font-weight: bold;
+  color: #CCCCCC;
+  font-size: 13px;
+
 }
