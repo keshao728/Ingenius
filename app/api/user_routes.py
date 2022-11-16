@@ -1,7 +1,6 @@
 from flask import Blueprint, jsonify
 from flask_login import login_required
-from app.models import User
-from ..models import Annotation
+from app.models import User, Track, Comment, Annotation, Vote
 
 
 user_routes = Blueprint('users', __name__)
@@ -32,4 +31,18 @@ def user(id):
 def annotations_by_userId(id):
     user_annotations = Annotation.query.filter(Annotation.user_id == id).all()
     annotation_dictionary = [annotation.to_dict() for annotation in user_annotations]
+
+    users = User.query.filter(User.id == id).all()
+    annotation_dictionary['Users'] = [user.to_dict() for user in users]
+
+    tracks = Track.query.filter(Track.user_id == id).all()
+    annotation_dictionary['Tracks'] = [track.to_dict() for track in tracks]
+
+    comments = Comment.query.filter(Comment.user_id == id).all()
+    annotation_dictionary['Comments'] = [comment.to_dict() for comment in comments]
+
+    votes = Vote.query.filter(Vote.user_id == id).all()
+    annotation_dictionary['Votes'] = [votes.to_dict() for vote in votes]
+
+
     return {'annotations': annotation_dictionary}

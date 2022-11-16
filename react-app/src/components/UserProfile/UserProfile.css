@@ -18,40 +18,42 @@
   padding: 1em;
 }
 #pp-cover {
-  border: 10px solid pink;
+  border: 5px solid pink;
   height: 100px; /* change up */
 }
 #pp-content {
+  display: flex;
   flex: 1;
-  border: 10px solid purple;
+  border: 5px solid purple;
     /* optionnal if you want to keep footer at screen 
   overflow:auto; */
+  flex-direction: row;
+
+}
+#pp-status {
+  border: 5px solid blue;
+  height: auto;
+  width: 50%;
+
+}
+#pp-contributions {
+  border: 5px solid blueviolet;
+  height: auto;
+  width: 50%;
+
 
 }
 #pp-footer {
-  border: 10px solid orange;
+  border: 5px solid orange;
 
 }
 
 
 
-
+.uppercase {
+  text-transform: uppercase;
+}
 
 
 /* pp-annotation */
 
-#pp-annotations-outer-container {
-
-}
-
-#pp-annotation-created-at {
-
-}
-
-#pp-annotation-inner-container {
-
-}
-
-#pp-annotation-song {
-  
-}
