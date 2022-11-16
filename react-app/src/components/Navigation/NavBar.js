@@ -42,7 +42,7 @@ const NavBar = () => {
             alt="Default Profile"
           >
           </img>
-          
+
         {showMenu && (
           <div>
             <div>
