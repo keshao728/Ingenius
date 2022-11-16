@@ -55,7 +55,7 @@ def seed_tracks():
         Somebody take 'em
         ''',
         track_art='https://t2.genius.com/unsafe/331x331/https%3A%2F%2Fimages.genius.com%2F0c68f4642eadc6d1160d3815cf66ec96.831x831x1.jpg',
-        track_url='https://www.youtube.com/watch?v=w_6fWYY6pRw',
+        track_url='https://www.youtube.com/embed/w_6fWYY6pRw',
     )
 
     track2 = Track(
@@ -129,7 +129,7 @@ def seed_tracks():
         And it’s fine if we’re only pretending)
         ''',
         track_art='https://t2.genius.com/unsafe/222x222/https%3A%2F%2Fimages.genius.com%2F7ceb52b68969dc66835a05857636415d.800x800x1.jpg',
-        track_url='https://youtu.be/0JpMEztTCM0',
+        track_url='https://www.youtube.com/embed/0JpMEztTCM0',
     )
     track3 = Track(
         user_id=2,
@@ -203,7 +203,7 @@ def seed_tracks():
         Oh
         ''',
         track_art='https://t2.genius.com/unsafe/222x222/https%3A%2F%2Fimages.genius.com%2Fc04671d3a6d390614bec909a0c129169.830x830x1.jpg',
-        track_url='https://www.youtube.com/watch?v=RivEsavD6ZE',
+        track_url='https://www.youtube.com/embed/RivEsavD6ZE',
     )
     track4 = Track(
         user_id=2,
@@ -266,7 +266,7 @@ def seed_tracks():
         You look perfect tonight
         ''',
         track_art='https://t2.genius.com/unsafe/222x222/https%3A%2F%2Fimages.genius.com%2F35fad95b68ee49ae50eb71a918075e75.1000x1000x1.png',
-        track_url='https://www.youtube.com/watch?v=BgoImewGGMo',
+        track_url='https://www.youtube.com/embed/BgoImewGGMo',
     )
     track5 = Track(
         user_id=2,
@@ -347,7 +347,7 @@ def seed_tracks():
         We are not beautiful
         ''',
         track_art='https://t2.genius.com/unsafe/222x222/https%3A%2F%2Fimages.genius.com%2Fe99160501d4dc49fa6767573cdaf0aaa.1000x1000x1.jpg',
-        track_url='https://www.youtube.com/watch?v=mj0XInqZMHY',
+        track_url='https://www.youtube.com/embed/74yb9E3WY1I',
     )
 
 
