@@ -14,6 +14,7 @@ import AllComments from './components/Comments/comments';
 import TrackInfo from './components/TrackInfo';
 import Annotation from './components/Annotation/annotations';
 import CreateTrack from './components/TrackForm';
+import AllTrackNav from './components/Navigation/AllTrackNav';
 // import UserAnnotations from './components/UserProfile';
 
 function App() {
@@ -33,21 +34,24 @@ function App() {
 
   return (
     <BrowserRouter>
-      <NavBar />
-      <ActionNav />
+
 
 
       <Switch>
         <Route path='/' exact={true} >
-          <HomePage />
+        <NavBar />
+        <ActionNav />
+        <HomePage />
         </Route>
 
         <ProtectedRoute path='/users/:userId' exact={true} >
-          <User />
+        <NavBar />
+        <ActionNav />
+        <User />
         </ProtectedRoute>
 
         <Route path='/tracks' exact={true}>
-          <AllTracks />
+        <AllTracks />
         </Route>
 
         <Route path='/tracks/new'>
@@ -55,6 +59,7 @@ function App() {
         </Route>
 
         <Route exact path='/tracks/:trackId'>
+          <AllTrackNav/>
           <TrackInfo />
           <Annotation />
           <AllComments />
