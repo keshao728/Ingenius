@@ -27,7 +27,8 @@ export default function TrackInfo() {
             {user?.id === track.user_id && <EditTrackModal />}
 
             <div>
-                Track Art: {track.track_art}
+                Track Art:
+                <img src={track.track_art}></img>
             </div>
 
             <div>
