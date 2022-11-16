@@ -71,7 +71,7 @@ const HomePage = () => {
         featureRefScroll={featureRefScroll}
         chartsRefScroll={chartsRefScroll}
         videoRefScroll={videoRefScroll}
-        devRefScroll={devRefScroll}
+        // devRefScroll={devRefScroll}
       />
       <div className="featured-page" id="featured-page-id" ref={featureRef}>
         <div className="top-feature">
@@ -238,7 +238,9 @@ const HomePage = () => {
 
 
 
-      <div className="latest-page" ref={devRef}>
+      <div className="latest-page"
+      ref={devRef}
+      >
         <div className="latest-wrapper">
           <div className="latest-title">
             FULL STACK DEVS
