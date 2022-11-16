@@ -1,15 +1,15 @@
-from .db import db
+from .db import db, environment, SCHEMA, add_prefix_for_prod
 from sqlalchemy import func
-
-
-
 
 class Vote(db.Model):
   __tablename__ = 'votes'
 
+  if environment == "production":
+    __table_args__ = {'schema': SCHEMA}
+
   id = db.Column(db.Integer, primary_key=True)
-  annotation_id = db.Column(db.Integer, db.ForeignKey('annotations.id'))
-  user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
+  annotation_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('annotations.id')))
+  user_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('users.id')))
   vote = db.Column(db.Integer)
   created_at = db.Column(db.DateTime(timezone=True), server_default=func.current_timestamp())
   updated_at = db.Column(db.DateTime(timezone=True), onupdate=func.current_timestamp())

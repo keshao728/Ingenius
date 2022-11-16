@@ -14,11 +14,16 @@ export default function EditTrack({ setModalOpen }) {
   const track = useSelector(state => state.tracks)
   const user = useSelector(state => state.session.user)
 
+  const date = new Date();
+  const futureDate = date.getDate() + 3;
+  date.setDate(futureDate);
+  const defaultDate = date.toLocaleDateString('en-CA');
+
   const [id, setId] = useState(track.id)
   const [trackTitle, setTrackTitle] = useState(track.track_title)
   const [artist, setArtist] = useState(track.artist)
   const [album, setAlbum] = useState(track.album)
-  const [releaseDate, setReleaseDate] = useState(track.releaseDate)
+  const [releaseDate, setReleaseDate] = useState(track.releaseDate ? track.releaseDate : defaultDate)
   const [producedBy, setProducedBy] = useState(track.producedBy)
   const [lyrics, setLyrics] = useState(track.lyrics)
   const [trackArt, setTrackArt] = useState(track.trackArt)
