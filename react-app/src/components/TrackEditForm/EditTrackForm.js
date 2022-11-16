@@ -11,7 +11,7 @@ export default function EditTrack({ setModalOpen }) {
   const dispatch = useDispatch()
   const history = useHistory()
   // const { id } = useParams()
-  const track = useSelector(state => state.tracks)
+  const track = useSelector(state => state.tracks.oneTrack)
   const user = useSelector(state => state.session.user)
 
   const date = new Date();
@@ -208,7 +208,7 @@ export default function EditTrack({ setModalOpen }) {
                 value={trackUrl}
                 onChange={(e) => setTrackUrl(e.target.value)}
               />
-              <label className='edit-track-input-label'>Youtube Url</label>
+              <label className='edit-track-input-label'>Youtube Url (embeded link only)</label>
             </div>
 
             {/* <div>
