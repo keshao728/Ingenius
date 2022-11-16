@@ -50,8 +50,6 @@ const HomePage = () => {
   }
 
 
-
-
   useEffect(() => {
     dispatch(getAllTracks())
       .then(() => dispatch(getAllTracks()))
@@ -181,7 +179,7 @@ const HomePage = () => {
       </div>
 
       {/* VIDEOS - ALL PLACEHOLDERS RN!!!!!!!!! */}
-      <div className="video-page" ref={videoRef}>
+      <div className="video-page" ref={videoRef} id='testing'>
         <div className="video-wrapper">
           <div className="video-title">
             VIDEOS
