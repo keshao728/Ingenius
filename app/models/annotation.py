@@ -30,5 +30,8 @@ class Annotation(db.Model):
             "endIndex": self.endIndex,
             # "vote_count": self.vote_count,
             "created_at": self.created_at,
-            "updated_at": self.updated_at
+            "updated_at": self.updated_at,
+            "user": self.annotation_user.to_dict(),
+            "track": self.annotation_track.to_dict(),
+            "vote_count": len(self.annotation_vote)
         }
