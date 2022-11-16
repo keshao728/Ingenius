@@ -11,7 +11,7 @@ const ActionNav = (props) => {
   if (sessionUser) {
     sessionLinks = (
       <div className='main-nav-list'>
-        <NavLink to={`/tracks/new`}>
+        <NavLink to={`/tracks/new`} style={{ textDecoration: 'none' }}>
           <div className='main-nav-list-4' id='action-nav-links'>
             ADD A SONG
           </div>
