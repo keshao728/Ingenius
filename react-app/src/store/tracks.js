@@ -210,7 +210,6 @@ export const trackReducer = (state = initialState, action) => {
             newState = { ...state };
             newState[action.track.id] = action.track
             return newState;
-
         }
 
         case DELETE_TRACK: {

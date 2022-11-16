@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom'
 import { deleteAnnotation, getUserAnnotations } from '../../store/annotations'
+import { getUserInfo } from '../../store/session';
 import React from 'react';
 import './UserIndex.css'
 
@@ -10,15 +11,15 @@ const UserAnnotations = () => {
   const dispatch = useDispatch()
   const { userId } = useParams()
 
-  const getAnnotations = useSelector(state => state.annotations.allAnnotations)
-  // console.log('ALLANOTATIONS', getAnnotations)
-  const annotations = Object.values(getAnnotations)
-  // console.log('ANNOTATIONS', annotations)
+  const userInformation = useSelector(state => state.session.tracks)
+  console.log('USERINOFORMATION', userInformation)
+  const infos = Object.values(userInformation)
+  console.log('ANNOTATIONS', infos)
 
   const [isLoaded, setIsLoaded] = useState(false)
 
   useEffect(() => {
-    dispatch(getUserAnnotations(userId))
+    dispatch(getUserInfo(userId))
       .then(() => setIsLoaded(true))
   }, [dispatch, userId])
 
@@ -26,9 +27,9 @@ const UserAnnotations = () => {
   //   const id = 
   // }
 
-  if (!annotations) return null
+  if (!infos) return null
   else return isLoaded &&
-    annotations.map(annotation => (
+    infos.map(annotation => (
       <div id='pp-annotations-outer-container' key={annotation.id}> 
         <div id='pp-annotation-created-at'> {annotation.created_at}</div>
         <div id='pp-annotation-inner-container'>

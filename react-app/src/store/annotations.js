@@ -76,17 +76,17 @@ const actionDeleteAnnotation = (annotation) => {
 // }
 
 // get all user annotations
-export const getUserAnnotations = (userId) => async dispatch => {
-    const response = await fetch(`/api/users/${userId}/annotations`);
-    if (response.ok) {
-        const annotations = await response.json();
-        // console.log('IS IT WORKING YET', annotations)
-        await dispatch(actionGetUserAnnotations(annotations));
-        // console.log('HOW BOUT NOW', annotations)
-        return annotations
-    }
-    return null
-}
+// export const getUserAnnotations = (userId) => async dispatch => {
+//     const response = await fetch(`/api/users/${userId}/annotations`);
+//     if (response.ok) {
+//         const annotations = await response.json();
+//         console.log('IS IT WORKING YET', annotations)
+//         await dispatch(actionGetUserAnnotations(annotations));
+//         console.log('HOW BOUT NOW', annotations)
+//         return annotations
+//     }
+//     return null
+// }
 
 //get an annotation inside a track
 // export const getOneAnnotation = (trackId, annotationId) => async (dispatch) => {
@@ -149,15 +149,15 @@ export const annotationReducer = (state = initialState, action) => {
         //     });
         //     return newState
         // }
-        case GET_ALL_ANNOTATIONS: 
-            let annotationState = {}
-            newState = { ...state, allAnnotations: {...state.allAnnotations}}
-            console.log('GET_ALL_ANNOTATIONSACTION', action)
-            action.payload.annotations.forEach(annotation => {
-                annotationState[annotation.id] = annotation
-            })
-            newState.allAnnotations = annotationState
-            return newState
+        // case GET_ALL_ANNOTATIONS: 
+        //     let annotationState = {}
+        //     newState = { ...state, allAnnotations: {...state.allAnnotations}}
+        //     console.log('GET_ALL_ANNOTATIONSACTION', action)
+        //     action.payload.annotations.forEach(annotation => {
+        //         annotationState[annotation.id] = annotation
+        //     })
+        //     newState.allAnnotations = annotationState
+        //     return newState
         
         case GET_ONE_ANNOTATION:
             newState = {...state, oneAnnotation: {...state.oneAnnotation}}
