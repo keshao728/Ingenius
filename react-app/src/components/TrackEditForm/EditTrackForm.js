@@ -61,7 +61,13 @@ export default function EditTrack({ setModalOpen }) {
   //     if (displayErrors) validate()
   // }, [])
 
-
+  useEffect(() => {
+    const err = []
+    if(!trackTitle || trackTitle.length>100) err.push('Please enter a track title that is less than 100 characters')
+    if(!artist || artist.length>50) err.push('Please enter an artist name that is less than 50 characters')
+    if(!lyrics) err.push('Please enter lyrics')
+    setErrors(err)
+  },[trackTitle,artist,lyrics])
 
 
   // useEffect(() => {
@@ -232,6 +238,12 @@ export default function EditTrack({ setModalOpen }) {
 
 
       </form>
+      <div>
+        {errors && errors.map((error, idx) =>
+          <li key={idx}>
+            {error}
+          </li>)}
+      </div>
     </div>
   )
 }
