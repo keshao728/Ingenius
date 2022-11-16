@@ -13,15 +13,18 @@ const AllComments = () => {
   const dispatch = useDispatch();
   const { trackId } = useParams();
   const sessionUser = useSelector((state) => state.session.user);
-  console.log("THIS IS SESSION USER IN ALLCOMMENTS", sessionUser)
+  // console.log("THIS IS SESSION USER IN ALLCOMMENTS", sessionUser)
   // const track = useSelector(state => state.tracks)
 
   const comments = useSelector((state) => state.comments.comments);
   const commentsArr = Object.values(comments);
-  // console.log("COMMENTS", commentsArr);
+  console.log("COMMENTS", commentsArr);
 
   const [userComments, setUserComments] = useState("");
 
+  // const meow = useSelector((state) => state.comments.comments[1].username);
+
+  // console.log("MEOW", meow)
 
   useEffect(() => {
     dispatch(getAllComments(trackId))
@@ -155,7 +158,8 @@ const AllComments = () => {
           return (
             <div className="comment-display">
               <div className="individual-comment-display" key={comment?.id}>
-                <div>{comment?.User?.username}</div>
+                <div>{comment.comment_user.username}</div>
+                <div>{comment.user_id}</div>
                 <div>{moment(comment.created_at).fromNow()}</div>
                 {/* <div>{comment.created_at.split(' ').slice(0, -2).join(' ')}</div> */}
                 <div>{comment.comment_body} </div>

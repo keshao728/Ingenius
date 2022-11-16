@@ -25,6 +25,17 @@ def user(id):
     user = User.query.get(id)
     return user.to_dict()
 
+@user_routes.route('/<int:id>/special')
+def user_special(id):
+    """
+    Query for a user by id and returns that user in a dictionary
+    """
+    user = User.query.get(id)
+    return user.to_dict()
+
+
+# user annotations
+@user_routes.route('/<int:id>/annotations')
 # get current user info
 @user_routes.route('/<int:id>/info')
 @login_required
@@ -87,14 +98,13 @@ def annotations_by_userId(id):
 
     # print(
     #     '''
-    #     look at meeeee 
+    #     look at meeeee
     #     me
     #     me
     #     me
 
+    return {'annotations': annotation_dictionary}
     #     ''',
     #     annotation_dictionary)
     # # votes = Vote.query.filter(Vote.user_id == id).all()
     # # annotation_dictionary['Votes'] = [vote.to_dict() for vote in votes]
-
-    
