@@ -1,6 +1,8 @@
 // import React, { useRef } from 'react';
-import andrew from "./HomePageImage/andrew.png"
-import kelly from "./HomePageImage/kelly.png"
+// import andrew from "./HomePageImage/andrew.png"
+import akim from "./HomePageImage/akim.png"
+// import kelly from "./HomePageImage/kelly.png"
+import keshao from "./HomePageImage/keshao.png"
 import schaeffer from "./HomePageImage/schaeffer.png"
 import simon from "./HomePageImage/simon.png"
 // import fries from "./HomePageImage/devs.png"
@@ -344,7 +346,7 @@ const HomePage = () => {
             </figure>
 
             <figure className="bottom-latest-2">
-              <img src={kelly} alt="Logo"></img>
+              <img src={keshao} alt="Logo"></img>
               <figcaption>
 
                 <h3>
@@ -372,7 +374,7 @@ const HomePage = () => {
 
             <figure className="bottom-latest-3">
               {/* <div id="latest-dev">DEV</div> */}
-              <img src={andrew} alt="Logo"></img>
+              <img src={akim} alt="Logo"></img>
               <figcaption>
 
                 <h3>
