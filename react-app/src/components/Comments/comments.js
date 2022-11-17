@@ -18,7 +18,7 @@ const AllComments = () => {
 
   const comments = useSelector((state) => state.comments.comments);
   const commentsArr = Object.values(comments);
-  // console.log("COMMENTS", commentsArr);
+  console.log("COMMENTS", commentsArr);
 
   const [userComments, setUserComments] = useState("");
   const [validationErrors, setValidationErrors] = useState([])
@@ -90,7 +90,8 @@ const AllComments = () => {
         {/* <h3 className="comment-message">Add a Review Meow!!!</h3> */}
 
         <div className="comment-form">
-          <label>
+          <label className="commenter-img-input">
+            <img className="commenter-img" src={sessionUser.profile_img}></img>
             <textarea
               placeholder="Add a comment"
               type="text"
@@ -184,11 +185,13 @@ const AllComments = () => {
             return (
               <div className="comment-display">
                 <div className="individual-comment-display" key={comment?.id}>
-                  <div>{comment?.commentter?.username}</div>
-                  <div>{comment.user_id}</div>
-                  <div>{moment(comment.created_at).fromNow()}</div>
+                  <div className="individual-comment-header">
+                  <img className="comment-profile-img" src={comment?.commentter?.profile_img}></img>
+                  <div className="comment-user">{comment?.commentter?.username}</div>
+                  <div className="comment-time-stamp">{moment(comment.created_at).fromNow()}</div>
+                  </div>
+                  <div className="comment-body">{comment.comment_body} </div>
                   {/* <div>{comment.created_at.split(' ').slice(0, -2).join(' ')}</div> */}
-                  <div>{comment.comment_body} </div>
                 </div>
                 {sessionUser?.id === comment.user_id && (
                   <button className="delete-comment-button"
