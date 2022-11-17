@@ -90,20 +90,23 @@ const AllComments = () => {
         {/* <h3 className="comment-message">Add a Review Meow!!!</h3> */}
 
         <div className="comment-form">
-          <label className="commenter-img-input">
-            <img className="commenter-img" src={sessionUser.profile_img}></img>
-            <textarea
-              placeholder="Add a comment"
-              type="text"
-              error
-              className="comment-input"
-              // className={`${hasError ? 'invalid-comment-input' : 'comment-input'}`}
-              value={userComments}
-              onClick={openSubmit}
-              required
-              style={invalidInput}
-              onChange={(e) => setUserComments(e.target.value)}
-            />
+          <label>
+            <div className="commenter-img-input">
+
+              <img className="commenter-img" src={sessionUser.profile_img}></img>
+              <textarea
+                placeholder="Add a comment"
+                type="text"
+                error
+                className="comment-input"
+                // className={`${hasError ? 'invalid-comment-input' : 'comment-input'}`}
+                value={userComments}
+                onClick={openSubmit}
+                required
+                style={invalidInput}
+                onChange={(e) => setUserComments(e.target.value)}
+              />
+            </div>
             {showErrors && showSubmit && (
               <ul className="comment-form-errors">
                 {validationErrors.length > 0 &&
@@ -186,9 +189,9 @@ const AllComments = () => {
               <div className="comment-display">
                 <div className="individual-comment-display" key={comment?.id}>
                   <div className="individual-comment-header">
-                  <img className="comment-profile-img" src={comment?.commentter?.profile_img}></img>
-                  <div className="comment-user">{comment?.commentter?.username}</div>
-                  <div className="comment-time-stamp">{moment(comment.created_at).fromNow()}</div>
+                    <img className="comment-profile-img" src={comment?.commentter?.profile_img}></img>
+                    <div className="comment-user">{comment?.commentter?.username}</div>
+                    <div className="comment-time-stamp">{moment(comment.created_at).fromNow()}</div>
                   </div>
                   <div className="comment-body">{comment.comment_body} </div>
                   {/* <div>{comment.created_at.split(' ').slice(0, -2).join(' ')}</div> */}
