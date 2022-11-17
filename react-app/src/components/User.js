@@ -1,11 +1,16 @@
 import React, { useState, useEffect } from 'react';
+import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import UserAnnotations from './UserProfile';
-import EditAnnotation from './AnnotationEditForm/EditAnnotationForm';
+// import EditAnnotation from './AnnotationEditForm/EditAnnotationForm';
 import './UserProfile/UserProfile.css'
 
 function User() {
   const [user, setUser] = useState({});
+  // const other = useSelector(state => state.session.annotations)
+  // const otherUser = other
+  // console.log('OTHER', otherUser)
+
   const { userId } = useParams();
   console.log(user)
 

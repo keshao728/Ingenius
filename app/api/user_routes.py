@@ -17,7 +17,7 @@ def users():
 
 
 @user_routes.route('/<int:id>')
-@login_required
+# @login_required
 def user(id):
     """
     Query for a user by id and returns that user in a dictionary
@@ -36,7 +36,7 @@ def user_special(id):
 
 # get current user info
 @user_routes.route('/<int:id>/info')
-@login_required
+# @login_required
 def annotations_by_userId(id):
     user_annotations = Annotation.query.filter(Annotation.user_id == id).all()
     user_dictionary = {}

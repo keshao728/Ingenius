@@ -17,10 +17,9 @@ const UserAnnotations = () => {
   const annotations = useSelector(state => state.session.annotations)
   const sessionUser = useSelector(state => state.session.user)
   // console.log('sessionUserID', sessionUser.id)
-
-  console.log('USERINOFORMATION', annotations)
+  // console.log('USERINOFORMATION', annotations)
   const annotationArr = Object.values(annotations)
-  console.log('ANNOTATIONAAARR', annotationArr)
+  // console.log('ANNOTATIONAAARR', annotationArr)
 
   const [isLoaded, setIsLoaded] = useState(false)
   const [showEdit, setShowEdit] = useState(false)
@@ -83,7 +82,7 @@ const UserAnnotations = () => {
               </div>
               <div id='pp-annotation-created-at-moment'>{moment(annotation?.created_at).fromNow()}</div>
             </div>
-            <div>{ sessionUser.id === annotation.user.id ? 
+            <div>{ sessionUser?.id === annotation.user.id ? 
               <div >{showEdit === annotation.id ? <EditAnnotation setShowEdit={setShowEdit} annotate={annotation} /> :
                 <div>
                   <div id='pp-annotation-body'>{annotation.annotation_body}</div>
