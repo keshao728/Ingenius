@@ -31,7 +31,7 @@ def downvote(id):
     # vote2 = Vote.query.get(Vote.user_id == current_user.id, Vote.annotation_id == id) #find by PK
     # print (' >>>>>>>vote >>>>>>>>>',vote1)
     if vote1:
-        return {'errors': 'You have already downvoted this annotation',"statusCode": 401}.
+        return {'errors': 'You have already downvoted this annotation',"statusCode": 401}
         # return vote1
 
     else:
