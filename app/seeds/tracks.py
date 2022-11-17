@@ -1,4 +1,4 @@
-from app.models import db, Track
+from app.models import db, Track,environment, SCHEMA
 from datetime import date
 
 
@@ -1042,5 +1042,8 @@ def seed_tracks():
 
 
 def undo_tracks():
-    db.session.execute('TRUNCATE tracks RESTART IDENTITY CASCADE;')
+    if environment == "production":
+        db.session.execute(f"TRUNCATE table {SCHEMA}.tracks RESTART IDENTITY CASCADE;")
+    else:
+        db.session.execute("DELETE FROM tracks")
     db.session.commit()
