@@ -68,6 +68,8 @@ const HomePage = () => {
       .then(() => setIsLoaded(true))
   }, [dispatch])
 
+
+
   return isLoaded && (
     // FEATURES - ALL PLACEHOLDERS RN!!!!!!!!!
     <div>
@@ -143,7 +145,7 @@ const HomePage = () => {
             <div>
               <div className="top-feature-author-date2">
                 <div className="top-feature-author">
-                by Leah Degrazia /
+                  by Leah Degrazia /
                 </div>
 
                 <div className="top-feature-date">
@@ -154,10 +156,10 @@ const HomePage = () => {
             </div>
           </div>
           <div className="bottom-feature-3">
-          <div>
+            <div>
               <div id="dev">NEWS</div>
               <div>
-              Roddy Ricch Showcases His Chemistry With Lil Durk On New Single “Twin”
+                Roddy Ricch Showcases His Chemistry With Lil Durk On New Single “Twin”
               </div>
             </div>
             <div>
@@ -174,10 +176,10 @@ const HomePage = () => {
             </div>
           </div>
           <div className="bottom-feature-4">
-          <div>
+            <div>
               <div id="dev">NEWS</div>
               <div>
-              Nas Celebrates His Home Borough of Queens On New Song “Thun”
+                Nas Celebrates His Home Borough of Queens On New Song “Thun”
               </div>
             </div>
             <div>
@@ -224,6 +226,10 @@ const HomePage = () => {
                   </div>
                   <div className="track-artist">
                     {track.artist}
+                  </div>
+                  <div className="track-views">
+                    <i class="fa-regular fa-eye"></i>
+                    {Math.floor(Math.random() * (100 * 100 - 1 * 100) + 1 * 100) / (1 * 100)}k
                   </div>
                 </div>
 
