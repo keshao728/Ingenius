@@ -303,7 +303,7 @@ const HomePage = () => {
 
       {/* <div className="latest-page" ref={devRef}> */}
 
-      <div className="latest-page">
+      <div className="latest-page" id="devs">
         <div className="latest-wrapper">
           <div className="latest-title">
             FULL STACK DEVS
@@ -313,7 +313,7 @@ const HomePage = () => {
           </div>
         </div>
 
-        <div className="latest-items" id="devs">
+        <div className="latest-items" >
 
           <div className="bottom-latest">
 
