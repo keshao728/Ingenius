@@ -40,7 +40,7 @@ app.register_blueprint(track_routes, url_prefix='/api/tracks')
 app.register_blueprint(comment_routes, url_prefix='/api/comment')
 # app.register_blueprint(comment_routes, url_prefix='/api/comments')
 app.register_blueprint(annotation_routes, url_prefix='/api')
-app.register_blueprint(upvote_routes, url_prefix='/api/upvotes')
+app.register_blueprint(upvote_routes, url_prefix='/api/votes')
 
 db.init_app(app)
 Migrate(app, db)

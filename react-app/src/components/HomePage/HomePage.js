@@ -29,6 +29,7 @@ import './HomePage.css'
 const HomePage = () => {
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false)
+  const [showTracks, setShowTracks] = useState(5)
 
   //TRACKS
   const tracks = useSelector(state => state.tracks.allTracks)
@@ -209,7 +210,7 @@ const HomePage = () => {
       <div className="chart-page" id="charts">
 
         <div className="chart-heading">CHARTS</div>
-        {allTracks.map((track) => {
+        {allTracks.slice(0, showTracks).map((track) => {
           return (
             <div key={track.id} className="all-tracks">
               <NavLink class="tracks-navlink" to={`/tracks/${track.id}`}>
@@ -243,11 +244,20 @@ const HomePage = () => {
             </div>
           )
         })}
-        <div className="track-button">
-          <button className="track-load-more">
-            LOAD MORE
-          </button>
+
+        <div className='load-track-container'>
+
+            {allTracks.length > showTracks ? <div className="track-button"><button className="track-load-more" onClick={() => setShowTracks(showTracks + 5)}>
+              LOAD MORE
+            </button></div> : ''}
+
+
+            {showTracks > 5 ? <div className="track-button"><button className="track-load-more" onClick={() => setShowTracks(showTracks - 5)}>
+              SHOW LESS
+            </button></div> : ''}
+
         </div>
+
       </div>
 
       {/* VIDEOS - ALL PLACEHOLDERS RN!!!!!!!!! */}
@@ -264,14 +274,14 @@ const HomePage = () => {
 
           <div className="video-verified">
             <div>
-            <ReactPlayer
-            width="830px"
-            height="480px"
-            // playIcon={vidplay}
-            light={videoImg}
-            url="https://www.youtube.com/watch?v=KH7_PFZgPn4&ab_channel=Genius"
-            // react-player__preview={videoImg}
-             />
+              <ReactPlayer
+                width="830px"
+                height="480px"
+                // playIcon={vidplay}
+                light={videoImg}
+                url="https://www.youtube.com/watch?v=KH7_PFZgPn4&ab_channel=Genius"
+              // react-player__preview={videoImg}
+              />
 
               {/* <iframe className="video"
                 //IT'S AUTOPLAYING!!! STAHP IT
@@ -458,15 +468,15 @@ const HomePage = () => {
 
         <div className="footer-inner">
           <div className="footer-message">
-            Genius is the world’s biggest collection of song lyrics and musical knowledge
+            Ingenius is the world’s smallest collection of song lyrics and musical knowledge
           </div>
 
           <div className="footer-links">
             <ul className="footer-links-ul">
+              <li><a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Free Music</a></li>
               <li><a href="">Something</a></li>
               <li><a href="">Something</a></li>
-              <li><a href="">Something</a></li>
-              <li><a href="">Something</a></li>
+              <li><a href="https://www.music-map.com/">Music Map</a></li>
             </ul>
           </div>
 

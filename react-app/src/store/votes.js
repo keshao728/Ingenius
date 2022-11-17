@@ -34,29 +34,34 @@ export const upvoteThunk = (id) => async (dispatch) => {
         headers: {
             "Content-Type": "application/json"
         },
-        body: JSON.stringify({id})
+        body: JSON.stringify(id)
     })
+    console.log('id from upvote thunk',id)
+    console.log('response from upvote thunk',response)
     if (response.ok) {
         const data = await response.json()
+        console.log('data from upvote thunk',data)
         await dispatch(upvote(data))
         return data
     }
     return
 }
 //downvote
-export const downvoteThunk = (id) => async (dispatch) => {
+export const downvoteThunk = (id) => async () => {
     const response = await fetch(`/api/votes/${id}/downvote`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
         },
-        body: JSON.stringify({id})
+        body: JSON.stringify(id)
     })
     console.log(id)
     console.log(response)
     if (response.ok) {
         const data = await response.json()
-        await dispatch(downvote(data))
+        // const data2 = await dispatch(downvote(data))
+        console.log('this is data in thunk',data)
+        // console.log(data2)
         return data
     }
     return
