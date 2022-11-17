@@ -46,7 +46,7 @@ function User() {
         </div>
         <div id='pp-content'>
           <div id='pp-left'>
-
+            <div className='pp-div-align'>hello</div>
           </div>
           <div id='pp-right'>
             <div>

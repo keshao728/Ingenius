@@ -29,29 +29,6 @@ const UserAnnotations = () => {
       .then(() => setIsLoaded(true))
   }, [dispatch, userId])
 
-  // useEffect(() => {
-  //   if (!showEdit) return
-  //   const closeEdit = () => {
-  //     setShowEdit(false)
-  //   }
-  //   document.addEventListener('click', closeEdit);
-
-  //   return () => document.removeEventListener("click", closeEdit)
-
-  // }, [showEdit])
-
-  // handleDelete = (e) => {
-  //   const id =
-  // }
-  // const handleEditClick = async (e) => {
-  //   e.preventDefault()
-  //   setShowEdit(true)
-  // }
-
-  // const loggedIn = (userId) => {
-  //   return sessionUser.id === userId
-  // }
-
 
   if (!annotationArr) return null
   else return isLoaded &&
