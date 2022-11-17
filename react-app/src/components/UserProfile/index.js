@@ -33,9 +33,9 @@ const UserAnnotations = () => {
   //     setShowEdit(false)
   //   }
   //   document.addEventListener('click', closeEdit);
-    
+
   //   return () => document.removeEventListener("click", closeEdit)
-    
+
   // }, [showEdit])
 
   // handleDelete = (e) => {
@@ -65,7 +65,6 @@ const UserAnnotations = () => {
               lyrics
             </div>
             <div>
-
             </div>
           </div>
           <div id='pp-annotation-inner-content'>
@@ -73,25 +72,21 @@ const UserAnnotations = () => {
               <img id='pp-annotation-username-icon' src={annotation.user?.profile_img} />
               <div id='pp-annotation-username'>{annotation.user?.username}</div>
             </div>
-            <div id='pp-annotation-annotation-body'>{showEdit == annotation.id ? <EditAnnotation setShowEdit = {setShowEdit} annotate={annotation} /> : annotation.annotation_body }</div>
-              <div id='pp-annotation-delete-edit'>
+
+            <div >{showEdit == annotation.id ? <EditAnnotation setShowEdit={setShowEdit} annotate={annotation} /> :
+              <div>
+                <div id='pp-annotation-annotation-body'>{annotation.annotation_body}</div>
                 <button id='pp-annotation-edit' onClick={() => setShowEdit(annotation.id)}>Edit</button>
                 <button id='pp-annotation-delete' onClick={() => dispatch(deleteAnnotation(annotation.id))}>Delete</button>
-
-                {/* <button id='pp-annotation-edit' onClick={() => setShowEdit(annotation.id)}>Edit</button>
-
-                if show edit false ? show edit/deletebutton true : show edit/deletebutton false */}
-
-              </div>
-              {/* <button onClick={()=> this.handleClick()}> {this.state.toggle ? “ON” : “OFF”} </button> */}
-            
+              </div>}
+            </div>
             <div id='pp-annotation-upvote'>Upvote {annotation.vote_count}</div>
           </div>
         </div>
       </div>
     ))
-
-)}
+  )
+}
 
 
 export default UserAnnotations;
