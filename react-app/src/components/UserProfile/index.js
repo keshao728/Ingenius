@@ -6,6 +6,8 @@ import { getUserInfo, deleteAnnotation } from '../../store/session';
 import React from 'react';
 import './UserIndex.css'
 import EditAnnotation from '../AnnotationEditForm/EditAnnotationForm';
+import * as moment from 'moment';
+
 
 
 const UserAnnotations = () => {
@@ -54,7 +56,7 @@ const UserAnnotations = () => {
         <div id='pp-annotation-created-at'> {annotation?.created_at}</div>
         <div id='pp-annotation-inner-container'>
           <div id='pp-song-info'>
-            <img id='pp-album-photo' src={annotation.track?.track_art} test />
+            <img id='pp-album-photo' src={annotation.track?.track_art}/>
             <div id='pp-title-artist'>
               <div id='pp-annotation-song-title'> {annotation.track?.track_title}</div>
               <div id='pp-annotation-song-artist'>{annotation.track?.artist}</div>
@@ -71,6 +73,7 @@ const UserAnnotations = () => {
             <div id='pp-annotation-username-icon-container'>
               <img id='pp-annotation-username-icon' src={annotation.user?.profile_img} />
               <div id='pp-annotation-username'>{annotation.user?.username}</div>
+              <div id='pp-annotation-createdAt'>{moment(annotation?.created_at).fromNow()}</div>
             </div>
 
             <div >{showEdit == annotation.id ? <EditAnnotation setShowEdit={setShowEdit} annotate={annotation} /> :
