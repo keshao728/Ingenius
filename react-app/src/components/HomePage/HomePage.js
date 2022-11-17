@@ -119,7 +119,7 @@ const HomePage = () => {
             <div>
 
               <div id="dev">NEWS</div>
-              <div>
+              <div className="dev-text">
                 Cigarettes After Sex Pine For Their Ex On New Song “Pistol”
               </div>
             </div>
@@ -140,7 +140,7 @@ const HomePage = () => {
           <div className="bottom-feature-2">
             <div>
               <div id="dev">NEWS</div>
-              <div>
+              <div className="dev-text">
                 Rihanna Will Fight Until The End On New ‘Black Panther: Wakanda Forever’ Song “Born Again”
               </div>
             </div>
@@ -160,7 +160,7 @@ const HomePage = () => {
           <div className="bottom-feature-3">
             <div>
               <div id="dev">NEWS</div>
-              <div>
+              <div className="dev-text">
                 Roddy Ricch Showcases His Chemistry With Lil Durk On New Single “Twin”
               </div>
             </div>
@@ -180,7 +180,7 @@ const HomePage = () => {
           <div className="bottom-feature-4">
             <div>
               <div id="dev">NEWS</div>
-              <div>
+              <div className="dev-text">
                 Nas Celebrates His Home Borough of Queens On New Song “Thun”
               </div>
             </div>
@@ -205,13 +205,13 @@ const HomePage = () => {
       <div className="chart-page" id="charts">
 
         <div className="chart-heading">CHARTS</div>
-        {allTracks.map((track,i) => {
+        {allTracks.map((track) => {
           return (
             <div key={track.id} className="all-tracks">
               <NavLink class="tracks-navlink" to={`/tracks/${track.id}`}>
                 <div className="individual-tracks">
                   <div className="track-num">
-                    {i+1}
+                    {track.id}
                   </div>
                   <div className="track-cover-name">
                     <div>
@@ -303,7 +303,7 @@ const HomePage = () => {
 
       {/* <div className="latest-page" ref={devRef}> */}
 
-      <div className="latest-page" id="devs">
+      <div className="latest-page">
         <div className="latest-wrapper">
           <div className="latest-title">
             FULL STACK DEVS
@@ -313,7 +313,7 @@ const HomePage = () => {
           </div>
         </div>
 
-        <div className="latest-items" >
+        <div className="latest-items" id="devs">
 
           <div className="bottom-latest">
 
@@ -442,12 +442,37 @@ const HomePage = () => {
 
 
       <div className="footer">
-        <div className="footer-message">
-          Genius is the world’s biggest collection of song lyrics and musical knowledge
+
+        <div className="footer-inner">
+          <div className="footer-message">
+            Genius is the world’s biggest collection of song lyrics and musical knowledge
+          </div>
+
+          <div className="footer-links">
+            <ul>
+              <li>Something</li>
+              <li>Something</li>
+              <li>Something</li>
+              <li>Something</li>
+            </ul>
+          </div>
+
+          <div className="footer-links">
+            <ul>
+              <li>Something</li>
+              <li>Something</li>
+              <li>Something</li>
+              <li>Something</li>
+            </ul>
+          </div>
         </div>
 
       </div>
-    </div >
+
+
+
+
+    </div>
 
 
 
