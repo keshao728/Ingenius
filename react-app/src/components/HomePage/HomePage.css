@@ -474,10 +474,10 @@
 .footer {
   margin-top: 80px;
   background-color: black;
-  height: 500px;
+  height: 300px;
   display: flex;
-  flex-wrap: wrap;
-  flex-direction: column;
+  flex-wrap: nowrap;
+  flex-direction: row;
   padding: 20px 20px;
   justify-content: space-between;
   margin-top: 90px;
@@ -618,6 +618,12 @@ figure figcaption button {
   font-size: 14px;
   box-sizing: border-box;
   outline: none;
+}
+
+.footer-links {
+  display: flex;
+  justify-content: flex-start;
+  width:25%
 }
 
 @media (max-width: 1430px) {
