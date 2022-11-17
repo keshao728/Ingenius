@@ -1,0 +1,12 @@
+#anno-edit-text-area {
+  width: 100%;
+  height: 200px;
+  background-color: rgb(231, 231, 231);
+  border: none;
+  resize: vertical;
+  overflow:hidden;
+  word-wrap:break-word;
+}
+#anno-edit-container {
+
+}
