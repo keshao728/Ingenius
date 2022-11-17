@@ -149,9 +149,9 @@ const AllTrackNav = () => {
         <div className="main-nav-alltrack">
             <div className='main-nav-alltrack-container'>
                 <div className="main-nav-list-alltrack-left">
-                    <div className='site-logo' id="navs">
+                    <div className='site-logo2' id="navs">
                         <NavLink to='/' exact={true} activeClassName='active'>
-                            <img id="icon" src={singletrack} alt="Logo"></img>
+                            <img className='icon2'id="icon" src={singletrack} alt="Logo"></img>
                         </NavLink>
                     </div>
                     {sessionLinks}

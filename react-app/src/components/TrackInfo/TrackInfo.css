@@ -81,3 +81,27 @@
     font-size: 20px;
     margin-bottom: 50px;
 }
+
+.buttons{
+    display: flex;
+    flex-direction: row;
+    /* justify-content: space-between; */
+    margin-left: 20%;
+    /* margin-right: 20%; */
+    margin-bottom: 30px;
+    margin-top: 30px;
+}
+
+.button1{
+    padding-right:5px;
+    padding-top:20px;
+  }
+
+.button2{
+    padding-top:20px;
+  }
+
+  .track-video{
+    padding: 10% 20%;
+    background-color: #B395A9;
+  }
