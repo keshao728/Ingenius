@@ -449,20 +449,20 @@ const HomePage = () => {
           </div>
 
           <div className="footer-links">
-            <ul>
-              <li>Something</li>
-              <li>Something</li>
-              <li>Something</li>
-              <li>Something</li>
+            <ul className="footer-links-ul">
+              <li><a href="">Something</a></li>
+              <li><a href="">Something</a></li>
+              <li><a href="">Something</a></li>
+              <li><a href="">Something</a></li>
             </ul>
           </div>
 
           <div className="footer-links">
-            <ul>
-              <li>Something</li>
-              <li>Something</li>
-              <li>Something</li>
-              <li>Something</li>
+            <ul className="footer-links-ul">
+              <li><a href="https://genius.com/Genius-about-genius-annotated">About Genius</a></li>
+              <li><a href="https://genius.com/developers">Genius API</a></li>
+              <li><a href="https://www.youtube.com/watch?v=HmZm8vNHBSU">Stop Piracy</a></li>
+              <li><a href="https://github.com/keshao728/Genius">Contact Us</a></li>
             </ul>
           </div>
         </div>

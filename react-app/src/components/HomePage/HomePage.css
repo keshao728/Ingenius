@@ -550,6 +550,16 @@
 
 .footer-links>ul {
   list-style-type: none;
+  text-decoration: none;
+}
+
+.footer-links-ul > li > a {
+  text-decoration: none;
+  color: whitesmoke
+}
+
+.footer-links-ul > li > a:hover{
+  color: #FCFF68;
 }
 
 .latest-load-more {
