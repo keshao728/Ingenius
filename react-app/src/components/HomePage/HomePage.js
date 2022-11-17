@@ -229,7 +229,7 @@ const HomePage = () => {
                   </div>
                   <div className="track-views">
                     <i class="fa-regular fa-eye"></i>
-                    {Math.floor(Math.random() * (100 * 100 - 1 * 100) + 1 * 100) / (1 * 100)}k
+                    {Math.floor(Math.random() * (100 * 10 - 1 * 10) + 1 * 10) / (1 * 10)}k
                   </div>
                 </div>
 
