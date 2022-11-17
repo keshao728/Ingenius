@@ -205,13 +205,13 @@ const HomePage = () => {
       <div className="chart-page" id="charts">
 
         <div className="chart-heading">CHARTS</div>
-        {allTracks.map((track) => {
+        {allTracks.map((track,i) => {
           return (
             <div key={track.id} className="all-tracks">
               <NavLink class="tracks-navlink" to={`/tracks/${track.id}`}>
                 <div className="individual-tracks">
                   <div className="track-num">
-                    {track.id}
+                    {i+1}
                   </div>
                   <div className="track-cover-name">
                     <div>

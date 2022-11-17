@@ -7,6 +7,7 @@
   padding: 5% 10%;
   justify-items: center;
   width: 700px;
+  margin-left: 10%;
 }
 
 .comments-text{
@@ -97,5 +98,3 @@
   color: white;
 /* margin-bottom: 10px; */
 }
-
-
