@@ -11,6 +11,7 @@
   font-size: small;
   font-weight:600;
   color:darkgray;
+  padding: 30px 0px 10px 0px;
 }
 
 #pp-annotation-inner-container {
@@ -38,13 +39,9 @@
 }
 #pp-annotation-song-title{
   font-size: 15px;
-
 }
 #pp-annotation-song-artist{
   font-size: 11px;
-
-
-
 }
 #pp-annotation-lyric-container{
   padding: 12px;
@@ -57,17 +54,23 @@
   padding: 5px 0px 5px 0px;
   margin: 0px;
   word-wrap: break-word;
-
 }
 #pp-annotation-inner-content {
   /* border: 1px solid pink; */
   padding: 12px;
 }
-#pp-annotation-username-icon-container {
+#pp-annotation-username-icon-moment-container {
   display: flex;
   flex-direction: row;
   align-items: center;
+  justify-content: space-between;
 }
+#pp-annotation-username-icon-container {
+  display: flex;
+  flex-direction: row;
+  align-items:center;
+}
+
 #pp-annotation-username-icon{
   width: 20px;
   height: 20px;
@@ -78,8 +81,10 @@
   font-size: 14px;
   font-weight: bold;
 }
-#pp-annotation-createdAt {
-  
+#pp-annotation-created-at-moment {
+  font-size: 11px;
+  font-weight: bold;
+  color: rgb(145, 145, 145);
 }
 
 #pp-annotation-annotation-body {
@@ -105,14 +110,4 @@
   font-weight: bold;
   border:none;
   color: darkgray;
-
-
 }
-
-/* .review-pink-buttons {
-  width: 200px;
-  background-color: #FF385C;
-  color: white;
-  font-weight: bold;
-  border: 1px solid gray;
-} */
