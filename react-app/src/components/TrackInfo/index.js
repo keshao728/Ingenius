@@ -111,10 +111,14 @@ export default function TrackInfo() {
                     {track.release_date?.split(' ').slice(0, -2).slice(1).join(' ')}
                 </div>
             </div>
-
-            {user?.id === track.user_id && <EditTrackModal />}
-            {user?.id === track.user_id && <DeleteTrackModal />}
-
+            <div className='buttons'>
+                <div className='button1'>
+                    {user?.id === track.user_id && <EditTrackModal />}
+                </div>
+                <div className='button2'>
+                    {user?.id === track.user_id && <DeleteTrackModal />}
+                </div>
+            </div>
 
             <div className='body_page'>
                 <div className='lyrics_body'>
@@ -142,7 +146,7 @@ export default function TrackInfo() {
 
                     {/* Track Url: {track.track_url} */}
                 </div>
-               
+
             </div>
 
         </div>
