@@ -799,6 +799,229 @@ def seed_tracks():
         track_url='https://www.youtube.com/embed/4RN1qMdcgV8',
     )
 
+    track13 = Track(
+        user_id=2,
+        track_title="Kirby",
+        artist="Aesop Rock",
+        album="The Impossible Kid",
+        release_date=date(2019, 4, 29),
+        produced_by="",
+        lyrics='''
+        [Hook]
+        Hey Kirby
+        Whatcha doing Kirby
+        Whatcha doing there
+        Hey Kirby
+        Whatcha doing Kirby
+        Whatcha doing there
+
+        [Verse 1]
+        Hobgoblin, shots of hot Strongid
+        Vaccine queen deem church socks hostage
+        9 weeks awesome, hides in a slipper
+        Look in her eye like she might be a wizard
+        Cold met a cat lady in a parking lot
+        She got the heroes of tomorrow in a cardboard box
+        And probably hoarding 40 more in the corners of Fort Knox
+        Swapped 20 on the spot and cop the warlock
+        Back at the haunt, found God in the hamper
+        Briefs on her head playing Walking With a Panther
+        Good around misery and golden era samplers
+        Jeopardy and Wheel at the heels of her handlers
+        Bet, more than a pet to worship
+        It's an MD recommended sense of purpose
+        Here to bat around keys and the means to euphoria
+        Soon to be hailed, the greatest of all warriors
+        [Hook]
+        Hey Kirby
+        Whatcha doing Kirby
+        Whatcha doing there (I'm not takin' no shorts)
+        Hey Kirby
+        Whatcha doing Kirby
+        Why'd you eat that leaf (Yo, yo, yo)
+
+        [Verse 2]
+        Homie don't fetch, only woke to stretch
+        Under a thought bubble rich with bowls of goldfish
+        Skittish in the company of stranger danger
+        Otherwise, chase draw strings, tails and lasers
+        In a steel cage match with a maze of cables
+        Brazen, game-face based on Azazel
+        Oversized ears up, puke in the Meow Mix
+        Shred a pair of earbuds, remedy his cowlick
+        [slurp]: Thanks Kirbs, looking like a milli
+        Keep an old man sharp, keep a cold Chantilly
+        Spun plum dizzy in a frisky moment
+        Never lands on her feet though, I think she's broken
+        Mouser in training, nap on the toaster
+        Decorate her cubicle with dogs playing poker
+        15 years taking prescriptions
+        Now a shrink like, "I dunno, maybe get a kitten"
+
+        [Hook]
+        Hey Kirby
+        Whatcha doing Kirby
+        Whatcha doing there
+        Hey Kirby
+        Whatcha doing Kirby
+        Whatcha doing there
+        ''',
+        track_art='https://t2.genius.com/unsafe/268x268/https%3A%2F%2Fimages.genius.com%2F1d8582e283f0f4d717c0ba1fe12df744.1000x1000x1.jpg',
+        track_url='https://www.youtube.com/embed/7T_KKiQiolk',
+    )
+
+    track14 = Track(
+        user_id=2,
+        track_title="Sheep In Wolves Clothes",
+        artist="little hurricane",
+        album="Gold Fever",
+        release_date=date(2014, 4, 29),
+        produced_by="",
+        lyrics='''
+        You told to me stay here
+        I'll be right back
+        It’s just a matter of time
+        I nearly tore myself in two
+        Looking for you in my mind
+        You told me you need me
+        You didn't say why
+        Hold on and trust that
+        You would never lie
+        All I know is
+        You’re here by my side
+        I've got you here
+        I've got you here
+        I've got you here
+        I've got you here
+        When the Sun is burning red
+        We'll shine like diamonds
+        When our old lives are dead
+        Leave them behind us
+        All my questions'll
+        Be answered in the dark
+        I've got you here
+        I've got you here
+        I need you to leave me
+        But please don't ask why
+        I beg you to trust that
+        Everything will be fine
+        I'm alive as long
+        As you're here inside
+        I've got you here
+        I've got you here
+        When the Sun is burning red
+        We'll shine like diamonds
+        When our old lives are dead
+        Leave them behind us
+        All my questions'll
+        Be answered in the dark
+        I've got you here
+        I've got you here
+        You're way behind the time
+        I know what you don't
+        From your head down to your toes
+        You're a sheep in wolves’ clothes
+        I've got you here
+        I've got you here
+        When the Sun is burning red
+        We'll shine like diamonds
+        When our old lives are dead
+        Leave them behind us
+        All my questions'll
+        Be answered in the dark
+        I've got you here
+        I've got you here
+        I've got you here
+        I've got you here.
+        ''',
+        track_art='https://t2.genius.com/unsafe/327x327/https%3A%2F%2Fimages.genius.com%2Fe45870466f6fb5973e3c181d00f81c40.1000x1000x1.jpg',
+        track_url='https://www.youtube.com/embed/4RN1qMdcgV8',
+    )
+
+
+    track15 = Track(
+        user_id=2,
+        track_title="Long Legged Larry",
+        artist="Aesop Rock",
+        album="",
+        release_date=date(2014, 3, 19),
+        produced_by="",
+        lyrics='''
+        [Intro]
+        With a body length of about 20 centimeters
+        Bullfrogs are the largest frogs in North America
+        As well as the champion jumpers
+
+        [Verse 1]
+        Long Legged Larry was a frog at the pond
+        Jump so high, might miss him while he gone
+        Jump over anything, even King Kong
+        Jumping Jack Flash was his favorite song
+        Now once upon a time there was a cat in a tree
+        Chased a squirrel up, been stuck since three
+        The fireman came, said "It's too high for me"
+        How's that cat gonna ever get free?
+        Young Jack Turner was a staple on the block
+        Said he knew about a frog with an XL hop
+        The neighbors startеd laughing, but Jackie wouldn't stop
+        Ran off, came back, guess who hе got?
+        Well, it was Long Legged Larry, didn't open his mouth
+        Like a rocket to the moon through a cumulus cloud
+        Touch down safe, lay the scaredy-cat on the ground
+        If you listen real close, you can still hear the crowd
+        [Chorus]
+        Go Larry, go Larry, go, go, go Larry
+        Go Larry, go Larry, go, go, go, go, go
+
+        [Verse 2]
+        Larry doesn't care
+        Jump so high grow a beard in the air
+        Jump over anything, even Times Square
+        Yelling "Long Legged Larry for mayor!, Here! Here!"
+        Now once upon a time there was a princess in a cell
+        In the tower of a castle, through a forest on a hill
+        Half the men that ever sought her out had fallen ill
+        All the men that ever tried to climb the wall had fell
+        Handful gather at the base of the place
+        Each claim way braver than the bravest you've faced
+        Bunch of dingbats yapping about saving the day
+        But wait, a silhouetted amphibian face in haze
+        Well, it was Long Legged Larry on the back of a steed
+        Leapt up yelling "Jordan!" Kiss the girl on the cheek
+        Touch down safe, show the lady back to her peeps
+        If you listen real close, you can still hear the streets
+
+        [Chorus]
+        Go Larry, go Larry, go, go, go Larry
+        Go Larry, go Larry, go, go, go, go, go
+
+        [Verse 3]
+        Larry's on the case
+        Jump so high pluck a star out of space
+        Jump over anything, even Salt Lake
+        Jump into the mosh pit, jump out of a cake
+        Now once upon a time there was a circus in town
+        Some went for the cotton candy, some for the clowns
+        But the high wire act was the most profound
+        Had a poodle on a unicycle, rose in her mouth
+        Ten o'clock show get the poodle in position
+        Ten seconds in the unicycle starts tipping
+        Now the poodle barely clinging to the wire by her mittens
+        But what the heck is that thing in the distance?
+        Ribbit, Long Legged Larry, a sight for sore eyes
+        Known to give a dog a ride seconds after he arrives
+        Touch down safe, give her some kibbles and rawhide
+        If you listen real close, you can still hear the vibe
+
+        [Chorus]
+        Go Larry, go Larry, go, go, go Larry
+        Go Larry, go Larry, go, go, go, go, go
+        ''',
+        track_art='https://t2.genius.com/unsafe/327x327/https%3A%2F%2Fimages.genius.com%2F7b6dfe38098a1bc93c7bc74474735ab6.1000x1000x1.png',
+        track_url='https://www.youtube.com/embed/us3pCHd8PLs',
+    )
+
+
     db.session.add(track1)
     db.session.add(track2)
     db.session.add(track3)
@@ -811,6 +1034,9 @@ def seed_tracks():
     db.session.add(track10)
     db.session.add(track11)
     db.session.add(track12)
+    db.session.add(track13)
+    db.session.add(track14)
+    db.session.add(track15)
 
     db.session.commit()
 
