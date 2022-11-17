@@ -28,7 +28,7 @@ export default function DeleteTrack({ setModalOpen }) {
                 <div className='DeleteForm_wrapper'>
                     <div className='DeleteForm_question'>
                         <div className='questions'>
-                            Would you like to delete this track:
+                            Would you like to delete this track
                         </div>
                         <p className='track_title'>{track.track_title} ?</p>
                     </div>
