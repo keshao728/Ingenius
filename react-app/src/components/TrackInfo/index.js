@@ -8,15 +8,72 @@ import { actionResetTrack } from '../../store/tracks';
 import ReactPlayer from 'react-player'
 
 import React from 'react';
-
+import { createAnnotation } from '../../store/annotations';
 
 
 
 export default function TrackInfo() {
     const { trackId } = useParams()
+    console.log(trackId)
     const dispatch = useDispatch()
     const track = useSelector(state => state.tracks.oneTrack)
     const user = useSelector(state => state.session.user)
+    const history = useHistory()
+
+    const [errors, setErrors] = useState([])
+
+
+    //annotation stuff
+
+    const [index, setIndex] = useState([])
+    const [startIndex, setStartIndex] = useState()
+    const [endIndex, setEndIndex] = useState()
+
+    useEffect(() => {
+        setStartIndex(Math.min(...index))
+        setEndIndex(Math.max(...index))
+    }, [index])
+
+
+
+    const annotateThis = async (e) => {
+        e.preventDefault()
+        // console.log(trackId)
+
+        const selected = window.getSelection && window.getSelection()
+
+
+        if (selected && selected.rangeCount > 0) {
+            const highlight = selected.getRangeAt(0)
+            setIndex([highlight.startOffset, highlight.endOffset])
+            // console.log(highlight)
+        }
+
+        const annotationInfo = {
+            annotation_body: 'something',
+            startIndex: startIndex,
+            endIndex: endIndex,
+          }
+
+          let createdAnnotation = await dispatch(createAnnotation(trackId, annotationInfo)).catch(async (res) => {
+            const data = await res.json();
+            if (data && data.errors) setErrors(data.errors)
+        })
+        if (createdAnnotation) {
+
+            // console.log('SELECTED',selected)
+            // console.log('RANGECOUNT',selected.rangeCount)
+            // console.log(trackId)
+            // console.log(createdAnnotation)
+            history.push(`/tracks/${trackId}`)
+        }
+        else return errors
+    }
+
+
+
+
+    // end annotation stuff
 
     useEffect(() => {
         dispatch(getOneTrack(trackId))
@@ -59,8 +116,9 @@ export default function TrackInfo() {
             <div>
                 Track Lyrics:
 
-                <div>
-                    {track.lyrics?.split('\n').map(chunk => <div key={chunk}>{chunk}</div>)}
+                <div onMouseUp={annotateThis}>
+                    {/* {track.lyrics?.split('\n').map(chunk => <div key={chunk}>{chunk}</div>)} */}
+                    {track.lyrics}
                 </div>
 
             </div>
