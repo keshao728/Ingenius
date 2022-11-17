@@ -3,13 +3,13 @@ import { useDispatch, useSelector } from 'react-redux'
 import { editAnnotation } from '../../store/session';
 // import { useHistory } from 'react-router-dom'
 
-const EditAnnotation = (show) => {
+const EditAnnotation = ({setShowEdit, annotate}) => {
   const dispatch = useDispatch()
-  const annotations = useSelector(state => state.annotations)
+  // const annotations = useSelector(state => state.session.annotations)
   // console.log('ANNOTATIONS', annotations)
-  const [annotation, setAnnotation] = useState(annotations.annotation_body)
+  const [annotation, setAnnotation] = useState(annotate.annotation_body)
   const [validationErrors, setValidationErrors] = useState([])
-  const [showEdit, setShowEdit] = useState(show)
+  // const [showEdit, setShowEdit] = useState(show)
   const [showErrors, setShowErrors] = useState(false);
 
   const updateAnnotation = (e) => setAnnotation(e.target.value);
@@ -45,7 +45,7 @@ const EditAnnotation = (show) => {
     
   };
 
-  return showEdit && (
+  return (
     <form onSubmit={handleSubmit}>
       <textarea
         type='text'
