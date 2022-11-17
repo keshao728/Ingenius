@@ -3,7 +3,7 @@
 import akim from "./HomePageImage/akim.png"
 // import kelly from "./HomePageImage/kelly.png"
 import keshao from "./HomePageImage/keshao.png"
-import schaeffer from "./HomePageImage/schaeffer.png"
+import schaeffer from "./HomePageImage/schaeCat.png"
 import simon from "./HomePageImage/simon.png"
 // import fries from "./HomePageImage/devs.png"
 import feature1 from "./HomePageImage/feature1.png"
