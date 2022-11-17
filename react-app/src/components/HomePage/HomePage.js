@@ -246,17 +246,17 @@ const HomePage = () => {
         })}
 
         <div className='load-track-container'>
-          <div className="track-button">
-            {allTracks.length > showTracks ? <button className="track-load-more" onClick={() => setShowTracks(showTracks + 5)}>
-              LOAD MORE
-            </button> : ''}
-          </div>
 
-          <div className="track-button">
-            {showTracks > 5 ? <button className="track-load-more" onClick={() => setShowTracks(showTracks - 5)}>
+            {allTracks.length > showTracks ? <div className="track-button"><button className="track-load-more" onClick={() => setShowTracks(showTracks + 5)}>
+              LOAD MORE
+            </button></div> : ''}
+
+
+
+            {showTracks > 5 ? <div className="track-button"><button className="track-load-more" onClick={() => setShowTracks(showTracks - 5)}>
               SHOW LESS
-            </button> : ''}
-          </div>
+            </button></div> : ''}
+
         </div>
 
       </div>

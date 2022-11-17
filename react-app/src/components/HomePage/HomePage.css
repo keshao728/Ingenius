@@ -284,9 +284,9 @@
 
 .load-track-container {
   display: flex;
-  justify-content: space-evenly;
-  /* column-gap: 10%; */
-  /* justify-content: center; */
+  /* justify-content: space-evenly; */
+  column-gap: 10%;
+  justify-content: center;
 }
 
 .track-load-more {
