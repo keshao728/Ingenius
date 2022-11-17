@@ -433,7 +433,7 @@
 .bottom-latest-2,
 .bottom-latest-3,
 .bottom-latest-4 {
-  border-top: black 2px solid;
+  /* border-top: black 2px solid; */
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;

@@ -2,11 +2,12 @@ import React, { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import LogoutButton from '../auth/LogoutButton';
 import logo from './NavImage/logo.png';
-import './NavBar.css'
+import ingeniousLogo from './NavImage/ingeniousLogo.png';
 import { useSelector } from 'react-redux';
 import SignUpForm from '../auth/SignUpForm';
 import LoginForm from '../auth/LoginForm';
 
+import './NavBar.css'
 
 const NavBar = () => {
   const sessionUser = useSelector(state => state.session.user);
@@ -72,7 +73,7 @@ const NavBar = () => {
         <div className="empty-placeholder"></div>
         <div className='site-logo' id="navs">
           <NavLink to={`/`} exact={true} activeClassName='active'>
-            <img id="icon" src={logo} alt="Logo"></img>
+            <img id="icon" src={ingeniousLogo} alt="Logo"></img>
           </NavLink>
         </div>
 
