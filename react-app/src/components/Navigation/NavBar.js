@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import LogoutButton from '../auth/LogoutButton';
-import logo from './NavImage/logo.png';
+import defaultpro from './NavImage/defaultpro.png';
 import ingeniousLogo from './NavImage/ingeniousLogo.png';
 import { useSelector } from 'react-redux';
 import SignUpForm from '../auth/SignUpForm';
@@ -39,7 +39,7 @@ const NavBar = () => {
         <img
           onClick={openMenu}
           className='profile-pic'
-          src="https://drive.google.com/uc?export=view&id=1e6AIQpUAr0_HcNJNaptcQAHEdO5aib5k"
+          src={defaultpro}
           alt="Default Profile"
         >
         </img>
