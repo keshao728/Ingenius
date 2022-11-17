@@ -3,8 +3,7 @@ import { NavLink } from 'react-router-dom';
 import './AllTrackNav.css'
 import { useSelector } from 'react-redux';
 import LogoutButton from '../auth/LogoutButton';
-// import alltracklogo from './NavImage/alltracklogo.png';
-import logo from './NavImage/logo.png';
+import singletrack from './NavImage/singletrack.png';
 import SignUpForm from '../auth/SignUpForm';
 import LoginForm from '../auth/LoginForm';
 import { HashLink as Link } from 'react-router-hash-link';
@@ -152,7 +151,7 @@ const AllTrackNav = () => {
                 <div className="main-nav-list-alltrack-left">
                     <div className='site-logo' id="navs">
                         <NavLink to='/' exact={true} activeClassName='active'>
-                            <img id="icon" src={logo} alt="Logo"></img>
+                            <img id="icon" src={singletrack} alt="Logo"></img>
                         </NavLink>
                     </div>
                     {sessionLinks}

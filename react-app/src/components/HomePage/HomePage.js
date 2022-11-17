@@ -205,13 +205,13 @@ const HomePage = () => {
       <div className="chart-page" id="charts">
 
         <div className="chart-heading">CHARTS</div>
-        {allTracks.map((track) => {
+        {allTracks.map((track,i) => {
           return (
             <div key={track.id} className="all-tracks">
               <NavLink class="tracks-navlink" to={`/tracks/${track.id}`}>
                 <div className="individual-tracks">
                   <div className="track-num">
-                    {track.id}
+                    {i+1}
                   </div>
                   <div className="track-cover-name">
                     <div>
@@ -303,7 +303,7 @@ const HomePage = () => {
 
       {/* <div className="latest-page" ref={devRef}> */}
 
-      <div className="latest-page">
+      <div className="latest-page" id="devs">
         <div className="latest-wrapper">
           <div className="latest-title">
             FULL STACK DEVS
@@ -313,7 +313,7 @@ const HomePage = () => {
           </div>
         </div>
 
-        <div className="latest-items" id="devs">
+        <div className="latest-items" >
 
           <div className="bottom-latest">
 

@@ -2,7 +2,7 @@
     display: flex;
     flex-direction: column;
     position: absolute;
-    z-index: 2;
+    /* z-index: 2; */
     left: 18%;
     top: 15%;
     object-fit: contain;
@@ -16,7 +16,7 @@
     display: flex;
     flex-direction: column;
     position: absolute;
-    z-index: 2;
+    /* z-index: 2; */
     left:38%;
     top: 15%;
     color:white;
@@ -34,7 +34,7 @@
     display: flex;
     flex-direction: column;
     position: absolute;
-    z-index: 2;
+    /* z-index: 2; */
     top:15%;
     left: 58%;
     color:white;
@@ -51,7 +51,7 @@
     display: flex;
     flex-direction: column;
     position: absolute;
-    z-index: 2;
+    /* z-index: 2; */
     top:15%;
     left: 70%;
     color:white;
@@ -65,4 +65,19 @@
 .track-info-container{
     height:280px;
     background: #B395A9;
+}
+
+.body_page{
+    margin-top: 10px;
+    margin-left: 20%;
+    margin-right: 20%;
+    margin-bottom: 30px;
+}
+
+.lyrics_body{
+    margin-right: 50%;
+    padding-top:5px;
+    padding-bottom:5px;
+    font-size: 20px;
+    margin-bottom: 50px;
 }
