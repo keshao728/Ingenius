@@ -1,6 +1,10 @@
 // constants
 const SET_USER = 'session/SET_USER';
 const REMOVE_USER = 'session/REMOVE_USER';
+const GET_USER_INFORMATION = 'session/getAllAnnotations';
+const EDIT_ANNOTATION = 'annotations/editAnnotation';
+const DELETE_ANNOTATION = 'annotations/deleteAnnotation';
+
 
 const setUser = (user) => ({
   type: SET_USER,
@@ -11,7 +15,34 @@ const removeUser = () => ({
   type: REMOVE_USER,
 })
 
-const initialState = { user: null };
+const actionGetUserInfo = (payload) => {
+  return {
+      type: GET_USER_INFORMATION,
+      payload
+  }
+}
+
+const actionEditAnnotation = (annotation) => {
+  return {
+      type: EDIT_ANNOTATION,
+      annotation
+  }
+}
+
+const actionDeleteAnnotation = (annotation) => {
+  return {
+      type: DELETE_ANNOTATION,
+      annotation
+  }
+}
+
+const initialState = { 
+  user: null, 
+  annotations: {},
+  comments: {},
+  tracks: {},
+  votes: {}
+  };
 
 export const authenticate = () => async (dispatch) => {
   const response = await fetch('/api/auth/', {
@@ -41,7 +72,6 @@ export const login = (email, password) => async (dispatch) => {
     })
   });
 
-
   if (response.ok) {
     const data = await response.json();
     dispatch(setUser(data))
@@ -54,7 +84,6 @@ export const login = (email, password) => async (dispatch) => {
   } else {
     return ['An error occurred. Please try again.']
   }
-
 }
 
 export const logout = () => async (dispatch) => {
@@ -68,7 +97,6 @@ export const logout = () => async (dispatch) => {
     dispatch(removeUser());
   }
 };
-
 
 export const signUp = (username, email, password) => async (dispatch) => {
   const response = await fetch('/api/auth/signup', {
@@ -97,6 +125,44 @@ export const signUp = (username, email, password) => async (dispatch) => {
   }
 }
 
+export const getUserInfo = (userId) => async dispatch => {
+  const response = await fetch(`/api/users/${userId}/info`);
+  if (response.ok) {
+      const userInfo = await response.json();
+      console.log('IS IT WORKING YET', userInfo)
+      await dispatch(actionGetUserInfo(userInfo));
+      console.log('HOW BOUT NOW', userInfo)
+      return userInfo
+  }
+  return null
+}
+
+//edit a annotation
+export const editAnnotation = (annotation) => async (dispatch) => {
+  const response = await fetch(`/api/annotations/${annotation.id}`, {
+      method: "PUT",
+      headers: {"Content-Type": "application/json"},
+      body: JSON.stringify(annotation)
+  })
+
+  if (response.ok) {
+      const editedAnnotation = await response.json();
+      await dispatch(actionEditAnnotation(editedAnnotation))
+      return editedAnnotation
+  }
+}
+
+//delete annotation
+export const deleteAnnotation = (annotationId) => async (dispatch) => {
+  const response = await fetch(`/api/annotations/${annotationId}`, {
+      method: "DELETE",
+  })
+  if (response.ok) {
+      dispatch(actionDeleteAnnotation(annotationId));
+  }
+  return null
+}
+
 export default function reducer(state = initialState, action) {
   let newState;
   switch (action.type) {
@@ -108,6 +174,45 @@ export default function reducer(state = initialState, action) {
       newState = Object.assign({}, state);
       newState.user = null;
       return newState;
+    case GET_USER_INFORMATION:
+      let annotations = {}
+      let tracks = {}
+      let comments = {}
+      let votes = {}
+      newState = { ...state}
+      console.log('GET_ALL_ANNOTATIONSACTION', action)
+
+      action.payload.annotations.forEach(annotation => {
+        annotations[annotation.id] = annotation
+      })
+
+      action.payload.tracks.forEach(track => {
+        tracks[track.id] = track
+      })
+      
+      action.payload.comments.forEach(comment => {
+        comments[comment.id] = comment
+      })
+
+      action.payload.votes.forEach(vote => {
+        votes[vote.id] = vote
+      })
+
+      newState.annotations = annotations
+      newState.tracks = tracks
+      newState.comments = comments
+      newState.votes = votes
+      console.log('NEWNEWSTATESTATE', newState)
+      return newState
+    case EDIT_ANNOTATION: 
+      newState = {...state, annotations: {...state.annotations}}
+      newState.annotations[action.annotation.id] = action.annotation
+
+      return newState
+    case DELETE_ANNOTATION:
+      newState = {...state, annotations: {...state.annotations}}
+      delete newState.annotations[action.annotation]
+      return newState
     default:
       return state;
   }

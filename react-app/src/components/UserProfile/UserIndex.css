@@ -5,23 +5,110 @@
 }
 
 #pp-annotation-created-at {
-
+  background-color:floralwhite;
+  text-transform: uppercase;
+  font-size: small;
+  font-weight:600;
+  color:darkgray;
 }
 
 #pp-annotation-inner-container {
   border: 1px solid pink;
 
 }
-
-#pp-annotation-song {
-  border: 1px solid pink;
+#pp-song-info{
+  display: flex;
+  flex-direction: row;
+  padding: 12px;
 }
+#pp-album-photo{
+  background-color: black;
+  object-fit: cover;
+  border: 1px solid lightseagreen;
+  width: 70px;
+  height: 70px;
 
+}
+#pp-title-artist {
+  border: 1px solid pink;
+  padding: 2px 0px 0px 2px;
+  font-weight:600;
+
+}
+#pp-annotation-song-title{
+  font-size: 15px;
+
+}
+#pp-annotation-song-artist{
+  font-size: 11px;
+
+
+
+}
+#pp-annotation-lyric-container{
+  padding: 12px;
+}
 #pp-annotation-lyric {
-  border: 1px solid pink;
-}
+  display: inline-block;
+  font-size: 14px;
+  font-weight: bold;
+  background-color: #DDDDDD;
+  padding: 5px 0px 5px 0px;
+  margin: 0px;
+  word-wrap: break-word;
 
+}
 #pp-annotation-inner-content {
   border: 1px solid pink;
+  padding: 12px;
+}
+#pp-annotation-username-icon-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+#pp-annotation-username-icon{
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+}
+#pp-annotation-username{
+  margin-left: 5px;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+#pp-annotation-annotation-body {
+  margin: 14px 0px 14px 0px;
+  word-wrap: break-word;
+}
+#pp-annotation-delete-edit {
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+  margin-bottom: 20px;
+
+  
+}
+#pp-annotation-edit {
+  background-color: white;
+  font-weight: bold;
+  padding: 7px 8px 9px 8px
 
 }
+#pp-annotation-delete {
+  background-color: white;
+  font-weight: bold;
+  border:none;
+  color: darkgray;
+
+
+}
+
+/* .review-pink-buttons {
+  width: 200px;
+  background-color: #FF385C;
+  color: white;
+  font-weight: bold;
+  border: 1px solid gray;
+} */

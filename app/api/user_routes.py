@@ -1,5 +1,5 @@
 from flask import Blueprint, jsonify
-from flask_login import login_required
+from flask_login import login_required, current_user
 from app.models import User, Track, Comment, Annotation, Vote
 
 
@@ -25,24 +25,86 @@ def user(id):
     user = User.query.get(id)
     return user.to_dict()
 
+@user_routes.route('/<int:id>/special')
+def user_special(id):
+    """
+    Query for a user by id and returns that user in a dictionary
+    """
+    user = User.query.get(id)
+    return user.to_dict()
+
+
 # user annotations
 @user_routes.route('/<int:id>/annotations')
+# get current user info
+@user_routes.route('/<int:id>/info')
 @login_required
 def annotations_by_userId(id):
     user_annotations = Annotation.query.filter(Annotation.user_id == id).all()
-    annotation_dictionary = [annotation.to_dict() for annotation in user_annotations]
+    user_dictionary = {}
+    print(
+        '''
+        L
+        O
+        O
+        K
 
-    users = User.query.filter(User.id == id).all()
-    annotation_dictionary['Users'] = [user.to_dict() for user in users]
+        ''',
+        user_annotations)
+    print(
+        '''
+        H
+        E
+        R
+        E
+        ''',
+        user_dictionary)
+    current_user = User.query.get(id)
+    current_user_annotations = current_user.user_annotation
+    current_user_tracks = current_user.user_track
+    current_user_comment = current_user.user_comment
+    current_user_vote = current_user.user_vote
 
-    tracks = Track.query.filter(Track.user_id == id).all()
-    annotation_dictionary['Tracks'] = [track.to_dict() for track in tracks]
+    user_dictionary['annotations'] = [annotation.to_dict() for annotation in current_user_annotations]
+    user_dictionary['tracks'] = [track.to_dict() for track in current_user_tracks]
+    user_dictionary['comments'] = [comment.to_dict() for comment in current_user_comment]
+    user_dictionary['votes'] = [vote.to_dict() for vote in current_user_vote]
+    print(
+        '''
+        a
+        a
+        a
+        a
+        a
+        ''', user_dictionary)
+    return user_dictionary
+    # print(
+    #     '''
+    #     u
+    #     s
+    #     e
+    #     r
+    #     s
+    #     ''',
+    #     [annotation.to_dict() for annotation in current_user_annotations]
+    # )
+    # annotation_dictionary['Users'] = [user.to_dict() for user in users]
 
-    comments = Comment.query.filter(Comment.user_id == id).all()
-    annotation_dictionary['Comments'] = [comment.to_dict() for comment in comments]
+    # # tracks = Track.query.filter(Track.user_id == id).all()
+    # # annotation_dictionary['Tracks'] = [track.to_dict() for track in tracks]
 
-    votes = Vote.query.filter(Vote.user_id == id).all()
-    annotation_dictionary['Votes'] = [votes.to_dict() for vote in votes]
+    # # comments = Comment.query.filter(Comment.user_id == id).all()
+    # # annotation_dictionary['Comments'] = [comment.to_dict() for comment in comments]
 
+    # print(
+    #     '''
+    #     look at meeeee
+    #     me
+    #     me
+    #     me
 
     return {'annotations': annotation_dictionary}
+    #     ''',
+    #     annotation_dictionary)
+    # # votes = Vote.query.filter(Vote.user_id == id).all()
+    # # annotation_dictionary['Votes'] = [vote.to_dict() for vote in votes]

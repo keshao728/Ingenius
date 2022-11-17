@@ -42,6 +42,7 @@ const LoginForm = () => {
 
   return (
     <>
+    {/* NO BUTTON HERE */}
       <button className="login-button" onClick={() => setShowModal(true)}>SIGN IN</button>
       {showModal && (
         <Modal onClose={() => onCloseModal()}>

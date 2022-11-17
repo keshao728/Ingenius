@@ -38,24 +38,24 @@ def annotation_by_id(id):
 #     return annotation_dictionary
 
 # CREATE Annotation // NEED TO FIGURE OUT HOW TO SELECT WORDS AND STUFF *NOT FINISHED*
-@annotation_routes.route('/tracks/<int:trackId>/annotation', methods=["POST"])
-@login_required
-def annotation_post(id):
-  form = AnnotationForm()
-  form['csrf_token'].data = request.cookies['csrf_token']
-  if form.validate_on_submit():
-    annotation = Annotation(
-      user_id = current_user.id,
-      track_id = id,
-      annotation_body = form.annotation_body.data,
-      # startIndex = idk what to put here,
-      # endIndex = idk what to put here,
-    )
+# @annotation_routes.route('/tracks/<int:trackId>/annotation', methods=["POST"])
+# @login_required
+# def annotation_post(id):
+#   form = AnnotationForm()
+#   form['csrf_token'].data = request.cookies['csrf_token']
+#   if form.validate_on_submit():
+#     annotation = Annotation(
+#       user_id = current_user.id,
+#       track_id = id,
+#       annotation_body = form.annotation_body.data,
+#       # startIndex = idk what to put here,
+#       # endIndex = idk what to put here,
+#     )
 
-    db.session.add(annotation)
-    db.session.commit()
-    return annotation.to_dict()
-  return {'errors': validation_errors(form.errors), "statusCode": 401}
+#     db.session.add(annotation)
+#     db.session.commit()
+#     return annotation.to_dict()
+#   return {'errors': validation_errors(form.errors), "statusCode": 401}
 
 # EDIT Annotation
 @annotation_routes.route('/annotations/<int:annotationid>', methods=["PUT"])

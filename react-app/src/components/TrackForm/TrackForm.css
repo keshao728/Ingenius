@@ -4,6 +4,7 @@
   width: 100%;
   background-color: black;
   color: white;
+  padding-bottom: 5%;
 }
 
 .add-song-wrapper {
@@ -174,4 +175,18 @@ li {
   flex-direction: column;
   width: 50%;
   /* align-content: flex-end; */
+}
+
+
+#errors-list > li{
+  color: red;
+}
+
+.add-song-submit{
+  background-color: #262626;
+  color: white;
+  padding: 6px 10px;
+  font-size: 12px;
+  font-weight: bold;
+  margin-bottom: 50px;
 }

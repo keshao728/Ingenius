@@ -1,23 +1,66 @@
-import React from 'react';
-import andrew from "./HomePageImage/andrew.png"
-import kelly from "./HomePageImage/kelly.png"
+// import React, { useRef } from 'react';
+// import andrew from "./HomePageImage/andrew.png"
+import akim from "./HomePageImage/akim.png"
+// import kelly from "./HomePageImage/kelly.png"
+import keshao from "./HomePageImage/keshao.png"
 import schaeffer from "./HomePageImage/schaeffer.png"
 import simon from "./HomePageImage/simon.png"
-import fries from "./HomePageImage/Fries.png"
-import './HomePage.css'
+// import fries from "./HomePageImage/devs.png"
+import feature1 from "./HomePageImage/feature1.png"
+import feature2 from "./HomePageImage/feature2.png"
+import feature3 from "./HomePageImage/feature3.png"
+import feature4 from "./HomePageImage/feature4.png"
+import feature5 from "./HomePageImage/feature5.png"
+import NavBar from '../Navigation/NavBar';
+import ActionNav from '../Navigation/ActionNav';
+
 
 import { useSelector, useDispatch } from "react-redux";
 import { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom"
 import { getAllTracks } from '../../store/tracks';
 
+import './HomePage.css'
+
 const HomePage = () => {
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false)
 
   //TRACKS
-  const tracks = useSelector(state => state.tracks)
+  const tracks = useSelector(state => state.tracks.allTracks)
   const allTracks = Object.values(tracks)
+
+  //FEATURE REF
+  //we want ref here bc it holds the ele we wanna scroll to
+  // const featureRef = useRef(null)
+
+  //references da ref we wanna scroll to
+  // const featureRefScroll = (e) => {
+  //   e.preventDefault();
+  //   featureRef.current.scrollIntoView({ behavior: "smooth" });
+  // };
+
+  //CHARTS REF
+  // const chartsRef = useRef(null)
+
+  // const chartsRefScroll = (e) => {
+  //   e.preventDefault();
+  //   chartsRef.current.scrollIntoView({ behavior: "smooth" });
+  // };
+
+  //VIDEO REF
+  // const videoRef = useRef(null)
+
+  // const videoRefScroll = (e) => {
+  //   e.preventDefault();
+  //   videoRef.current.scrollIntoView({ behavior: "smooth" });
+  // }
+
+
+  // const devRefScroll = (e) => {
+  //   e.preventDefault();
+  //   devRef.current.scrollIntoView({ behavior: "smooth" });
+  // }
 
 
   useEffect(() => {
@@ -27,91 +70,148 @@ const HomePage = () => {
       .then(() => setIsLoaded(true))
   }, [dispatch])
 
+
+
   return isLoaded && (
     // FEATURES - ALL PLACEHOLDERS RN!!!!!!!!!
     <div>
-      <div className="featured-page">
+      <NavBar />
+      <ActionNav
+      // featureRefScroll={featureRefScroll}
+      // chartsRefScroll={chartsRefScroll}
+      // videoRefScroll={videoRefScroll}
+      // devRefScroll={devRefScroll}
+      />
+      {/* <div className="featured-page" id="featured-page-id" ref={featureRef}> */}
+      <div className="featured-page" id="featured">
+
         <div className="top-feature">
           <div className="top-feature-left">
-            <div className="top-feature-news">
+            <div className="top-feature-news" >
               NEWS
             </div>
             <div className="top-feature-news-wrapper">
               <div className="top-feature-title">
-                What are the FRIES up to?
+                Gucci Mane Remembers Takeoff and Other Fallen Rappers On New Song “Letter To Takeoff”
               </div>
               <div className="top-feature-description">
-                Celebrate the McDonalds Fries by playing Valorant.
+                Gucci also pays respect to Shawty Lo, Young Dolph, and PnB Rock, among others.
               </div>
 
               <div className="top-feature-author-date">
                 <div className="top-feature-author">
-                  by Kelly Shao /
+                  by Ken Partridge /
                 </div>
 
                 <div className="top-feature-date">
-                  Nov 8 2022
+                  Nov 16 2022
                 </div>
               </div>
             </div>
           </div>
 
           <div className="top-feature-right">
-            <img id="fries" src={fries} alt="Logo"></img>
+            <img id="fries" src={feature1} alt="Logo"></img>
           </div>
         </div>
         <div className="bottom-feature">
           <div className="bottom-feature-1">
             <div>
 
-              <div id="dev">DEV</div>
+              <div id="dev">NEWS</div>
               <div>
-                Simon Tan - Da sleepy one-shot beast, piupiupiu
+                Cigarettes After Sex Pine For Their Ex On New Song “Pistol”
               </div>
             </div>
-            <img id="individual-fries" src={simon} alt="Logo"></img>
+            <div>
+
+              <div className="top-feature-author-date2">
+                <div className="top-feature-author">
+                  by Ken Partridge /
+                </div>
+
+                <div className="top-feature-date">
+                  Nov 16 2022
+                </div>
+              </div>
+              <img id="individual-fries" src={feature2} alt="Logo"></img>
+            </div>
           </div>
           <div className="bottom-feature-2">
             <div>
-              <div id="dev">DEV</div>
+              <div id="dev">NEWS</div>
               <div>
-                Kelly Shao - This girl just won't get out of bed
+                Rihanna Will Fight Until The End On New ‘Black Panther: Wakanda Forever’ Song “Born Again”
               </div>
             </div>
-            <img id="individual-fries" src={kelly} alt="Logo"></img>
+            <div>
+              <div className="top-feature-author-date2">
+                <div className="top-feature-author">
+                  by Leah Degrazia /
+                </div>
+
+                <div className="top-feature-date">
+                  Nov 11 2022
+                </div>
+              </div>
+              <img id="individual-fries" src={feature3} alt="Logo"></img>
+            </div>
           </div>
           <div className="bottom-feature-3">
             <div>
-
-              <div id="dev">DEV</div>
+              <div id="dev">NEWS</div>
               <div>
-                Andrew Kim - Ditches teammate and Omen teleport on site by himself
+                Roddy Ricch Showcases His Chemistry With Lil Durk On New Single “Twin”
               </div>
             </div>
-            <img id="individual-fries" src={andrew} alt="Logo"></img>
+            <div>
+              <div className="top-feature-author-date2">
+                <div className="top-feature-author">
+                  by Ken Partridge /
+                </div>
+
+                <div className="top-feature-date">
+                  Nov 15 2022
+                </div>
+              </div>
+              <img id="individual-fries" src={feature4} alt="Logo"></img>
+            </div>
           </div>
           <div className="bottom-feature-4">
             <div>
-              <div id="dev">DEV</div>
+              <div id="dev">NEWS</div>
               <div>
-                Schaeffer Ahn - Big arms with tattoos, on Valo all day
+                Nas Celebrates His Home Borough of Queens On New Song “Thun”
               </div>
             </div>
-            <img id="individual-fries" src={schaeffer} alt="Logo"></img>
+            <div>
+              <div className="top-feature-author-date2">
+                <div className="top-feature-author">
+                  by Ken Partridge /
+                </div>
+
+                <div className="top-feature-date">
+                  Nov 14 2022
+                </div>
+              </div>
+              <img id="individual-fries" src={feature5} alt="Logo"></img>
+            </div>
           </div>
         </div>
       </div>
 
       {/* CHARTS - ALL PLACEHOLDERS RN!!!!!!!!! */}
-      <div className="chart-page">
+      {/* <div className="chart-page" id="chart-id" ref={chartsRef}> */}
+      <div className="chart-page" id="charts">
+
         <div className="chart-heading">CHARTS</div>
-        {allTracks.map((track) => {
+        {allTracks.map((track,i) => {
           return (
             <div key={track.id} className="all-tracks">
               <NavLink class="tracks-navlink" to={`/tracks/${track.id}`}>
                 <div className="individual-tracks">
                   <div className="track-num">
-                    {track.id}
+                    {i+1}
                   </div>
                   <div className="track-cover-name">
                     <div>
@@ -129,6 +229,10 @@ const HomePage = () => {
                   <div className="track-artist">
                     {track.artist}
                   </div>
+                  <div className="track-views">
+                    <i class="fa-regular fa-eye"></i>
+                    {Math.floor(Math.random() * (100 * 10 - 1 * 10) + 1 * 10) / (1 * 10)}k
+                  </div>
                 </div>
 
               </NavLink>
@@ -143,7 +247,9 @@ const HomePage = () => {
       </div>
 
       {/* VIDEOS - ALL PLACEHOLDERS RN!!!!!!!!! */}
-      <div className="video-page">
+      {/* <div className="video-page" ref={videoRef} id='testing'> */}
+      <div className="video-page" id='video'>
+
         <div className="video-wrapper">
           <div className="video-title">
             VIDEOS
@@ -184,102 +290,154 @@ const HomePage = () => {
 
             </div>
           </div>
-          <div className="video-button">
+          {/* <div className="video-button">
             <button className="video-load-more">
               LOAD MORE
             </button>
-          </div>
+          </div> */}
         </div>
       </div>
 
 
 
 
-      {/* LATEST - ALL PLACEHOLDERS RN!!!!!!!!! */}
-      <div className="latest-page">
+      {/* <div className="latest-page" ref={devRef}> */}
+
+      <div className="latest-page" id="devs">
         <div className="latest-wrapper">
           <div className="latest-title">
-            LATEST
+            FULL STACK DEVS
           </div>
           <div className="latest-des">
-            MOST RECENT NEWS
+            HOVER OVER TO SEE MORE INFO
           </div>
         </div>
 
-        <div className="latest-items">
+        <div className="latest-items" >
 
           <div className="bottom-latest">
-            <div className="bottom-latest-1">
-              <div id="latest-dev">DEV</div>
-              <img id="individual-latest" src={simon} alt="Logo"></img>
-              <div>
-                Simon Tan - Da sleepy one-shot beast, piupiupiu
-              </div>
-              <div className="top-feature-author-date">
-                <div className="top-feature-author">
-                  by Kelly Shao /
-                </div>
 
-                <div className="top-feature-date">
-                  Nov 8 2022
-                </div>
-              </div>
-            </div>
-            <div className="bottom-latest-2">
-              <div id="latest-dev">DEV</div>
-              <img id="individual-latest" src={kelly} alt="Logo"></img>
-              <div>
-                Kelly Shao - This girl just won't get out of bed
-              </div>
-              <div className="top-feature-author-date">
-                <div className="top-feature-author">
-                  by Kelly Shao /
-                </div>
 
-                <div className="top-feature-date">
-                  Nov 8 2022
-                </div>
-              </div>
-            </div>
-            <div className="bottom-latest-3">
-              <div id="latest-dev">DEV</div>
-              <img id="individual-latest" src={andrew} alt="Logo"></img>
-              <div>
-                Andrew Kim - Ditches teammate and Omen teleport on site by himself
-              </div>
-              <div className="top-feature-author-date">
-                <div className="top-feature-author">
-                  by Kelly Shao /
-                </div>
+            <figure className="bottom-latest-1">
+              <img src={simon} alt="Logo"></img>
+              <figcaption>
 
-                <div className="top-feature-date">
-                  Nov 8 2022
-                </div>
-              </div>
-            </div>
-            <div className="bottom-latest-4">
-              <div id="latest-dev">DEV</div>
-              <img id="individual-latest" src={schaeffer} alt="Logo"></img>
-              <div>
-                Schaeffer Ahn - Big arms with tattoos, on Valo all day
-              </div>
-              <div className="top-feature-author-date">
-                <div className="top-feature-author">
-                  by Kelly Shao /
-                </div>
+                <h3>
+                  Simon Tan
+                </h3>
+                <div className="dev-socials">
+                  <div>
+                    <p className="dev-socials-links">
+                      <a href="https://github.com/SimonMTan" target="_blank" rel="noreferrer">
+                        <i className="fa-brands fa-github"></i></a>
+                    </p>
+                  </div>
 
-                <div className="top-feature-date">
-                  Nov 8 2022
+                  <br></br>
+                  <div>
+                    <p className="dev-socials-links">
+                      <a href="https://www.linkedin.com/in/simonmtan/" target="_blank" rel="noreferrer">
+                        <i className="fa-brands fa-linkedin"></i>
+                      </a>
+                    </p>
+                  </div>
                 </div>
-              </div>
-            </div>
+              </figcaption>
+            </figure>
+
+            <figure className="bottom-latest-2">
+              <img src={keshao} alt="Logo"></img>
+              <figcaption>
+
+                <h3>
+                  Kelly Shao
+                </h3>
+                <div className="dev-socials">
+                  <div>
+                    <p className="dev-socials-links">
+                      <a href="https://github.com/keshao728" target="_blank" rel="noreferrer">
+                        <i className="fa-brands fa-github"></i></a>
+                    </p>
+                  </div>
+
+                  <br></br>
+                  <div>
+                    <p className="dev-socials-links">
+                      <a href="https://www.linkedin.com/in/keyingshao/" target="_blank" rel="noreferrer">
+                        <i className="fa-brands fa-linkedin"></i>
+                      </a>
+                    </p>
+                  </div>
+                </div>
+              </figcaption>
+            </figure>
+
+            <figure className="bottom-latest-3">
+              {/* <div id="latest-dev">DEV</div> */}
+              <img src={akim} alt="Logo"></img>
+              <figcaption>
+
+                <h3>
+                  Andrew Kim
+                </h3>
+                <div className="dev-socials">
+                  <div>
+                    <p className="dev-socials-links">
+                      <a href="https://github.com/k-rewd" target="_blank" rel="noreferrer">
+                        <i className="fa-brands fa-github"></i></a>
+                    </p>
+                  </div>
+
+                  <br></br>
+                  <div>
+                    <p className="dev-socials-links">
+                      <a href="https://www.linkedin.com/in/andrew-k-474479123/" target="_blank" rel="noreferrer">
+                        <i className="fa-brands fa-linkedin"></i>
+                      </a>
+                    </p>
+                  </div>
+                </div>
+              </figcaption>
+            </figure>
+
+            <figure className="bottom-latest-4">
+              {/* <div id="latest-dev">DEV</div> */}
+              <img src={schaeffer} alt="Logo"></img>
+              <figcaption>
+
+                <h3>
+                  Schaeffer Ahn
+                </h3>
+                <div className="dev-socials">
+                  <div>
+                    <p className="dev-socials-links">
+                      <a href="https://github.com/Schaeffy" target="_blank" rel="noreferrer">
+                        <i className="fa-brands fa-github"></i></a>
+                    </p>
+                  </div>
+
+                  <br></br>
+                  <div>
+                    <p className="dev-socials-links">
+                      <a href="https://github.com/Schaeffy" target="_blank" rel="noreferrer">
+                        <i className="fa-brands fa-linkedin"></i>
+                      </a>
+                    </p>
+                  </div>
+                </div>
+              </figcaption>
+            </figure>
+
+
+
+
           </div>
         </div>
-        <div className="latest-button">
+        {/* <div className="latest-button">
           <button className="latest-load-more">
             LOAD MORE
           </button>
-        </div>
+        </div> */}
       </div>
 
 
@@ -289,7 +447,7 @@ const HomePage = () => {
         </div>
 
       </div>
-    </div>
+    </div >
 
 
 
@@ -297,3 +455,8 @@ const HomePage = () => {
 }
 
 export default HomePage;
+
+// const devRefScroll = (e) => {
+//   e.preventDefault();
+//   devRef.current.scrollIntoView({ behavior: "smooth" });
+// }

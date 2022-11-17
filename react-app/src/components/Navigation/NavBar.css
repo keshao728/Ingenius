@@ -1,5 +1,5 @@
 #icon {
-  height: 28px;
+  height: 22px;
   width: auto;
   display: flex;
   margin-right: 5px;
@@ -31,6 +31,7 @@ body {
   background-color: #FFFF64;
   height: 40px;
   z-index: 1;
+  min-width: 700px;
 }
 
 .session-right-nav {
@@ -69,4 +70,52 @@ body {
   font-weight: bold;
   padding: 0px 10px;
   cursor: pointer;
+}
+
+.user-dropdown-menu{
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  z-index: 2;
+  margin-top: 10px;
+  height: 115px;
+  width: 200px;
+  background-color: white;
+  box-shadow: 0px 1px 8px #dddddd;
+  border: 1px solid #dddddd;
+  right: 20px;
+  top: 45px
+}
+
+.drop-down-button{
+  font-size: 14px;
+  border: 0;
+  background-color: white;
+  color: black;
+  width: 100%;
+  padding: 10px 15px;
+  text-align: left;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+
+.drop-down-button:hover{
+  background-color: #F7F7F7;
+  cursor: pointer;
+}
+
+#drop-user-profile{
+  border-bottom: #E9E9E9 2px solid;
+}
+
+.user-account-text{
+  font-size: 14px;
+  color: black;
+  padding: 8px 15px;
+  text-align: left;
+  margin-top: 3px;
+  border-bottom: #E9E9E9 2px solid;
+  font-size: 14px;
+  font-weight: bold;
 }

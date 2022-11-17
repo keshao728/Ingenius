@@ -1,14 +1,16 @@
 import React, { useState, useEffect } from 'react';
-import { useDispatch } from 'react-redux'
-import { editAnnotation } from '../../store/annotations';
+import { useDispatch, useSelector } from 'react-redux'
+import { editAnnotation } from '../../store/session';
 // import { useHistory } from 'react-router-dom'
 
-const EditAnnotation = (annotation) => {
+const EditAnnotation = ({setShowEdit, annotate}) => {
   const dispatch = useDispatch()
-  // annotation = useSelector(state => state.annotation)
-  const [annotation, setAnnotation] = useState(annotation.annotation_body)
+  // const annotations = useSelector(state => state.session.annotations)
+  // console.log('ANNOTATIONS', annotations)
+  const [annotation, setAnnotation] = useState(annotate.annotation_body)
   const [validationErrors, setValidationErrors] = useState([])
-  const [displayErrors, setDisplayErrors] = useState(false);
+  // const [showEdit, setShowEdit] = useState(show)
+  const [showErrors, setShowErrors] = useState(false);
 
   const updateAnnotation = (e) => setAnnotation(e.target.value);
 
@@ -21,7 +23,7 @@ const EditAnnotation = (annotation) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setDisplayErrors(true)
+    setShowErrors(true)
 
     if (!validationErrors.length) {
       const payload = {
@@ -32,14 +34,16 @@ const EditAnnotation = (annotation) => {
       let newAnnotation = await dispatch(editAnnotation(payload))
 
       if (newAnnotation) {
-        setDisplayErrors(false)
+        setShowEdit(false)
       }
     }
   }
-  // const handleCancelClick = (e) => {
-  //   e.preventDefault();
-  //   setShowModal(false)
-  // };
+  const handleCancelClick = (e) => {
+    e.preventDefault();
+    setShowEdit(false)
+    
+    
+  };
 
   return (
     <form onSubmit={handleSubmit}>
@@ -48,11 +52,10 @@ const EditAnnotation = (annotation) => {
         value={annotation}
         onChange={updateAnnotation} />
       <button type='submit'>Save</button>
-      {/* <button type="button" onClick={handleCancelClick}>Cancel</button> */}
-
+      <button type="button" onClick={handleCancelClick}>Cancel</button>
       <div>
         <ul>
-          {displayErrors && validationErrors.length > 0 && validationErrors.map(error => (
+          {showErrors && validationErrors.length > 0 && validationErrors.map(error => (
             <li key={error}>{error}</li>
           ))}
         </ul>
