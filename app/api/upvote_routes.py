@@ -7,8 +7,11 @@ upvote_routes = Blueprint('upvotes',__name__)
 @upvote_routes.route('/<int:id>/upvote',methods=['POST'])
 @login_required
 def upvote(id):
-    vote = Vote.query.filter(Vote.user_id == current_user.id, Vote.annotation_id == id).first()
-    if not vote:
+    vote = Vote.query.filter(Vote.annotation_id == id, Vote.user_id == current_user.id, Vote.vote == 1).all()
+    if vote:
+        return {'errors': 'You have already upvoted this annotation',"statusCode": 401}
+
+    else:
         upvote = Vote(
         user_id=current_user.id,
         annotation_id=id,
@@ -17,14 +20,21 @@ def upvote(id):
         db.session.add(upvote)
         db.session.commit()
         return upvote.to_dict()
-    return {'errors': 'You have already upvoted this annotation'}
 
 
 @upvote_routes.route('/<int:id>/downvote',methods=['POST'])
 @login_required
 def downvote(id):
-    vote = Vote.query.filter(Vote.user_id == current_user.id, Vote.annotation_id == id).first()
-    if not vote:
+    # print ('>>>id' , id)
+    # print ('>>>current_user.id' , current_user.id)
+    vote1 = Vote.query.filter(Vote.annotation_id == id, Vote.user_id == current_user.id, Vote.vote == -1).all() #find one
+    # vote2 = Vote.query.get(Vote.user_id == current_user.id, Vote.annotation_id == id) #find by PK
+    # print (' >>>>>>>vote >>>>>>>>>',vote1)
+    if vote1:
+        return {'errors': 'You have already downvoted this annotation',"statusCode": 401}
+        # return vote1
+
+    else:
         downvote = Vote(
         user_id=current_user.id,
         annotation_id=id,
@@ -33,7 +43,6 @@ def downvote(id):
         db.session.add(downvote)
         db.session.commit()
         return downvote.to_dict()
-    return {'errors': 'You have already downvoted this annotation'}
 
 
 @upvote_routes.route('/<int:id>/unvote',methods=['DELETE'])

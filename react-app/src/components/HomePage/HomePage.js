@@ -252,7 +252,6 @@ const HomePage = () => {
             </button></div> : ''}
 
 
-
             {showTracks > 5 ? <div className="track-button"><button className="track-load-more" onClick={() => setShowTracks(showTracks - 5)}>
               SHOW LESS
             </button></div> : ''}
@@ -469,15 +468,15 @@ const HomePage = () => {
 
         <div className="footer-inner">
           <div className="footer-message">
-            Genius is the world’s biggest collection of song lyrics and musical knowledge
+            Ingenius is the world’s smallest collection of song lyrics and musical knowledge
           </div>
 
           <div className="footer-links">
             <ul className="footer-links-ul">
+              <li><a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Free Music</a></li>
               <li><a href="">Something</a></li>
               <li><a href="">Something</a></li>
-              <li><a href="">Something</a></li>
-              <li><a href="">Something</a></li>
+              <li><a href="https://www.music-map.com/">Music Map</a></li>
             </ul>
           </div>
 

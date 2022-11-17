@@ -1,5 +1,5 @@
 from .db import db, environment, SCHEMA, add_prefix_for_prod
-from sqlalchemy import func
+from sqlalchemy.sql import func
 
 class Vote(db.Model):
   __tablename__ = 'votes'
