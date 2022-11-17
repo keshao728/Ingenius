@@ -12,7 +12,7 @@ from .api.track_routes import track_routes
 from .api.annotation_routes import annotation_routes
 from .api.comment.delete_comment_route import comment_routes
 # from .api.comment_routes import comment_routes
-# from .api.upvote_routes import upvote_routes
+from .api.upvote_routes import upvote_routes
 
 from .seeds import seed_commands
 
@@ -40,7 +40,7 @@ app.register_blueprint(track_routes, url_prefix='/api/tracks')
 app.register_blueprint(comment_routes, url_prefix='/api/comment')
 # app.register_blueprint(comment_routes, url_prefix='/api/comments')
 app.register_blueprint(annotation_routes, url_prefix='/api')
-# app.register_blueprint(upvote_routes, url_prefix='/api/upvote')
+app.register_blueprint(upvote_routes, url_prefix='/api/upvotes')
 
 db.init_app(app)
 Migrate(app, db)
