@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import UserAnnotations from './UserProfile';
+import EditAnnotation from './AnnotationEditForm/EditAnnotationForm';
 import './UserProfile/UserProfile.css'
 
 function User() {
@@ -44,6 +45,7 @@ function User() {
           </div>
           <div id='pp-footer'></div>
         </div>
+        
     </div>
 
   );

@@ -94,18 +94,20 @@ const actionCreateAnnotation = (annotation) => {
 // }
 
 //create annotation
-export const createAnnotation = ({trackId, annotation}) => async (dispatch) => {
-    const response = await fetch(`/api/tracks/${trackId}/annotations`, {
+export const createAnnotation = (trackId, annotation) => async (dispatch) => {
+    const response = await fetch(`/api/tracks/${trackId}`, {
     // const response = await fetch(`/api/annotations`, {
         method: "POST",
         headers: {"Content-Type": "application/json"},
-        body: JSON.stringify({body:annotation})
+        body: JSON.stringify(annotation)
     })
 
     if (response.ok) {
         const annotation = await response.json();
         await dispatch(actionCreateAnnotation(annotation))
+        return annotation
     }
+    return
 }
 
 //edit a annotation
@@ -149,7 +151,7 @@ export const annotationReducer = (state = initialState, action) => {
         //     });
         //     return newState
         // }
-        // case GET_ALL_ANNOTATIONS: 
+        // case GET_ALL_ANNOTATIONS:
         //     let annotationState = {}
         //     newState = { ...state, allAnnotations: {...state.allAnnotations}}
         //     console.log('GET_ALL_ANNOTATIONSACTION', action)
@@ -158,30 +160,30 @@ export const annotationReducer = (state = initialState, action) => {
         //     })
         //     newState.allAnnotations = annotationState
         //     return newState
-        
+
         case GET_ONE_ANNOTATION:
             newState = {...state, oneAnnotation: {...state.oneAnnotation}}
             newState.oneAnnotation = {...action.annotation}
             return newState
 
-        case CREATE_ANNOTATION: 
+        case CREATE_ANNOTATION:
             newState = {...state, allAnnotations: {...state.allAnnotations}}
             newState.allAnnotations[action.annotation.id] = action.annotation
-            
+
             newState.oneAnnotation = action.annotation
             return newState
-        
-        // case EDIT_ANNOTATION: 
+
+        // case EDIT_ANNOTATION:
         //     newState = {...state}
         //     newState[action.annotation.id] = action.annotation
         //     return newState
-        
-        // case DELETE_ANNOTATION: 
+
+        // case DELETE_ANNOTATION:
         //     newState = {...state, allAnnotations: {...state.allAnnotations}}
         //     // console.log('DELETE ANNOTATION', action)
         //     delete newState.allAnnotations[action.annotation]
         //     return newState
-        
+
         default:
             return state
     }

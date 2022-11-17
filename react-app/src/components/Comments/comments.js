@@ -13,14 +13,30 @@ const AllComments = () => {
   const dispatch = useDispatch();
   const { trackId } = useParams();
   const sessionUser = useSelector((state) => state.session.user);
-  console.log("THIS IS SESSION USER IN ALLCOMMENTS", sessionUser)
+  // console.log("THIS IS SESSION USER IN ALLCOMMENTS", sessionUser)
   // const track = useSelector(state => state.tracks)
 
   const comments = useSelector((state) => state.comments.comments);
   const commentsArr = Object.values(comments);
-  console.log("COMMENTS", commentsArr);
+  // console.log("COMMENTS", commentsArr);
 
   const [userComments, setUserComments] = useState("");
+  const [validationErrors, setValidationErrors] = useState([])
+  const [showErrors, setShowErrors] = useState(false)
+
+  function isEmpty(str) {
+    if (!str.trim().length)
+      return { border: "1px solid red" }
+  }
+
+
+  useEffect(() => {
+    const errors = []
+    if (!userComments || userComments === "" || isEmpty(userComments)) errors.push('Comment is Required')
+    if (userComments.length > 200) errors.push("Please enter less than 200 characters")
+
+    setValidationErrors(errors)
+  }, [userComments])
 
 
   useEffect(() => {
@@ -30,67 +46,59 @@ const AllComments = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const newComment = {
-      comment_body: userComments
-      // user_id:
-    };
-    setUserComments("");
-    await dispatch(createComment(trackId, newComment))
+    setShowErrors(true)
+
+    if (!validationErrors.length) {
+      const newComment = {
+        comment_body: userComments
+        // user_id:
+      };
+      setUserComments("");
+      let createdComment = await dispatch(createComment(trackId, newComment))
+      if (createdComment) {
+        setShowErrors(false)
+      }
+    }
   }
+  const invalidInput = (userComments === " " || userComments.length > 200)
+    ? { border: "1px solid red" }
+    : { border: "1px solid black" }
 
-  // function timeSince(date) {
-
-  //   var seconds = Math.floor((new Date() - date) / 1000);
-
-  //   var interval = seconds / 31536000;
-
-  //   if (interval > 1) {
-  //     return Math.floor(interval) + " years";
-  //   }
-  //   interval = seconds / 2592000;
-  //   if (interval > 1) {
-  //     return Math.floor(interval) + " months";
-  //   }
-  //   interval = seconds / 86400;
-  //   if (interval > 1) {
-  //     return Math.floor(interval) + " days";
-  //   }
-  //   interval = seconds / 3600;
-  //   if (interval > 1) {
-  //     return Math.floor(interval) + " hours";
-  //   }
-  //   interval = seconds / 60;
-  //   if (interval > 1) {
-  //     return Math.floor(interval) + " minutes";
-  //   }
-  //   return Math.floor(seconds) + " seconds";
-  // }
+  // const invalidInput = (userComments!==" " || userComments.length < 200)
+  // ? { border: "1px solid black"}
+  // : { border: "1px solid red"}
 
   let sessionLinks;
   if (sessionUser) {
     sessionLinks = (
       <form className="comment-form-parent" onSubmit={handleSubmit}>
         {/* <h3 className="comment-message">Add a Review Meow!!!</h3> */}
-        {/* {showErrors &&
-          <ul className="form-errors">
-            {validationErrors.length > 0 &&
-              validationErrors.map(error => (
-                <li key={error}>{error}</li>
-              ))}
-          </ul>
-        } */}
+
         <div className="comment-form">
           <label>
             <textarea
               placeholder="Add a comment"
               type="text"
+              error
               className="comment-input"
+              // className={`${hasError ? 'invalid-comment-input' : 'comment-input'}`}
               value={userComments}
+              required
+              style={invalidInput}
               onChange={(e) => setUserComments(e.target.value)}
             />
+            {showErrors &&
+              <ul className="comment-form-errors">
+                {validationErrors.length > 0 &&
+                  validationErrors.map(error => (
+                    <li className="comment-form-error-text" key={error}>{error}</li>
+                  ))}
+              </ul>
+            }
+
+            <button className="button-create-comment" type="submit"> Submit</button>
           </label>
         </div>
-        <button className="button-create-comment" type="submit"> Submit</button>
         {/* <button type="button" className="button-create-comment" onClick={handleCancel}>Cancel</button> */}
       </form>
     )
@@ -155,7 +163,7 @@ const AllComments = () => {
           return (
             <div className="comment-display">
               <div className="individual-comment-display" key={comment?.id}>
-                <div>{comment.commentter.username}</div>
+                <div>{comment?.commentter?.username}</div>
                 <div>{comment.user_id}</div>
                 <div>{moment(comment.created_at).fromNow()}</div>
                 {/* <div>{comment.created_at.split(' ').slice(0, -2).join(' ')}</div> */}
@@ -176,3 +184,32 @@ const AllComments = () => {
 }
 
 export default AllComments;
+
+
+  // function timeSince(date) {
+
+  //   var seconds = Math.floor((new Date() - date) / 1000);
+
+  //   var interval = seconds / 31536000;
+
+  //   if (interval > 1) {
+  //     return Math.floor(interval) + " years";
+  //   }
+  //   interval = seconds / 2592000;
+  //   if (interval > 1) {
+  //     return Math.floor(interval) + " months";
+  //   }
+  //   interval = seconds / 86400;
+  //   if (interval > 1) {
+  //     return Math.floor(interval) + " days";
+  //   }
+  //   interval = seconds / 3600;
+  //   if (interval > 1) {
+  //     return Math.floor(interval) + " hours";
+  //   }
+  //   interval = seconds / 60;
+  //   if (interval > 1) {
+  //     return Math.floor(interval) + " minutes";
+  //   }
+  //   return Math.floor(seconds) + " seconds";
+  // }
