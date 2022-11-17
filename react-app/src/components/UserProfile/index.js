@@ -70,12 +70,12 @@ const UserAnnotations = () => {
           </div>
           <div id='pp-annotation-inner-content'>
             <div id='pp-annotation-username-icon-container'>
-              <img id='pp-annotation-username-icon' src={'https://64.media.tumblr.com/eca7c1a0c4df7688d52cf781e53142d1/3e3c47d5fa9f904a-71/s540x810/1ee4b3b16a25a49c4f61326f895cbf341088041e.jpg'} />
+              <img id='pp-annotation-username-icon' src={annotation.user.profile_img} />
               <div id='pp-annotation-username'>{annotation.user.username}</div>
             </div>
-            <div id='pp-annotation-annotation-body'>{showEdit == annotation.id ? <EditAnnotation show = {showEdit} /> : annotation.annotation_body }</div>
+            <div id='pp-annotation-annotation-body'>{showEdit == annotation.id ? <EditAnnotation setShowEdit = {setShowEdit} annotate={annotation} /> : annotation.annotation_body }</div>
               <div id='pp-annotation-delete-edit'>
-                <button id='pp-annotation-edit' onClick={() => setShowEdit(annotation.id)} >Edit</button>
+                <button id='pp-annotation-edit' onClick={() => setShowEdit(annotation.id)}>Edit</button>
                 <button id='pp-annotation-delete' onClick={() => dispatch(deleteAnnotation(annotation.id))}>Delete</button>
               </div>
             
