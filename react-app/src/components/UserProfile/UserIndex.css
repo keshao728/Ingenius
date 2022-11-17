@@ -87,9 +87,14 @@
   color: rgb(145, 145, 145);
 }
 
-#pp-annotation-annotation-body {
+#pp-annotation-body {
   margin: 14px 0px 14px 0px;
   word-wrap: break-word;
+}
+#pp-noauth-annotation-body{
+  margin: 30px 0px 30px 0px;
+  word-wrap: break-word;
+
 }
 #pp-annotation-delete-edit {
   display: flex;

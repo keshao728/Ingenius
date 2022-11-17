@@ -13,8 +13,10 @@ import * as moment from 'moment';
 const UserAnnotations = () => {
   const dispatch = useDispatch()
   const { userId } = useParams()
-
+  console.log('USERID', userId)
   const annotations = useSelector(state => state.session.annotations)
+  const sessionUser = useSelector(state => state.session.user)
+  // console.log('sessionUserID', sessionUser.id)
 
   console.log('USERINOFORMATION', annotations)
   const annotationArr = Object.values(annotations)
@@ -22,7 +24,6 @@ const UserAnnotations = () => {
 
   const [isLoaded, setIsLoaded] = useState(false)
   const [showEdit, setShowEdit] = useState(false)
-
 
   useEffect(() => {
     dispatch(getUserInfo(userId))
@@ -46,6 +47,10 @@ const UserAnnotations = () => {
   // const handleEditClick = async (e) => {
   //   e.preventDefault()
   //   setShowEdit(true)
+  // }
+
+  // const loggedIn = (userId) => {
+  //   return sessionUser.id === userId
   // }
 
 
@@ -78,15 +83,18 @@ const UserAnnotations = () => {
               </div>
               <div id='pp-annotation-created-at-moment'>{moment(annotation?.created_at).fromNow()}</div>
             </div>
-            <div >{showEdit == annotation.id ? <EditAnnotation setShowEdit={setShowEdit} annotate={annotation} /> :
-              <div>
-                <div id='pp-annotation-annotation-body'>{annotation.annotation_body}</div>
-                <div id='pp-annotation-delete-edit'>
-                  <button id='pp-annotation-edit' onClick={() => setShowEdit(annotation.id)}>Edit</button>
-                  <button id='pp-annotation-delete' onClick={() => dispatch(deleteAnnotation(annotation.id))}>Delete</button>
+            <div>{ sessionUser.id === annotation.user.id ? 
+              <div >{showEdit === annotation.id ? <EditAnnotation setShowEdit={setShowEdit} annotate={annotation} /> :
+                <div>
+                  <div id='pp-annotation-body'>{annotation.annotation_body}</div>
+                  <div id='pp-annotation-delete-edit'>
+                    <button id='pp-annotation-edit' onClick={() => setShowEdit(annotation.id)}>Edit</button>
+                    <button id='pp-annotation-delete' onClick={() => dispatch(deleteAnnotation(annotation.id))}>Delete</button>
+                  </div>
                 </div>
-              </div>}
-            </div>
+              }</div>
+              : <div id='pp-noauth-annotation-body'>{annotation.annotation_body}</div>
+            }</div>
             <div id='pp-annotation-upvote-container'>
               <img className='thumbs' src={'https://www.pngrepo.com/png/331959/180/thumbs-up.png'} />
               <div id='pp-annotation-upvote'>Upvote {annotation.vote_count}</div>
