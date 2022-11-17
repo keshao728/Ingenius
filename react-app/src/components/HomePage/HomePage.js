@@ -1,9 +1,16 @@
 // import React, { useRef } from 'react';
-import andrew from "./HomePageImage/andrew.png"
-import kelly from "./HomePageImage/kelly.png"
+// import andrew from "./HomePageImage/andrew.png"
+import akim from "./HomePageImage/akim.png"
+// import kelly from "./HomePageImage/kelly.png"
+import keshao from "./HomePageImage/keshao.png"
 import schaeffer from "./HomePageImage/schaeffer.png"
 import simon from "./HomePageImage/simon.png"
-import fries from "./HomePageImage/devs.png"
+// import fries from "./HomePageImage/devs.png"
+import feature1 from "./HomePageImage/feature1.png"
+import feature2 from "./HomePageImage/feature2.png"
+import feature3 from "./HomePageImage/feature3.png"
+import feature4 from "./HomePageImage/feature4.png"
+import feature5 from "./HomePageImage/feature5.png"
 import NavBar from '../Navigation/NavBar';
 import ActionNav from '../Navigation/ActionNav';
 
@@ -63,15 +70,17 @@ const HomePage = () => {
       .then(() => setIsLoaded(true))
   }, [dispatch])
 
+
+
   return isLoaded && (
     // FEATURES - ALL PLACEHOLDERS RN!!!!!!!!!
     <div>
       <NavBar />
       <ActionNav
-        // featureRefScroll={featureRefScroll}
-        // chartsRefScroll={chartsRefScroll}
-        // videoRefScroll={videoRefScroll}
-        // devRefScroll={devRefScroll}
+      // featureRefScroll={featureRefScroll}
+      // chartsRefScroll={chartsRefScroll}
+      // videoRefScroll={videoRefScroll}
+      // devRefScroll={devRefScroll}
       />
       {/* <div className="featured-page" id="featured-page-id" ref={featureRef}> */}
       <div className="featured-page" id="featured">
@@ -83,66 +92,110 @@ const HomePage = () => {
             </div>
             <div className="top-feature-news-wrapper">
               <div className="top-feature-title">
-                What are the FRIES up to?
+                Gucci Mane Remembers Takeoff and Other Fallen Rappers On New Song “Letter To Takeoff”
               </div>
               <div className="top-feature-description">
-                Celebrate the McDonalds Fries by playing Valorant.
+                Gucci also pays respect to Shawty Lo, Young Dolph, and PnB Rock, among others.
               </div>
 
               <div className="top-feature-author-date">
                 <div className="top-feature-author">
-                  by Kelly Shao /
+                  by Ken Partridge /
                 </div>
 
                 <div className="top-feature-date">
-                  Nov 8 2022
+                  Nov 16 2022
                 </div>
               </div>
             </div>
           </div>
 
           <div className="top-feature-right">
-            <img id="fries" src={fries} alt="Logo"></img>
+            <img id="fries" src={feature1} alt="Logo"></img>
           </div>
         </div>
         <div className="bottom-feature">
           <div className="bottom-feature-1">
             <div>
 
-              <div id="dev">DEV</div>
+              <div id="dev">NEWS</div>
               <div>
-                Simon Tan - Da sleepy one-shot beast, piupiupiu
+                Cigarettes After Sex Pine For Their Ex On New Song “Pistol”
               </div>
             </div>
-            <img id="individual-fries" src={simon} alt="Logo"></img>
+            <div>
+
+              <div className="top-feature-author-date2">
+                <div className="top-feature-author">
+                  by Ken Partridge /
+                </div>
+
+                <div className="top-feature-date">
+                  Nov 16 2022
+                </div>
+              </div>
+              <img id="individual-fries" src={feature2} alt="Logo"></img>
+            </div>
           </div>
           <div className="bottom-feature-2">
             <div>
-              <div id="dev">DEV</div>
+              <div id="dev">NEWS</div>
               <div>
-                Kelly Shao - This girl just won't get out of bed
+                Rihanna Will Fight Until The End On New ‘Black Panther: Wakanda Forever’ Song “Born Again”
               </div>
             </div>
-            <img id="individual-fries" src={kelly} alt="Logo"></img>
+            <div>
+              <div className="top-feature-author-date2">
+                <div className="top-feature-author">
+                  by Leah Degrazia /
+                </div>
+
+                <div className="top-feature-date">
+                  Nov 11 2022
+                </div>
+              </div>
+              <img id="individual-fries" src={feature3} alt="Logo"></img>
+            </div>
           </div>
           <div className="bottom-feature-3">
             <div>
-
-              <div id="dev">DEV</div>
+              <div id="dev">NEWS</div>
               <div>
-                Andrew Kim - Ditches teammate and Omen teleport on site by himself
+                Roddy Ricch Showcases His Chemistry With Lil Durk On New Single “Twin”
               </div>
             </div>
-            <img id="individual-fries" src={andrew} alt="Logo"></img>
+            <div>
+              <div className="top-feature-author-date2">
+                <div className="top-feature-author">
+                  by Ken Partridge /
+                </div>
+
+                <div className="top-feature-date">
+                  Nov 15 2022
+                </div>
+              </div>
+              <img id="individual-fries" src={feature4} alt="Logo"></img>
+            </div>
           </div>
           <div className="bottom-feature-4">
             <div>
-              <div id="dev">DEV</div>
+              <div id="dev">NEWS</div>
               <div>
-                Schaeffer Ahn - Big arms with tattoos, on Valo all day
+                Nas Celebrates His Home Borough of Queens On New Song “Thun”
               </div>
             </div>
-            <img id="individual-fries" src={schaeffer} alt="Logo"></img>
+            <div>
+              <div className="top-feature-author-date2">
+                <div className="top-feature-author">
+                  by Ken Partridge /
+                </div>
+
+                <div className="top-feature-date">
+                  Nov 14 2022
+                </div>
+              </div>
+              <img id="individual-fries" src={feature5} alt="Logo"></img>
+            </div>
           </div>
         </div>
       </div>
@@ -175,6 +228,10 @@ const HomePage = () => {
                   </div>
                   <div className="track-artist">
                     {track.artist}
+                  </div>
+                  <div className="track-views">
+                    <i class="fa-regular fa-eye"></i>
+                    {Math.floor(Math.random() * (100 * 10 - 1 * 10) + 1 * 10) / (1 * 10)}k
                   </div>
                 </div>
 
@@ -289,7 +346,7 @@ const HomePage = () => {
             </figure>
 
             <figure className="bottom-latest-2">
-              <img src={kelly} alt="Logo"></img>
+              <img src={keshao} alt="Logo"></img>
               <figcaption>
 
                 <h3>
@@ -317,7 +374,7 @@ const HomePage = () => {
 
             <figure className="bottom-latest-3">
               {/* <div id="latest-dev">DEV</div> */}
-              <img src={andrew} alt="Logo"></img>
+              <img src={akim} alt="Logo"></img>
               <figcaption>
 
                 <h3>

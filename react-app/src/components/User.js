@@ -29,6 +29,8 @@ function User() {
         <div id='pp-top-content-footer-container'>
           <div id='pp-top'>
             <strong>User Id</strong> {userId}
+            {/* <div>
+            </div> */}
 
           </div>
           <div id='pp-content'>
@@ -45,7 +47,7 @@ function User() {
           </div>
           <div id='pp-footer'></div>
         </div>
-        
+
     </div>
 
   );

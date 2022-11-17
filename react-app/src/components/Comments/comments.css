@@ -67,6 +67,7 @@
 .button-create-comment:hover{
   background-color: black;
   color: white;
+  visibility: visible;
 }
 
 .individual-comment-display{
