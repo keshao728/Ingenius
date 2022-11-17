@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useHistory, useParams } from 'react-router-dom'
 import { deleteTrack } from '../../store/tracks'
+import './DeleteTrackForm.css'
 
 
 
@@ -24,14 +25,19 @@ export default function DeleteTrack({ setModalOpen }) {
     return (
         <div className="">
             <form className='' onSubmit={handleSubmit}>
-                <h1>Delete Track: <p>{track.track_title}</p></h1>
+                <div className='DeleteForm_wrapper'>
+                    <div className='DeleteForm_question'>
+                        <div className='questions'>
+                            Would you like to delete this track:
+                        </div>
+                        <p className='track_title'>{track.track_title} ?</p>
+                    </div>
+                    <div className="">
 
-                <div className="">
-
-                    <button className='' type='submit'>Confirm</button>
-                    <button className='' onClick={() => setModalOpen(false)}>Cancel</button>
+                        <button className='delete_confirm' type='submit'>Confirm</button>
+                        <button className='delete_cancel' onClick={() => setModalOpen(false)}>Cancel</button>
+                    </div>
                 </div>
-
             </form>
         </div>
     )

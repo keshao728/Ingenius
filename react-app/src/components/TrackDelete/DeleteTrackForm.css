@@ -1,0 +1,47 @@
+.DeleteForm_wrapper{
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    padding: 50px 50px;
+    width:300px;
+    /* justify-content: center;
+    align-items: center; */
+}
+
+.DeleteForm_question{
+    display: flex;
+    font-size: 15px;
+    font-weight: bold;
+    padding: 0px 10px;
+    /* margin-bottom: 30px; */
+    justify-content: center;
+    align-items: center;
+    justify-items: center;
+    flex-direction: column;
+}
+
+.delete_confirm, .delete_cancel{
+    border: 1px solid black;
+    border-radius: 25px;
+    font-size: 20px;
+    width: 150px;
+    padding: 10px 15px;
+    font-weight: bold;
+    background: none;
+    font-size: 14px;
+    display: flex;
+    justify-content: center;
+    margin: 10px auto;
+    cursor: pointer;
+}
+ .questions{
+    font-weight: bold;
+    font-size:14px;
+ }
+/* .track_tile{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-items: center;
+    text-align: center;
+} */

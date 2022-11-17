@@ -3,3 +3,7 @@
   font-family: 'Inconsolata', monospace;
   font-family: 'Montserrat', sans-serif;
 }
+
+body {
+  min-width: 1080px
+}
