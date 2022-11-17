@@ -350,12 +350,467 @@ def seed_tracks():
         track_url='https://www.youtube.com/embed/74yb9E3WY1I',
     )
 
+    track6 = Track(
+        user_id=3,
+        track_title="Shouldn't Be",
+        artist="Luke Chiang",
+        album="",
+        release_date=date(2019, 5, 1),
+        produced_by="Stephen Moyer",
+        lyrics='''
+        [Intro]
+        I can't stop feeling like none of this matters at
+
+        [Verse 1]
+        Fool around, tell me words
+        That you don't mean
+        I'm already numb to it
+        I'm already numb to it
+        Feed me lies, tear me up, break me down
+        I don't wanna be playin' these games
+        [Pre-Chorus]
+        I'm already used to them
+        I'm already used to you being this cold
+
+        [Chorus]
+        But keepin' you close shouldn't be hard
+        If you were honest when you said you missed me
+        You've played with my pride
+        Making me feel like we had something real
+
+        [Verse 2]
+        I know we've been over this, it's nothin' new
+        You're still gonna be leaving me here
+        It's easier hatin' you than missing you
+        But I don't wanna be feelin' this way
+
+        [Pre-Chorus]
+        I'm already through with it
+        I'm already tired of thinking at all
+
+        [Chorus]
+        'Cause keepin' you close shouldn't be hard
+        If you were honest when you said you missed me
+        You've played with my pride
+        Making me feel like we had something real
+        And making you stay shouldn't feel wrong
+        This is the last time I'll ask you to listen
+        I've played all my cards
+        Would you feel a thing if you saw me right now?
+
+        [Bridge]
+        No matter what I say to you, you're gone
+        I've been tryin' in vain to hold on
+        No matter what I say
+
+        [Chorus]
+        Keepin' you close shouldn't be hard
+        If you were honest when you said you've missed me
+        You've played with my pride
+        Making me feel like we had something real
+        And making you stay shouldn't feel wrong
+        This is the last time I'll ask you to listen
+        I've played all my cards
+        Would you feel a thing if you saw me right now?
+        ''',
+        track_art='https://t2.genius.com/unsafe/327x327/https%3A%2F%2Fimages.genius.com%2F60a28ef85642ff232562de00c1630a99.500x500x1.jpg',
+        track_url='https://www.youtube.com/embed/hsLiJP2rqS8',
+    )
+
+    track7 = Track(
+        user_id=3,
+        track_title="Town and Country",
+        artist="The Sinful Savage Tigers",
+        album="Rain is the Soup of the Dogs in Heaven",
+        release_date=date(2009, 5, 19),
+        produced_by="",
+        lyrics='''
+        Make me your first time
+        And I'll make a little promise that I’m gonna make you mine
+        And well these wheels beat a path to your door
+        If I didn't know no better, I'd say that what they’re there for
+        And teach me the words to say
+        And I'll say 'em really sweet in an extra special way
+        And hey, each moment that pass us by
+        Is never comin' back, it don't matter how we try to know
+        Was it long ago? Was is so, was it so, was it so long ago?
+
+        And what was that song?
+        It was a back flip sigh, thunder kid sixty-five
+        Who was that boy, oh that you used to talk to
+        I didn't know
+        No one ever knew who their way
+        You looked at me funny, honey
+        As we drove all night to another town and country
+        Marry me on a cloudless day
+        You can wear a pretty dress that we buy along the way
+        From the little chapel with a pope inside
+        Got a garden at the back with a swing set and a slide
+        Honey, move anywhere that serves cold beer
+        And we'll stand, we'll holler, and we’ll sing, and we’ll cheer
+        'Cause we’re not leavin' 'till we drain our cups
+        Turn the lights off, the band is packin' up to go
+        Have they far to go?
+        Was it so, was it so, was it so long ago?
+
+        And what was that song?
+        It was a back flip sigh, thunder kid sixty-five
+        Who was that boy, oh that you used to talk to
+        I didn’t know
+        No one ever knew who their way
+        You looked at me funny, honey
+        As we spent all night...
+
+        Flat on our backs starin' at the starry dome
+        Orion's belt is gettin' tighter and his arrows have all flown
+        And sewn up the edges of space and time
+        Where there ain't no reason, we're sure there ain't no rhyme
+        Would ya marry me in a gas balloon?
+        We could float up to the stars, take pictures of the moon
+        And soon the earth is gonna fall into the sun
+        Fry all the saints and the sinners, everyone we know
+        And even those we don't
+        Was it so, was it so, was it so long ago?
+        And what was that song?
+        It was a back flip sigh, thunder kid sixty-five
+        Who was that boy, oh that you used to talk to
+        I didn't know
+        No one ever knew who their way
+        You looked at me funny, honey
+        As we spent all night in another town and country
+        In another town and country
+        ''',
+        track_art='https://t2.genius.com/unsafe/327x327/https%3A%2F%2Fimages.genius.com%2Fed7966b5b6444840b9a6307c66345d0f.500x500x1.jpg',
+        track_url='https://www.youtube.com/embed/cgJvMWj3cLc',
+    )
+
+    track8 = Track(
+        user_id=3,
+        track_title="Panther",
+        artist="Made in Heights",
+        album="Without My Enemy What Would I Do",
+        release_date=date(2014, 11, 19),
+        produced_by="Sabzi",
+        lyrics='''
+        [Chorus]
+        Feel you get closer now
+        Closer than you've been
+        But I need you in my arms, my eyes, my soul
+        My sunlit skies
+        Yeah, I need you in my arms now
+        Closer than you've been
+        I need you in my life, my eyes, my soul
+        My sunlit skies
+
+        [Verse 1]
+        Just a quick wick, summer flame, burnin' in the glass
+        Gotta dig down low to stay lit
+        Crazy can't stay long and you wanna move fast but
+        Good things take wit
+        Gimme your devotion, baby
+        And we'll set the charms that thrill me so good
+        Feel the race of our hearts strip the paint from the cars
+        Steady as we move
+        Don't got money on my mind, go and search my thoughts
+        Only green on my riverbanks
+        Throw my pennies on your line to fill you up
+        Pour my love down to make it rain
+        [Pre-Chorus]
+        'Cause I need you in my arms, my eyes, my soul
+        My sunlit skies
+        Yeah, I need you in my arms (Ooh, oh-oh-oh)
+
+        [Chorus]
+        Feel you get closer now
+        Much closer than you've been
+        But I need you in my arms, my eyes, my soul
+        My sunlit skies
+        Yeah, I need you in my arms now
+        Closer than you've been
+        I need you in my life, my eyes, my soul
+        My sunlit skies
+
+        [Instrumental Bridge]
+
+        [Verse 2]
+        Got nobody on my mind, go and search my thoughts
+        Only you on my riverbanks
+        Throw my hours on your line, no need to rush
+        Pour my love down to make it rain
+
+        [Pre-Chorus]
+        'Cause I need you in my arms, my eyes, my soul
+        My sunlit skies
+        Yeah, I need you in my arms (Ooh, ooh-oh-oh)
+
+        [Chorus]
+        Feel you get closer now
+        Much closer than you've been
+        But I need you in my arms, my eyes, my soul
+        My sunlit skies
+        Yeah, I need you in my arms now
+        Closer than you've been
+        I need you in my life, my eyes, my soul
+        My sunlit skies
+        I need you in my arms
+        ''',
+        track_art='https://t2.genius.com/unsafe/327x327/https%3A%2F%2Fimages.genius.com%2F55f485e305b226ef7db504e95d944fa0.1000x1000x1.jpg',
+        track_url='https://www.youtube.com/embed/xTl6K8IRoUk',
+    )
+
+    track9 = Track(
+        user_id=3,
+        track_title="Caroline",
+        artist="Colter Wall",
+        album="Imaginary Appalachia",
+        release_date=date(2015, 6, 2),
+        produced_by="Jason Plumb",
+        lyrics='''
+        [Chorus 1]
+        There's a place where the sun doth shine
+        And the birds keep time with the pines up yonder
+        That's the home of my Caroline
+        She's dancing in the sky
+
+        [Verse 1]
+        Oh how sweet when we meet
+        On the golden streets of the great wide valley
+        These old chains around my feet
+        They're pulling me back down
+        [Chorus 2]
+        Caroline, oh Caroline
+        I'll be home just any old time
+        The grave in the garden won't be satisfied
+        Till your name's next to mine
+
+        [Verse 2]
+        And my bones do break and my hands do shake
+        As I lie in the wake of time's cruel slaughter
+        But if I die before I wake
+        I'm gonna see my Caroline
+
+        [Chorus 2]
+        Caroline, oh Caroline
+        I'll be home just any old time
+        The grave in the garden won't be satisfied
+        Till your name's next to mine
+
+        [Chorus 1]
+        There's a place where the sun doth shine
+        And the birds keep time with the pines up yonder
+        That's the home of my Caroline
+        She's dancing in the sky
+
+        [Chorus 2]
+        Caroline, oh Caroline
+        I'll be home just any old time
+        The grave in the garden won't be satisfied
+        Till your name's next to mine
+
+        Caroline, my Caroline
+        I'll be home just any old time
+        The grave in the garden won't be satisfied
+        Until your name is next to mine
+        ''',
+        track_art='https://t2.genius.com/unsafe/286x286/https%3A%2F%2Fimages.genius.com%2F88c87621d8189973e5d542f34fd93aa5.1000x1000x1.jpg',
+        track_url='https://www.youtube.com/embed/Q82-5XizdiQ',
+    )
+
+    track10 = Track(
+        user_id=3,
+        track_title="Pieces of You",
+        artist="nothing, nowhere",
+        album="",
+        release_date=date(2014, 10, 6),
+        produced_by="nothing, nowhere",
+        lyrics='''
+        [Intro]
+        All the pieces of you fit perfectly in the hole inside my heart
+        And I'd be lying if I tried telling you that you're not everything I want
+
+        [Verse 1]
+        Yeah, I keep a picture of you in my pocket
+        And last night, I almost lost it
+        I used to think I should quit you
+        But I'm so addicted, it hurts
+        Remember the nights that we would stare at the lights by the train tracks
+        And you would always listen to Dashboard
+        That was the first time that I realized
+        [Chorus]
+        All the pieces of you fit perfectly in the hole inside my heart
+        And I'd bе lying if I tried telling you that you're not еverything I want
+        'Cause I tried running away
+        But I came right back today
+        Just hoping that you'd let me say, "I'm sorry"
+        'Cause all the pieces of you fit perfectly in the hole inside my heart
+        Inside my heart
+
+        [Verse 2]
+        I wasn't ready for this, looking in hindsight
+        It's like bringing a knife to a gunfight
+        And sometimes, I listen to your voicemails
+        Need something to fill the void
+        Remember the night we almost got in a fight in your driveway?
+        And you told me that you needed space
+        That was the last time that I realized
+
+        [Chorus]
+        All the pieces of you fit perfectly in the hole inside my heart
+        And I'd be lying if I tried telling you that you're not everything I want
+        'Cause I tried running away
+        But I came right back today
+        Just hoping that you'd let me say, "I'm sorry" (Sorry)
+        'Cause all the pieces of you fit perfectly in the hole inside my heart
+        Inside my heart
+        (Inside my, inside my, inside my heart)
+
+        [Outro]
+        Remember the nights that we would stare at the lights by the train tracks
+        And you would always listen to Dashboard
+        That was the first time that I realized (Realized)
+        All the pieces of you fit perfectly in the hole inside my heart
+        ''',
+        track_art='https://t2.genius.com/unsafe/327x327/https%3A%2F%2Fimages.genius.com%2F9d9a2b906cea8a2d6d5077e6c57c15a6.1000x1000x1.jpg',
+        track_url='https://www.youtube.com/embed/YErEZo38-VQ',
+    )
+
+    track11 = Track(
+        user_id=3,
+        track_title="JFK",
+        artist="SIDNĒ",
+        album="SYD",
+        release_date=date(2020, 3, 20),
+        produced_by="",
+        lyrics='''
+        I knew from the minute I saw you
+        I knew with all my heart I'd adore you
+        I can't find the right words
+        To explain again and again
+        I knew from the minute I saw you
+
+        I'd be the one to watch you leave
+        And never come back again
+        To dream of the start while
+        I'm living inside the end
+        You either have the mercy left to stay
+        Or the longing to run
+        It's good to watch you leave
+        And never come back again
+        I knew from the minute you kissed me
+        I felt your hand reminisce in mine
+        I didn't know a goodnight
+        Could be a final goodbye
+        But I saw it in the weight of your footstep
+        I saw it in the tremble of your breath
+
+        I'd be the one to watch you leave
+        And never come back again
+        To dream of the start while
+        I'm living inside the end
+        You either have the mercy left to stay
+        Or the longing to run
+        It's good to watch you leave
+        And never come back again
+
+        Time will tell me how much I can take
+        The arms around me are like my end of days
+        Time will tell me how much I can take
+        I'll stay here
+
+        And be the one to watch you leave
+        And never come back again
+        To dream of the start while
+        I'm living inside the end
+        You either have the mercy left to stay
+        Or the longing to run
+        It's good to watch you leave
+        And never come back again
+        Leave and never come back again
+        ''',
+        track_art='https://t2.genius.com/unsafe/210x210/https%3A%2F%2Fimages.genius.com%2Fe6ff3f5469e21b48ac9c6563c82e4cae.700x700x1.jpg',
+        track_url='https://www.youtube.com/embed/QccUq66u3TQ',
+    )
+
+    track12 = Track(
+        user_id=3,
+        track_title="Sheep In Wolves Clothes",
+        artist="little hurricane",
+        album="Gold Fever",
+        release_date=date(2014, 4, 29),
+        produced_by="",
+        lyrics='''
+        You told to me stay here
+        I'll be right back
+        It’s just a matter of time
+        I nearly tore myself in two
+        Looking for you in my mind
+        You told me you need me
+        You didn't say why
+        Hold on and trust that
+        You would never lie
+        All I know is
+        You’re here by my side
+        I've got you here
+        I've got you here
+        I've got you here
+        I've got you here
+        When the Sun is burning red
+        We'll shine like diamonds
+        When our old lives are dead
+        Leave them behind us
+        All my questions'll
+        Be answered in the dark
+        I've got you here
+        I've got you here
+        I need you to leave me
+        But please don't ask why
+        I beg you to trust that
+        Everything will be fine
+        I'm alive as long
+        As you're here inside
+        I've got you here
+        I've got you here
+        When the Sun is burning red
+        We'll shine like diamonds
+        When our old lives are dead
+        Leave them behind us
+        All my questions'll
+        Be answered in the dark
+        I've got you here
+        I've got you here
+        You're way behind the time
+        I know what you don't
+        From your head down to your toes
+        You're a sheep in wolves’ clothes
+        I've got you here
+        I've got you here
+        When the Sun is burning red
+        We'll shine like diamonds
+        When our old lives are dead
+        Leave them behind us
+        All my questions'll
+        Be answered in the dark
+        I've got you here
+        I've got you here
+        I've got you here
+        I've got you here.
+        ''',
+        track_art='https://t2.genius.com/unsafe/327x327/https%3A%2F%2Fimages.genius.com%2Fe45870466f6fb5973e3c181d00f81c40.1000x1000x1.jpg',
+        track_url='https://www.youtube.com/embed/4RN1qMdcgV8',
+    )
 
     db.session.add(track1)
     db.session.add(track2)
     db.session.add(track3)
     db.session.add(track4)
     db.session.add(track5)
+    db.session.add(track6)
+    db.session.add(track7)
+    db.session.add(track8)
+    db.session.add(track9)
+    db.session.add(track10)
+    db.session.add(track11)
+    db.session.add(track12)
 
     db.session.commit()
 
