@@ -6,7 +6,7 @@ import EditTrackModal from '../TrackEditForm/index';
 import DeleteTrackModal from '../TrackDelete/index';
 import { actionResetTrack } from '../../store/tracks';
 import ReactPlayer from 'react-player'
-
+import './TrackInfo.css';
 import React from 'react';
 
 
@@ -26,35 +26,41 @@ export default function TrackInfo() {
 
     return (
         <div>
-            {user?.id === track.user_id && <EditTrackModal />}
-            {user?.id === track.user_id && <DeleteTrackModal />}
+            <div className="track-info-container">
 
-            <div>
+            </div>
+            <div className='track_art'>
                 <img src={track.track_art}></img>
             </div>
 
-            <div>
-                Track Title: {track.track_title}
-            </div>
-
-            <div>
-                Track Artist: {track.artist}
-            </div>
-
-            <div>
-                Track Album: {track.album}
-            </div>
-
-            <div>
-                Track Release Date:
+            <div className='track_title_artist'>
+                <div className='track_title'>
+                    {track.track_title}
+                </div>
+                <div className='track_artist'>
+                    {track.artist}
+                </div>
                 <div>
+                on {track.album} (album)
+                </div>
+            </div>
+            <div className='track_producer'>
+                Produced by:
+                <div className='track_producer_name'>
+                    {track.produced_by}
+                </div>
+            </div>
+            <div className='track_release'>
+                Release Date:
+                <div className='track_release_date'>
                     {track.release_date?.split(' ').slice(0, -2).slice(1).join(' ')}
                 </div>
             </div>
 
-            <div>
-                Track Producer: {track.produced_by}
-            </div>
+            {user?.id === track.user_id && <EditTrackModal />}
+            {user?.id === track.user_id && <DeleteTrackModal />}
+
+
 
             <div>
                 Track Lyrics:

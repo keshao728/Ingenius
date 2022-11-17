@@ -1,0 +1,68 @@
+.track_art{
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    z-index: 2;
+    left: 18%;
+    top: 15%;
+    object-fit: contain;
+    border: 1px solid black;
+    height:310px;
+    width: 310px;
+    object-fit: contain
+}
+
+.track_title_artist{
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    z-index: 2;
+    left:38%;
+    top: 15%;
+    color:white;
+}
+
+.track_title{
+    font-size: 32px;
+}
+
+.track_artist{
+    font-size: 16px;
+}
+
+.track_producer{
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    z-index: 2;
+    top:15%;
+    left: 58%;
+    color:white;
+    font-size: 12px;
+}
+
+.track_producer_name{
+    font-size: 16px;
+    color:white;
+    width: 200px;
+}
+
+.track_release{
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    z-index: 2;
+    top:15%;
+    left: 70%;
+    color:white;
+    font-size: 12px;
+}
+
+.track_release_date{
+    font-size: 16px;
+    color:white;
+}
+.track-info-container{
+    height:280px;
+    background: #B395A9;
+}

@@ -1,56 +1,104 @@
-import React from 'react';
+import React, {useState,useEffect} from 'react';
 import { NavLink } from 'react-router-dom';
 import './AllTrackNav.css'
 import { useSelector } from 'react-redux';
+import LogoutButton from '../auth/LogoutButton';
 // import alltracklogo from './NavImage/alltracklogo.png';
 import logo from './NavImage/logo.png';
 import SignUpForm from '../auth/SignUpForm';
 import LoginForm from '../auth/LoginForm';
+import { HashLink as Link } from 'react-router-hash-link';
+
 
 const AllTrackNav = () => {
     const sessionUser = useSelector(state => state.session.user);
+    const [showMenu, setShowMenu] = useState(false);
+
+    const openMenu = () => {
+        if (showMenu) return;
+        setShowMenu(true);
+      };
+
+    useEffect(() => {
+    if (!showMenu) return;
+
+    const closeMenu = () => {
+        setShowMenu(false);
+    };
+
+    document.addEventListener('click', closeMenu);
+
+    return () => document.removeEventListener("click", closeMenu);
+    }, [showMenu]);
+
     let sessionLinks;
     let sessionLinks2;
+
     if (sessionUser) {
         sessionLinks = (
             <>
-                <div className="main-nav-list-1-track" >
+                <Link className="main-nav-list-1-track" smooth to="/#featured"
+                style={{ textDecoration: 'none' }} >
                 Featured
-                </div>
+                </Link>
 
-                <div className="main-nav-list-1-track" >
+                <Link className="main-nav-list-1-track" smooth to="/#charts"
+                style={{ textDecoration: 'none' }}>
                 Charts
-                </div>
+                </Link>
 
-                <div className="main-nav-list-1-track" >
+                <Link className="main-nav-list-1-track" smooth to="/#video"
+                style={{ textDecoration: 'none' }}>
                 Videos
-                </div>
+                </Link>
 
-                <div className="main-nav-list-1-track" >
-                Promote
-                </div>
+                <Link className="main-nav-list-1-track" smooth to="/#devs"
+                style={{ textDecoration: 'none' }}>
+                Devs
+                </Link>
 
-                <div className="main-nav-list-1-track" >
+                {/* <div className="main-nav-list-1-track" >
                 Forums
-                </div>
-
+                </div> */}
+                <NavLink to={`/tracks/new`} style={{ textDecoration: 'none' }}>
                 <div className="main-nav-list-1-track" >
                 Add A Song
                 </div>
+                </NavLink>
             </>
         )
         sessionLinks2 = (
         <div className='main-nav-list-alltrack-right'>
-            <div className='main-nav-list-2-track' >
+            {/* <div className='main-nav-list-2-track' >
                 FORUMS
             </div>
             <div className='main-nav-list-2-track' >
                 FEED
-            </div>
-            <div className='main-nav-list-2-track' >
+            </div> */}
+            <div className='main-nav-list-2-track' onClick={openMenu}>
                 ME
             </div>
-            <div className='main-nav-list-2-track' >
+
+            {showMenu && (
+                <div className='user-dropdown-menu2'>
+                    <div className='user-account-text'>ACCOUNT</div>
+                    <div>
+                    <NavLink to={`/users/${sessionUser.id}`}>
+                        <button className='drop-down-button' id="drop-user-profile">
+                        View Profile
+                        </button>
+                    </NavLink>
+                    </div>
+                    <div>
+                    <div>
+                        <LogoutButton className='drop-down-button'>
+                        Sign Out
+                        </LogoutButton>
+                    </div>
+                    </div>
+                </div>
+            )}
+            {/* <div className='main-nav-list-2-track' >
                 MESSAGES
             </div>
             <div className='main-nav-list-2-track' >
@@ -59,28 +107,28 @@ const AllTrackNav = () => {
             <div className='main-nav-list-2-track' >
                 0 IQ
                 {/* need to setup model where account and viewprofile and signout as option , viewprofile need to redirect to profile page and signout just need to signout */}
-            </div>
+            {/* </div> */}
         </div>
         )
     } else {
         // ADD LINK TO PROMOTE MUSIC PAGE
         sessionLinks = (
             <>
-                <div className="main-nav-list-1-track" >
+                <Link className="main-nav-list-1-track" smooth to="/#featured"
+                style={{ textDecoration: 'none' }} >
                 Featured
-                </div>
+                </Link>
 
-                <div className="main-nav-list-1-track" >
+                <Link className="main-nav-list-1-track" smooth to="/#charts"
+                style={{ textDecoration: 'none' }}>
                 Charts
-                </div>
+                </Link>
 
-                <div className="main-nav-list-2-track" >
+                <Link className="main-nav-list-1-track" smooth to="/#video"
+                style={{ textDecoration: 'none' }}>
                 Videos
-                </div>
+                </Link>
 
-                <div className="main-nav-list-1-track" >
-                Promote your music
-                </div>
             </>
         )
         sessionLinks2 = (
