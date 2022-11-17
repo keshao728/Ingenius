@@ -138,13 +138,14 @@ export const getUserInfo = (userId) => async dispatch => {
 }
 
 //edit a annotation
-export const editAnnotation = (annotation) => async (dispatch) => {
+export const editAnnotation = (annotation) => async dispatch => {
   const response = await fetch(`/api/annotations/${annotation.id}`, {
       method: "PUT",
       headers: {"Content-Type": "application/json"},
       body: JSON.stringify(annotation)
   })
-
+  console.log('annotation from thunk!', annotation)
+  console.log('RESPONSE from thunk!', response)
   if (response.ok) {
       const editedAnnotation = await response.json();
       await dispatch(actionEditAnnotation(editedAnnotation))
@@ -205,7 +206,8 @@ export default function reducer(state = initialState, action) {
       console.log('NEWNEWSTATESTATE', newState)
       return newState
     case EDIT_ANNOTATION: 
-      newState = {...state, annotations: {...state.annotations}}
+      newState = {...state}
+      newState.annotations = {...state.annotations}
       newState.annotations[action.annotation.id] = action.annotation
 
       return newState

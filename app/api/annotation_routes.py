@@ -58,13 +58,13 @@ def annotation_by_id(id):
 #   return {'errors': validation_errors(form.errors), "statusCode": 401}
 
 # EDIT Annotation
-@annotation_routes.route('/annotations/<int:annotationid>', methods=["PUT"])
+@annotation_routes.route('/annotations/<int:id>', methods=["PUT"])
 @login_required
 def annotation_edit(id):
   form = AnnotationForm()
   form['csrf_token'].data = request.cookies['csrf_token']
   annotation = Annotation.query.get(id)
-  if current_user.id != form.user_id:
+  if current_user.id != annotation.user_id:
     return {'errors': 'Unauthorized', 'statusCode':401}
 
   if form.validate_on_submit():
