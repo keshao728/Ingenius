@@ -265,7 +265,7 @@ const HomePage = () => {
           <div className="video-verified">
             <div>
             <ReactPlayer
-            width="850px"
+            width="830px"
             height="480px"
             // playIcon={vidplay}
             light={videoImg}

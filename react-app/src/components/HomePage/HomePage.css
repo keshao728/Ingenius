@@ -333,8 +333,8 @@
 }
 
 .video-wrapper {
-  padding: 50px;
-  width: 90%;
+  padding-top: 50px;
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -345,6 +345,7 @@
   padding: 10px 0px;
   font-size: 14px;
   font-weight: bold;
+  margin-bottom: 12px;
 }
 
 .video-verified {
@@ -353,6 +354,8 @@
   gap: 30px;
   margin-top: 20px;
   max-width: 1080px;
+  /* width: 100%; */
+  /* width: 850px; */
 }
 
 .video-right {
