@@ -3,7 +3,8 @@ import andrew from "./HomePageImage/andrew.png"
 import kelly from "./HomePageImage/kelly.png"
 import schaeffer from "./HomePageImage/schaeffer.png"
 import simon from "./HomePageImage/simon.png"
-import fries from "./HomePageImage/devs.png"
+// import fries from "./HomePageImage/devs.png"
+import feature1 from "./HomePageImage/feature1.png"
 import NavBar from '../Navigation/NavBar';
 import ActionNav from '../Navigation/ActionNav';
 
@@ -68,10 +69,10 @@ const HomePage = () => {
     <div>
       <NavBar />
       <ActionNav
-        // featureRefScroll={featureRefScroll}
-        // chartsRefScroll={chartsRefScroll}
-        // videoRefScroll={videoRefScroll}
-        // devRefScroll={devRefScroll}
+      // featureRefScroll={featureRefScroll}
+      // chartsRefScroll={chartsRefScroll}
+      // videoRefScroll={videoRefScroll}
+      // devRefScroll={devRefScroll}
       />
       {/* <div className="featured-page" id="featured-page-id" ref={featureRef}> */}
       <div className="featured-page" id="featured">
@@ -83,26 +84,26 @@ const HomePage = () => {
             </div>
             <div className="top-feature-news-wrapper">
               <div className="top-feature-title">
-                What are the FRIES up to?
+                Gucci Mane Remembers Takeoff and Other Fallen Rappers On New Song “Letter To Takeoff”
               </div>
               <div className="top-feature-description">
-                Celebrate the McDonalds Fries by playing Valorant.
+                Gucci also pays respect to Shawty Lo, Young Dolph, and PnB Rock, among others.
               </div>
 
               <div className="top-feature-author-date">
                 <div className="top-feature-author">
-                  by Kelly Shao /
+                  by Ken Partridge /
                 </div>
 
                 <div className="top-feature-date">
-                  Nov 8 2022
+                  Nov 16 2022
                 </div>
               </div>
             </div>
           </div>
 
           <div className="top-feature-right">
-            <img id="fries" src={fries} alt="Logo"></img>
+            <img id="fries" src={feature1} alt="Logo"></img>
           </div>
         </div>
         <div className="bottom-feature">

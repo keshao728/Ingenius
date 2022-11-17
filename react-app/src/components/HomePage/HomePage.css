@@ -4,7 +4,7 @@
   justify-content: flex-start;
   flex-wrap: wrap;
   list-style: none;
-  padding: 5% 20%;
+  padding: 4% 20%;
   justify-items: center;
 }
 
@@ -24,6 +24,7 @@
 }
 
 #fries {
+  margin-top:13px;
   width: 650px;
   /* object-fit: cover; */
   height: 350px
@@ -51,15 +52,18 @@
 }
 
 .top-feature-title {
-  font-size: 35px;
+  font-size: 33px;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 5px;
+  font-weight: bold;
   overflow-wrap: break-word;
 }
 
 .top-feature-description {
   font-size: 16px;
-  padding: 5px 0px;
+  padding: 10px 0px;
+  font-weight: 500;
+
 }
 
 .top-feature-author-date {
@@ -90,6 +94,19 @@
   border-right: black 2px solid;
 }
 
+.bottom-feature-1{
+  padding-right: 20px;
+}
+.bottom-feature-4{
+  padding-left: 20px;
+}
+
+.bottom-feature-2,
+.bottom-feature-3{
+  padding-right: 20px;
+  padding-left: 20px;
+
+}
 .bottom-feature-1,
 .bottom-feature-2,
 .bottom-feature-3,
@@ -98,7 +115,7 @@
   flex-wrap: wrap;
   flex-direction: column;
   width: 25%;
-  padding: 0px 20px;
+  /* padding: 0px 20px; */
   font-size: 20px;
   justify-content: space-between;
 }
