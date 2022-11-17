@@ -443,7 +443,7 @@ const HomePage = () => {
 
       <div className="footer">
 
-        <div className="footer-inner">
+        {/* <div className="footer-inner"> */}
           <div className="footer-message">
             Genius is the world’s biggest collection of song lyrics and musical knowledge
           </div>
@@ -465,7 +465,7 @@ const HomePage = () => {
               <li>Something</li>
             </ul>
           </div>
-        </div>
+        {/* </div> */}
 
       </div>
 

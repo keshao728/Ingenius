@@ -473,6 +473,7 @@
 /* FOOTER */
 .footer {
   margin-top: 80px;
+  box-sizing: border-box;
   background-color: black;
   height: 300px;
   display: flex;
@@ -480,13 +481,18 @@
   flex-direction: row;
   /* padding: 20px 20px; */
   justify-content: space-between;
-  margin-top: 90px;
+  /* margin-top: 90px; */
+  padding: 5% 20%;
+  min-width: 1080px;
+  max-height: 300px;
 }
 
 .footer-inner {
   display: flex;
+  min-width: 1080px;
   flex-flow: row nowrap;
-  padding: 5% 20%
+  padding: 5%;
+  max-height:180px;
 }
 
 .footer-message {
@@ -645,7 +651,7 @@ figure figcaption button {
 
   .featured-page,
   .latest-page,
-  .footer-inner {
+  .footer {
     padding: 65px 130px;
   }
 
@@ -663,9 +669,8 @@ figure figcaption button {
 @media (max-width: 1260px) {
 
   .featured-page,
-  .latest-page,
-  .footer-inner {
-    padding: 60px 60px;
+  .latest-page {
+    padding: 30px 60px;
   }
 
   .chart-page {
@@ -676,14 +681,17 @@ figure figcaption button {
   .latest-page {
     padding: 0 60px
   }
+
+  .footer {
+    padding: 60px 30px;
+  }
 }
 
 @media (max-width: 1079px) {
 
   .featured-page,
-  .latest-page,
-  .footer-inner {
-    padding: 30px 20px;
+  .latest-page {
+    padding: 10px 20px;
   }
 
   .chart-page {
@@ -694,9 +702,9 @@ figure figcaption button {
   .latest-page {
     padding: 0 20px;
   }
-  /* .footer-inner {
-    padding: 50px 20px;
-  } */
+  .footer {
+    padding: 60px 30px;
+  }
 }
 
 .fa-brands {
