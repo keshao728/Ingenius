@@ -1,4 +1,4 @@
-from app.models import db, Annotation
+from app.models import db, Annotation,environment, SCHEMA
 
 def seed_annotations():
     annotation1 = Annotation(
@@ -46,5 +46,8 @@ def seed_annotations():
     db.session.commit()
 
 def undo_annotations():
-    db.session.execute('TRUNCATE annotations RESTART IDENTITY CASCADE;')
+    if environment == "production":
+        db.session.execute(f"TRUNCATE table {SCHEMA}.annotations RESTART IDENTITY CASCADE;")
+    else:
+        db.session.execute("DELETE FROM annotations;")
     db.session.commit()
