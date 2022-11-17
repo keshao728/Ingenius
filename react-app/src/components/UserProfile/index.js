@@ -2,10 +2,12 @@ import { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom'
 // import { deleteAnnotation, getUserAnnotations } from '../../store/session'
-import { getUserInfo, deleteAnnotation } from '../../store/session';
+import { getUserInfo, deleteAnnotation, editAnnotation } from '../../store/session';
 import React from 'react';
 import './UserIndex.css'
 import EditAnnotation from '../AnnotationEditForm/EditAnnotationForm';
+import * as moment from 'moment';
+
 
 
 const UserAnnotations = () => {
@@ -39,7 +41,7 @@ const UserAnnotations = () => {
   // }, [showEdit])
 
   // handleDelete = (e) => {
-  //   const id = 
+  //   const id =
   // }
   // const handleEditClick = async (e) => {
   //   e.preventDefault()
@@ -48,16 +50,16 @@ const UserAnnotations = () => {
 
 
   if (!annotationArr) return null
-  else return isLoaded && annotationArr && (
+  else return isLoaded &&
     annotationArr.map(annotation => (
       <div id='pp-annotations-outer-container' key={annotation.id}>
-        <div id='pp-annotation-created-at'> {annotation?.created_at}</div>
+        <div id='pp-annotation-created-at'> {annotation.created_at}</div>
         <div id='pp-annotation-inner-container'>
           <div id='pp-song-info'>
-            <img id='pp-album-photo' src={annotation.track?.track_art} test />
+            <img id='pp-album-photo' src={annotation.track?.track_art}/>
             <div id='pp-title-artist'>
-              <div id='pp-annotation-song-title'> {annotation.track?.track_title}</div>
-              <div id='pp-annotation-song-artist'>{annotation.track?.artist}</div>
+              <div id='pp-annotation-song-title'> {annotation.track.track_title}</div>
+              <div id='pp-annotation-song-artist'>{annotation.track.artist}</div>
             </div>
           </div>
           <div id='pp-annotation-lyric-container'>
@@ -65,27 +67,27 @@ const UserAnnotations = () => {
               lyrics
             </div>
             <div>
+
             </div>
           </div>
           <div id='pp-annotation-inner-content'>
             <div id='pp-annotation-username-icon-container'>
               <img id='pp-annotation-username-icon' src={annotation.user?.profile_img} />
               <div id='pp-annotation-username'>{annotation.user?.username}</div>
+              <div id='pp-annotation-createdAt'>{moment(annotation?.created_at).fromNow()}</div>
             </div>
-
-            <div >{showEdit == annotation.id ? <EditAnnotation setShowEdit={setShowEdit} annotate={annotation} /> :
-              <div>
-                <div id='pp-annotation-annotation-body'>{annotation.annotation_body}</div>
+            <div id='pp-annotation-annotation-body'>{showEdit == annotation.id ? <EditAnnotation setShowEdit = {setShowEdit} annotate={annotation} /> : annotation.annotation_body }</div>
+              <div id='pp-annotation-delete-edit'>
                 <button id='pp-annotation-edit' onClick={() => setShowEdit(annotation.id)}>Edit</button>
                 <button id='pp-annotation-delete' onClick={() => dispatch(deleteAnnotation(annotation.id))}>Delete</button>
-              </div>}
-            </div>
+              </div>
+
             <div id='pp-annotation-upvote'>Upvote {annotation.vote_count}</div>
           </div>
         </div>
       </div>
     ))
-  )
+
 }
 
 
