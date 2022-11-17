@@ -1,11 +1,12 @@
 #pp-annotations-outer-container {
-  border: 2px solid red;
+  /* border: 2px solid red; */
   width: 100%;
   height: fit-content;
+  background-color: white;
 }
 
 #pp-annotation-created-at {
-  background-color:floralwhite;
+  background-color:whitesmoke;
   text-transform: uppercase;
   font-size: small;
   font-weight:600;
@@ -13,7 +14,7 @@
 }
 
 #pp-annotation-inner-container {
-  border: 1px solid pink;
+  /* border: 1px solid pink; */
 
 }
 #pp-song-info{
@@ -30,7 +31,7 @@
 
 }
 #pp-title-artist {
-  border: 1px solid pink;
+  /* border: 1px solid pink; */
   padding: 2px 0px 0px 2px;
   font-weight:600;
 
@@ -59,7 +60,7 @@
 
 }
 #pp-annotation-inner-content {
-  border: 1px solid pink;
+  /* border: 1px solid pink; */
   padding: 12px;
 }
 #pp-annotation-username-icon-container {
@@ -76,6 +77,9 @@
   margin-left: 5px;
   font-size: 14px;
   font-weight: bold;
+}
+#pp-annotation-createdAt {
+  
 }
 
 #pp-annotation-annotation-body {
