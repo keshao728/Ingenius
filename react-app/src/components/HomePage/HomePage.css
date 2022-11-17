@@ -60,12 +60,13 @@
   gap: 5px;
   font-weight: bold;
   overflow-wrap: break-word;
+  margin-bottom: 5px;
 }
 
 .top-feature-description {
-  font-size: 16px;
+  font-size: 15px;
   padding: 10px 0px;
-  font-weight: 500;
+  font-weight: 500px;
 
 }
 
