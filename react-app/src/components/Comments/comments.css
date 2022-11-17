@@ -37,7 +37,8 @@
 }
 
 
-.comment-input:focus + .button-create-comment{
+.comment-input:focus + .button-create-comment,
+.comment-input:valid + .button-create-comment{
   opacity:1;
 }
 
