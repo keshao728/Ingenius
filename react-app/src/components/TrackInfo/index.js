@@ -71,8 +71,6 @@ export default function TrackInfo() {
     }
 
 
-
-
     // end annotation stuff
 
     useEffect(() => {
@@ -118,33 +116,34 @@ export default function TrackInfo() {
             {user?.id === track.user_id && <DeleteTrackModal />}
 
 
+            <div className='body_page'>
+                <div className='lyrics_body'>
+                    Track Lyrics:
 
-            <div>
-                Track Lyrics:
+                    <div onMouseUp={annotateThis}>
+                        {/* {track.lyrics?.split('\n').map(chunk => <div key={chunk}>{chunk}</div>)} */}
+                        {track.lyrics}
+                    </div>
 
-                <div onMouseUp={annotateThis}>
-                    {/* {track.lyrics?.split('\n').map(chunk => <div key={chunk}>{chunk}</div>)} */}
-                    {track.lyrics}
                 </div>
 
+                <div>
+                    <ReactPlayer url={track.track_url} />
+                    {/* <iframe
+                        width="560"
+                        height="315"
+                        src={track.track_url}
+                        title="YouTube video player"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen
+                    >
+                    </iframe> */}
+
+                    {/* Track Url: {track.track_url} */}
+                </div>
+               
             </div>
-
-            <div>
-                <ReactPlayer url={track.track_url} />
-                {/* <iframe
-                    width="560"
-                    height="315"
-                    src={track.track_url}
-                    title="YouTube video player"
-                    frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowfullscreen
-                >
-                </iframe> */}
-
-                {/* Track Url: {track.track_url} */}
-            </div>
-
 
         </div>
     )

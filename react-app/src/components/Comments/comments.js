@@ -151,35 +151,42 @@ const AllComments = () => {
   }
 
   return (
-    <div className="comments-mother">
-      <div className="comments-text">
-        Comments
-      </div>
-      <div>
-        {sessionLinks}
-      </div>
-      <div>
-        {commentsArr.map((comment) => {
-          return (
-            <div className="comment-display">
-              <div className="individual-comment-display" key={comment?.id}>
-                <div>{comment?.commentter?.username}</div>
-                <div>{comment.user_id}</div>
-                <div>{moment(comment.created_at).fromNow()}</div>
-                {/* <div>{comment.created_at.split(' ').slice(0, -2).join(' ')}</div> */}
-                <div>{comment.comment_body} </div>
+    <>
+      <div className="comments-mother">
+        <div className="comments-text">
+          Comments
+        </div>
+        <div>
+          {sessionLinks}
+        </div>
+        <div>
+          {commentsArr.map((comment) => {
+            return (
+              <div className="comment-display">
+                <div className="individual-comment-display" key={comment?.id}>
+                  <div>{comment?.commentter?.username}</div>
+                  <div>{comment.user_id}</div>
+                  <div>{moment(comment.created_at).fromNow()}</div>
+                  {/* <div>{comment.created_at.split(' ').slice(0, -2).join(' ')}</div> */}
+                  <div>{comment.comment_body} </div>
+                </div>
+                {sessionUser?.id === comment.user_id && (
+                  <button className="delete-comment-button"
+                    onClick={async () => await dispatch(deleteComment(comment?.id))}>
+                    Delete
+                  </button>
+                )}
               </div>
-              {sessionUser?.id === comment.user_id && (
-                <button className="delete-comment-button"
-                  onClick={async () => await dispatch(deleteComment(comment?.id))}>
-                  Delete
-                </button>
-              )}
-            </div>
-          )
-        })}
+            )
+          })}
+        </div>
       </div>
-    </div>
+      <div className="footer">
+        <div className="footer-message">
+          Genius is the world’s biggest collection of song lyrics and musical knowledge
+        </div>
+      </div>
+    </>
   )
 }
 
