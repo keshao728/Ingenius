@@ -73,6 +73,15 @@
   font-size: 13px;
 }
 
+.top-feature-author-date2 {
+  display: flex;
+  position:relative;
+  top: -10px;
+  flex-direction: row;
+  /* margin-top: 90px; */
+  font-size: 11px;
+}
+
 .top-feature-date {
   color: gray;
   margin-left: 7px;
@@ -121,7 +130,7 @@
 }
 
 #dev {
-  font-size: 12px;
+  font-size: 11px;
   font-weight: bold;
   margin-bottom: 10px;
 }
@@ -129,9 +138,9 @@
 #individual-fries {
   display: flex;
   position: relative;
-  width: 244px;
+  width: 250px;
   /* object-fit: cover; */
-  height: 180px;
+  height: 145px;
 }
 
 /* CHARTS */
