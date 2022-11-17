@@ -442,28 +442,37 @@ const HomePage = () => {
 
 
       <div className="footer">
-        <div className="footer-message">
-          Genius is the world’s biggest collection of song lyrics and musical knowledge
-        </div>
-        <div className="footer-links">
-          <ul>
-            <li>Something</li>
-            <li>Something</li>
-            <li>Something</li>
-            <li>Something</li>
-          </ul>
-        </div>
-        <div className="footer-links">
-          <ul>
-            <li>Something</li>
-            <li>Something</li>
-            <li>Something</li>
-            <li>Something</li>
-          </ul>
+
+        <div className="footer-inner">
+          <div className="footer-message">
+            Genius is the world’s biggest collection of song lyrics and musical knowledge
+          </div>
+
+          <div className="footer-links">
+            <ul>
+              <li>Something</li>
+              <li>Something</li>
+              <li>Something</li>
+              <li>Something</li>
+            </ul>
+          </div>
+
+          <div className="footer-links">
+            <ul>
+              <li>Something</li>
+              <li>Something</li>
+              <li>Something</li>
+              <li>Something</li>
+            </ul>
+          </div>
         </div>
 
       </div>
-    </div >
+
+
+
+
+    </div>
 
 
 
