@@ -38,10 +38,10 @@
 }
 
 
-.comment-input:focus + .button-create-comment,
+/* .comment-input:focus + .button-create-comment,
 .comment-input:valid + .button-create-comment{
   visibility: visible;
-}
+} */
 
 .comment-input:invalid{
   border-color: transparent;
@@ -50,7 +50,7 @@
 
 
 .button-create-comment{
-  visibility: hidden;
+  /* visibility: hidden; */
   border: 1px solid black;
   border-radius: 25px;
   font-size: 20px;
@@ -97,4 +97,23 @@
 .comment-form-error-text{
   color: white;
 /* margin-bottom: 10px; */
+}
+
+.comment-submit-buttons{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+}
+
+.cancel-create-comment{
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  height: 17px;
+  text-decoration-line: underline;
+}
+
+.cancel-create-comment:active{
+  text-decoration-line: none;
 }

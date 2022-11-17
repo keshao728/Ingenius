@@ -23,6 +23,20 @@ const AllComments = () => {
   const [userComments, setUserComments] = useState("");
   const [validationErrors, setValidationErrors] = useState([])
   const [showErrors, setShowErrors] = useState(false)
+  const [showSubmit, setShowSubmit] = useState(false);
+
+  const openSubmit = () => {
+    if (showSubmit) return;
+    setShowSubmit(true);
+  };
+
+
+
+  const closeSubmit = (e) => {
+    e.preventDefault();
+    setShowSubmit(false);
+  };
+
 
   function isEmpty(str) {
     if (!str.trim().length)
@@ -57,6 +71,7 @@ const AllComments = () => {
       let createdComment = await dispatch(createComment(trackId, newComment))
       if (createdComment) {
         setShowErrors(false)
+        setShowSubmit(false)
       }
     }
   }
@@ -83,23 +98,28 @@ const AllComments = () => {
               className="comment-input"
               // className={`${hasError ? 'invalid-comment-input' : 'comment-input'}`}
               value={userComments}
+              onClick={openSubmit}
               required
               style={invalidInput}
               onChange={(e) => setUserComments(e.target.value)}
             />
-            {showErrors &&
+            {showErrors && showSubmit && (
               <ul className="comment-form-errors">
                 {validationErrors.length > 0 &&
                   validationErrors.map(error => (
                     <li className="comment-form-error-text" key={error}>{error}</li>
                   ))}
               </ul>
+            )
             }
-
-            <button className="button-create-comment" type="submit"> Submit</button>
           </label>
+          {showSubmit &&
+            <div className="comment-submit-buttons">
+              <button className="button-create-comment" type="submit" onSubmit={handleSubmit}> Submit</button>
+              <button type="button" className="cancel-create-comment" onClick={closeSubmit}>Cancel</button>
+            </div>
+          }
         </div>
-        {/* <button type="button" className="button-create-comment" onClick={handleCancel}>Cancel</button> */}
       </form>
     )
   } else {
