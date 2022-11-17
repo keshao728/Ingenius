@@ -18,6 +18,16 @@
   box-sizing: border-box;
 }
 
+/* .react-player__play-icon{ */
+  /* background-color: gray; */
+  /* padding: 10%; */
+  /* color: black; */
+/* } */
+
+/* .react-player__shadow{
+  color: black;
+} */
+
 /* FEATURES */
 .featured-page {
   display: flex;
@@ -130,20 +140,20 @@
   padding: 0 0
 }
 
-.bottom-feature-1 {
+/* .bottom-feature-1 { */
   /* padding-right: 20px; */
-}
+/* } */
 
-.bottom-feature-4 {
+/* .bottom-feature-4 { */
   /* padding-left: 20px; */
-}
-
+/* } */
+/*
 .bottom-feature-2,
-.bottom-feature-3 {
+.bottom-feature-3 { */
   /* padding-right: 20px;
   padding-left: 20px; */
 
-}
+/* } */
 
 .bottom-feature-1,
 .bottom-feature-2,
@@ -173,7 +183,8 @@
 #individual-fries {
   display: flex;
   position: relative;
-  width: 250px;
+  /* width: 250px; */
+  width: 100%;
   /* object-fit: cover; */
   height: 145px;
   padding: 0 5%;
@@ -323,8 +334,8 @@
 }
 
 .video-wrapper {
-  padding: 50px;
-  width: 90%;
+  padding-top: 50px;
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -335,6 +346,7 @@
   padding: 10px 0px;
   font-size: 14px;
   font-weight: bold;
+  margin-bottom: 12px;
 }
 
 .video-verified {
@@ -343,6 +355,8 @@
   gap: 30px;
   margin-top: 20px;
   max-width: 1080px;
+  /* width: 100%; */
+  /* width: 850px; */
 }
 
 .video-right {
@@ -550,6 +564,16 @@
 
 .footer-links>ul {
   list-style-type: none;
+  text-decoration: none;
+}
+
+.footer-links-ul > li > a {
+  text-decoration: none;
+  color: whitesmoke
+}
+
+.footer-links-ul > li > a:hover{
+  color: #FCFF68;
 }
 
 .latest-load-more {
@@ -634,11 +658,11 @@ figure img {
 
 figure figcaption {
   position: absolute;
-  bottom: -33%;
+  bottom: -38%;
   left: 0;
   width: 100%;
   margin: 0;
-  padding: 30px;
+  padding: 10px 30px 30px 30px;
   background-color: rgba(0, 0, 0, 0.85);
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
   color: white;
@@ -664,21 +688,7 @@ figure figcaption p {
   outline: none;
 }
 
-figure figcaption button {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 10px 0 0;
-  padding: 10px 30px;
-  background-color: #1abc9c;
-  border: none;
-  border-radius: 5px;
-  color: white;
-  font-size: 14px;
-  box-sizing: border-box;
-  outline: none;
-}
+
 
 
 
