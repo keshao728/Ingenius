@@ -1,3 +1,5 @@
+import ReactPlayer from 'react-player'
+
 // import React, { useRef } from 'react';
 // import andrew from "./HomePageImage/andrew.png"
 import akim from "./HomePageImage/akim.png"
@@ -11,6 +13,8 @@ import feature2 from "./HomePageImage/feature2.png"
 import feature3 from "./HomePageImage/feature3.png"
 import feature4 from "./HomePageImage/feature4.png"
 import feature5 from "./HomePageImage/feature5.png"
+import videoImg from "./HomePageImage/videoImg.jpg"
+import vidplay from "./HomePageImage/vidplay.png"
 import NavBar from '../Navigation/NavBar';
 import ActionNav from '../Navigation/ActionNav';
 
@@ -260,10 +264,19 @@ const HomePage = () => {
 
           <div className="video-verified">
             <div>
-              <iframe className="video"
+            <ReactPlayer
+            width="850px"
+            height="480px"
+            // playIcon={vidplay}
+            light={videoImg}
+            url="https://www.youtube.com/watch?v=KH7_PFZgPn4&ab_channel=Genius"
+            // react-player__preview={videoImg}
+             />
+
+              {/* <iframe className="video"
                 //IT'S AUTOPLAYING!!! STAHP IT
                 src='//players.brightcove.net/4863540648001/S1ZcmcOC1x_default/index.html?videoId=6315238407112' width="850"
-                height="480" frameborder="0" allow="fullscreen" allowfullscreen></iframe>
+                height="480" frameborder="0" allow="fullscreen" allowfullscreen></iframe> */}
             </div>
             <div className="video-right">
               <div className="video-right-verified">

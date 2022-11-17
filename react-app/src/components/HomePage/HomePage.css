@@ -18,6 +18,16 @@
   box-sizing: border-box;
 }
 
+/* .react-player__play-icon{ */
+  /* background-color: gray; */
+  /* padding: 10%; */
+  /* color: black; */
+/* } */
+
+/* .react-player__shadow{
+  color: black;
+} */
+
 /* FEATURES */
 .featured-page {
   display: flex;
