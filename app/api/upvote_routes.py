@@ -23,8 +23,9 @@ def upvote(id):
 @upvote_routes.route('/<int:id>/downvote',methods=['POST'])
 @login_required
 def downvote(id):
-    vote = Vote.query.filter(Vote.user_id == current_user.id, Vote.annotation_id == id).first()
-    if not vote:
+    vote1 = Vote.query.filter(Vote.user_id == current_user.id, Vote.annotation_id == id).first() #find one
+    # vote2 = Vote.query.get(Vote.user_id == current_user.id, Vote.annotation_id == id) #find by PK
+    if not vote1:
         downvote = Vote(
         user_id=current_user.id,
         annotation_id=id,

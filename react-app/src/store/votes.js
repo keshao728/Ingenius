@@ -34,7 +34,7 @@ export const upvoteThunk = (id) => async (dispatch) => {
         headers: {
             "Content-Type": "application/json"
         },
-        body: JSON.stringify({id})
+        body: JSON.stringify(id)
     })
     if (response.ok) {
         const data = await response.json()
@@ -50,7 +50,7 @@ export const downvoteThunk = (id) => async (dispatch) => {
         headers: {
             "Content-Type": "application/json"
         },
-        body: JSON.stringify({id})
+        body: JSON.stringify(id)
     })
     console.log(id)
     console.log(response)
