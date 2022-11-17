@@ -34,8 +34,6 @@ def user_special(id):
     return user.to_dict()
 
 
-# user annotations
-@user_routes.route('/<int:id>/annotations')
 # get current user info
 @user_routes.route('/<int:id>/info')
 @login_required

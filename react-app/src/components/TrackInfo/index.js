@@ -53,9 +53,9 @@ export default function TrackInfo() {
             annotation_body: 'something',
             startIndex: startIndex,
             endIndex: endIndex,
-          }
+        }
 
-          let createdAnnotation = await dispatch(createAnnotation(trackId, annotationInfo)).catch(async (res) => {
+        let createdAnnotation = await dispatch(createAnnotation(trackId, annotationInfo)).catch(async (res) => {
             const data = await res.json();
             if (data && data.errors) setErrors(data.errors)
         })
@@ -96,7 +96,7 @@ export default function TrackInfo() {
                     {track.artist}
                 </div>
                 <div>
-                on {track.album} (album)
+                    on {track.album} (album)
                 </div>
             </div>
             <div className='track_producer'>
@@ -111,10 +111,14 @@ export default function TrackInfo() {
                     {track.release_date?.split(' ').slice(0, -2).slice(1).join(' ')}
                 </div>
             </div>
-
-            {user?.id === track.user_id && <EditTrackModal />}
-            {user?.id === track.user_id && <DeleteTrackModal />}
-
+            <div className='buttons'>
+                <div className='button1'>
+                    {user?.id === track.user_id && <EditTrackModal />}
+                </div>
+                <div className='button2'>
+                    {user?.id === track.user_id && <DeleteTrackModal />}
+                </div>
+            </div>
 
             <div className='body_page'>
                 <div className='lyrics_body'>
@@ -127,9 +131,11 @@ export default function TrackInfo() {
 
                 </div>
 
-                <div>
-                    <ReactPlayer url={track.track_url} />
-                    {/* <iframe
+            </div>
+            <div className='track-video'>
+                {/* <div>Video</div> */}
+                <ReactPlayer width="750px" height="400px" url={track.track_url} />
+                {/* <iframe
                         width="560"
                         height="315"
                         src={track.track_url}
@@ -140,10 +146,9 @@ export default function TrackInfo() {
                     >
                     </iframe> */}
 
-                    {/* Track Url: {track.track_url} */}
-                </div>
-               
+                {/* Track Url: {track.track_url} */}
             </div>
+
 
         </div>
     )

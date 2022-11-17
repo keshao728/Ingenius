@@ -7,6 +7,7 @@ import './UserProfile/UserProfile.css'
 function User() {
   const [user, setUser] = useState({});
   const { userId } = useParams();
+  console.log(user)
 
   useEffect(() => {
     if (!userId) {
@@ -25,28 +26,32 @@ function User() {
 
   return (
     <div id='pp-outer'>
-      {/* <div id='pp-cover'></div> */}
-        <div id='pp-top-content-footer-container'>
-          <div id='pp-top'>
-            <strong>User Id</strong> {userId}
-            {/* <div>
-            </div> */}
+      <div id='pp-cover'>
+        <img id='pp-banner-photo' src={user.banner_img} />
+      </div>
+      <div id='pp-top-content-footer-container'>
+        <div id='pp-top'>
 
-          </div>
-          <div id='pp-content'>
-            <div id='pp-left'>
-            <div id='pp-pic-container'></div>
-
-            </div>
-            <div id='pp-right'>
-              <div>
-                <div className='user-contributions-title'> {user.username}'s Contributions</div>
-                <UserAnnotations />
-              </div>
+          <div id='pp-top-left'>
+            <div id='pp-profile-photo-container'>
+              <img id='pp-profile-photo' src={user.profile_img} />
             </div>
           </div>
-          <div id='pp-footer'></div>
+          <div id='pp-top-right'></div>
         </div>
+        <div id='pp-content'>
+          <div id='pp-left'>
+
+          </div>
+          <div id='pp-right'>
+            <div>
+              <div className='user-contributions-title'> {user.username}'s Contributions</div>
+              <UserAnnotations />
+            </div>
+          </div>
+        </div>
+        <div id='pp-footer'></div>
+      </div>
 
     </div>
 

@@ -166,12 +166,12 @@ export const annotationReducer = (state = initialState, action) => {
             newState.oneAnnotation = {...action.annotation}
             return newState
 
-        case CREATE_ANNOTATION:
-            newState = {...state, allAnnotations: {...state.allAnnotations}}
-            newState.allAnnotations[action.annotation.id] = action.annotation
+        // case CREATE_ANNOTATION:
+        //     newState = {...state, allAnnotations: {...state.allAnnotations}}
+        //     newState.allAnnotations[action.annotation.id] = action.annotation
 
-            newState.oneAnnotation = action.annotation
-            return newState
+        //     newState.oneAnnotation = action.annotation
+        //     return newState
 
         // case EDIT_ANNOTATION:
         //     newState = {...state}

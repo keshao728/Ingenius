@@ -18,11 +18,25 @@ const AllComments = () => {
 
   const comments = useSelector((state) => state.comments.comments);
   const commentsArr = Object.values(comments);
-  // console.log("COMMENTS", commentsArr);
+  console.log("COMMENTS", commentsArr);
 
   const [userComments, setUserComments] = useState("");
   const [validationErrors, setValidationErrors] = useState([])
   const [showErrors, setShowErrors] = useState(false)
+  const [showSubmit, setShowSubmit] = useState(false);
+
+  const openSubmit = () => {
+    if (showSubmit) return;
+    setShowSubmit(true);
+  };
+
+
+
+  const closeSubmit = (e) => {
+    e.preventDefault();
+    setShowSubmit(false);
+  };
+
 
   function isEmpty(str) {
     if (!str.trim().length)
@@ -57,6 +71,7 @@ const AllComments = () => {
       let createdComment = await dispatch(createComment(trackId, newComment))
       if (createdComment) {
         setShowErrors(false)
+        setShowSubmit(false)
       }
     }
   }
@@ -76,30 +91,39 @@ const AllComments = () => {
 
         <div className="comment-form">
           <label>
-            <textarea
-              placeholder="Add a comment"
-              type="text"
-              error
-              className="comment-input"
-              // className={`${hasError ? 'invalid-comment-input' : 'comment-input'}`}
-              value={userComments}
-              required
-              style={invalidInput}
-              onChange={(e) => setUserComments(e.target.value)}
-            />
-            {showErrors &&
+            <div className="commenter-img-input">
+
+              <img className="commenter-img" src={sessionUser.profile_img}></img>
+              <textarea
+                placeholder="Add a comment"
+                type="text"
+                error
+                className="comment-input"
+                // className={`${hasError ? 'invalid-comment-input' : 'comment-input'}`}
+                value={userComments}
+                onClick={openSubmit}
+                required
+                style={invalidInput}
+                onChange={(e) => setUserComments(e.target.value)}
+              />
+            </div>
+            {showErrors && showSubmit && (
               <ul className="comment-form-errors">
                 {validationErrors.length > 0 &&
                   validationErrors.map(error => (
                     <li className="comment-form-error-text" key={error}>{error}</li>
                   ))}
               </ul>
+            )
             }
-
-            <button className="button-create-comment" type="submit"> Submit</button>
           </label>
+          {showSubmit &&
+            <div className="comment-submit-buttons">
+              <button className="button-create-comment" type="submit" onSubmit={handleSubmit}> Submit</button>
+              <button type="button" className="cancel-create-comment" onClick={closeSubmit}>Cancel</button>
+            </div>
+          }
         </div>
-        {/* <button type="button" className="button-create-comment" onClick={handleCancel}>Cancel</button> */}
       </form>
     )
   } else {
@@ -164,11 +188,13 @@ const AllComments = () => {
             return (
               <div className="comment-display">
                 <div className="individual-comment-display" key={comment?.id}>
-                  <div>{comment?.commentter?.username}</div>
-                  <div>{comment.user_id}</div>
-                  <div>{moment(comment.created_at).fromNow()}</div>
+                  <div className="individual-comment-header">
+                    <img className="comment-profile-img" src={comment?.commentter?.profile_img}></img>
+                    <div className="comment-user">{comment?.commentter?.username}</div>
+                    <div className="comment-time-stamp">{moment(comment.created_at).fromNow()}</div>
+                  </div>
+                  <div className="comment-body">{comment.comment_body} </div>
                   {/* <div>{comment.created_at.split(' ').slice(0, -2).join(' ')}</div> */}
-                  <div>{comment.comment_body} </div>
                 </div>
                 {sessionUser?.id === comment.user_id && (
                   <button className="delete-comment-button"

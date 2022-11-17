@@ -34,4 +34,5 @@ class Annotation(db.Model):
             "user": self.annotation_user.to_dict(),
             "track": self.annotation_track.to_dict(),
             "vote_count": len(self.annotation_vote)
+        
         }

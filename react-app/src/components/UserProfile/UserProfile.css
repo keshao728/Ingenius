@@ -4,29 +4,30 @@
   display: flex;
   justify-content: center;
   /* border: 10px solid red; */
-  /* background-color:white; */
+  background-color:whitesmoke;
   position: relative;
 }
 #pp-cover {
    /* whatever width you want for the cover div */
   width: 100%;
-  height: 250px;
-  background-color:floralwhite;
+  height: 280px;
+  background-color:whitesmoke;
   overflow: hidden;
-  border: 10px solid green;
+  /* border: 10px solid green; */
   position: absolute;
-  
-  /* position:relative; */
 }
-#pp-cover{
+#pp-banner-photo {
+  width: 100%;
+  background-size: cover;
+  opacity: 75%;
+}
+#pp-top-content-footer-container{
   z-index: 10;
 }
-/* .cover > img {
-  width: 100%;
-} */
+
 
 #pp-top-content-footer-container {
-  border: 10px solid red;
+  /* border: 10px solid red; */
   width: 50%;
   height: auto;
   display: flex;
@@ -38,15 +39,34 @@
   padding: 1em;
 }
 #pp-top {
-  border: 5px solid pink;
-  height: 250px; /* change up */
+  /* border: 5px solid pink; */
+  height: 280px; /* change up */
+  background-color: fade(#FFFFFF, 50%);
+  display: flex;
+  flex-direction: row;
+}
+#pp-top-left {
+  /* border: 5px solid pink; */
+  width: 40%;
+}
+#pp-top-right {
+  /* border: 5px solid pink; */
+  width: 60%;
+}
+#pp-profile-photo-container{
+  margin: 40px 0px 0px 20px;
 
 }
-
+#pp-profile-photo{
+  border: 2px solid white;
+  border-radius: 50%;
+  height: 300px;
+  width: 300px;
+}
 #pp-content {
   display: flex;
   flex: 1;
-  border: 5px solid purple;
+  /* border: 5px solid purple; */
     /* optionnal if you want to keep footer at screen 
   overflow:auto; */
   flex-direction: row;
@@ -54,19 +74,19 @@
 
 }
 #pp-left {
-  border: 5px solid blue;
+  /* border: 5px solid blue; */
   height: auto;
   width: 40%;
 
 }
 #pp-right {
-  border: 5px solid blueviolet;
+  /* border: 5px solid blueviolet; */
   height: auto;
   width: 60%;
 
 }
 #pp-footer {
-  border: 5px solid orange;
+  /* border: 5px solid orange; */
 
 }
 
@@ -77,9 +97,9 @@
   font-size: 12px;
   font-weight:600;
   color: darkgray;
-  margin-top: 15px;
+  margin-top: 40px;
   padding-bottom: 10px;
-  padding-left: 7px;
+  padding-left: 5px;
   border-bottom: 1px solid lightgray;
 }
 
