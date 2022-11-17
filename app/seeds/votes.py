@@ -1,4 +1,4 @@
-from app.models import db, Vote
+from app.models import db, Vote,environment, SCHEMA
 
 def seed_vote():
     vote1 = Vote(
@@ -35,5 +35,8 @@ def seed_vote():
     db.session.commit()
 
 def undo_vote():
-    db.session.execute('TRUNCATE votes RESTART IDENTITY CASCADE;')
+    if environment == "production":
+        db.session.execute(f"TRUNCATE table {SCHEMA}.votes RESTART IDENTITY CASCADE;")
+    else:
+        db.session.execute("DELETE FROM votes;")
     db.session.commit()
