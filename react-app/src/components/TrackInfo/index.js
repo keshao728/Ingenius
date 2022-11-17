@@ -6,17 +6,74 @@ import EditTrackModal from '../TrackEditForm/index';
 import DeleteTrackModal from '../TrackDelete/index';
 import { actionResetTrack } from '../../store/tracks';
 import ReactPlayer from 'react-player'
-
+import './TrackInfo.css';
 import React from 'react';
-
+import { createAnnotation } from '../../store/annotations';
 
 
 
 export default function TrackInfo() {
     const { trackId } = useParams()
+    console.log(trackId)
     const dispatch = useDispatch()
     const track = useSelector(state => state.tracks.oneTrack)
     const user = useSelector(state => state.session.user)
+    const history = useHistory()
+
+    const [errors, setErrors] = useState([])
+
+
+    //annotation stuff
+
+    const [index, setIndex] = useState([])
+    const [startIndex, setStartIndex] = useState()
+    const [endIndex, setEndIndex] = useState()
+
+    useEffect(() => {
+        setStartIndex(Math.min(...index))
+        setEndIndex(Math.max(...index))
+    }, [index])
+
+
+
+    const annotateThis = async (e) => {
+        e.preventDefault()
+        // console.log(trackId)
+
+        const selected = window.getSelection && window.getSelection()
+
+
+        if (selected && selected.rangeCount > 0) {
+            const highlight = selected.getRangeAt(0)
+            setIndex([highlight.startOffset, highlight.endOffset])
+            // console.log(highlight)
+        }
+
+        const annotationInfo = {
+            annotation_body: 'something',
+            startIndex: startIndex,
+            endIndex: endIndex,
+          }
+
+          let createdAnnotation = await dispatch(createAnnotation(trackId, annotationInfo)).catch(async (res) => {
+            const data = await res.json();
+            if (data && data.errors) setErrors(data.errors)
+        })
+        if (createdAnnotation) {
+
+            // console.log('SELECTED',selected)
+            // console.log('RANGECOUNT',selected.rangeCount)
+            // console.log(trackId)
+            // console.log(createdAnnotation)
+            history.push(`/tracks/${trackId}`)
+        }
+        else return errors
+    }
+
+
+
+
+    // end annotation stuff
 
     useEffect(() => {
         dispatch(getOneTrack(trackId))
@@ -26,41 +83,48 @@ export default function TrackInfo() {
 
     return (
         <div>
-            {user?.id === track.user_id && <EditTrackModal />}
-            {user?.id === track.user_id && <DeleteTrackModal />}
+            <div className="track-info-container">
 
-            <div>
+            </div>
+            <div className='track_art'>
                 <img src={track.track_art}></img>
             </div>
 
-            <div>
-                Track Title: {track.track_title}
-            </div>
-
-            <div>
-                Track Artist: {track.artist}
-            </div>
-
-            <div>
-                Track Album: {track.album}
-            </div>
-
-            <div>
-                Track Release Date:
+            <div className='track_title_artist'>
+                <div className='track_title'>
+                    {track.track_title}
+                </div>
+                <div className='track_artist'>
+                    {track.artist}
+                </div>
                 <div>
+                on {track.album} (album)
+                </div>
+            </div>
+            <div className='track_producer'>
+                Produced by:
+                <div className='track_producer_name'>
+                    {track.produced_by}
+                </div>
+            </div>
+            <div className='track_release'>
+                Release Date:
+                <div className='track_release_date'>
                     {track.release_date?.split(' ').slice(0, -2).slice(1).join(' ')}
                 </div>
             </div>
 
-            <div>
-                Track Producer: {track.produced_by}
-            </div>
+            {user?.id === track.user_id && <EditTrackModal />}
+            {user?.id === track.user_id && <DeleteTrackModal />}
+
+
 
             <div>
                 Track Lyrics:
 
-                <div>
-                    {track.lyrics?.split('\n').map(chunk => <div key={chunk}>{chunk}</div>)}
+                <div onMouseUp={annotateThis}>
+                    {/* {track.lyrics?.split('\n').map(chunk => <div key={chunk}>{chunk}</div>)} */}
+                    {track.lyrics}
                 </div>
 
             </div>

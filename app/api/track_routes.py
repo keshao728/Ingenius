@@ -134,3 +134,20 @@ def deletetrack(id):
         "message": "Successfully deleted",
         "statusCode": 200
        }
+
+@track_routes.route('/<int:id>', methods=["POST"])
+@login_required
+def annotation_post(id):
+    track = Track.query.get(id)
+
+    annotation = Annotation(
+      user_id = current_user.id,
+      track_id = track.id,
+      annotation_body = 'body',
+      startIndex = 3,
+      endIndex = 3
+    )
+
+    db.session.add(annotation)
+    db.session.commit()
+    return annotation.to_dict()
