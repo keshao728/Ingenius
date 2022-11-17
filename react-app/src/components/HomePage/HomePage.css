@@ -282,6 +282,13 @@
   margin-right: 10px;
 }
 
+.load-track-container {
+  display: flex;
+  /* justify-content: space-evenly; */
+  column-gap: 10%;
+  justify-content: center;
+}
+
 .track-load-more {
   height: 40px;
   width: 130px;
@@ -289,6 +296,7 @@
   background-color: white;
   font-weight: bold;
   font-size: 12px;
+  /* margin: 0 10%; */
 }
 
 .track-load-more:hover {
