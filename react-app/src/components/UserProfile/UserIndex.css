@@ -96,8 +96,6 @@
   flex-direction: row;
   gap: 5px;
   margin-bottom: 20px;
-
-  
 }
 #pp-annotation-edit {
   background-color: white;
@@ -110,4 +108,22 @@
   font-weight: bold;
   border:none;
   color: darkgray;
+}
+#pp-annotation-upvote-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 7px;
+  margin-bottom: 20px;
+}
+#pp-annotation-upvote {
+  color: darkgray;
+  font-weight: bold;
+  font-size: 14px;
+  /* margin: 0px 0px 50px 25px; */
+}
+.thumbs{
+  width: 18px;
+  height: 18px;
+  opacity: 25%;
 }
