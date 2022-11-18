@@ -34,10 +34,10 @@ export default function TrackInfo() {
 
   const [annotating, setAnnotating] = useState(false)
 
-  console.log('assdfasdfsdfsdfas', annotating)
+  // console.log('annotating', annotating)
 
   useEffect(() => {
-    if (startIndex !== endIndex) {
+    if (startIndex !== endIndex && startIndex !== Infinity) {
       setAnnotating(true)
     }
     else setAnnotating(false)
