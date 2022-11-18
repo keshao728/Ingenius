@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { createAnnotation } from '../../store/annotations';
 import { useParams } from 'react-router-dom';
 import LoginForm from "../auth/LoginForm";
-
+import "./AnnotationForm.css";
 
 
 const AnnotationForm = (startIndex, endIndex) => {
@@ -23,7 +23,10 @@ const AnnotationForm = (startIndex, endIndex) => {
     setShowMenu(true);
   };
 
-
+  const closeSubmit = (e) => {
+    e.preventDefault();
+    setShowMenu(false);
+  };
 
   useEffect(() => {
     const errors = []
@@ -63,10 +66,11 @@ const AnnotationForm = (startIndex, endIndex) => {
         <button className="annotation-button" onClick={openMenu}> MEOW </button>
         {showMenu &&
           <form className="annotation-form-parent" onSubmit={handleSubmit}>
+            {/* <div className='annotate-text'>Annotate</div> */}
             <div className="annotation-form">
               <label>
                 <textarea
-                  placeholder="Add a annotation"
+                  placeholder="Don't just put the lyric in your own words - drop some knowledge!"
                   type="text"
                   error
                   className="annotation-input"
@@ -86,8 +90,8 @@ const AnnotationForm = (startIndex, endIndex) => {
                 } */}
               </label>
               <div className="annotation-submit-buttons">
-                <button className="button-create-annotation" type="submit" onSubmit={handleSubmit}> Submit</button>
-                {/* <button type="button" className="cancel-create-annotation" onClick={closeSubmit}>Cancel</button> */}
+                <button className="button-create-annotation" type="submit" onSubmit={handleSubmit}> Save </button>
+                <button type="button" className="cancel-create-annotation" onClick={closeSubmit}>Cancel</button>
               </div>
             </div>
           </form>

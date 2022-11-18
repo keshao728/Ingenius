@@ -1,8 +1,70 @@
-.annotation-button{
+/* .annotation-wrapper {
   position: relative;
-  top: -40px;
-  width: 700px;
-  left: 52px;
-  list-style-type: none;
-  background-color: #FF1464;
+  top: -950px;
+  width: 100px;
+  left: 1200px;
+} */
+
+.annotation-form-parent{
+  background-color: #E9E9E9;
+  width: 450px;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+}
+/* .annotate-text{
+  border-bottom: 1px solid black;
+  margin-bottom: 30px;
+} */
+
+.annotation-input{
+  resize: none;
+  width: 390px;
+  height: 150px;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid black;
+  background-color: #E9E9E9;
+}
+
+.annotation-submit-buttons {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+}
+
+.cancel-create-annotation {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  height: 17px;
+  text-decoration-line: underline;
+}
+
+.cancel-create-annotation:active {
+  text-decoration-line: none;
+}
+.button-create-annotation {
+  /* visibility: hidden; */
+  border: 1px solid black;
+  border-radius: 25px;
+  font-size: 20px;
+  width: 100px;
+  padding: 10px 15px;
+  font-weight: bold;
+  background: none;
+  font-size: 14px;
+  display: flex;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.button-create-annotation:hover {
+  background-color: black;
+  color: white;
+  visibility: visible;
 }
