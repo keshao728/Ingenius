@@ -80,8 +80,8 @@ const UserAnnotations = ({setUser}) => {
                     <button id='pp-annotation-delete' onClick={() => {dispatch(deleteAnnotation(annotation.id)).then(()=>userProp())}}>Delete</button>
                   </div>
                 </div>
-              }</div>
-              : <div id='pp-noauth-annotation-body'>{annotation.annotation_body}</div>
+              }</div>:
+               <div id='pp-noauth-annotation-body'>{annotation.annotation_body}</div>
             }</div>
             <div id='pp-annotation-upvote-container'>
               <div className='upvote-wrapper'>

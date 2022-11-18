@@ -33,8 +33,6 @@ function User() {
     return null;
   }
 
-
-
   return (
     <div>
 
@@ -59,16 +57,21 @@ function User() {
             <div id='pp-left'>
               <div className='pp-div-align'></div>
               <div id='pp-main-username'>@{user.username}</div>
-              <div id='pp-pfp-edit-button-container' >
-                {showEdit ? <button id='pp-pfp-edit-button' onClick={() => setShowEdit(false)}>
-                  <img id='pp-pfp-edit-button-pen-image' src={'https://www.pngrepo.com/png/105166/180/edit.png'} />
-                  Edit
-                </button> : <ImageForm setShowEdit={setShowEdit} userInfo={user} />}
+
+
+              <div>{user.id === userId ?
+                <div id='pp-pfp-edit-button-container' >
+                  {showEdit ? <button id='pp-pfp-edit-button' onClick={() => setShowEdit(false)}>
+                    <img id='pp-pfp-edit-button-pen-image' src={'https://www.pngrepo.com/png/105166/180/edit.png'} />
+                    Edit
+                  </button> : <ImageForm setShowEdit={setShowEdit} userInfo={user} />}
+                </div> :
+                <div></div>}
               </div>
 
               <div className='top-div-outer'>
                 <div id='white-top-div'>
-                  {user.username} is keeping quiet for now . . .
+                  {user.username} is keeping quiet for now
                 </div>
               </div>
               <div className='top-div-outer'>
@@ -99,7 +102,6 @@ function User() {
                       </div>
                     </div>
 
-
                     <div className='mid-contents'>
                       <div className='mid-items'>
                         <i className="fa-solid fa-file-arrow-up"></i>
@@ -126,7 +128,7 @@ function User() {
             <div id='pp-right'>
               <div>
                 <div className='user-contributions-title'> {user.username}'s Contributions</div>
-                <UserAnnotations setUser={setUser}/>
+                <UserAnnotations setUser={setUser} />
               </div>
             </div>
           </div>
@@ -135,12 +137,12 @@ function User() {
       <div id='pp-footer'>
         <div className='pp-devs'>
           <div className='individual-devs'>
-          <a className='dev-link' href="https://github.com/keshao728" target="_blank" rel="noopener noreferrer">
+            <a className='dev-link' href="https://github.com/keshao728" target="_blank" rel="noopener noreferrer">
               Kelly Shao
             </a>
           </div>
           <div className='individual-devs'>
-          <a className='dev-link' href="https://github.com/Schaeffy" target="_blank" rel="noopener noreferrer">
+            <a className='dev-link' href="https://github.com/Schaeffy" target="_blank" rel="noopener noreferrer">
               Schaeffer Anh
             </a>
           </div>
