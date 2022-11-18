@@ -9,6 +9,8 @@ import './UserProfile/UserProfile.css'
 function User() {
   const [user, setUser] = useState({});
   const [showEdit, setShowEdit] = useState(true)
+  const [isLoaded, setIsLoaded] = useState(false)
+
   // const other = useSelector(state => state.session.annotations)
   // const otherUser = other
   // console.log('OTHER', otherUser)
@@ -30,6 +32,8 @@ function User() {
   if (!user) {
     return null;
   }
+
+
 
   return (
     <div>
@@ -64,7 +68,7 @@ function User() {
 
               <div className='top-div-outer'>
                 <div id='white-top-div'>
-                  {user.username} is keeping quiet for now
+                  {user.username} is keeping quiet for now. . .
                 </div>
               </div>
               <div className='top-div-outer'>
@@ -122,7 +126,7 @@ function User() {
             <div id='pp-right'>
               <div>
                 <div className='user-contributions-title'> {user.username}'s Contributions</div>
-                <UserAnnotations />
+                <UserAnnotations setUser={setUser}/>
               </div>
             </div>
           </div>
