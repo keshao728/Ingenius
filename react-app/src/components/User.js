@@ -10,6 +10,7 @@ function User() {
   const [user, setUser] = useState({});
   const [showEdit, setShowEdit] = useState(true)
   const [isLoaded, setIsLoaded] = useState(false)
+  const sessionUser = useSelector(state => state.session.user)
 
   // const other = useSelector(state => state.session.annotations)
   // const otherUser = other
@@ -32,6 +33,8 @@ function User() {
   if (!user) {
     return null;
   }
+
+
 
   return (
     <div>
@@ -59,15 +62,19 @@ function User() {
               <div id='pp-main-username'>@{user.username}</div>
 
 
-              <div>{user.id === userId ?
-                <div id='pp-pfp-edit-button-container' >
-                  {showEdit ? <button id='pp-pfp-edit-button' onClick={() => setShowEdit(false)}>
+              <div>{sessionUser?.id === userId ?
+                <div id='pp-pfp-edit-button-container'>{showEdit ? <button id='pp-pfp-edit-button' onClick={() => setShowEdit(false)}>
                     <img id='pp-pfp-edit-button-pen-image' src={'https://www.pngrepo.com/png/105166/180/edit.png'} />
                     Edit
                   </button> : <ImageForm setShowEdit={setShowEdit} userInfo={user} />}
-                </div> :
-                <div></div>}
+                </div> 
+                :<div></div>}
+              
+<div>{user.id}</div>
+<div>{userId}</div>
+
               </div>
+
 
               <div className='top-div-outer'>
                 <div id='white-top-div'>
@@ -101,6 +108,7 @@ function User() {
                         Comments
                       </div>
                     </div>
+
 
                     <div className='mid-contents'>
                       <div className='mid-items'>
