@@ -65,7 +65,7 @@ function User() {
               <div id='pp-main-username'>@{user.username}</div>
 
 {/* fix here. access sessionUser Id here somehow */}
-              <div>{sessionUser.id === Number(userId) ?
+              <div>{sessionUser?.id === Number(userId) ?
                 <div id='pp-pfp-edit-button-container'>{showEdit ? <button id='pp-pfp-edit-button' onClick={() => setShowEdit(false)}>
                     <img onError={(e)=> e.target.src=defaultPro} id='pp-pfp-edit-button-pen-image' src={'https://www.pngrepo.com/png/105166/180/edit.png'} />
                     Edit
