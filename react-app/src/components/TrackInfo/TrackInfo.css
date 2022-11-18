@@ -141,34 +141,36 @@
     width: 230px;
 }
 
-.about-track-des{
+.about-track-des {
     font-size: 13px;
 }
 
 .about-artist {
     display: flex;
     flex-direction: row;
+    padding-top: 40px;
     margin-left: 70px;
     margin-bottom: 50px;
 }
 
-.album-details{
+.album-details {
     display: flex;
     flex-direction: column;
     margin-left: 40px;
     justify-content: center;
     text-align: start;
 }
-.about-album-cover{
+
+.about-album-cover {
     height: auto;
 }
 
-.mv{
+.mv {
     border-top: 1px solid black;
     padding-top: 40px;
 }
 
-.credits-wrapper{
+.credits-wrapper {
     display: flex;
     flex-direction: column;
     margin-top: 30px;
@@ -176,13 +178,13 @@
     border-top: 1px solid black;
 }
 
-.credits-text{
+.credits-text {
     font-weight: bold;
     font-size: 35px;
     margin-bottom: 10px;
 }
 
-.credits-people{
+.credits-people {
     display: flex;
     flex-direction: row;
     /* justify-content: space-between; */
@@ -190,11 +192,50 @@
     padding: 20px 0px;
 }
 
-.about-credit{
+.about-credit {
     font-size: 11px;
 }
 
-.about-credit-name{
+.about-credit-name {
     width: 50%;
 }
 
+.show-fact {
+    width: 100%;
+    background-color: black;
+    color: #B395A9;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.fact-div {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    align-items: center;
+}
+.about-artist-wrapper{
+    border-top: 1px solid black;
+
+}
+.fact-wrapper {
+    border: 1px solid black;
+ margin-bottom: 40px;
+}
+
+.fact-text {
+    padding: 10px 50px;
+    margin-bottom: 18px;
+}
+
+.fact-genius {
+    font-size: 12px;
+    padding: 0px 30px;
+    margin-top: 20px;
+}
+
+.open-close-fact-button {
+    font-size: 25px;
+    position: relative;
+    /* height: 30px; */
+}
