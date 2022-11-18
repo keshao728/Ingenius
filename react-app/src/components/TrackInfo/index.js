@@ -58,7 +58,7 @@ export default function TrackInfo() {
         if (selected && selected.rangeCount > 0) {
             const highlight = selected.getRangeAt(0)
             setIndex([highlight.startOffset, highlight.endOffset])
-            // console.log(highlight)
+            console.log(highlight)
         }
         // const annotationInfo = {
         //     annotation_body: 'something',

@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useState, useEffect } from 'react';
 import { NavLink, useParams } from 'react-router-dom'
 import { upvoteThunk,downvoteThunk,unvoteThunk } from '../../store/votes';
-
+import './vote.css'
 const Annotations = () => {
     const dispatch = useDispatch();
     const { trackId } = useParams();
@@ -41,9 +41,13 @@ const Annotations = () => {
                     <div key={annotation.id}>
                             {annotation.annotation_body}
                             <div>
-                                <button onClick={upvote}>up</button>
-                                {annotation.vote_count}
-                                <button onClick={downvote}>down</button>
+                                <div className='vote' type='button' onClick={upvote}>
+                                    <i class="fa-regular fa-thumbs-up"></i>
+                                </div>
+                                <div>{annotation.vote_count}</div>
+                                <div className='vote' type='button' onClick={downvote}>
+                                    <i class="fa-regular fa-thumbs-down"></i>
+                                </div>
                             </div>
                     </div>
                 ))}
