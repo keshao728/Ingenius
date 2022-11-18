@@ -20,14 +20,16 @@
     left: 37%;
     top: 15%;
     color: black;
+    font-size: 17px;
 }
 
 .track_title {
     font-size: 32px;
+    font-weight: bold;
 }
 
 .track_artist {
-    font-size: 16px;
+    margin-top: 10px;
 }
 
 .track_producer {
@@ -35,15 +37,14 @@
     flex-direction: column;
     position: absolute;
     /* z-index: 2; */
-    top: 15%;
-    left: 58%;
-    color: white;
     font-size: 12px;
+    top: 15%;
+    left: 62%;
+    color: black;
 }
 
 .track_producer_name {
-    font-size: 16px;
-    color: white;
+    font-size: 17px;
     width: 200px;
 }
 
@@ -53,14 +54,13 @@
     position: absolute;
     /* z-index: 2; */
     top: 15%;
-    left: 70%;
-    color: white;
+    left: 74%;
+    color: black;
     font-size: 12px;
 }
 
 .track_release_date {
-    font-size: 16px;
-    color: white;
+    font-size: 17px;
 }
 
 .track-info-container {
@@ -70,7 +70,7 @@
 
 .body_page {
     padding: 20px 20%
-    /* margin-top: 10px;
+        /* margin-top: 10px;
     margin-left: 20%;
     margin-right: 20%;
     margin-bottom: 30px; */
@@ -78,15 +78,16 @@
 
 .lyrics_body {
     margin-right: 100px;
-    padding:5px 0px;
-    font-size: 20px;
+    padding: 5px 0px;
+    /* font-size: 20px; */
     margin-bottom: 50px;
     width: 50%;
     display: flex;
     flex-direction: column;
 }
+
 /* .lyric-track{ */
-    /* width: 400px; */
+/* width: 400px; */
 /* } */
 
 .buttons {
@@ -99,26 +100,66 @@
     margin-top: 30px;
 }
 
-.button1{
-    padding-right:5px;
-    padding-top:55px;
-  }
+.button1,
+.button2 {
+    padding-right: 5px;
+    padding-top: 40px;
+}
 
-.button2{
-    padding-top:55px;
-  }
 
 .track-video {
-    padding: 10% 20%;
+    padding: 3% 20%;
     background-color: #B395A9;
+}
+
+.about-wrapper {
+    width: 750px;
 }
 
 .lyric-wrapper {
     display: flex;
     flex-direction: row;
     /* width: 100%; */
+    font-size: 18px;
 }
 
-.lyric-annotate{
+.lyric-annotate {
     width: 50%;
+}
+
+.music-vid-text {
+    color: black;
+    font-weight: bold;
+    font-size: 70px;
+    margin-bottom: 30px;
+    display: flex;
+    width: 750px;
+    justify-content: center;
+}
+
+.about-cover {
+    width: 230px;
+}
+
+.about-artist {
+    display: flex;
+    flex-direction: row;
+    margin-left: 70px;
+    margin-bottom: 30px;
+}
+
+.album-details{
+    display: flex;
+    flex-direction: column;
+    margin-left: 30px;
+    justify-content: center;
+    text-align: start;
+}
+.about-album-cover{
+    height: auto;
+}
+
+.mv{
+    border-top: 1px solid black;
+    padding-top: 30px;
 }

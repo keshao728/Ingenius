@@ -38,5 +38,7 @@ class Track(db.Model):
             "track_art": self.track_art,
             "track_url": self.track_url,
             "created_at": self.created_at,
-            "updated_at": self.updated_at
+            "updated_at": self.updated_at,
+            "uploader": self.track_user.to_dict(),
+
         }

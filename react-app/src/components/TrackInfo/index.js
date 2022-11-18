@@ -123,7 +123,9 @@ export default function TrackInfo() {
         </div>
       </div>
       <div className='track_producer'>
-        Produced by:
+        <div>
+          Produced by:
+        </div>
         <div className='track_producer_name'>
           {track.produced_by}
         </div>
@@ -147,7 +149,7 @@ export default function TrackInfo() {
         <div className='lyric-wrapper'>
 
           <div className='lyrics_body'>
-            Track Lyrics:
+            {/* Track Lyrics: */}
 
             <div className='lyric-track' onMouseUp={annotateThis}>
               {/* {track.lyrics?.split('\n').map(chunk => <div key={chunk}>{chunk}</div>)} */}
@@ -162,7 +164,7 @@ export default function TrackInfo() {
             </div>
           </div>
           <div className='lyric-annotate'>
-            {annotating && <AnnotationForm  indexes={[startIndex, endIndex]} setAnnotating={['annotating', 'asds']} />}
+            {annotating && <AnnotationForm indexes={[startIndex, endIndex]} setAnnotating={['annotating', 'asds']} />}
           </div>
           {/* {annotating && <AnnotationForm /> } */}
 
@@ -170,9 +172,30 @@ export default function TrackInfo() {
 
       </div>
       <div className='track-video'>
-        {/* <div>Video</div> */}
-        <ReactPlayer width="750px" height="400px" url={track.track_url} />
-        {/* <iframe
+        <div className='about-wrapper'>
+
+          {/* <div>Video</div> */}
+          <div className='music-vid-text'> About </div>
+
+          <div className='about-artist'>
+            <div className='about-album-cover'>
+              <img className="about-cover" src={track.track_art}></img>
+            </div>
+            <div className='album-details'>
+
+              <div className='about-track-title'>
+                {track.track_title}
+              </div>
+
+              <div>
+                on {track.album} (album)
+              </div>
+
+            </div>
+          </div>
+
+          <ReactPlayer className="mv" width="750px" height="430px" url={track.track_url} />
+          {/* <iframe
                         width="560"
                         height="315"
                         src={track.track_url}
@@ -183,7 +206,8 @@ export default function TrackInfo() {
                     >
                     </iframe> */}
 
-        {/* Track Url: {track.track_url} */}
+          {/* Track Url: {track.track_url} */}
+        </div>
       </div>
 
 

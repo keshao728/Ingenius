@@ -8,24 +8,24 @@
 
 }
 
-.edit-track-form-wrapper{
+.edit-track-form-wrapper {
   display: flex;
   flex-direction: column;
   align-self: center;
   padding: 50px 50px;
 }
 
-.edit-track-form-child{
+.edit-track-form-child {
   margin-bottom: 10px;
   width: 300px;
 }
 
-.edit-track-input-box{
+.edit-track-input-box {
   position: relative;
   width: 100%;
 }
 
-.edit-track-input-box input{
+.edit-track-input-box input {
   width: 93%;
   padding-top: 18px;
   padding-left: 10px;
@@ -39,24 +39,24 @@
   color: black;
 }
 
-.edit-track-input-box label{
+.edit-track-input-box label {
   position: absolute;
   top: 2px;
   left: 0;
   padding: 10px;
   font-size: 16px;
   pointer-events: none;
-  transition:.5s;
+  transition: .5s;
   color: black;
 }
 
-.edit-track-input-box input:valid + label,
-.edit-track-input-box input:focus + label{
+.edit-track-input-box input:valid+label,
+.edit-track-input-box input:focus+label {
   font-size: 10px;
   top: -6px;
 }
 
-.submit-cancel-edit-track-button{
+.submit-cancel-edit-track-button {
   border: 1px solid black;
   border-radius: 25px;
   font-size: 20px;
@@ -71,31 +71,30 @@
   cursor: pointer;
 }
 
-.submit-cancel-edit-track-button:hover{
+.submit-cancel-edit-track-button:hover {
   background-color: black;
   color: white;
 }
 
-.editButton{
-color:white;
-background-color: #B395A9;
-border-radius: 5px;
-border: 1px solid black;
-}
-
-.editButton:hover{
-  cursor: pointer;
-  font-size: large;
-}
-
-.DeleteButton{
-  color:white;
-  background-color: #B395A9;
-  border-radius: 5px;
+.editButton,
+.DeleteButton {
   border: 1px solid black;
-  }
+  border-radius: 25px;
+  padding: 6px 12px;
+  font-weight: bold;
+  background: none;
+  font-size: 12px;
+  display: flex;
+  justify-content: center;
+  cursor: pointer;
+  margin-right: 3px;
+}
 
-  .DeleteButton:hover{
-    cursor: pointer;
-    font-size: large;
-  }
+.editButton:hover,
+.DeleteButton:hover {
+  background-color: black;
+  color: white;
+  cursor: pointer;
+  visibility: visible;
+}
+
