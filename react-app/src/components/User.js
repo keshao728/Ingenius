@@ -67,9 +67,9 @@ function User() {
                     <img id='pp-pfp-edit-button-pen-image' src={'https://www.pngrepo.com/png/105166/180/edit.png'} />
                     Edit
                   </button> : <ImageForm setShowEdit={setShowEdit} userInfo={user} />}
-                </div> 
+                </div>
                 :<div></div>}
-              
+
 <div>{user.id}</div>
 <div>{userId}</div>
 
