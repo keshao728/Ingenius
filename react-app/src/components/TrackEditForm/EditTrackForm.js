@@ -27,9 +27,8 @@ export default function EditTrack({ setModalOpen }) {
   const [producedBy, setProducedBy] = useState(track.produced_by) //
   const [lyrics, setLyrics] = useState(track.lyrics) //
   const [trackArt, setTrackArt] = useState(track.track_art)
-  const [trackUrl, setTrackUrl] = useState(track.track_url) 
+  const [trackUrl, setTrackUrl] = useState(track.track_url)
   const [errors, setErrors] = useState([])
-  const [showErrors, setShowErrors] = useState(false)
 
 
 
@@ -65,9 +64,9 @@ export default function EditTrack({ setModalOpen }) {
   useEffect(() => {
     const err = []
     if (!trackTitle) err.push('Track must have a title')
-    if (trackTitle.length>100) err.push('Title must not exceed 100 characters')
+    if (trackTitle.length > 100) err.push('Title must not exceed 100 characters')
     if (!artist) err.push('Track must have an artist')
-    if (artist.length>50) err.push('Artist name must not exceed 50 characters')
+    if (artist.length > 50) err.push('Artist name must not exceed 50 characters')
     // if (!lyrics) err.push('You must enter lyrics for the track')
     // if (lyrics.length > 10000) err.push('Lyrics must not exceed 10000 characters')
 
@@ -78,60 +77,62 @@ export default function EditTrack({ setModalOpen }) {
     if (!trackUrl.match(/^http:\/\/(?:www\.)?youtube.com\/embed\/[A-z0-9]/)) err.push("Please enter a valid Youtube URL") // test later
     if (releaseDate > date) err.push('Please provide a valid Release Date') // test later
     setErrors(err)
-  },[trackTitle,artist,lyrics])
+
+  }, [trackTitle, artist, album, producedBy, trackArt, trackUrl, releaseDate])
 
 
   // useEffect(() => {
-    //   // setId(track.id)
-    //   setTrackTitle(track.trackTitle)
-    //   setArtist(track.artist)
-    //   setAlbum(track.album)
-    //   setReleaseDate(track.releaseDate)
-    //   setProducedBy(track.producedBy)
-    //   // setLyrics(track.lyrics)
-    //   setTrackArt(track.trackArt)
-    //   setTrackUrl(track.trackUrl)
-    // }, [track])
-    useEffect(() => {
-      dispatch(getOneTrack(id))
+  //   // setId(track.id)
+  //   setTrackTitle(track.trackTitle)
+  //   setArtist(track.artist)
+  //   setAlbum(track.album)
+  //   setReleaseDate(track.releaseDate)
+  //   setProducedBy(track.producedBy)
+  //   // setLyrics(track.lyrics)
+  //   setTrackArt(track.trackArt)
+  //   setTrackUrl(track.trackUrl)
+  // }, [track])
+  useEffect(() => {
+    dispatch(getOneTrack(id))
 
-      return () => dispatch(getOneTrack(id))
-      // return () => dispatch(actionResetTrack())
+    return () => dispatch(getOneTrack(id))
+    // return () => dispatch(actionResetTrack())
   }, [dispatch, id])
 
 
   const handleSubmit = (e) => {
-      e.preventDefault()
+    e.preventDefault()
+    
 
 
-      if (!errors.length) {
-          setErrors([])
-          setDisplayErrors(false)
-          // let validationErrors = validate()
-          // if (validationErrors.length) return
-          setModalOpen(false)
+    if (!errors.length) {
+      setErrors([])
+      setDisplayErrors(false)
+      // let validationErrors = validate()
+      // if (validationErrors.length) return
+      setModalOpen(false)
 
-          const trackEdits = {
-              id,
-              track_title: trackTitle,
-              artist,
-              album,
-              release_date: releaseDate,
-              produced_by: producedBy,
-              lyrics,
-              track_art: trackArt,
-              track_url: trackUrl
-          }
-
-          return dispatch(editTrack(trackEdits, id)).catch(async (res) => {
-              const data = await res.json()
-              if (data && data.errors) setErrors(data.errors)
-
-          })
-
+      const trackEdits = {
+        id,
+        track_title: trackTitle,
+        artist,
+        album,
+        release_date: releaseDate,
+        produced_by: producedBy,
+        lyrics,
+        track_art: trackArt,
+        track_url: trackUrl
       }
-      history.push(`/tracks/${id}`)
-      return errors
+
+      return dispatch(editTrack(trackEdits, id)).catch(async (res) => {
+        const data = await res.json()
+        if (data && data.errors) setErrors(data.errors)
+
+      })
+
+    }
+    history.push(`/tracks/${id}`)
+    return errors
   }
 
   return (
