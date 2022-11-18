@@ -20,15 +20,16 @@ export default function EditTrack({ setModalOpen }) {
   const defaultDate = date.toLocaleDateString('en-CA');
 
   const [id, setId] = useState(track.id)
-  const [trackTitle, setTrackTitle] = useState(track.track_title)
-  const [artist, setArtist] = useState(track.artist)
-  const [album, setAlbum] = useState(track.album)
+  const [trackTitle, setTrackTitle] = useState(track.track_title) //
+  const [artist, setArtist] = useState(track.artist) //
+  const [album, setAlbum] = useState(track.album) //
   const [releaseDate, setReleaseDate] = useState(track.releaseDate ? track.releaseDate : defaultDate)
-  const [producedBy, setProducedBy] = useState(track.produced_by)
-  const [lyrics, setLyrics] = useState(track.lyrics)
+  const [producedBy, setProducedBy] = useState(track.produced_by) //
+  const [lyrics, setLyrics] = useState(track.lyrics) //
   const [trackArt, setTrackArt] = useState(track.track_art)
-  const [trackUrl, setTrackUrl] = useState(track.track_url)
+  const [trackUrl, setTrackUrl] = useState(track.track_url) 
   const [errors, setErrors] = useState([])
+  const [showErrors, setShowErrors] = useState(false)
 
 
 
@@ -63,9 +64,19 @@ export default function EditTrack({ setModalOpen }) {
 
   useEffect(() => {
     const err = []
-    if(!trackTitle || trackTitle.length>100) err.push('Please enter a track title that is less than 100 characters')
-    if(!artist || artist.length>50) err.push('Please enter an artist name that is less than 50 characters')
-    if(!lyrics) err.push('Please enter lyrics')
+    if (!trackTitle) err.push('Track must have a title')
+    if (trackTitle.length>100) err.push('Title must not exceed 100 characters')
+    if (!artist) err.push('Track must have an artist')
+    if (artist.length>50) err.push('Artist name must not exceed 50 characters')
+    // if (!lyrics) err.push('You must enter lyrics for the track')
+    // if (lyrics.length > 10000) err.push('Lyrics must not exceed 10000 characters')
+
+    if (album.length > 100) err.push('Album name must not exceed 100 characters')
+    if (producedBy.length > 100) err.push('Producer information must not exceed 100 characters')
+    if (trackArt.match((/\.(jpg|jpeg|png|gif)$/))) err.push("Please enter a valid URL ending with jpg, jpeg, png or gif")
+
+    if (!trackUrl.match(/^http:\/\/(?:www\.)?youtube.com\/embed\/[A-z0-9]/)) err.push("Please enter a valid Youtube URL") // test later
+    if (releaseDate > date) err.push('Please provide a valid Release Date') // test later
     setErrors(err)
   },[trackTitle,artist,lyrics])
 
