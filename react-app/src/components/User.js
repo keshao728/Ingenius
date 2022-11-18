@@ -36,17 +36,19 @@ function User() {
       <div id='pp-cover'>
         <img id='pp-banner-photo' src={user.banner_img} />
       </div>
-      <div id='pp-top-content-footer-container'>
-        <div id='pp-top'>
 
-          <div id='pp-top-left'>
-            <div id='pp-profile-photo-container'>
-              <img id='pp-profile-photo' src={user.profile_img} />
+
+        <div id='pp-top-content-footer-container'>
+          <div id='pp-top'>
+
+            <div id='pp-top-left'>
+              <div id='pp-profile-photo-container'>
+                <img id='pp-profile-photo' src={user.profile_img} />
+              </div>
             </div>
+            <div id='pp-top-right'></div>
           </div>
-          <div id='pp-top-right'></div>
-        </div>
-        <div id='pp-content'>
+          <div id='pp-content'>
 
           <div id='pp-left'>
             <div className='pp-div-align'></div>

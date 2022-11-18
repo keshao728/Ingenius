@@ -132,16 +132,37 @@
   margin-bottom: 20px;
 }
 #pp-annotation-edit {
-  background-color: white;
+  background-color: transparent;
+  border: 2px solid black;
+  padding: 8px 10px;
   font-weight: bold;
-  padding: 7px 8px 9px 8px
-
+  color: black;
+  transition: .4s;
+  cursor: pointer;
 }
+#pp-annotation-edit:hover {
+  background-color: #dadada;
+  transition: .4s;
+  cursor: pointer;
+}
+
 #pp-annotation-delete {
-  background-color: white;
+  background-color: transparent;
+  border: 2px solid transparent;
+  padding: 8px 7px;
   font-weight: bold;
-  border:none;
-  color: darkgray;
+  /* width: 50px; */
+  color: #9A9A9A;
+  transition: .4s;
+  margin-left: 3px;
+  cursor: pointer;
+}
+
+#pp-annotation-delete:hover{
+  border: 2px solid #cfcfcf;
+  background-color: #cfcfcf;
+  transition: .4s;
+  cursor: pointer;
 }
 #pp-annotation-upvote-container {
   display: flex;
