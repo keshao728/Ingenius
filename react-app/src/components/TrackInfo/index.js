@@ -53,7 +53,7 @@ export default function TrackInfo() {
     // console.log(trackId)
     // console.log(annotations)
 
-    const selected = window.getSelection && window.getSelection()
+        const selected = window.getSelection && window.getSelection()
 
 
     if (selected && selected.rangeCount > 0) {
