@@ -61,7 +61,7 @@ export default function CreateTrack() {
 
   useEffect(() => {
     if (displayErrors) validate()
-  }, [trackTitle, artist, lyrics])
+  }, [trackTitle, artist, lyrics, album, producedBy, trackArt, trackUrl, releaseDate])
 
   if (!sessionUser) {
     return <Redirect to="/" />
