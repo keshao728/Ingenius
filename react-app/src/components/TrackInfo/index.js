@@ -88,12 +88,32 @@ export default function TrackInfo() {
         // console.log(trackId)
         // console.log(annotations)
 
-    const selected = window.getSelection && window.getSelection()
+        const selected = window.getSelection && window.getSelection()
 
-    if (selected && selected.rangeCount > 0) {
-      const highlight = selected.getRangeAt(0)
-      setIndex([highlight.startOffset, highlight.endOffset])
-      // console.log(highlight)
+        if (selected && selected.rangeCount > 0) {
+            const highlight = selected.getRangeAt(0)
+            setIndex([highlight.startOffset, highlight.endOffset])
+            console.log(highlight)
+        }
+        // const annotationInfo = {
+        //     annotation_body: 'something',
+        //     startIndex: startIndex,
+        //     endIndex: endIndex,
+        // }
+
+        // let createdAnnotation = await dispatch(createAnnotation(trackId, annotationInfo)).catch(async (res) => {
+        //     const data = await res.json();
+        //     if (data && data.errors) setErrors(data.errors)
+        // })
+        // if (createdAnnotation) {
+
+        //     // console.log('SELECTED',selected)
+        //     // console.log('RANGECOUNT',selected.rangeCount)
+        //     // console.log(trackId)
+        //     // console.log(createdAnnotation)
+        //     history.push(`/tracks/${trackId}`)
+        // }
+        // else return errors
     }
     // const annotationInfo = {
     //     annotation_body: 'something',
