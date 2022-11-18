@@ -113,6 +113,25 @@
 .unreviewed{
   margin-top: 23px;
   width: 100%;
+  transition: 1s;
+  cursor: pointer;
+}
+
+.unreviewed-hover{
+  display: none;
+  width: 400px;
+  background-color: white;
+  font-size: 12px;
+  border: 2px black solid;
+  padding: 10px;
+  margin-left: 50px;
+  font-weight: bold;
+  line-height: 20px;
+}
+
+.unreviewed:hover + .unreviewed-hover{
+  display:block;
+  position: absolute;
 }
 
 .user-contributions-title {
