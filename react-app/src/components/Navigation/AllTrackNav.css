@@ -1,16 +1,16 @@
 .survey {
-    background-color: rgba(255,20,100);
-    height: 50px;
+    background-color: rgba(255, 20, 100);
+    height: 45px;
     /* display:flex; */
 }
 
 .work_in_progress {
     display: flex;
-    color:white;
+    color: white;
     justify-content: center;
     /* align-items: center; */
-    padding-top:15px;
-    font-size: 13px;
+    padding-top: 13px;
+    font-size: 12px;
 }
 
 .main-nav-alltrack {
@@ -19,34 +19,46 @@
 
 }
 
-.main-nav-alltrack-container{
+.main-nav-alltrack-container {
     display: flex;
     justify-content: space-between;
+    align-items: flex-end;
 }
 
 .main-nav-list-alltrack-left {
     display: flex;
     font-size: 12px;
     margin-left: 2px;
-    margin-right:2px;
-    /* justify-content: center; */
-    /* margin: auto; */
-  }
+    margin-right: 2px;
+}
 
 .main-nav-list-alltrack-right {
     display: flex;
     font-size: 12px;
     justify-content: flex-end;
-  }
+}
 
-.main-nav-list-1-track, .main-nav-list-2-track ,.main-nav-list-3-track {
+.main-nav-list-1-track,
+.main-nav-list-3-track {
     color: black;
-    font-size: 11px;
-    font-weight: bold;
-    margin-top: 10px;
+    font-size: 13px;
+    /* font-weight: bold; */
+    margin-top: 15px;
     margin-left: 20px;
     margin-right: 20px;
     margin-left: 10px;
+}
+
+.main-nav-list-2-track :hover {
+    cursor: pointer;
+}
+
+.main-nav-list-2-track {
+    border-radius: 30px;
+    color: #717171;
+    width: 27px;
+    height: 27px;
+    margin-right: 23px;
 }
 
 .main-nav-list-1-track:hover {
@@ -56,23 +68,23 @@
     border-bottom: 1px solid black
 }
 
-.main-nav-list-2-track:hover{
+.main-nav-list-2-track:hover {
     cursor: pointer;
-    color:white;
-    font-size:15px;
+    color: white;
+    font-size: 15px;
 }
 
-.main-nav-list-3-track:hover{
+.main-nav-list-3-track:hover {
     cursor: pointer;
     /* color:#FFFF64; */
     transition: .4s;
     border-bottom: 1px solid black;
-    width:68px;
+    width: 68px;
     font-size: 14px;
-    
+
 }
 
-.user-dropdown-menu2{
+.user-dropdown-menu2 {
     display: flex;
     flex-direction: column;
     position: absolute;
@@ -81,21 +93,21 @@
     height: 115px;
     width: 200px;
     background-color: white;
-    box-shadow: 0px 1px 8px #dddddd;
+    box-shadow: 0px 1px 8px #8d8d8d;
     border: 1px solid #dddddd;
-    right: 30px;
-    top: 40px
-  }
+    right: 25px;
+    top: 45px;
+}
 
-  /* .site-logo2 {
+/* .site-logo2 {
     grid-column-start: 2;
     display: flex;
     align-items: center;
     justify-content: center;
     padding-left: 50pm;
   } */
-.icon2{
+.icon2 {
     margin-left: 10px;
-    margin-top:5px;
+    margin-top: 10px;
     padding-right: 20px;
 }
