@@ -468,14 +468,14 @@ const HomePage = () => {
 
         <div className="footer-inner">
           <div className="footer-message">
-            Ingenius is the world’s smallest collection of song lyrics and musical knowledge
+            INGENIUS is the world’s smallest collection of song lyrics and musical knowledge
           </div>
 
           <div className="footer-links">
             <ul className="footer-links-ul">
               <li><a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Free Music</a></li>
-              <li><a href="">Something</a></li>
-              <li><a href="">Something</a></li>
+              <li><a href="https://media.tenor.com/Y84Uql0KSwEAAAAd/oprah-winfrey.gif">Dont click this</a></li>
+              <li><a href="https://www.musicalmum.com/what-is-a-music-genre/">Music Genre explained</a></li>
               <li><a href="https://www.music-map.com/">Music Map</a></li>
             </ul>
           </div>

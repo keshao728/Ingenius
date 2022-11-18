@@ -146,7 +146,7 @@ const AllComments = () => {
           Sign Up And Drop Knowledge 🤓
         </div>
         <div className="knowledge-des">
-          Ingenius is the ultimate source of music knowledge, created by scholars like you who share facts and insight about the songs and artists they love.
+          INGENIUS is the ultimate source of music knowledge, created by scholars like you who share facts and insight about the songs and artists they love.
         </div>
         <div className="signup-knowledge">
           <SignUpForm />
@@ -230,7 +230,7 @@ const AllComments = () => {
       </div>
       <div className="footer">
         <div className="footer-message">
-          Ingenius is the world’s smallest collection of song lyrics and musical knowledge
+          INGENIUS is the world’s smallest collection of song lyrics and musical knowledge
         </div>
       </div>
     </>

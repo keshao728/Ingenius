@@ -124,6 +124,10 @@ export const unvoteThunk = (id) => async (dispatch) => {
 // const voteReducer = (state = {}, action) => {
 //     let newState
 //     switch (action.type) {
+//         case voteload:
+//             newState = {...state}
+
+
 //         case UPVOTE:
 //             newState = {...state}
 //             newState[action.id] = 1
