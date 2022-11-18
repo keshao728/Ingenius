@@ -13,6 +13,7 @@ import AllTracks from './components/Tracks';
 import AllComments from './components/Comments/comments';
 import TrackInfo from './components/TrackInfo';
 import Annotation from './components/Annotation/annotations';
+import AnnotationForm from './components/AnnotationForm/AnnotationForm';
 import CreateTrack from './components/TrackForm';
 import AllTrackNav from './components/Navigation/AllTrackNav';
 // import UserAnnotations from './components/UserProfile';
@@ -63,6 +64,7 @@ function App() {
         <Route exact path='/tracks/:trackId'>
           <AllTrackNav />
           <TrackInfo />
+          <AnnotationForm />
           <Annotation />
           <AllComments />
         </Route>

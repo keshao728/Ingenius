@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { useDispatch } from 'react-redux'
+import { useSelector, useDispatch } from "react-redux";
 import { createAnnotation } from '../../store/annotations';
+import LoginForm from "../auth/LoginForm";
+
 
 
 const AnnotationForm = () => {
@@ -8,8 +10,29 @@ const AnnotationForm = () => {
   const [annotation, setAnnotation] = useState('')
   const [validationErrors, setValidationErrors] = useState([])
   const [displayErrors, setDisplayErrors] = useState(false)
+  const [showMenu, setShowMenu] = useState(false);
 
-  const updateAnnotation = (e) => setAnnotation(e.target.value)
+  const sessionUser = useSelector((state) => state.session.user);
+
+
+
+  const openMenu = () => {
+    if (showMenu) return;
+    setShowMenu(true);
+  };
+
+  useEffect(() => {
+    if (!showMenu) return;
+
+    const closeMenu = () => {
+      setShowMenu(false);
+    };
+
+    document.addEventListener('click', closeMenu);
+
+    return () => document.removeEventListener("click", closeMenu);
+  }, [showMenu]);
+
 
   useEffect(() => {
     const errors = []
@@ -26,30 +49,75 @@ const AnnotationForm = () => {
       const payload = {
         annotation_body: annotation
       }
-
+      setAnnotation("");
       let newAnnotation = await dispatch(createAnnotation(payload))
 
       if (newAnnotation) {
         setDisplayErrors(false)
+        // setShowMenu(false)
       }
     }
   }
 
-  return (
-    <form onSubmit={handleSubmit}>
-      <textarea 
-      type='text'
-      value={annotation}
-      onChange={updateAnnotation}/>
-      <button type='submit'>CreateAnnotation</button>
+
+  let sessionLinks;
+  if (sessionUser) {
+    sessionLinks = (
       <div>
-        <ul>
-          {displayErrors && validationErrors.length > 0 && validationErrors.map(error => (
-            <li key={error}>{error}</li>
-          ))}
-        </ul>
+        <button onClick={openMenu}> MEOW </button>
+        {showMenu &&
+          <form className="comment-form-parent" onSubmit={handleSubmit}>
+            <div className="comment-form">
+              <label>
+                <div className="commenter-img-input">
+                  <textarea
+                    placeholder="Add a annotation"
+                    type="text"
+                    error
+                    className="comment-input"
+                    value={annotation}
+                    // onClick={openSubmit}
+                    required
+                    onChange={(e) => setAnnotation(e.target.value)}
+                  />
+                </div>
+                {/* {showErrors && showSubmit && (
+              <ul className="comment-form-errors">
+              {validationErrors.length > 0 &&
+                validationErrors.map(error => (
+                  <li className="comment-form-error-text" key={error}>{error}</li>
+                  ))}
+                  </ul>
+                  )
+                } */}
+              </label>
+              <div className="comment-submit-buttons">
+                <button className="button-create-comment" type="submit" onSubmit={handleSubmit}> Submit</button>
+                {/* <button type="button" className="cancel-create-comment" onClick={closeSubmit}>Cancel</button> */}
+              </div>
+            </div>
+          </form>
+        }
       </div>
-    </form>
+    )
+  } else {
+    sessionLinks = (
+      <div>
+        <div>
+          Sign In to Annotate!
+        </div>
+        <div>
+          <LoginForm />
+        </div>
+      </div>
+    )
+
+  }
+
+  return (
+    <div>
+      {sessionLinks}
+    </div>
   )
 }
 export default AnnotationForm
