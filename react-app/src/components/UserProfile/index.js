@@ -47,9 +47,7 @@ const UserAnnotations = () => {
             <div id='pp-annotation-lyric'>
               lyrics
             </div>
-            <div>
 
-            </div>
           </div>
           <div id='pp-annotation-inner-content'>
             <div id='pp-annotation-username-icon-moment-container'>
@@ -59,7 +57,7 @@ const UserAnnotations = () => {
               </div>
               <div id='pp-annotation-created-at-moment'>{moment(annotation?.created_at).fromNow()}</div>
             </div>
-            <div>{ sessionUser?.id === annotation.user.id ?
+            <div>{sessionUser?.id === annotation.user.id ?
               <div >{showEdit === annotation.id ? <EditAnnotation setShowEdit={setShowEdit} annotate={annotation} /> :
                 <div>
                   <div id='pp-annotation-body'>{annotation.annotation_body}</div>
