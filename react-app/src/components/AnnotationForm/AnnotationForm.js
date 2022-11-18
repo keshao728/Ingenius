@@ -6,18 +6,20 @@ import LoginForm from "../auth/LoginForm";
 import "./AnnotationForm.css";
 
 
-const AnnotationForm = (startIndex, endIndex, setAnnotating) => {
+const AnnotationForm = (indexes, setAnnotating) => {
   const dispatch = useDispatch();
   const [annotation, setAnnotation] = useState('')
   const [validationErrors, setValidationErrors] = useState([])
   const [displayErrors, setDisplayErrors] = useState(false)
   const [showMenu, setShowMenu] = useState(false);
-  const [startingIndex, setStaringtIndex] = useState(startIndex)
-  const [endingIndex, setEndingIndex] = useState(endIndex)
+  // const [startingIndex, setStaringtIndex] = useState(startIndex)
+  // const [endingIndex, setEndingIndex] = useState(endIndex)
 
   const sessionUser = useSelector((state) => state.session.user);
   // const trackId = useParams()
   const track = useSelector(state => state.tracks.oneTrack)
+  let startIndex = indexes[0]
+  let endIndex = indexes[1]
 
 
   const openMenu = () => {
@@ -45,8 +47,8 @@ const AnnotationForm = (startIndex, endIndex, setAnnotating) => {
     if (!validationErrors.length) {
       const payload = {
         annotation_body: annotation,
-        startIndex: startingIndex,
-        endIndex: endingIndex
+        startIndex,
+        endIndex
       }
       setAnnotation("");
 
@@ -57,7 +59,7 @@ const AnnotationForm = (startIndex, endIndex, setAnnotating) => {
 
       if (newAnnotation) {
         setDisplayErrors(false)
-        setAnnotating(false)
+        // setAnnotating(false)
         // setShowMenu(false)
       }
     }
@@ -83,6 +85,9 @@ const AnnotationForm = (startIndex, endIndex, setAnnotating) => {
                   required
                   onChange={(e) => setAnnotation(e.target.value)}
                 />
+
+                <input hidden type='number' value={startIndex}></input>
+                <input hidden type='number' value={endIndex}></input>
 
                 {/* {showErrors && showSubmit && (
               <ul className="annotation-form-errors">

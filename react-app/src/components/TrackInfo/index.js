@@ -34,8 +34,10 @@ export default function TrackInfo() {
 
   const [annotating, setAnnotating] = useState(false)
 
+  // console.log('annotating', annotating)
+
   useEffect(() => {
-    if (startIndex !== endIndex) {
+    if (startIndex !== endIndex && startIndex !== Infinity) {
       setAnnotating(true)
     }
     else setAnnotating(false)
@@ -65,25 +67,25 @@ export default function TrackInfo() {
       // console.log(highlight)
     }
 
-    const annotationInfo = {
-      annotation_body: 'something',
-      startIndex: startIndex,
-      endIndex: endIndex,
-    }
+    // const annotationInfo = {
+    //   annotation_body: 'something',
+    //   startIndex: startIndex,
+    //   endIndex: endIndex,
+    // }
 
-    let createdAnnotation = await dispatch(createAnnotation(trackId, annotationInfo)).catch(async (res) => {
-      const data = await res.json();
-      if (data && data.errors) setErrors(data.errors)
-    })
-    if (createdAnnotation) {
+    // let createdAnnotation = await dispatch(createAnnotation(trackId, annotationInfo)).catch(async (res) => {
+    //   const data = await res.json();
+    //   if (data && data.errors) setErrors(data.errors)
+    // })
+    // if (createdAnnotation) {
 
-      // console.log('SELECTED',selected)
-      // console.log('RANGECOUNT',selected.rangeCount)
-      // console.log(trackId)
-      // console.log(createdAnnotation)
-      history.push(`/tracks/${trackId}`)
-    }
-    else return errors
+    //   // console.log('SELECTED',selected)
+    //   // console.log('RANGECOUNT',selected.rangeCount)
+    //   // console.log(trackId)
+    //   // console.log(createdAnnotation)
+    //   history.push(`/tracks/${trackId}`)
+    // }
+    // else return errors
 
 
   }
@@ -160,7 +162,7 @@ export default function TrackInfo() {
             </div>
           </div>
           <div className='lyric-annotate'>
-            <AnnotationForm />
+            {annotating && <AnnotationForm  indexes={[startIndex, endIndex]} setAnnotating={['annotating', 'asds']} />}
           </div>
           {/* {annotating && <AnnotationForm /> } */}
 
