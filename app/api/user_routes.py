@@ -46,17 +46,31 @@ def editProfile(id):
     form['csrf_token'].data = request.cookies['csrf_token']
 
     user = User.query.get(id)
+    print(
+            '''
+            
+            
+            r
+            d
+            w
+            
+
+            ''',user,
+            '''
+            e
+            n
+            d
+            ''')
     if current_user.id != user.id:
         return {'errors': 'Unauthorized', 'statusCode':401}
 
     if form.validate_on_submit():
-        user.username = form.username.data
-        user.email = form.email.data
         user.profile_img = form.profile_img.data
         user.banner_img = form.banner_img.data
 
         db.session.commit()
         return user.to_dict()
+        
 
 # get current user info
 @user_routes.route('/<int:id>/info')

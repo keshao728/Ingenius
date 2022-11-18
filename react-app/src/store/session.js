@@ -143,6 +143,7 @@ export const editUserPhoto = (user) => async dispatch => {
   if (response.ok) {
     const newPhoto = await response.json();
     await dispatch(actionEditUserImg(newPhoto))
+  console.log('NEWPHOTO', newPhoto)
     return newPhoto
   }
 }
