@@ -72,7 +72,7 @@
 .top-feature-news {
   position: relative;
   bottom: -8px;
-  width: 35px;
+  width: 44px;
   background-color: white;
   padding-right: 10px;
   font-size: 12px;
@@ -234,7 +234,7 @@
   object-fit: cover;
   height: 60px;
   width: 60px;
-  border: 1px solid rgb(197, 197, 197);
+  border: 1px solid rgb(236, 236, 236);
 }
 
 .track-cover-name {
