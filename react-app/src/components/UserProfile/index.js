@@ -5,6 +5,8 @@ import { useParams } from 'react-router-dom'
 import { getUserInfo, deleteAnnotation, editAnnotation } from '../../store/session';
 import React from 'react';
 import './UserIndex.css'
+import unreviewed from './Profile-Images/unreviewed.png';
+
 import EditAnnotation from '../AnnotationEditForm/EditAnnotationForm';
 import * as moment from 'moment';
 
@@ -29,6 +31,9 @@ const UserAnnotations = () => {
       .then(() => setIsLoaded(true))
   }, [dispatch, userId])
 
+  // document.getElementById("pp-annotation-edit")?.addEventListener("click", () => {
+  //   document.getElementById("anno-edit-text-area").focus();
+  // });
 
   if (!annotationArr) return null
   else return isLoaded &&
@@ -48,7 +53,8 @@ const UserAnnotations = () => {
               lyrics
             </div>
             <div>
-
+              <img className="unreviewed" src={unreviewed}></img>
+              <div className="unreviewed-hover"> Genius is a crowdsourced website — this annotation has not yet been edited, reviewed, or fact checked by the Genius Editorial Board. </div>
             </div>
           </div>
           <div id='pp-annotation-inner-content'>
@@ -59,7 +65,7 @@ const UserAnnotations = () => {
               </div>
               <div id='pp-annotation-created-at-moment'>{moment(annotation?.created_at).fromNow()}</div>
             </div>
-            <div>{ sessionUser?.id === annotation.user.id ? 
+            <div>{sessionUser?.id === annotation.user.id ?
               <div >{showEdit === annotation.id ? <EditAnnotation setShowEdit={setShowEdit} annotate={annotation} /> :
                 <div>
                   <div id='pp-annotation-body'>{annotation.annotation_body}</div>
@@ -72,9 +78,14 @@ const UserAnnotations = () => {
               : <div id='pp-noauth-annotation-body'>{annotation.annotation_body}</div>
             }</div>
             <div id='pp-annotation-upvote-container'>
-              <img className='thumbs' src={'https://www.pngrepo.com/png/331959/180/thumbs-up.png'} />
-              <div id='pp-annotation-upvote'>Upvote {annotation.vote_count}</div>
-              <img className='thumbs' src={'https://www.pngrepo.com/png/331957/180/thumbs-down.png'} />
+              <div className='upvote-wrapper'>
+                <i class="fa-regular fa-thumbs-up"></i>
+                <div id='pp-annotation-upvote'>Upvote </div>
+              </div>
+              <div className='vote-count'> {annotation.vote_count}</div>
+              <div className='downvote-wrapper'>
+                <i class="fa-regular fa-thumbs-down"></i>
+              </div>
             </div>
           </div>
         </div>

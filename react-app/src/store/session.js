@@ -1,10 +1,10 @@
 // constants
 const SET_USER = 'session/SET_USER';
 const REMOVE_USER = 'session/REMOVE_USER';
-const GET_USER_INFORMATION = 'session/getAllAnnotations';
+const GET_USER_INFORMATION = 'session/getUserInfo';
 const EDIT_ANNOTATION = 'annotations/editAnnotation';
 const DELETE_ANNOTATION = 'annotations/deleteAnnotation';
-
+const EDIT_USER_IMG = 'session/editUserImg'
 
 const setUser = (user) => ({
   type: SET_USER,
@@ -13,6 +13,11 @@ const setUser = (user) => ({
 
 const removeUser = () => ({
   type: REMOVE_USER,
+})
+
+const actionEditUserImg = (user) => ({
+  type: EDIT_USER_IMG,
+  user
 })
 
 const actionGetUserInfo = (payload) => {
@@ -125,6 +130,23 @@ export const signUp = (username, email, password) => async (dispatch) => {
   }
 }
 
+//edit user pfp and/or banner
+export const editUserPhoto = (user) => async dispatch => {
+  const response = await fetch(`/api/users/${user.id}/photos`, {
+    method: "PUT",
+    headers: {"Content-Type": "application/json"},
+    body: JSON.stringify(user)
+  })
+  console.log('SIMONSUSER', user)
+  console.log('SIMON RESPONSE', response)
+  
+  if (response.ok) {
+    const newPhoto = await response.json();
+    await dispatch(actionEditUserImg(newPhoto))
+    return newPhoto
+  }
+}
+
 export const getUserInfo = (userId) => async dispatch => {
   const response = await fetch(`/api/users/${userId}/info`);
   if (response.ok) {
@@ -211,6 +233,11 @@ export default function reducer(state = initialState, action) {
       newState.annotations[action.annotation.id] = action.annotation
 
       return newState
+    case EDIT_USER_IMG:
+      newState = {...state}
+      newState.user = {...state.user}
+      newState.user[action.user.id] = action.user
+
     case DELETE_ANNOTATION:
       newState = {...state, annotations: {...state.annotations}}
       delete newState.annotations[action.annotation]

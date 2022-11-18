@@ -155,11 +155,3 @@ def annotation_post(id):
         db.session.commit()
         return annotation.to_dict()
     return {'errors': validation_errors(form.errors), "statusCode": 401}
-
-    # annotation = Annotation(
-    #   user_id = current_user.id,
-    #   track_id = track.id,
-    #   annotation_body = 'body',
-    #   startIndex = 3,
-    #   endIndex = 3
-    # )

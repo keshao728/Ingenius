@@ -2,17 +2,19 @@ import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import UserAnnotations from './UserProfile';
+import ImageForm from './UserProfile/PfpBannerForm';
 // import EditAnnotation from './AnnotationEditForm/EditAnnotationForm';
 import './UserProfile/UserProfile.css'
 
 function User() {
   const [user, setUser] = useState({});
+  const [showEdit, setShowEdit] = useState(true)
   // const other = useSelector(state => state.session.annotations)
   // const otherUser = other
   // console.log('OTHER', otherUser)
 
   const { userId } = useParams();
-  console.log(user)
+  console.log('iamuser', user)
 
   useEffect(() => {
     if (!userId) {
@@ -34,21 +36,44 @@ function User() {
       <div id='pp-cover'>
         <img id='pp-banner-photo' src={user.banner_img} />
       </div>
-      <div id='pp-top-content-footer-container'>
-        <div id='pp-top'>
 
-          <div id='pp-top-left'>
-            <div id='pp-profile-photo-container'>
-              <img id='pp-profile-photo' src={user.profile_img} />
+
+        <div id='pp-top-content-footer-container'>
+          <div id='pp-top'>
+
+            <div id='pp-top-left'>
+              <div id='pp-profile-photo-container'>
+                <img id='pp-profile-photo' src={user.profile_img} />
+              </div>
             </div>
+            <div id='pp-top-right'></div>
           </div>
-          <div id='pp-top-right'></div>
-        </div>
-        <div id='pp-content'>
+          <div id='pp-content'>
+
           <div id='pp-left'>
             <div className='pp-div-align'></div>
             <div id='pp-main-username'>@{user.username}</div>
+            <div id='pp-pfp-edit-button-container' >
+              {showEdit ? <button id='pp-pfp-edit-button' onClick={() => setShowEdit(false)}>
+                <img id='pp-pfp-edit-button-pen-image' src={'https://www.pngrepo.com/png/105166/180/edit.png'} />
+                Edit
+              </button> : <ImageForm setShowEdit={setShowEdit} userInfo={user} />}
+            </div>
+
+            <div className='top-div-outer'>
+              <div id='blank-white-top-div'></div>
+            </div>
+            <div className='top-div-outer'>
+              <div className='random-text'>Some more Random Text</div>
+              <div id='blank-white-mid-div'></div>
+            </div>
+            <div className='top-div-outer'>
+              <div className='random-text'>Some moremore Random Text</div>
+              <div id='blank-white-bot-div'></div>
+            </div>
+
           </div>
+
           <div id='pp-right'>
             <div>
               <div className='user-contributions-title'> {user.username}'s Contributions</div>

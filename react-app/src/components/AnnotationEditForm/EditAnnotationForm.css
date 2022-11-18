@@ -1,12 +1,61 @@
-#anno-edit-text-area {
+.anno-edit-text-area {
+  margin-top: 10px;
   width: 100%;
   height: 200px;
   background-color: rgb(231, 231, 231);
   border: none;
-  resize: vertical;
-  overflow:hidden;
-  word-wrap:break-word;
+  overflow: hidden;
+  word-wrap: break-word;
+  resize: none;
+  padding:10px;
+  font-size: 14px;
 }
-#anno-edit-container {
 
+.anno-edit-text-area:focus {
+  outline: none !important;
+  border: 1px solid #99a7ee;
+  box-shadow: 0 0 4px #99a7ee;
+}
+
+
+.anno-save-buttons {
+  margin-top: 14px;
+}
+
+.save-edit-anno {
+  background-color: transparent;
+  border: 2px solid #0ECB27;
+  padding: 8px 10px;
+  font-weight: bold;
+  color: #0ECB27;
+  transition: .4s;
+  cursor: pointer;
+}
+
+.save-edit-anno:hover {
+  background-color: #b8ffc2;
+  transition: .4s;
+  cursor: pointer;
+}
+
+
+
+.cancel-edit-anno{
+  background-color: transparent;
+  border: 2px solid transparent;
+  padding: 8px 7px;
+  font-weight: bold;
+  /* width: 50px; */
+  color: #9A9A9A;
+  transition: .4s;
+  margin-left: 6px;
+  cursor: pointer;
+}
+
+
+.cancel-edit-anno:hover {
+  border: 2px solid #cfcfcf;
+  background-color: #cfcfcf;
+  transition: .4s;
+  cursor: pointer;
 }
