@@ -62,6 +62,7 @@ const AllComments = () => {
     setShowErrors(true)
 
     if (!validationErrors.length) {
+      setShowErrors(false)
       const newComment = {
         comment_body: userComments
         // user_id:

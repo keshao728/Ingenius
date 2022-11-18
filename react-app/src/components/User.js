@@ -38,17 +38,17 @@ function User() {
       </div>
 
 
-        <div id='pp-top-content-footer-container'>
-          <div id='pp-top'>
+      <div id='pp-top-content-footer-container'>
+        <div id='pp-top'>
 
-            <div id='pp-top-left'>
-              <div id='pp-profile-photo-container'>
-                <img id='pp-profile-photo' src={user.profile_img} />
-              </div>
+          <div id='pp-top-left'>
+            <div id='pp-profile-photo-container'>
+              <img id='pp-profile-photo' src={user.profile_img} />
             </div>
-            <div id='pp-top-right'></div>
           </div>
-          <div id='pp-content'>
+          <div id='pp-top-right'></div>
+        </div>
+        <div id='pp-content'>
 
           <div id='pp-left'>
             <div className='pp-div-align'></div>
@@ -61,14 +61,25 @@ function User() {
             </div>
 
             <div className='top-div-outer'>
-              <div id='blank-white-top-div'></div>
+              <div id='white-top-div'>
+                {user.username} is keeping quiet for now
+              </div>
             </div>
             <div className='top-div-outer'>
-              <div className='random-text'>Some more Random Text</div>
-              <div id='blank-white-mid-div'></div>
+              <div className='white-box-text'>STATS</div>
+              <div id='blank-white-mid-div'>
+                <div>
+                  {console.log('USER', user)}
+                  {user?.my_annotation?.length} Annotations
+                  {user?.my_comment?.length} Comments
+
+                </div>
+
+
+              </div>
             </div>
             <div className='top-div-outer'>
-              <div className='random-text'>Some moremore Random Text</div>
+              <div className='white-box-text'>Some moremore Random Text</div>
               <div id='blank-white-bot-div'></div>
             </div>
 

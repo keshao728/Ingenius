@@ -4,17 +4,17 @@
   display: flex;
   justify-content: center;
   /* border: 10px solid red; */
-  background-color:whitesmoke;
+  background-color: whitesmoke;
   position: relative;
 }
 
 /****************BANNER*******************/
 /****************BANNER*******************/
 #pp-cover {
-   /* whatever width you want for the cover div */
+  /* whatever width you want for the cover div */
   width: 100%;
   height: 280px;
-  background-color:whitesmoke;
+  background-color: whitesmoke;
   overflow: hidden;
   /* border: 10px solid green; */
   position: absolute;
@@ -31,7 +31,7 @@
 }
 
 #pp-right:after,
-#pp-right:before{
+#pp-right:before {
   content: '';
   color: transparent;
   display: block;
@@ -42,19 +42,19 @@
   border-style: solid;
 }
 
-#pp-right:after{
+#pp-right:after {
   top: -1px;
   border-color: rgb(34, 34, 34) transparent transparent transparent;
   border-width: 10px;
 }
 
-#pp-right:before{
+#pp-right:before {
   top: 0px;
   border-color: black transparent transparent transparent;
   border-width: 10px;
 }
 
-#pp-top-content-footer-container{
+#pp-top-content-footer-container {
   z-index: 10;
 }
 
@@ -67,6 +67,7 @@
   justify-content: space-between;
 
 }
+
 #pp-cover-content-footer-container>* {
   padding: 1em;
 }
@@ -75,32 +76,38 @@
 /****************TOP CONTENT*******************/
 #pp-top {
   /* border: 5px solid pink; */
-  height: 280px; /* change up */
+  height: 280px;
+  /* change up */
   background-color: fade(#FFFFFF, 50%);
   display: flex;
   flex-direction: row;
 }
+
 #pp-top-left {
   /* border: 5px solid pink; */
   width: 40%;
 }
+
 #pp-top-right {
   /* border: 5px solid pink; */
   width: 60%;
 }
-#pp-profile-photo-container{
+
+#pp-profile-photo-container {
   display: flex;
   justify-content: center;
   align-items: center;
   margin-top: 40px;
 
 }
-#pp-profile-photo{
+
+#pp-profile-photo {
   border: 2px solid white;
   border-radius: 50%;
   height: 300px;
   width: 300px;
 }
+
 #pp-content {
   display: flex;
   flex: 1;
@@ -110,9 +117,10 @@
   flex-direction: row;
   justify-content: space-between;
 
-/****************LEFT CONTENT*******************/
-/****************LEFT CONTENT*******************/
+  /****************LEFT CONTENT*******************/
+  /****************LEFT CONTENT*******************/
 }
+
 #pp-left {
   /* border: 5px solid blue; */
   height: auto;
@@ -120,12 +128,15 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-right: 23px;
 }
-.pp-div-align{
+
+.pp-div-align {
   /* border: 1px solid pink; */
   height: 90px;
   width: 100%;
 }
+
 #pp-main-username {
   /* display: flex; */
   /* flex-direction: row;
@@ -134,44 +145,67 @@
   font-weight: bold;
   margin-bottom: 15px;
 }
+
 #left-content-outer {
   padding: 10px
 }
-/* #pp-pfp-edit-button-container {
 
-} */
+#pp-pfp-edit-button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
 
 #pp-pfp-edit-button-pen-image {
   height: 15px;
   margin-right: 5px;
+  display: flex;
+  justify-content: center;
+}
 
-}
-#pp-pfp-edit-button{
-  margin-bottom: 40px;
-  background-color: white;
+#pp-pfp-edit-button {
+  margin-bottom: 30px;
+  background-color: transparent;
   font-weight: bold;
-  padding: 7px 8px 9px 8px
+  padding: 7px 10px;
+  display: flex;
+  justify-content: center;
+  cursor: pointer;
 }
+
+#pp-pfp-edit-button:hover {
+  background-color: #dadada;
+  transition: .4s;
+  cursor: pointer;
+}
+
 .top-div-outer {
   width: 95%;
 }
-.random-text {
-  padding: 20px 10px 20px 5px;
+
+.white-box-text {
+  padding: 20px 10px;
   text-transform: uppercase;
   font-size: 12px;
-  font-weight:600;
+  font-weight: 600;
   color: darkgray;
 }
-#blank-white-top-div {
+
+#white-top-div {
   width: 100%;
-  height: 80px;
+  height: auto;
+  padding: 15px;
   background-color: white;
+  font-size: 15px;
 }
+
 #blank-white-mid-div {
   width: 100%;
   height: 150px;
   background-color: white;
 }
+
 #blank-white-bot-div {
   width: 100%;
   height: 100px;
@@ -193,14 +227,14 @@
 
 }
 
-.unreviewed{
+.unreviewed {
   margin-top: 23px;
   width: 100%;
   transition: 1s;
   cursor: pointer;
 }
 
-.unreviewed-hover{
+.unreviewed-hover {
   display: none;
   width: 400px;
   background-color: white;
@@ -212,15 +246,15 @@
   line-height: 20px;
 }
 
-.unreviewed:hover + .unreviewed-hover{
-  display:block;
+.unreviewed:hover+.unreviewed-hover {
+  display: block;
   position: absolute;
 }
 
 .user-contributions-title {
   text-transform: uppercase;
   font-size: 12px;
-  font-weight:600;
+  font-weight: 600;
   color: darkgray;
   margin-top: 40px;
   padding-bottom: 10px;
@@ -231,7 +265,7 @@
 
 /* pp-annotation */
 
-#pp-main-username{
+#pp-main-username {
   font-size: 20px;
   font-weight: 600;
   color: black;
@@ -240,5 +274,3 @@
   display: flex;
   justify-content: center;
 }
-
-
