@@ -11,6 +11,8 @@ import React from 'react';
 import { createAnnotation } from '../../store/annotations';
 import AnnotationForm from '../AnnotationForm/AnnotationForm';
 import DisplayLyrics from '../TrackLyrics';
+import ReactMarkdown from 'react-markdown';
+import ReactDom from 'react-dom';
 
 
 
@@ -49,11 +51,27 @@ export default function TrackInfo() {
 
   //annotation stuff
 
-  const [index, setIndex] = useState([])
-  const [startIndex, setStartIndex] = useState()
-  const [endIndex, setEndIndex] = useState()
+  // const [index, setIndex] = useState([])
+  // const [startIndex, setStartIndex] = useState()
+  // const [endIndex, setEndIndex] = useState()
 
-  const [annotating, setAnnotating] = useState(false)
+  // const [annotating, setAnnotating] = useState(false)
+
+  const [docu, setDocu] = useState('')
+
+  const [annotated, setAnnotated] = useState(false)
+  let classes = Array.from(document.getElementsByClassName('selected'))
+  console.log('zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz',classes)
+
+  // useEffect(() =>{
+  //   console.log(document.getElementsByClassName('selected'));
+  //   document.getElementsByClassName('selected') ? setAnnotated(true) : setAnnotated(false)
+  //   console.log(classes)
+  // }, [annotated, classes])
+
+  useEffect(() =>{
+    docu.length ? setAnnotated(true) : setAnnotated(false)
+  }, [docu])
 
   // const sortedAnnotations = Object.values(track?.Annotations).sort(
   //   (a, b) => a.startIndex - b.startIndex
@@ -66,59 +84,59 @@ export default function TrackInfo() {
 
 
 
-  useEffect(() => {
-    if (startIndex !== endIndex && startIndex !== Infinity) {
-      setAnnotating(true)
-    }
-    else setAnnotating(false)
-  }, [startIndex, endIndex])
+  // useEffect(() => {
+  //   if (startIndex !== endIndex && startIndex !== Infinity) {
+  //     setAnnotating(true)
+  //   }
+  //   else setAnnotating(false)
+  // }, [startIndex, endIndex])
 
-  useEffect(() => {
-    setStartIndex(Math.min(...index))
-    setEndIndex(Math.max(...index))
-  }, [index])
-
-
-  const annotateThis = (e) => {
-    // console.log(React.Children.toArray(track.lyrics?.split('\n').map(chunk => chunk)).join(''))
-    e.preventDefault()
-    // console.log(trackId)
-    // console.log(annotations)
-
-    const selected = window.getSelection && window.getSelection()
+  // useEffect(() => {
+  //   setStartIndex(Math.min(...index))
+  //   setEndIndex(Math.max(...index))
+  // }, [index])
 
 
-    if (selected && selected.rangeCount > 0) {
-      const highlight = selected.getRangeAt(0)
-      setIndex([highlight.startOffset, highlight.endOffset])
-      // console.log("SETSTSETSDFDSF", index)
-      // console.log("SETSTSETSDFDSF", startIndex)
-      // console.log("SETSTSETSDFDSF", endIndex)
-      // console.log(highlight)
-    }
+  // const annotateThis = (e) => {
+  //   // console.log(React.Children.toArray(track.lyrics?.split('\n').map(chunk => chunk)).join(''))
+  //   e.preventDefault()
+  //   // console.log(trackId)
+  //   // console.log(annotations)
 
-    // const annotationInfo = {
-    //   annotation_body: 'something',
-    //   startIndex: startIndex,
-    //   endIndex: endIndex,
-    // }
-
-    // let createdAnnotation = await dispatch(createAnnotation(trackId, annotationInfo)).catch(async (res) => {
-    //   const data = await res.json();
-    //   if (data && data.errors) setErrors(data.errors)
-    // })
-    // if (createdAnnotation) {
-
-    //   // console.log('SELECTED',selected)
-    //   // console.log('RANGECOUNT',selected.rangeCount)
-    //   // console.log(trackId)
-    //   // console.log(createdAnnotation)
-    //   history.push(`/tracks/${trackId}`)
-    // }
-    // else return errors
+  //   const selected = window.getSelection && window.getSelection()
 
 
-  }
+  //   if (selected && selected.rangeCount > 0) {
+  //     const highlight = selected.getRangeAt(0)
+  //     setIndex([highlight.startOffset, highlight.endOffset])
+  //     // console.log("SETSTSETSDFDSF", index)
+  //     // console.log("SETSTSETSDFDSF", startIndex)
+  //     // console.log("SETSTSETSDFDSF", endIndex)
+  //     // console.log(highlight)
+  //   }
+
+  //   // const annotationInfo = {
+  //   //   annotation_body: 'something',
+  //   //   startIndex: startIndex,
+  //   //   endIndex: endIndex,
+  //   // }
+
+  //   // let createdAnnotation = await dispatch(createAnnotation(trackId, annotationInfo)).catch(async (res) => {
+  //   //   const data = await res.json();
+  //   //   if (data && data.errors) setErrors(data.errors)
+  //   // })
+  //   // if (createdAnnotation) {
+
+  //   //   // console.log('SELECTED',selected)
+  //   //   // console.log('RANGECOUNT',selected.rangeCount)
+  //   //   // console.log(trackId)
+  //   //   // console.log(createdAnnotation)
+  //   //   history.push(`/tracks/${trackId}`)
+  //   // }
+  //   // else return errors
+
+
+  // }
 
 
   // end annotation stuff
@@ -177,9 +195,11 @@ export default function TrackInfo() {
           <div className='lyrics_body'>
             {/* Track Lyrics: */}
 
-            <div className='lyric-track' onMouseUp={annotateThis}>
+            {/* <div className='lyric-track' onMouseUp={annotateThis}> */}
+            <div className='lyric-track'>
 
-            <DisplayLyrics track={track} setAnnotating={setAnnotating} setIndex={setIndex}/>
+            {/* <DisplayLyrics track={track} setAnnotating={setAnnotating} setIndex={setIndex}/> */}
+            <DisplayLyrics track={track} setDocu={setDocu}/>
               {/* {track.lyrics?.split('\n').map(chunk => <div key={chunk}>{chunk}</div>)} */}
               {/* {track.lyrics} */}
               {/* {track.lyrics?.split("\n")} */}
@@ -193,7 +213,9 @@ export default function TrackInfo() {
           </div>
           <div className='lyric-annotate'>
             {/* {annotating && <AnnotationForm indexes={[startIndex, endIndex]} />} */}
-            {annotating && <AnnotationForm startIndex={startIndex} endIndex={endIndex} setAnnotating={setAnnotating} />}
+            {/* {annotating && <AnnotationForm startIndex={startIndex} endIndex={endIndex} setAnnotating={setAnnotating} />} */}
+            {/* {annotating && <AnnotationForm setAnnotating={setAnnotating} />} */}
+            {annotated && <AnnotationForm setDocu={setDocu} docu={docu} setAnnotated={setAnnotated} />}
           </div>
           {/* {annotating && <AnnotationForm /> } */}
 

@@ -6,7 +6,7 @@ import LoginForm from "../auth/LoginForm";
 import "./AnnotationForm.css";
 
 
-const AnnotationForm = ({startIndex, endIndex, setAnnotating}) => {
+const AnnotationForm = ({setDocu, docu, setAnnotated}) => {
   const dispatch = useDispatch();
   const [annotation, setAnnotation] = useState('')
   const [validationErrors, setValidationErrors] = useState([])
@@ -33,7 +33,14 @@ const AnnotationForm = ({startIndex, endIndex, setAnnotating}) => {
   const closeSubmit = (e) => {
     e.preventDefault();
     setShowMenu(false);
-    setAnnotating(false)
+    setAnnotated(false)
+
+    if(docu.length) {
+      for (let doc of docu)
+        doc.className = ''
+    }
+
+    // setAnnotating(false)
   };
 
   useEffect(() => {
@@ -50,8 +57,6 @@ const AnnotationForm = ({startIndex, endIndex, setAnnotating}) => {
     if (!validationErrors.length) {
       const payload = {
         annotation_body: annotation,
-        startIndex: startIndex,
-        endIndex: endIndex
       }
       setAnnotation("");
 
@@ -62,7 +67,7 @@ const AnnotationForm = ({startIndex, endIndex, setAnnotating}) => {
 
       if (newAnnotation) {
         setDisplayErrors(false)
-        setAnnotating(false)
+        // setAnnotating(false)
         // setShowMenu(false)
       }
     }
@@ -89,8 +94,8 @@ const AnnotationForm = ({startIndex, endIndex, setAnnotating}) => {
                   onChange={(e) => setAnnotation(e.target.value)}
                 />
 
-                <input hidden type='number' value={startIndex}></input>
-                <input hidden type='number' value={endIndex}></input>
+                {/* <input hidden type='number' value={startIndex}></input>
+                <input hidden type='number' value={endIndex}></input> */}
 
                 {/* {showErrors && showSubmit && (
               <ul className="annotation-form-errors">
