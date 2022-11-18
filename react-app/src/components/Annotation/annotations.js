@@ -33,10 +33,12 @@ const Annotations = () => {
 
   let annotationLinks;
   if (!annotations) {
-    return null
+    return (
+      <AnnotationForm />
+    )
   } else {
     const annotationsArr = Object.values(annotations);
-    console.log('ANNOTATIONSARR', annotationsArr)
+    // console.log('ANNOTATIONSARR', annotationsArr)
     return (
       <div>
         {annotationsArr.map((annotation) => (
