@@ -8,40 +8,20 @@ import './SignUpForm.css';
 import defaultPro from '../UserProfile/Profile-Images/defaultpro.png'
 
 const SignUpForm = () => {
-  const [errors, setErrors] = useState([]);
-  const [username, setUsername] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [profile_img, setProfileImg] = useState(defaultPro)
-  const [banner_img, setBannerImg] = useState(defaultPro)
-  const [repeatPassword, setRepeatPassword] = useState('');
-  const [showModal, setShowModal] = useState(false);
-  // const [showErrors, setShowErrors] = useState(false);
-
-  // const [showLoginModal, setShowLoginModal] = useState(false);
-
-
   const user = useSelector(state => state.session.user);
   const dispatch = useDispatch();
 
-  const onSignUp = async (e) => {
-    e.preventDefault();
-    // setShowErrors(true)
-    if (password === repeatPassword) {
-      const data = await dispatch(signUp(username, email, password));
-      if (data) {
-        setErrors(data.error)
-      }
-    }
-  };
+  const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  // const [profile_img, setProfileImg] = useState(defaultPro)
+  // const [banner_img, setBannerImg] = useState(defaultPro)
+  const [repeatPassword, setRepeatPassword] = useState('');
+  const [showModal, setShowModal] = useState(false);
+  const [errors, setErrors] = useState([]);
+  const [showErrors, setShowErrors] = useState(false);
 
-  const onCloseModal = () => {
-    setUsername("")
-    setEmail("")
-    setPassword("")
-    setRepeatPassword("")
-    setShowModal(false);
-  }
+  // const [showLoginModal, setShowLoginModal] = useState(false);
 
   const updateUsername = (e) => {
     setUsername(e.target.value);
@@ -59,11 +39,6 @@ const SignUpForm = () => {
     setRepeatPassword(e.target.value);
   };
 
-  //closes signup and opens login
-//   const OpenLogCloseSign=()=>{
-//     setShowModal(false)
-//     setShowLoginModal(true);
-// }
   // function isValidEmail(email) {
   //   return /\S+@\S+\.\S+/.test(email);
   // }
@@ -72,13 +47,47 @@ const SignUpForm = () => {
     const err = [];
     if(!username) err.push('Please provide a username');
     if(username.length > 15) err.push('Username must be less than 15 characters');
-    if(username.length<3) err.push('Username must be at least 3 characters');
+    if(username.length < 3) err.push('Username must be at least 3 characters');
     if(!email) err.push('Please provide an email');
-    if(!email.toLowerCase().match(/^(([^<>()[]\.,;:\s@"]+(.[^<>()[]\.,;:\s@"]+)*)|(".+"))@(([[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}])|(([a-zA-Z-0-9]+.)+[a-zA-Z]{2,}))$/)) err.push('Please provide a valid email');
+    if(!email.toLowerCase().match(/^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,63})$/)) err.push('Please provide a valid email');
     if (password !== repeatPassword)err.push('Passwords must match')
     if (password.length < 6) err.push('Password must be at least 6 characters')
+    if (password.length > 20) err.push('Password length must not exceed 20 characters')
     setErrors(err)
   },[username,email,password,repeatPassword])
+
+  const onSignUp = async (e) => {
+    e.preventDefault();
+    setShowErrors(true)
+    if (!errors.length) {
+      const data = await dispatch(signUp(username, email, password));
+      if (data) {
+        // setErrors(data.error)
+        setShowErrors(false)
+        setShowModal(false)
+      }
+    }
+    return null
+  };
+
+  const onCloseModal = () => {
+    setUsername("")
+    setEmail("")
+    setPassword("")
+    setRepeatPassword("")
+    setShowModal(false);
+  }
+
+
+
+  //closes signup and opens login
+//   const OpenLogCloseSign=()=>{
+//     setShowModal(false)
+//     setShowLoginModal(true);
+// }
+
+
+
 
   if (user) {
     return <Redirect to='/' />;
@@ -91,14 +100,13 @@ const SignUpForm = () => {
         <Modal showModal={showModal} onClose={() => onCloseModal()}>
 
           <form onSubmit={onSignUp}>
-            {/* {showErrors &&( */}
+            {showErrors &&(
               <div className='error2'>
                 {errors?.map((error, ind) => (
                   <li className='error2msg'key={ind}>{error}</li>
                 ))}
               </div>
-            {/* )
-            } */}
+            )}
 
             <div className='sign-up-form-wrapper'>
               <div className='sign-up-form-child'>
