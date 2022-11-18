@@ -22,7 +22,7 @@ const AnnotationForm = ({startIndex, endIndex, setAnnotating}) => {
   // let endIndex = indexes[1]
   // console.log('adfasdfads', startIndex)
   // console.log('adfasdfads', endIndex)
-  console.log(setAnnotating)
+  // console.log(setAnnotating)
 
 
   const openMenu = () => {

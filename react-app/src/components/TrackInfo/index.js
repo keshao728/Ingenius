@@ -10,6 +10,7 @@ import './TrackInfo.css';
 import React from 'react';
 import { createAnnotation } from '../../store/annotations';
 import AnnotationForm from '../AnnotationForm/AnnotationForm';
+import DisplayLyrics from '../TrackLyrics';
 
 
 
@@ -22,6 +23,12 @@ export default function TrackInfo() {
   // console.log("awdeeeeeeeeeeeeeeeeeeeeeewwwwwadw", track)
   const history = useHistory()
   const [showFact, setShowFact] = useState(true);
+
+  useEffect(() => {
+    dispatch(getOneTrack(trackId))
+
+    return () => dispatch(actionResetTrack())
+  }, [dispatch, user, trackId])
 
 
   const openFact = () => {
@@ -48,7 +55,16 @@ export default function TrackInfo() {
 
   const [annotating, setAnnotating] = useState(false)
 
+  // const sortedAnnotations = Object.values(track?.Annotations).sort(
+  //   (a, b) => a.startIndex - b.startIndex
+  // );
+
+  // console.log('asdfasdfasdfasdfasdfas', sortedAnnotations)
+
+
   // console.log('annotating', annotating)
+
+
 
   useEffect(() => {
     if (startIndex !== endIndex && startIndex !== Infinity) {
@@ -108,11 +124,7 @@ export default function TrackInfo() {
   // end annotation stuff
 
 
-  useEffect(() => {
-    dispatch(getOneTrack(trackId))
 
-    return () => dispatch(actionResetTrack())
-  }, [dispatch, user, trackId])
 
 
 
@@ -166,6 +178,8 @@ export default function TrackInfo() {
             {/* Track Lyrics: */}
 
             <div className='lyric-track' onMouseUp={annotateThis}>
+
+            <DisplayLyrics track={track} setAnnotating={setAnnotating} setIndex={setIndex}/>
               {/* {track.lyrics?.split('\n').map(chunk => <div key={chunk}>{chunk}</div>)} */}
               {/* {track.lyrics} */}
               {/* {track.lyrics?.split("\n")} */}
@@ -174,7 +188,7 @@ export default function TrackInfo() {
 
               {/* {React.Children.toArray(Object.values(annotations))} */}
               {/* {Object.values(annotations)?.map(anno => anno.annotation_body)} */}
-              {track.lyrics?.split('\n').slice(1, 6)}
+              {/* {track.lyrics?.split('\n').slice(1, 6)} */}
             </div>
           </div>
           <div className='lyric-annotate'>
