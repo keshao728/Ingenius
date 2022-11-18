@@ -51,9 +51,28 @@ function User() {
           <div id='pp-left'>
             <div className='pp-div-align'></div>
             <div id='pp-main-username'>@{user.username}</div>
+            <div id='pp-pfp-edit-button-container' >
+              {showEdit ? <button id='pp-pfp-edit-button' onClick={() => setShowEdit(false)}>
+                <img id='pp-pfp-edit-button-pen-image' src={'https://www.pngrepo.com/png/105166/180/edit.png'} />
+                Edit
+              </button> : <ImageForm setShowEdit={setShowEdit} userInfo={user} />}
+            </div>
 
 
-           { showEdit ? <button onClick={() => setShowEdit(false)}>Edit</button> : <ImageForm setShowEdit={setShowEdit} userInfo={user} />}
+            <div className='top-div-outer'>
+              <div id='blank-white-top-div'></div>
+            </div>
+            <div className='top-div-outer'>
+              <div className='random-text'>Some more Random Text</div>
+              <div id='blank-white-mid-div'></div>
+            </div>
+            <div className='top-div-outer'>
+              <div className='random-text'>Some moremore Random Text</div>
+              <div id='blank-white-bot-div'></div>
+            </div>
+
+
+
 
           </div>
 
@@ -63,7 +82,7 @@ function User() {
           <div id='pp-right'>
             <div>
               <div className='user-contributions-title'> {user.username}'s Contributions</div>
-              <UserAnnotations/>
+              <UserAnnotations />
             </div>
           </div>
         </div>
