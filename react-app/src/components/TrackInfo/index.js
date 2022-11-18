@@ -34,12 +34,14 @@ export default function TrackInfo() {
 
   const [annotating, setAnnotating] = useState(false)
 
-  // useEffect(() => {
-  //   if (startIndex !== endIndex) {
-  //     setAnnotating(true)
-  //   }
-  //   else setAnnotating(false)
-  // }, [startIndex, endIndex])
+  console.log('assdfasdfsdfsdfas', annotating)
+
+  useEffect(() => {
+    if (startIndex !== endIndex) {
+      setAnnotating(true)
+    }
+    else setAnnotating(false)
+  }, [startIndex, endIndex])
 
   useEffect(() => {
     setStartIndex(Math.min(...index))
@@ -160,7 +162,7 @@ export default function TrackInfo() {
             </div>
           </div>
           <div className='lyric-annotate'>
-            <AnnotationForm indexes={[startIndex, endIndex]} />
+            {annotating && <AnnotationForm  indexes={[startIndex, endIndex]} setAnnotating={['annotating', 'asds']} />}
           </div>
           {/* {annotating && <AnnotationForm /> } */}
 
