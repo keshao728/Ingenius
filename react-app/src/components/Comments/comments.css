@@ -105,9 +105,10 @@
   border-bottom: none
 }
 
-.comment-form{
+.comment-form {
   margin-bottom: 10px;
 }
+
 .comment-form-errors {
   position: relative;
   top: -40px;
@@ -149,7 +150,7 @@
   height: 40px;
 }
 
-.commenter-img{
+.commenter-img {
   border-radius: 30px;
   color: #717171;
   width: 40px;
@@ -164,24 +165,86 @@
   margin-top: 10px;
 }
 
-.comment-user{
+.comment-user {
   width: 400px;
   margin-left: 12px;
 }
 
 .comment-time-stamp {
-  width:160px;
+  width: 160px;
   margin-left: 140px;
   text-align: right;
-/* display: flex;
+  /* display: flex;
 align-content: flex-end; */
 }
 
-.comment-body{
-  padding:40px 0px
+.comment-body {
+  padding: 40px 0px
 }
 
-.commenter-img-input{
+.commenter-img-input {
   display: flex;
   flex-direction: row;
+}
+
+.comment-sign-in {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px !important;
+  font-weight: bold;
+  margin-bottom: 40px;
+}
+
+.login-comment{
+  border-radius: 30px;
+  border: 1px solid black;
+  padding: 5px 8px;
+  margin-right: 8px;
+  cursor: pointer;
+  transition: .5s;
+}
+
+.login-comment:hover {
+  background-color: rgb(232, 232, 232);
+  cursor: pointer;
+}
+
+.knowledge-wrapper{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 50px;
+}
+
+.knowledge-title{
+  font-size: 35px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.knowledge-des{
+  display: flex;
+  text-align: center;
+  align-content: center;
+  justify-content: center;
+  width: 700px;
+  line-height: 30px;
+}
+
+.signup-knowledge{
+  border: 1px solid black;
+  border-radius: 30px;
+  padding: 5px 8px;
+  margin-right: 8px;
+  margin-top: 20px;
+  cursor: pointer;
+  transition: .5s;
+}
+
+.signup-knowledge:hover{
+  background-color: rgb(232, 232, 232);
+  cursor: pointer;
 }

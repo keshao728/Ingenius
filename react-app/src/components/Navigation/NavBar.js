@@ -83,10 +83,10 @@ const NavBar = () => {
         {!sessionUser && (
           <div className='right-nav'>
             <div>
-              <SignUpForm />
+              <SignUpForm className="login-signup" />
             </div>
             <div>
-              <LoginForm />
+              <LoginForm className="login-signup"/>
             </div>
           </div>
         )}
