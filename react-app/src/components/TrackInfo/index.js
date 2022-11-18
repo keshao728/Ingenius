@@ -260,7 +260,7 @@ export default function TrackInfo() {
               </div>
             </div>
           </div>
-          <ReactPlayer className="mv" width="750px" height="430px" url={track.track_url} />
+          <ReactPlayer className="mv" width="750px" height="450px" url={track.track_url} />
           {/* <iframe
                         width="560"
                         height="315"

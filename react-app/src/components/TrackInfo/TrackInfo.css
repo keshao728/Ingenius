@@ -148,7 +148,7 @@
 .about-artist {
     display: flex;
     flex-direction: row;
-    padding-top: 40px;
+    padding-top: 50px;
     margin-left: 70px;
     margin-bottom: 50px;
 }
@@ -167,14 +167,14 @@
 
 .mv {
     border-top: 1px solid black;
-    padding-top: 40px;
+    padding-top: 50px;
 }
 
 .credits-wrapper {
     display: flex;
     flex-direction: column;
     margin-top: 30px;
-    padding: 40px 25px;
+    padding: 50px 25px;
     border-top: 1px solid black;
 }
 
@@ -214,13 +214,15 @@
     flex-direction: row;
     align-items: center;
 }
-.about-artist-wrapper{
+
+.about-artist-wrapper {
     border-top: 1px solid black;
 
 }
+
 .fact-wrapper {
     border: 1px solid black;
- margin-bottom: 40px;
+    margin-bottom: 50px;
 }
 
 .fact-text {
