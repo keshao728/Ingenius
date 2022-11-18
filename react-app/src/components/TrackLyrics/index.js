@@ -10,7 +10,7 @@ export default function DisplayLyrics({ track, setAnnotating, setIndex }) {
 
     return (
         <>
-            Something
+            {/* Something */}
             {/* {sortedSort} */}
             {/* {track?.lyrics} */}
             {track.lyrics?.split('\n').map(chunk => <div key={chunk}>{chunk}</div>)}
