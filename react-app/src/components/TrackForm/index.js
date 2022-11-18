@@ -241,7 +241,7 @@ export default function CreateTrack() {
                   <div className='add-song-input-box'>
                     <label>YOUTUBE URL</label>
                     <input
-                      type="url"
+                      type="text"
                       value={trackUrl}
                       className='add-song-input'
                       placeholder="Track Url"
