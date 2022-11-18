@@ -58,6 +58,10 @@ const EditAnnotation = ({ setShowEdit, annotate }) => {
 
   };
 
+  // document.getElementById("pp-annotation-edit").addEventListener("click", () => {
+  //   document.getElementById("anno-edit-text-area").focus();
+  // });
+
   return (
     <div className='anno-edit-container'>
       <form onSubmit={handleSubmit}>

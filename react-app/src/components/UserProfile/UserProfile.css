@@ -110,7 +110,10 @@
 
 }
 
-
+.unreviewed{
+  margin-top: 23px;
+  width: 100%;
+}
 
 .user-contributions-title {
   text-transform: uppercase;
@@ -135,3 +138,5 @@
   display: flex;
   justify-content: center;
 }
+
+
