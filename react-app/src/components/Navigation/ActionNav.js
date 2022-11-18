@@ -50,17 +50,18 @@ const ActionNav = (props) => {
         </NavLink>
       </div>
     )
-  } else {
-    // ADD LINK TO PROMOTE MUSIC PAGE
-    sessionLinks = (
-      <div className='main-nav-list'>
-        {/* FORCE USER TO SIGN IN */}
-        <div className='main-nav-list-4' id='action-nav-links'>
-          PROMOTE YOUR MUSIC
-        </div>
-      </div>
-    )
   }
+  // else {
+  //   // ADD LINK TO PROMOTE MUSIC PAGE
+  //   sessionLinks = (
+  //     <div className='main-nav-list'>
+  //       {/* FORCE USER TO SIGN IN */}
+  //       <div className='main-nav-list-4' id='action-nav-links'>
+  //         PROMOTE YOUR MUSIC
+  //       </div>
+  //     </div>
+  //   )
+  // }
 
   return (
     <div className="main-nav">
