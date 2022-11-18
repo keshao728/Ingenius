@@ -68,7 +68,7 @@ function User() {
 
               <div className='top-div-outer'>
                 <div id='white-top-div'>
-                  {user.username} is keeping quiet for now. . .
+                  {user.username} is keeping quiet for now . . .
                 </div>
               </div>
               <div className='top-div-outer'>
