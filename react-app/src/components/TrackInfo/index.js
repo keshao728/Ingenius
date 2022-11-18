@@ -34,12 +34,12 @@ export default function TrackInfo() {
 
     const [annotating, setAnnotating] = useState(false)
 
-    useEffect(() => {
-        if (startIndex !== endIndex) {
-            setAnnotating(true)
-        }
-        else setAnnotating(false)
-    },[startIndex, endIndex])
+    // useEffect(() => {
+    //     if (startIndex && endIndex) {
+    //         setAnnotating(true)
+    //     }
+    //     else setAnnotating(false)
+    // }, [startIndex, endIndex])
 
     useEffect(() => {
         setStartIndex(Math.min(...index))
@@ -146,10 +146,10 @@ export default function TrackInfo() {
 
                         {/* {React.Children.toArray(Object.values(annotations))} */}
                         {/* {Object.values(annotations)?.map(anno => anno.annotation_body)} */}
-                        {track.lyrics?.split('\n').slice(1,6)}
+                        {track.lyrics?.split('\n').slice(1, 6)}
                     </div>
-                <AnnotationForm />
-                        {/* {annotating && <AnnotationForm /> } */}
+                    {/* {<AnnotationForm />} */}
+                    {annotating && <AnnotationForm /> }
 
                 </div>
 

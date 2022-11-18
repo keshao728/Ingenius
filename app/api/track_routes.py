@@ -148,8 +148,8 @@ def annotation_post(id):
             user_id = current_user.id,
             track_id = id,
             annotation_body=form.annotation_body.data,
-            startIndex=form.startIndex,
-            endIndex=form.endIndex,
+            startIndex=startIndex,
+            endIndex=endIndex,
         )
         db.session.add(annotation)
         db.session.commit()
