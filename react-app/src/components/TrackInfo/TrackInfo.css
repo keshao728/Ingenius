@@ -1,4 +1,4 @@
-.track_art{
+.track_art {
     display: flex;
     flex-direction: column;
     position: absolute;
@@ -7,82 +7,89 @@
     top: 15%;
     object-fit: contain;
     border: 1px solid black;
-    height:310px;
+    height: 310px;
     width: 310px;
     object-fit: contain
 }
 
-.track_title_artist{
+.track_title_artist {
     display: flex;
     flex-direction: column;
     position: absolute;
     /* z-index: 2; */
-    left:38%;
+    left: 38%;
     top: 15%;
-    color:white;
+    color: white;
 }
 
-.track_title{
+.track_title {
     font-size: 32px;
 }
 
-.track_artist{
+.track_artist {
     font-size: 16px;
 }
 
-.track_producer{
+.track_producer {
     display: flex;
     flex-direction: column;
     position: absolute;
     /* z-index: 2; */
-    top:15%;
+    top: 15%;
     left: 58%;
-    color:white;
+    color: white;
     font-size: 12px;
 }
 
-.track_producer_name{
+.track_producer_name {
     font-size: 16px;
-    color:white;
+    color: white;
     width: 200px;
 }
 
-.track_release{
+.track_release {
     display: flex;
     flex-direction: column;
     position: absolute;
     /* z-index: 2; */
-    top:15%;
+    top: 15%;
     left: 70%;
-    color:white;
+    color: white;
     font-size: 12px;
 }
 
-.track_release_date{
+.track_release_date {
     font-size: 16px;
-    color:white;
+    color: white;
 }
-.track-info-container{
-    height:280px;
+
+.track-info-container {
+    height: 280px;
     background: #B395A9;
 }
 
-.body_page{
-    margin-top: 10px;
+.body_page {
+    padding: 20px 20%
+    /* margin-top: 10px;
     margin-left: 20%;
     margin-right: 20%;
-    margin-bottom: 30px;
+    margin-bottom: 30px; */
 }
 
-.lyrics_body{
-    margin-right: 50%;
-    padding-top:5px;
-    padding-bottom:5px;
+.lyrics_body {
+    margin-right: 100px;
+    padding:5px 0px;
     font-size: 20px;
     margin-bottom: 50px;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
 }
+/* .lyric-track{ */
+    /* width: 400px; */
+/* } */
 
-.buttons{
+.buttons {
     display: flex;
     flex-direction: row;
     /* justify-content: space-between; */
@@ -101,7 +108,17 @@
     padding-top:55px;
   }
 
-  .track-video{
+.track-video {
     padding: 10% 20%;
     background-color: #B395A9;
-  }
+}
+
+.lyric-wrapper {
+    display: flex;
+    flex-direction: row;
+    /* width: 100%; */
+}
+
+.lyric-annotate{
+    width: 50%;
+}
