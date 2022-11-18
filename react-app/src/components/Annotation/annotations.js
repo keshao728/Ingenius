@@ -17,11 +17,11 @@ const Annotations = () => {
         await dispatch(upvoteThunk(1)).catch(async (res) => {
             let data = await res.json();
             console.log('this is data',data)
-            if(data.errors)
-            return dispatch(unvoteThunk(1)).catch(async (res2) => {
-                let data2 = await res2.json();
-                console.log('this is data2',data2)
-                if(data2.errors) return;
+            if(data && data.errors)
+                return dispatch(unvoteThunk(1)).catch(async (res2) => {
+                    let data2 = await res2.json();
+                    console.log('this is data2',data2)
+                    if(data2 && data2.errors) return;
             });
         })
     }
@@ -31,7 +31,7 @@ const Annotations = () => {
         e.preventDefault();
        await dispatch(downvoteThunk(1)).catch(async (res) => {
             let data = await res.json();
-            if(data.errors) await dispatch(unvoteThunk(1)).catch(async (res2) => {
+            if(data && data.errors) await dispatch(unvoteThunk(1)).catch(async (res2) => {
                 let data2 = await res2.json();
                 if(data2.errors) return;
             });
