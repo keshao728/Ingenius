@@ -141,7 +141,7 @@ export default function TrackInfo() {
           Produced by:
         </div>
         <div className='track_producer_name'>
-          {track.produced_by}
+          {track.produced_by ? track.produced_by : 'Unknown'}
         </div>
       </div>
       <div className='track_release'>
