@@ -63,7 +63,7 @@ export default function TrackInfo() {
   }, [index])
 
 
-  const annotateThis = async (e) => {
+  const annotateThis = (e) => {
     // console.log(React.Children.toArray(track.lyrics?.split('\n').map(chunk => chunk)).join(''))
     e.preventDefault()
     // console.log(trackId)
@@ -178,7 +178,8 @@ export default function TrackInfo() {
             </div>
           </div>
           <div className='lyric-annotate'>
-            {annotating && <AnnotationForm indexes={[startIndex, endIndex]} setAnnotating={['annotating', 'asds']} />}
+            {/* {annotating && <AnnotationForm indexes={[startIndex, endIndex]} />} */}
+            {annotating && <AnnotationForm startIndex={startIndex} endIndex={endIndex} setAnnotating={setAnnotating} />}
           </div>
           {/* {annotating && <AnnotationForm /> } */}
 
@@ -211,7 +212,7 @@ export default function TrackInfo() {
           {showFact && (
             <div className='fact-wrapper'>
               <div className='fact-genius'>
-                Genius Answer
+                Ingenius Answer
               </div>
               <div className='fact-text'>
                 MEOWMEOWMEOWMEOW

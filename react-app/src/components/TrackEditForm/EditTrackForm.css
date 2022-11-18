@@ -99,5 +99,7 @@
 }
 
 #edit-track-error-message {
-
+  margin: 0;
+  color: red;
+  font-weight: bold
 }

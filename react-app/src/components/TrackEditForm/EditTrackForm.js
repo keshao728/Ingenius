@@ -30,6 +30,7 @@ export default function EditTrack({ setModalOpen }) {
   const [trackArt, setTrackArt] = useState(track.track_art)
   const [trackUrl, setTrackUrl] = useState(track.track_url)
   const [errors, setErrors] = useState([])
+  const [displayErrors, setDisplayErrors] = useState(false);
 
 
 
@@ -44,7 +45,6 @@ export default function EditTrack({ setModalOpen }) {
   // const [trackUrl, setTrackUrl] = useState("")
   // const [errors, setErrors] = useState([])
 
-  const [displayErrors, setDisplayErrors] = useState(false);
 
   // let validate = () => {
   //     let validationErrors = [];
@@ -235,7 +235,7 @@ export default function EditTrack({ setModalOpen }) {
                 value={trackUrl}
                 onChange={(e) => setTrackUrl(e.target.value)}
               />
-              <label className='edit-track-input-label'>Youtube Url (embeded link only)</label>
+              <label className='edit-track-input-label'>Youtube URL</label>
             </div>
 
             {/* <div>
@@ -246,7 +246,7 @@ export default function EditTrack({ setModalOpen }) {
 
             <div className="signUpErrors">
               <ul>
-                {errors && errors.map((error, idx) => <li key={idx}>{error}</li>)}
+                {errors && errors.map((error, idx) => <li id='edit-track-error-message' key={idx}>{error}</li>)}
               </ul>
             </div>
           </div>

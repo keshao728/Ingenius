@@ -60,7 +60,7 @@ const UserAnnotations = ({setUser}) => {
             </div>
             <div>
               <img className="unreviewed" src={unreviewed}></img>
-              <div className="unreviewed-hover"> Genius is a crowdsourced website — this annotation has not yet been edited, reviewed, or fact checked by the Genius Editorial Board. </div>
+              <div className="unreviewed-hover"> Ingenius is a crowdsourced website — this annotation has not yet been edited, reviewed, or fact checked by the Ingenius Editorial Board. </div>
             </div>
           </div>
           <div id='pp-annotation-inner-content'>

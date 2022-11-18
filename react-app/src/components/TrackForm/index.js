@@ -45,8 +45,8 @@ export default function CreateTrack() {
     if (releaseDate > date) validationErrors.push('Please provide a valid Release Date') // test later
 
     if (!trackUrl.match(/http(?:s?):\/\/(?:www\.)?youtu(?:be\.com\/watch\?v=|\.be\/)([\w\-\_]*)(&(amp;)?‌​[\w\?‌​=]*)?/)) validationErrors.push("Please enter a valid Youtube URL") // test later
-    
-    
+
+
 
 
     setErrors(validationErrors)
@@ -189,7 +189,7 @@ export default function CreateTrack() {
                     </li>
 
                     <li>
-                      Only add a song to Genius if it has been officially released. Fan-made mashups, songs that leak pre-release, and songs that violate our community policy are not allowed on Genius.
+                      Only add a song to Ingenius if it has been officially released. Fan-made mashups, songs that leak pre-release, and songs that violate our community policy are not allowed on Ingenius.
                     </li>
 
                   </ol>
