@@ -24,7 +24,11 @@ def user(id):
     Query for a user by id and returns that user in a dictionary
     """
     user = User.query.get(id)
-    return user.to_dict()
+    user_dct = user.to_dict()
+    user_dct['my_comment'] = [comment.to_dict() for comment in user.user_comment] if user.user_comment else []
+    user_dct['my_annotation'] = [annotation.to_dict() for annotation in user.user_annotation] if user.user_annotation else []
+    user_dct['my_upload'] = [track.to_dict() for track in user.user_track] if user.user_track else []
+    return user_dct
 
 @user_routes.route('/<int:id>/special')
 def user_special(id):
@@ -33,7 +37,7 @@ def user_special(id):
     """
     user = User.query.get(id)
     return user.to_dict()
-    
+
 # EDIT user photo
 @user_routes.route('/<int:id>/photos', methods=["PUT"])
 @login_required

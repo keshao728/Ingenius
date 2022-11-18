@@ -13,6 +13,8 @@ const SignUpForm = () => {
   const [password, setPassword] = useState('');
   const [repeatPassword, setRepeatPassword] = useState('');
   const [showModal, setShowModal] = useState(false);
+  const [showErrors, setShowErrors] = useState(false);
+
   // const [showLoginModal, setShowLoginModal] = useState(false);
 
 
@@ -21,7 +23,8 @@ const SignUpForm = () => {
 
   const onSignUp = async (e) => {
     e.preventDefault();
-    if (password === repeatPassword) {
+    setShowErrors(true)
+    if (!errors && (password === repeatPassword)) {
       const data = await dispatch(signUp(username, email, password));
       if (data) {
         setErrors(data)
@@ -85,11 +88,14 @@ const SignUpForm = () => {
         <Modal showModal={showModal} onClose={() => onCloseModal()}>
 
           <form onSubmit={onSignUp}>
-            <div>
-              {errors.map((error, ind) => (
-                <div key={ind}>{error}</div>
-              ))}
-            </div>
+            {showErrors &&(
+              <div className='error2'>
+                {errors.map((error, ind) => (
+                  <li className='error2msg'key={ind}>{error}</li>
+                ))}
+              </div>
+            )
+            }
 
             <div className='sign-up-form-wrapper'>
               <div className='sign-up-form-child'>
@@ -140,7 +146,7 @@ const SignUpForm = () => {
                   <label className='sign-up-input-label'>Repeat Password</label>
                 </div>
               </div>
-              <button className='submit-sign-up-button' disabled={!!errors.length}type='submit'>Sign Up</button>
+              <button className='submit-sign-up-button' type='submit'>Sign Up</button>
             </div>
           </form>
               {/* ADD THIS LATER

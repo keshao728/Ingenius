@@ -1,7 +1,13 @@
 .vote{
     width:12px;
     height:12px;
+    margin : 20px;
+}
 
+.votetotal{
+    font-size: 20px;
+    border-color: blue;
+    margin: 10px;
 }
 
 .vote:hover{

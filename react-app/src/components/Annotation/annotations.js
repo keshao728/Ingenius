@@ -5,6 +5,8 @@ import { NavLink, useParams } from 'react-router-dom'
 import { upvoteThunk,downvoteThunk,unvoteThunk } from '../../store/votes';
 import './vote.css'
 import AnnotationForm from '../AnnotationForm/AnnotationForm';
+// import { useEffect } from 'react';
+import { votecount } from '../../store/votes';
 
 const Annotations = () => {
   const dispatch = useDispatch();
@@ -32,6 +34,18 @@ const Annotations = () => {
       })
   }
 
+  const votetotal = (id) => {
+   dispatch(votecount(id))
+    .catch(async (res) => {
+      if(res.ok){
+      let data = await res.json();
+      // console.log('this is data for vote total',data)
+      // console.log(res)
+      return res
+    }
+      })
+  }
+
   let annotationLinks;
   if (!annotations) {
     return (
@@ -39,7 +53,7 @@ const Annotations = () => {
     )
   } else {
     const annotationsArr = Object.values(annotations);
-    // console.log('ANNOTATIONSARR', annotationsArr)
+    console.log('ANNOTATIONSARR', annotationsArr)
     return (
       <div>
         {/* {annotationsArr.map((annotation) => (
@@ -53,7 +67,7 @@ const Annotations = () => {
                                 <div className='vote' type='button' onClick={upvote}>
                                     <i class="fa-regular fa-thumbs-up"></i>
                                 </div>
-                                <div>{annotation.vote_count}</div>
+                                <div className='votetotal'>{votetotal(annotation.id)}</div>
                                 <div className='vote' type='button' onClick={downvote}>
                                     <i class="fa-regular fa-thumbs-down"></i>
                                 </div>

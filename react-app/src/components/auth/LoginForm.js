@@ -10,12 +10,14 @@ const LoginForm = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [showModal, setShowModal] = useState(false);
+  const [showErrors, setShowErrors] = useState(false);
 
   const user = useSelector(state => state.session.user);
   const dispatch = useDispatch();
 
   const onLogin = async (e) => {
     e.preventDefault();
+    setShowErrors(true)
     const data = await dispatch(login(email, password));
     if (data) {
       setErrors(data);
@@ -47,11 +49,13 @@ const LoginForm = () => {
       {showModal && (
         <Modal onClose={() => onCloseModal()}>
           <form onSubmit={onLogin}>
-            <div>
+            {showErrors &&(
+            <div className='errorsmsgs'>
               {errors.map((error, ind) => (
-                <div key={ind}>{error}</div>
+                <div className='errors' key={ind}>{error}</div>
               ))}
             </div>
+            )}
             <div className='login-form-wrapper'>
               <div className='login-form-child'>
 
@@ -66,6 +70,7 @@ const LoginForm = () => {
                   />
                   <label htmlFor='email'>Email</label>
                 </div>
+                <div>{errors.email}</div>
                 <div className='login-input-box'>
                   <input
                     name='password'
@@ -82,7 +87,7 @@ const LoginForm = () => {
               </div>
               <div className="demo-user">
                 <div className='login-or'>
-                  or
+
                 </div>
                 <button className='demo-login-button'
                   type="submit"
