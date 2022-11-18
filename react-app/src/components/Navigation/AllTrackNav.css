@@ -39,7 +39,7 @@
     justify-content: flex-end;
   }
 
-.main-nav-list-1-track, .main-nav-list-2-track  {
+.main-nav-list-1-track, .main-nav-list-2-track ,.main-nav-list-3-track {
     color: black;
     font-size: 11px;
     font-weight: bold;
@@ -60,6 +60,16 @@
     cursor: pointer;
     color:white;
     font-size:15px;
+}
+
+.main-nav-list-3-track:hover{
+    cursor: pointer;
+    /* color:#FFFF64; */
+    transition: .4s;
+    border-bottom: 1px solid black;
+    width:68px;
+    font-size: 14px;
+    
 }
 
 .user-dropdown-menu2{

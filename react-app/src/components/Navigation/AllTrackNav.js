@@ -133,7 +133,8 @@ const AllTrackNav = () => {
         sessionLinks2 = (
         <div className='main-nav-list'>
             {/* FORCE USER TO SIGN IN */}
-            <div className='main-nav-list-4' id='action-nav-links'>
+            <div className='main-nav-list-3-track'
+            style={{ textDecoration: 'none' }}>
             <SignUpForm />
             </div>
         </div>

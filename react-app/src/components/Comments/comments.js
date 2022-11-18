@@ -208,7 +208,7 @@ const AllComments = () => {
       </div>
       <div className="footer">
         <div className="footer-message">
-          Genius is the world’s biggest collection of song lyrics and musical knowledge
+        Ingenius is the world’s smallest collection of song lyrics and musical knowledge
         </div>
       </div>
     </>
