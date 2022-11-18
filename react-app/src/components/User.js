@@ -10,7 +10,7 @@ function User() {
   const [user, setUser] = useState({});
   const [showEdit, setShowEdit] = useState(true)
   const [isLoaded, setIsLoaded] = useState(false)
-  const sessionUser = useSelector(state => state.session.user)
+  // const sessionUser = useSelector(state => state.session.user)
 
   // const other = useSelector(state => state.session.annotations)
   // const otherUser = other
@@ -61,8 +61,8 @@ function User() {
               <div className='pp-div-align'></div>
               <div id='pp-main-username'>@{user.username}</div>
 
-
-              <div>{sessionUser?.id === userId ?
+{/* fix here. access sessionUser Id here somehow */}
+              <div>{user.id === userId ?
                 <div id='pp-pfp-edit-button-container'>{showEdit ? <button id='pp-pfp-edit-button' onClick={() => setShowEdit(false)}>
                     <img id='pp-pfp-edit-button-pen-image' src={'https://www.pngrepo.com/png/105166/180/edit.png'} />
                     Edit
@@ -70,8 +70,10 @@ function User() {
                 </div>
                 :<div></div>}
 
-<div>{user.id}</div>
+{/* <div>{user.id}</div>
 <div>{userId}</div>
+<div>{sessionUser}</div> */}
+
 
               </div>
 

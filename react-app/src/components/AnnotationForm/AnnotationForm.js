@@ -20,8 +20,9 @@ const AnnotationForm = ({startIndex, endIndex, setAnnotating}) => {
   const track = useSelector(state => state.tracks.oneTrack)
   // let startIndex = indexes[0]
   // let endIndex = indexes[1]
-  console.log('adfasdfads', startIndex)
-  console.log('adfasdfads', endIndex)
+  // console.log('adfasdfads', startIndex)
+  // console.log('adfasdfads', endIndex)
+  // console.log(setAnnotating)
 
 
   const openMenu = () => {
@@ -32,7 +33,7 @@ const AnnotationForm = ({startIndex, endIndex, setAnnotating}) => {
   const closeSubmit = (e) => {
     e.preventDefault();
     setShowMenu(false);
-    // setAnnotating(false)
+    setAnnotating(false)
   };
 
   useEffect(() => {
@@ -61,7 +62,7 @@ const AnnotationForm = ({startIndex, endIndex, setAnnotating}) => {
 
       if (newAnnotation) {
         setDisplayErrors(false)
-        // setAnnotating(false)
+        setAnnotating(false)
         // setShowMenu(false)
       }
     }
