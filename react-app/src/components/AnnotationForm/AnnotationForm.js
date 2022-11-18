@@ -113,12 +113,12 @@ const AnnotationForm = ({startIndex, endIndex, setAnnotating}) => {
     )
   } else {
     sessionLinks = (
-      <div>
-        <div>
-          Sign In to Annotate!
+      <div className="anno-sign-in">
+        <div className="login-anno">
+          <LoginForm />
         </div>
         <div>
-          <LoginForm />
+          to Annotate!
         </div>
       </div>
     )

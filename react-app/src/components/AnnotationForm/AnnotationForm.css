@@ -63,6 +63,25 @@
   text-decoration-line: none;
 }
 
+.anno-sign-in {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px !important;
+  font-weight: bold;
+  margin-bottom: 40px;
+}
+
+.login-anno{
+  border-radius: 30px;
+  border: 1px solid black;
+  padding: 5px 8px;
+  margin-right: 8px;
+  cursor: pointer;
+  transition: .5s;
+}
+
 .button-create-annotation {
   /* visibility: hidden; */
   border: 1px solid black;
