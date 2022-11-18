@@ -65,7 +65,7 @@ const ImageForm = ({ setShowEdit, userInfo }) => {
   }
   const handleCancelClick = (e) => {
     e.preventDefault();
-    setShowEdit(false)
+    setShowEdit(true)
   };
 
   return (

@@ -8,7 +8,7 @@ import './UserProfile/UserProfile.css'
 
 function User() {
   const [user, setUser] = useState({});
-  const [showEdit, setShowEdit] = useState(false)
+  const [showEdit, setShowEdit] = useState(true)
   // const other = useSelector(state => state.session.annotations)
   // const otherUser = other
   // console.log('OTHER', otherUser)
@@ -47,12 +47,19 @@ function User() {
           <div id='pp-top-right'></div>
         </div>
         <div id='pp-content'>
+
           <div id='pp-left'>
             <div className='pp-div-align'></div>
             <div id='pp-main-username'>@{user.username}</div>
-            <button></button>
-            <ImageForm userInfo={user} />
+
+
+           { showEdit ? <button onClick={() => setShowEdit(false)}>Edit</button> : <ImageForm setShowEdit={setShowEdit} userInfo={user} />}
+
           </div>
+
+
+
+
           <div id='pp-right'>
             <div>
               <div className='user-contributions-title'> {user.username}'s Contributions</div>
