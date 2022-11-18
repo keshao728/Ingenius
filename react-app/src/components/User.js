@@ -5,19 +5,23 @@ import UserAnnotations from './UserProfile';
 import ImageForm from './UserProfile/PfpBannerForm';
 // import EditAnnotation from './AnnotationEditForm/EditAnnotationForm';
 import './UserProfile/UserProfile.css'
+import defaultPro from './UserProfile/Profile-Images/defaultpro.png'
+// import editPen from './UserProfile/Profile-Images/editPen.png'
 
 function User() {
   const [user, setUser] = useState({});
   const [showEdit, setShowEdit] = useState(true)
   const [isLoaded, setIsLoaded] = useState(false)
-  // const sessionUser = useSelector(state => state.session.user)
+  const sessionUser = useSelector(state => state.session.user)
 
   // const other = useSelector(state => state.session.annotations)
   // const otherUser = other
   // console.log('OTHER', otherUser)
 
   const { userId } = useParams();
+  console.log('USERID', typeof(userId))
   console.log('iamuser', user)
+  console.log('sessionUSER', sessionUser)
 
   useEffect(() => {
     if (!userId) {
@@ -38,7 +42,6 @@ function User() {
 
   return (
     <div>
-
       <div id='pp-outer'>
         <div id='pp-cover'>
           <img id='pp-banner-photo' src={user.banner_img} />
@@ -50,7 +53,7 @@ function User() {
 
             <div id='pp-top-left'>
               <div id='pp-profile-photo-container'>
-                <img id='pp-profile-photo' src={user.profile_img} />
+                <img onError={(e)=> e.target.src=defaultPro} id='pp-profile-photo' src={user.profile_img ? user.profile_img : defaultPro} />
               </div>
             </div>
             <div id='pp-top-right'></div>
@@ -62,17 +65,17 @@ function User() {
               <div id='pp-main-username'>@{user.username}</div>
 
 {/* fix here. access sessionUser Id here somehow */}
-              <div>{user.id === userId ?
+              <div>{sessionUser?.id === Number(userId) ?
                 <div id='pp-pfp-edit-button-container'>{showEdit ? <button id='pp-pfp-edit-button' onClick={() => setShowEdit(false)}>
-                    <img id='pp-pfp-edit-button-pen-image' src={'https://www.pngrepo.com/png/105166/180/edit.png'} />
+                    <img onError={(e)=> e.target.src=defaultPro} id='pp-pfp-edit-button-pen-image' src={'https://www.pngrepo.com/png/105166/180/edit.png'} />
                     Edit
                   </button> : <ImageForm setShowEdit={setShowEdit} userInfo={user} />}
-                </div> 
+                </div>
                 :<div></div>}
-              
-{/* <div>{user.id}</div>
-<div>{userId}</div>
-<div>{sessionUser}</div> */}
+
+{/* {<div>{user.id}</div>}
+{<div>{userId}</div>} */}
+{/* {<div>{sessionUser}</div>} */}
 
 
               </div>

@@ -6,6 +6,7 @@ import { getUserInfo, deleteAnnotation, editAnnotation } from '../../store/sessi
 import React from 'react';
 import './UserIndex.css'
 import unreviewed from './Profile-Images/unreviewed.png';
+import defaultPro from './Profile-Images/defaultpro.png'
 
 import EditAnnotation from '../AnnotationEditForm/EditAnnotationForm';
 import * as moment from 'moment';
@@ -41,6 +42,7 @@ const UserAnnotations = ({setUser}) => {
   //   document.getElementById("anno-edit-text-area").focus();
   // });
 
+
   if (!annotationArr) return null
   else return isLoaded &&
     annotationArr.map(annotation => (
@@ -48,7 +50,7 @@ const UserAnnotations = ({setUser}) => {
         <div id='pp-annotation-created-at'> {annotation.created_at}</div>
         <div id='pp-annotation-inner-container'>
           <div id='pp-song-info'>
-            <img id='pp-album-photo' src={annotation.track?.track_art} />
+            <img id='pp-album-photo' onError={(e)=> e.target.src=defaultPro} src={annotation.track?.track_art} />
             <div id='pp-title-artist'>
               <div id='pp-annotation-song-title'> {annotation.track?.track_title}</div>
               <div id='pp-annotation-song-artist'>{annotation.track?.artist}</div>
@@ -66,7 +68,7 @@ const UserAnnotations = ({setUser}) => {
           <div id='pp-annotation-inner-content'>
             <div id='pp-annotation-username-icon-moment-container'>
               <div id='pp-annotation-username-icon-container'>
-                <img id='pp-annotation-username-icon' src={annotation.user?.profile_img} />
+                <img onError={(e)=> e.target.src=defaultPro} id='pp-annotation-username-icon' src={annotation.user?.profile_img ? annotation.user?.profile_img : defaultPro} />
                 <div id='pp-annotation-username'>{annotation.user?.username}</div>
               </div>
               <div id='pp-annotation-created-at-moment'>{moment(annotation?.created_at).fromNow()}</div>

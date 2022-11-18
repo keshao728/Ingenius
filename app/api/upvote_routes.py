@@ -6,10 +6,27 @@ upvote_routes = Blueprint('upvotes',__name__)
 @upvote_routes.route('/<int:id>/total')
 def votecount(id):
     votes = Vote.query.filter(Vote.annotation_id == id).all()
+    print('''this
+          is
+          a
+          vote
+          query
+          '''
+          ,votes)
     count = 0
+    array = []
+
     for votevalue in votes:
         count += votevalue.vote
-    return {"count": count}
+        print('this is the count',count)
+        # votevalue['count'] = count
+        votevalue = votevalue.to_dict()
+        votevalue['count'] = count
+        print('helloooooooo',votevalue)
+        array.append(votevalue)
+        print('array testing testing',array)
+    print('this is final votes', array)
+    return {'votes':array,'votetotalvalue':count}
 
 @upvote_routes.route('/<int:id>/upvote',methods=['POST'])
 @login_required

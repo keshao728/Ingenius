@@ -7,7 +7,7 @@
   padding: 0% 10%;
   margin-top: 50px;
   justify-items: center;
-  width: 1100px;
+  width: 60%;
   margin-left: 10%;
 }
 
@@ -75,7 +75,8 @@
 .individual-comment-display {
   display: flex;
   flex-direction: column;
-  width: 100%;
+  width: 759px;
+  overflow-wrap: break-word;
 }
 
 .delete-comment-button {
@@ -99,6 +100,7 @@
 
 .comment-display {
   border-bottom: 1px solid black;
+  width:100%;
 }
 
 .comment-display:last-child {
