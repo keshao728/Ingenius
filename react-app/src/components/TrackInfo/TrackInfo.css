@@ -131,7 +131,7 @@
     color: black;
     font-weight: bold;
     font-size: 70px;
-    margin-bottom: 30px;
+    margin-bottom: 50px;
     display: flex;
     width: 750px;
     justify-content: center;
@@ -141,17 +141,21 @@
     width: 230px;
 }
 
+.about-track-des{
+    font-size: 13px;
+}
+
 .about-artist {
     display: flex;
     flex-direction: row;
     margin-left: 70px;
-    margin-bottom: 30px;
+    margin-bottom: 50px;
 }
 
 .album-details{
     display: flex;
     flex-direction: column;
-    margin-left: 30px;
+    margin-left: 40px;
     justify-content: center;
     text-align: start;
 }
@@ -161,5 +165,36 @@
 
 .mv{
     border-top: 1px solid black;
-    padding-top: 30px;
+    padding-top: 40px;
 }
+
+.credits-wrapper{
+    display: flex;
+    flex-direction: column;
+    margin-top: 30px;
+    padding: 40px 25px;
+    border-top: 1px solid black;
+}
+
+.credits-text{
+    font-weight: bold;
+    font-size: 35px;
+    margin-bottom: 10px;
+}
+
+.credits-people{
+    display: flex;
+    flex-direction: row;
+    /* justify-content: space-between; */
+    margin-bottom: 12px;
+    padding: 20px 0px;
+}
+
+.about-credit{
+    font-size: 11px;
+}
+
+.about-credit-name{
+    width: 50%;
+}
+

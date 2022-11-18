@@ -19,6 +19,7 @@ export default function TrackInfo() {
   const dispatch = useDispatch()
   const track = useSelector(state => state.tracks.oneTrack)
   const user = useSelector(state => state.session.user)
+  // console.log("awdeeeeeeeeeeeeeeeeeeeeeewwwwwadw", track)
   const history = useHistory()
 
   // const annotations = useSelector(state => state.tracks.oneTrack.Annotations)
@@ -187,13 +188,35 @@ export default function TrackInfo() {
                 {track.track_title}
               </div>
 
-              <div>
+              <div className='about-track-des'>
                 on {track.album} (album)
               </div>
 
             </div>
           </div>
-
+          <div className='credits-wrapper'>
+            <div className='credits-text'>
+              Credits
+            </div>
+            <div className='credits-people'>
+              <div className='about-credit-name'>
+                <div className='about-credit'>
+                  Produced by
+                </div>
+                <div>
+                  {track.produced_by}
+                </div>
+              </div>
+              <div className='about-credit-name'>
+              <div className='about-credit'>
+                  Uploaded by
+                </div>
+                <div>
+                  {track?.uploader?.username}
+                </div>
+              </div>
+            </div>
+          </div>
           <ReactPlayer className="mv" width="750px" height="430px" url={track.track_url} />
           {/* <iframe
                         width="560"
