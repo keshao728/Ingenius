@@ -62,7 +62,7 @@ const SignUpForm = () => {
 //     setShowLoginModal(true);
 // }
   function isValidEmail(email) {
-    return /\S+@\S+\.\S+/.test(email);
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
   }
 
   useEffect(async() => {
@@ -71,7 +71,7 @@ const SignUpForm = () => {
     if(username.length > 15) err.push('Username must be less than 15 characters');
     if(username.length<3) err.push('Username must be at least 3 characters');
     if(!email) err.push('Please provide an email');
-    if(isValidEmail(email)) err.push('Please provide a valid email');
+    if(!isValidEmail(email)) err.push('Please provide a valid email');
     if (password !== repeatPassword)err.push('Passwords must match')
     if ( password.length < 6) err.push('Password must be at least 6 characters')
     setErrors(err)
