@@ -482,7 +482,7 @@ const HomePage = () => {
 
           <div className="footer-links">
             <ul className="footer-links-ul">
-              <li><a href="https://genius.com/Genius-about-genius-annotated">About Genius</a></li>
+              <li><a href="https://genius.com/Genius-about-genius-annotated">About Ingenius</a></li>
               <li><a href="https://genius.com/developers">Genius API</a></li>
               <li><a href="https://www.youtube.com/watch?v=HmZm8vNHBSU">Stop Piracy</a></li>
               <li><a href="https://github.com/keshao728/Genius">Contact Us</a></li>

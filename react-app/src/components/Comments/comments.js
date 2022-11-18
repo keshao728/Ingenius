@@ -146,7 +146,7 @@ const AllComments = () => {
           Sign Up And Drop Knowledge 🤓
         </div>
         <div className="knowledge-des">
-          Genius is the ultimate source of music knowledge, created by scholars like you who share facts and insight about the songs and artists they love.
+          Ingenius is the ultimate source of music knowledge, created by scholars like you who share facts and insight about the songs and artists they love.
         </div>
         <div className="signup-knowledge">
           <SignUpForm />

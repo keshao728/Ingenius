@@ -211,7 +211,7 @@ export default function TrackInfo() {
           {showFact && (
             <div className='fact-wrapper'>
               <div className='fact-genius'>
-                Genius Answer
+                Ingenius Answer
               </div>
               <div className='fact-text'>
                 MEOWMEOWMEOWMEOW

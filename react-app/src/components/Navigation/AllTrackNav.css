@@ -50,8 +50,14 @@
     margin-left: 10px;
 }
 
+.main-nav-list-3-track:hover {
+    text-decoration: none !important;
+    cursor: pointer;
+}
+
 .main-nav-list-2-track :hover {
     cursor: pointer;
+    /* color:#FFFF64; */
 }
 
 .main-nav-list-2-track {
@@ -77,15 +83,6 @@
     font-size: 15px;
 }
 
-.main-nav-list-3-track:hover {
-    cursor: pointer;
-    /* color:#FFFF64; */
-    transition: .4s;
-    border-bottom: 1px solid black;
-    width: 68px;
-    font-size: 14px;
-
-}
 
 .user-dropdown-menu2 {
     display: flex;
