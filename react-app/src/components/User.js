@@ -12,14 +12,16 @@ function User() {
   const [user, setUser] = useState({});
   const [showEdit, setShowEdit] = useState(true)
   const [isLoaded, setIsLoaded] = useState(false)
-  // const sessionUser = useSelector(state => state.session.user)
+  const sessionUser = useSelector(state => state.session.user)
 
   // const other = useSelector(state => state.session.annotations)
   // const otherUser = other
   // console.log('OTHER', otherUser)
 
   const { userId } = useParams();
+  console.log('USERID', typeof(userId))
   console.log('iamuser', user)
+  console.log('sessionUSER', sessionUser)
 
   useEffect(() => {
     if (!userId) {
@@ -40,7 +42,6 @@ function User() {
 
   return (
     <div>
-
       <div id='pp-outer'>
         <div id='pp-cover'>
           <img id='pp-banner-photo' src={user.banner_img} />
@@ -64,7 +65,7 @@ function User() {
               <div id='pp-main-username'>@{user.username}</div>
 
 {/* fix here. access sessionUser Id here somehow */}
-              <div>{user.id === userId ?
+              <div>{sessionUser.id === Number(userId) ?
                 <div id='pp-pfp-edit-button-container'>{showEdit ? <button id='pp-pfp-edit-button' onClick={() => setShowEdit(false)}>
                     <img onError={(e)=> e.target.src=defaultPro} id='pp-pfp-edit-button-pen-image' src={'https://www.pngrepo.com/png/105166/180/edit.png'} />
                     Edit
@@ -72,9 +73,9 @@ function User() {
                 </div>
                 :<div></div>}
 
-{/* <div>{user.id}</div>
-<div>{userId}</div>
-<div>{sessionUser}</div> */}
+{/* {<div>{user.id}</div>}
+{<div>{userId}</div>} */}
+{/* {<div>{sessionUser}</div>} */}
 
 
               </div>
