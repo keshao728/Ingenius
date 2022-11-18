@@ -60,7 +60,6 @@ function User() {
               </button> : <ImageForm setShowEdit={setShowEdit} userInfo={user} />}
             </div>
 
-
             <div className='top-div-outer'>
               <div id='blank-white-top-div'></div>
             </div>
@@ -73,13 +72,7 @@ function User() {
               <div id='blank-white-bot-div'></div>
             </div>
 
-
-
-
           </div>
-
-
-
 
           <div id='pp-right'>
             <div>

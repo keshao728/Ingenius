@@ -69,7 +69,7 @@ const ImageForm = ({ setShowEdit, userInfo }) => {
   };
 
   return (
-    <div>
+    <div id='pfp-edit-container'>
       <form onSubmit={handleSubmit}>
         <input
           type='url'
