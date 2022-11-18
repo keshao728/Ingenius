@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux'
 import { createAnnotation } from '../../store/annotations';
 
 
-const AnnotationForm = () => {
+const AnnotationForm = (startIndex, endIndex) => {
   const dispatch = useDispatch();
   const [annotation, setAnnotation] = useState('')
   const [validationErrors, setValidationErrors] = useState([])
@@ -24,10 +24,15 @@ const AnnotationForm = () => {
 
     if (!validationErrors.length) {
       const payload = {
-        annotation_body: annotation
+        annotation_body: annotation,
+        startIndex,
+        endIndex
       }
 
-      let newAnnotation = await dispatch(createAnnotation(payload))
+      let newAnnotation = await dispatch(createAnnotation(payload)).catch(async (res) => {
+        const data = await res.json();
+        if (data && data.errors) setValidationErrors(data.errors)
+    })
 
       if (newAnnotation) {
         setDisplayErrors(false)
@@ -37,7 +42,7 @@ const AnnotationForm = () => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <textarea 
+      <textarea
       type='text'
       value={annotation}
       onChange={updateAnnotation}/>

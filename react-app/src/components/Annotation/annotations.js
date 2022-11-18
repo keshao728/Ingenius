@@ -17,7 +17,7 @@ const Annotations = () => {
         await dispatch(upvoteThunk(2))
         .catch(async (res) => {
             let data = await res.json();
-            return 
+            return
             });
     }
 
