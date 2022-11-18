@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { editAnnotation, editUserPhoto, getUserInfo } from '../../store/session';
-
+import './pfpBanner.css'
 const ImageForm = ({ setShowEdit, userInfo }) => {
   const dispatch = useDispatch()
 
@@ -70,20 +70,25 @@ const ImageForm = ({ setShowEdit, userInfo }) => {
 
   return (
     <div id='pfp-edit-container'>
-      <form onSubmit={handleSubmit}>
+      <form className="edit-profile-wrapper" onSubmit={handleSubmit}>
+        <div className='edit-profile-text'>
+          Edit Profile
+        </div>
         <input
+          className='edit-profile-input'
           type='url'
           placeholder='Profile Photo (URL)'
           value={image}
           onChange={uploadImage} />
         <input
+          className='edit-profile-input'
           type='url'
           placeholder='Banner Photo (URL)'
           value={banner}
           onChange={uploadBanner} />
         <div>
-          <button type='submit'>Save</button>
-          <button type="button" onClick={handleCancelClick}>Cancel</button>
+          <button className='save-edit-profile' type='submit'>Save</button>
+          <button className="cancel-edit-profile" type="button" onClick={handleCancelClick}>Cancel</button>
         </div>
         <div>
           <ul>
