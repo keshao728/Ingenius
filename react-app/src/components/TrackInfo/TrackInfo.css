@@ -6,7 +6,7 @@
     left: 18%;
     top: 15%;
     object-fit: contain;
-    border: 1px solid black;
+    border: 1px solid rgb(189, 189, 189);
     height: 310px;
     width: 310px;
     object-fit: contain
@@ -17,9 +17,9 @@
     flex-direction: column;
     position: absolute;
     /* z-index: 2; */
-    left: 38%;
+    left: 37%;
     top: 15%;
-    color: white;
+    color: black;
 }
 
 .track_title {

@@ -222,10 +222,6 @@
 
 }
 
-#pp-footer {
-  border: 5px solid orange;
-
-}
 
 .unreviewed {
   margin-top: 23px;
@@ -312,4 +308,51 @@
 
 .mid-count{
   font-size:20px
+}
+
+.pp-devs{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  background-color: black;
+}
+#pp-footer {
+  background-color: black;
+  height: auto;
+  border-top: 10px solid black;
+  color: #9A9A9A;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
+}
+
+.individual-devs{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 10px 20px;
+}
+
+.dev-link{
+  text-decoration:none;
+  color:#FFFF64;
+
+}
+
+.dev-link:hover{
+  color:#99A7EE;
+}
+
+.project-link{
+  text-decoration:none;
+  color:#99A7EE;
+  margin-top: 20px;
+  margin-bottom: 20px;
+
+
 }

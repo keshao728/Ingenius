@@ -32,101 +32,131 @@ function User() {
   }
 
   return (
-    <div id='pp-outer'>
-      <div id='pp-cover'>
-        <img id='pp-banner-photo' src={user.banner_img} />
-      </div>
+    <div>
 
-
-      <div id='pp-top-content-footer-container'>
-        <div id='pp-top'>
-
-          <div id='pp-top-left'>
-            <div id='pp-profile-photo-container'>
-              <img id='pp-profile-photo' src={user.profile_img} />
-            </div>
-          </div>
-          <div id='pp-top-right'></div>
+      <div id='pp-outer'>
+        <div id='pp-cover'>
+          <img id='pp-banner-photo' src={user.banner_img} />
         </div>
-        <div id='pp-content'>
 
-          <div id='pp-left'>
-            <div className='pp-div-align'></div>
-            <div id='pp-main-username'>@{user.username}</div>
-            <div id='pp-pfp-edit-button-container' >
-              {showEdit ? <button id='pp-pfp-edit-button' onClick={() => setShowEdit(false)}>
-                <img id='pp-pfp-edit-button-pen-image' src={'https://www.pngrepo.com/png/105166/180/edit.png'} />
-                Edit
-              </button> : <ImageForm setShowEdit={setShowEdit} userInfo={user} />}
-            </div>
 
-            <div className='top-div-outer'>
-              <div id='white-top-div'>
-                {user.username} is keeping quiet for now
+        <div id='pp-top-content-footer-container'>
+          <div id='pp-top'>
+
+            <div id='pp-top-left'>
+              <div id='pp-profile-photo-container'>
+                <img id='pp-profile-photo' src={user.profile_img} />
               </div>
             </div>
-            <div className='top-div-outer'>
-              <div className='white-box-text'>STATS</div>
-              <div id='white-mid-div-wrapper'>
-                <div className='white-mid-div'>
-                  <div className='mid-contents'>
-                    <div className='mid-items'>
-                      <i className="fa-solid fa-quote-left"></i>
-                      <div className='mid-count'>
-                        {user?.my_annotation?.length}
-                      </div>
-                    </div>
-                    <div className='mid-item-text'>
-                      Annotations
-                    </div>
-                  </div>
+            <div id='pp-top-right'></div>
+          </div>
+          <div id='pp-content'>
 
-                  <div className='mid-contents'>
-                    <div className='mid-items'>
-                      <i className="fa-solid fa-comment-dots"></i>
-                      <div className='mid-count'>
-                        {user?.my_comment?.length}
-                      </div>
-                    </div>
-                    <div className='mid-item-text'>
-                      Comments
-                    </div>
-                  </div>
+            <div id='pp-left'>
+              <div className='pp-div-align'></div>
+              <div id='pp-main-username'>@{user.username}</div>
+              <div id='pp-pfp-edit-button-container' >
+                {showEdit ? <button id='pp-pfp-edit-button' onClick={() => setShowEdit(false)}>
+                  <img id='pp-pfp-edit-button-pen-image' src={'https://www.pngrepo.com/png/105166/180/edit.png'} />
+                  Edit
+                </button> : <ImageForm setShowEdit={setShowEdit} userInfo={user} />}
+              </div>
 
-
-                  <div className='mid-contents'>
-                    <div className='mid-items'>
-                      <i className="fa-solid fa-file-arrow-up"></i>
-                      <div className='mid-count'>
-                        {user?.my_upload?.length}
-                      </div>
-                    </div>
-                    <div className='mid-item-text'>
-                      Track Uploads
-                    </div>
-                  </div>
-
+              <div className='top-div-outer'>
+                <div id='white-top-div'>
+                  {user.username} is keeping quiet for now
                 </div>
               </div>
-            </div>
+              <div className='top-div-outer'>
+                <div className='white-box-text'>STATS</div>
+                <div id='white-mid-div-wrapper'>
+                  <div className='white-mid-div'>
+                    <div className='mid-contents'>
+                      <div className='mid-items'>
+                        <i className="fa-solid fa-quote-left"></i>
+                        <div className='mid-count'>
+                          {user?.my_annotation?.length}
+                        </div>
+                      </div>
+                      <div className='mid-item-text'>
+                        Annotations
+                      </div>
+                    </div>
 
-            {/* <div className='top-div-outer'>
+                    <div className='mid-contents'>
+                      <div className='mid-items'>
+                        <i className="fa-solid fa-comment-dots"></i>
+                        <div className='mid-count'>
+                          {user?.my_comment?.length}
+                        </div>
+                      </div>
+                      <div className='mid-item-text'>
+                        Comments
+                      </div>
+                    </div>
+
+
+                    <div className='mid-contents'>
+                      <div className='mid-items'>
+                        <i className="fa-solid fa-file-arrow-up"></i>
+                        <div className='mid-count'>
+                          {user?.my_upload?.length}
+                        </div>
+                      </div>
+                      <div className='mid-item-text'>
+                        Track Uploads
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+
+              {/* <div className='top-div-outer'>
               <div className='white-box-text'>Some moremore Random Text</div>
               <div id='blank-white-bot-div'></div>
             </div> */}
 
-          </div>
+            </div>
 
-          <div id='pp-right'>
-            <div>
-              <div className='user-contributions-title'> {user.username}'s Contributions</div>
-              <UserAnnotations />
+            <div id='pp-right'>
+              <div>
+                <div className='user-contributions-title'> {user.username}'s Contributions</div>
+                <UserAnnotations />
+              </div>
             </div>
           </div>
         </div>
-        <div id='pp-footer'></div>
       </div>
+      <div id='pp-footer'>
+        <div className='pp-devs'>
+          <div className='individual-devs'>
+          <a className='dev-link' href="https://github.com/keshao728" target="_blank" rel="noopener noreferrer">
+              Kelly Shao
+            </a>
+          </div>
+          <div className='individual-devs'>
+          <a className='dev-link' href="https://github.com/Schaeffy" target="_blank" rel="noopener noreferrer">
+              Schaeffer Anh
+            </a>
+          </div>
+          <div className='individual-devs'>
+            <a className='dev-link' href="https://github.com/SimonMTan" target="_blank" rel="noopener noreferrer">
+              Simon Tan
+            </a>
+          </div>
+          <div className='individual-devs'>
+            <a className='dev-link' href="https://github.com/k-rewd" target="_blank" rel="noopener noreferrer">
+              Andrew Kim
+            </a>
+          </div>
+        </div>
+        <div>© Devs of App Academy</div>
+        <div className='project-link'>
+          Project Github
+        </div>
 
+      </div>
     </div>
 
   );
