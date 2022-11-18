@@ -200,9 +200,9 @@
   font-size: 15px;
 }
 
-#blank-white-mid-div {
+#white-mid-div-wrapper {
   width: 100%;
-  height: 150px;
+  height: auto;
   background-color: white;
 }
 
@@ -273,4 +273,43 @@
   padding: 0px;
   display: flex;
   justify-content: center;
+}
+
+
+.mid-contents{
+  display: flex;
+  flex-direction: column;
+  width: 33%;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.mid-items{
+  display: flex;
+  flex-direction: row;
+}
+
+.white-mid-div{
+  display: flex;
+  padding: 15px;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  color:#545454
+}
+
+.fa-solid{
+  font-size: 25px;
+  margin-right: 10px;
+}
+
+.mid-item-text{
+  margin-top: 5px;
+  font-size: 10px;
+  color:#9A9A9A
+}
+
+.mid-count{
+  font-size:20px
 }

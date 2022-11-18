@@ -67,21 +67,53 @@ function User() {
             </div>
             <div className='top-div-outer'>
               <div className='white-box-text'>STATS</div>
-              <div id='blank-white-mid-div'>
-                <div>
-                  {console.log('USER', user)}
-                  {user?.my_annotation?.length} Annotations
-                  {user?.my_comment?.length} Comments
+              <div id='white-mid-div-wrapper'>
+                <div className='white-mid-div'>
+                  <div className='mid-contents'>
+                    <div className='mid-items'>
+                      <i className="fa-solid fa-quote-left"></i>
+                      <div className='mid-count'>
+                        {user?.my_annotation?.length}
+                      </div>
+                    </div>
+                    <div className='mid-item-text'>
+                      Annotations
+                    </div>
+                  </div>
+
+                  <div className='mid-contents'>
+                    <div className='mid-items'>
+                      <i className="fa-solid fa-comment-dots"></i>
+                      <div className='mid-count'>
+                        {user?.my_comment?.length}
+                      </div>
+                    </div>
+                    <div className='mid-item-text'>
+                      Comments
+                    </div>
+                  </div>
+
+
+                  <div className='mid-contents'>
+                    <div className='mid-items'>
+                      <i className="fa-solid fa-file-arrow-up"></i>
+                      <div className='mid-count'>
+                        {user?.my_upload?.length}
+                      </div>
+                    </div>
+                    <div className='mid-item-text'>
+                      Track Uploads
+                    </div>
+                  </div>
 
                 </div>
-
-
               </div>
             </div>
-            <div className='top-div-outer'>
+
+            {/* <div className='top-div-outer'>
               <div className='white-box-text'>Some moremore Random Text</div>
               <div id='blank-white-bot-div'></div>
-            </div>
+            </div> */}
 
           </div>
 
