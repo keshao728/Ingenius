@@ -21,17 +21,6 @@ const AnnotationForm = (startIndex, endIndex) => {
     setShowMenu(true);
   };
 
-  useEffect(() => {
-    if (!showMenu) return;
-
-    const closeMenu = () => {
-      setShowMenu(false);
-    };
-
-    document.addEventListener('click', closeMenu);
-
-    return () => document.removeEventListener("click", closeMenu);
-  }, [showMenu]);
 
 
   useEffect(() => {
@@ -68,37 +57,35 @@ const AnnotationForm = (startIndex, endIndex) => {
   let sessionLinks;
   if (sessionUser) {
     sessionLinks = (
-      <div>
-        <button onClick={openMenu}> MEOW </button>
+      <div className='annotation-wrapper'>
+        <button className="annotation-button" onClick={openMenu}> MEOW </button>
         {showMenu &&
-          <form className="comment-form-parent" onSubmit={handleSubmit}>
-            <div className="comment-form">
+          <form className="annotation-form-parent" onSubmit={handleSubmit}>
+            <div className="annotation-form">
               <label>
-                <div className="commenter-img-input">
-                  <textarea
-                    placeholder="Add a annotation"
-                    type="text"
-                    error
-                    className="comment-input"
-                    value={annotation}
-                    // onClick={openSubmit}
-                    required
-                    onChange={(e) => setAnnotation(e.target.value)}
-                  />
-                </div>
+                <textarea
+                  placeholder="Add a annotation"
+                  type="text"
+                  error
+                  className="annotation-input"
+                  value={annotation}
+                  // onClick={openSubmit}
+                  required
+                  onChange={(e) => setAnnotation(e.target.value)}
+                />
                 {/* {showErrors && showSubmit && (
-              <ul className="comment-form-errors">
+              <ul className="annotation-form-errors">
               {validationErrors.length > 0 &&
                 validationErrors.map(error => (
-                  <li className="comment-form-error-text" key={error}>{error}</li>
+                  <li className="annotation-form-error-text" key={error}>{error}</li>
                   ))}
                   </ul>
                   )
                 } */}
               </label>
-              <div className="comment-submit-buttons">
-                <button className="button-create-comment" type="submit" onSubmit={handleSubmit}> Submit</button>
-                {/* <button type="button" className="cancel-create-comment" onClick={closeSubmit}>Cancel</button> */}
+              <div className="annotation-submit-buttons">
+                <button className="button-create-annotation" type="submit" onSubmit={handleSubmit}> Submit</button>
+                {/* <button type="button" className="cancel-create-annotation" onClick={closeSubmit}>Cancel</button> */}
               </div>
             </div>
           </form>
@@ -120,7 +107,7 @@ const AnnotationForm = (startIndex, endIndex) => {
   }
 
   return (
-    <div>
+    <div className='test'>
       {sessionLinks}
     </div>
   )
