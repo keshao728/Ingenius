@@ -27,11 +27,13 @@
   font-weight: bold;
   color: #0ECB27;
   transition: .4s;
+  cursor: pointer;
 }
 
 .save-edit-anno:hover {
   background-color: #b8ffc2;
   transition: .4s;
+  cursor: pointer;
 }
 
 
@@ -45,6 +47,7 @@
   color: #9A9A9A;
   transition: .4s;
   margin-left: 6px;
+  cursor: pointer;
 }
 
 
@@ -52,4 +55,5 @@
   border: 2px solid #cfcfcf;
   background-color: #cfcfcf;
   transition: .4s;
+  cursor: pointer;
 }
