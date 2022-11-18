@@ -46,7 +46,8 @@ function User() {
         </div>
         <div id='pp-content'>
           <div id='pp-left'>
-            <div className='pp-div-align'>hello</div>
+            <div className='pp-div-align'></div>
+            <div id='pp-main-username'>@{user.username}</div>
           </div>
           <div id='pp-right'>
             <div>
