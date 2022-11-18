@@ -6,7 +6,7 @@ import LoginForm from "../auth/LoginForm";
 import "./AnnotationForm.css";
 
 
-const AnnotationForm = (indexes, setAnnotating) => {
+const AnnotationForm = ({startIndex, endIndex, setAnnotating}) => {
   const dispatch = useDispatch();
   const [annotation, setAnnotation] = useState('')
   const [validationErrors, setValidationErrors] = useState([])
@@ -18,8 +18,10 @@ const AnnotationForm = (indexes, setAnnotating) => {
   const sessionUser = useSelector((state) => state.session.user);
   // const trackId = useParams()
   const track = useSelector(state => state.tracks.oneTrack)
-  let startIndex = indexes[0]
-  let endIndex = indexes[1]
+  // let startIndex = indexes[0]
+  // let endIndex = indexes[1]
+  console.log('adfasdfads', startIndex)
+  console.log('adfasdfads', endIndex)
 
 
   const openMenu = () => {
@@ -47,8 +49,8 @@ const AnnotationForm = (indexes, setAnnotating) => {
     if (!validationErrors.length) {
       const payload = {
         annotation_body: annotation,
-        startIndex,
-        endIndex
+        startIndex: startIndex,
+        endIndex: endIndex
       }
       setAnnotation("");
 
@@ -69,7 +71,7 @@ const AnnotationForm = (indexes, setAnnotating) => {
   if (sessionUser) {
     sessionLinks = (
       <div className='annotation-wrapper'>
-        <button className="annotation-button" onClick={openMenu}> MEOW </button>
+        <button className="annotation-button" onClick={openMenu}> Start the Ingenius Annotation </button>
         {showMenu &&
           <form className="annotation-form-parent" onSubmit={handleSubmit}>
             {/* <div className='annotate-text'>Annotate</div> */}
@@ -110,12 +112,12 @@ const AnnotationForm = (indexes, setAnnotating) => {
     )
   } else {
     sessionLinks = (
-      <div>
-        <div>
-          Sign In to Annotate!
+      <div className="anno-sign-in">
+        <div className="login-anno">
+          <LoginForm />
         </div>
         <div>
-          <LoginForm />
+          to Annotate!
         </div>
       </div>
     )

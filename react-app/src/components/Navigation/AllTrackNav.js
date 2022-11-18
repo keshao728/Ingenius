@@ -145,8 +145,7 @@ const AllTrackNav = () => {
         sessionLinks2 = (
         <div className='main-nav-list'>
             {/* FORCE USER TO SIGN IN */}
-            <div className='main-nav-list-3-track'
-            style={{ textDecoration: 'none' }}>
+            <div className='main-nav-list-3-track'>
             <SignUpForm />
             </div>
         </div>
@@ -156,7 +155,7 @@ const AllTrackNav = () => {
     <div>
         <div className='survey'>
             <div className='work_in_progress'>
-            🚧  The new song page is a work in progress! We need your help to continue improving contributor features. Take our survey 🚧
+            🚧  The new song page is a work in progress! 🚧
             </div>
         </div>
         <div className="main-nav-alltrack">
