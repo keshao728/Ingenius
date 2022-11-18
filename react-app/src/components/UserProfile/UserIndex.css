@@ -223,3 +223,5 @@ transform: scaleX(-1);
   opacity: 25%;
 }
 
+  /* text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000; */
+  /* -webkit-text-stroke-color: white; */

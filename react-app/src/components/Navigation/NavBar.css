@@ -57,6 +57,7 @@ body {
 
 .profile-pic {
   border-radius: 30px;
+  border: 1.5px solid white;
   color: #717171;
   width: 27px;
   height: 27px;

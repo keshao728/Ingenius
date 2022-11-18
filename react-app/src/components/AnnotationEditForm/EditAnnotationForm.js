@@ -64,7 +64,7 @@ const EditAnnotation = ({ setShowEdit, annotate }) => {
 
   return (
     <div className='anno-edit-container'>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} spellcheck="false">
         <textarea className='anno-edit-text-area'
           type='text'
           value={annotation}

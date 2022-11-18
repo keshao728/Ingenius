@@ -70,7 +70,7 @@ const ImageForm = ({ setShowEdit, userInfo }) => {
 
   return (
     <div id='pfp-edit-container'>
-      <form className="edit-profile-wrapper" onSubmit={handleSubmit}>
+      <form className="edit-profile-wrapper" onSubmit={handleSubmit} spellcheck="false">
         <div className='edit-profile-text'>
           Edit Profile
         </div>
