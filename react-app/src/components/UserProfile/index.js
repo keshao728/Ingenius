@@ -12,7 +12,7 @@ import * as moment from 'moment';
 
 
 
-const UserAnnotations = () => {
+const UserAnnotations = ({setUser}) => {
   const dispatch = useDispatch()
   const { userId } = useParams()
   console.log('USERID', userId)
@@ -30,6 +30,12 @@ const UserAnnotations = () => {
     dispatch(getUserInfo(userId))
       .then(() => setIsLoaded(true))
   }, [dispatch, userId])
+
+  const userProp = async () => {
+    const response = await fetch(`/api/users/${userId}`);
+    const user = await response.json();
+    setUser(user);
+  }
 
   // document.getElementById("pp-annotation-edit")?.addEventListener("click", () => {
   //   document.getElementById("anno-edit-text-area").focus();
@@ -71,7 +77,7 @@ const UserAnnotations = () => {
                   <div id='pp-annotation-body'>{annotation.annotation_body}</div>
                   <div id='pp-annotation-delete-edit'>
                     <button id='pp-annotation-edit' onClick={() => setShowEdit(annotation.id)}>Edit</button>
-                    <button id='pp-annotation-delete' onClick={() => dispatch(deleteAnnotation(annotation.id))}>Delete</button>
+                    <button id='pp-annotation-delete' onClick={() => {dispatch(deleteAnnotation(annotation.id)).then(()=>userProp())}}>Delete</button>
                   </div>
                 </div>
               }</div>
