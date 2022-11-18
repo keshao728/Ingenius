@@ -34,12 +34,12 @@ export default function TrackInfo() {
 
   const [annotating, setAnnotating] = useState(false)
 
-  useEffect(() => {
-    if (startIndex !== endIndex) {
-      setAnnotating(true)
-    }
-    else setAnnotating(false)
-  }, [startIndex, endIndex])
+  // useEffect(() => {
+  //   if (startIndex !== endIndex) {
+  //     setAnnotating(true)
+  //   }
+  //   else setAnnotating(false)
+  // }, [startIndex, endIndex])
 
   useEffect(() => {
     setStartIndex(Math.min(...index))
