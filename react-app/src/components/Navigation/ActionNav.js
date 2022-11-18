@@ -44,7 +44,7 @@ const ActionNav = (props) => {
     sessionLinks = (
       <div className='main-nav-list'>
         <NavLink to={`/tracks/new`} style={{ textDecoration: 'none' }}>
-          <div className='main-nav-list-4' id='action-nav-links'>
+          <div className='main-nav-list-4' id='action-nav-links-add'>
             ADD A SONG
           </div>
         </NavLink>
@@ -95,7 +95,7 @@ const ActionNav = (props) => {
 
         <Link
         className="main-nav-list-5"
-        id='action-nav-links'
+        id='action-nav-links-devs'
         smooth to="/#devs"
        // onClick={(props.videoRefScroll)
         >
