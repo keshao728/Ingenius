@@ -2,17 +2,18 @@ import React from 'react'
 import { useSelector, useDispatch } from 'react-redux';
 import { useState, useEffect } from 'react';
 import { NavLink, useParams } from 'react-router-dom'
-import { upvoteThunk,downvoteThunk,unvoteThunk } from '../../store/votes';
+import { upvoteThunk,downvoteThunk,unvoteThunk, votecount} from '../../store/votes';
 import './vote.css'
 import AnnotationForm from '../AnnotationForm/AnnotationForm';
 // import { useEffect } from 'react';
-import { votecount } from '../../store/votes';
+
 
 const Annotations = () => {
   const dispatch = useDispatch();
   const { trackId } = useParams();
   // const [isLoaded, setIsLoaded] = useState(false);
   // const sessionUser = useSelector((state) => state.session.user);
+
   const annotations = useSelector((state) => state.tracks.oneTrack.Annotations);
   // console.log('ANNOTATIONS', annotations)
 
@@ -34,15 +35,16 @@ const Annotations = () => {
       })
   }
 
-  const votetotal = (id) => {
-   dispatch(votecount(id))
+  const votetotal = async(e) => {
+    e.preventDefault();
+   await dispatch(votecount(2))
     .catch(async (res) => {
-      if(res.ok){
-      let data = await res.json();
+      // if(res.ok){
+      // let data = await res.json();
       // console.log('this is data for vote total',data)
       // console.log(res)
       return res
-    }
+    // }
       })
   }
 
@@ -67,7 +69,7 @@ const Annotations = () => {
                                 <div className='vote' type='button' onClick={upvote}>
                                     <i class="fa-regular fa-thumbs-up"></i>
                                 </div>
-                                <div className='votetotal'>{votetotal(annotation.id)}</div>
+                                <div className='votetotal'>{votetotal}</div>
                                 <div className='vote' type='button' onClick={downvote}>
                                     <i class="fa-regular fa-thumbs-down"></i>
                                 </div>
