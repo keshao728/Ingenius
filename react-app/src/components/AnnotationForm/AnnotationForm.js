@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from "react-redux";
 import { createAnnotation } from '../../store/annotations';
 import LoginForm from "../auth/LoginForm";
-
+import "./AnnotationForm.css";
 
 
 const AnnotationForm = (startIndex, endIndex) => {
@@ -21,7 +21,10 @@ const AnnotationForm = (startIndex, endIndex) => {
     setShowMenu(true);
   };
 
-
+  const closeSubmit = (e) => {
+    e.preventDefault();
+    setShowMenu(false);
+  };
 
   useEffect(() => {
     const errors = []
@@ -85,7 +88,7 @@ const AnnotationForm = (startIndex, endIndex) => {
               </label>
               <div className="annotation-submit-buttons">
                 <button className="button-create-annotation" type="submit" onSubmit={handleSubmit}> Submit</button>
-                {/* <button type="button" className="cancel-create-annotation" onClick={closeSubmit}>Cancel</button> */}
+                <button type="button" className="cancel-create-annotation" onClick={closeSubmit}>Cancel</button>
               </div>
             </div>
           </form>

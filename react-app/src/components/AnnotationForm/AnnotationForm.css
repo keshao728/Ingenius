@@ -1,8 +1,24 @@
-.annotation-button{
+/* .annotation-wrapper {
   position: relative;
-  top: -40px;
-  width: 700px;
-  left: 52px;
-  list-style-type: none;
-  background-color: #FF1464;
+  top: -950px;
+  width: 100px;
+  left: 1200px;
+} */
+
+.annotation-form-parent{
+  background-color: #E9E9E9;
+  width: 450px;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  padding: 30px;
+}
+
+.annotation-input{
+  resize: none;
+  width: 400px;
+  height: 80px;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid black;
 }

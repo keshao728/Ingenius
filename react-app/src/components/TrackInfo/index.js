@@ -148,6 +148,7 @@ export default function TrackInfo() {
                         {/* {Object.values(annotations)?.map(anno => anno.annotation_body)} */}
                         {track.lyrics?.split('\n').slice(1,6)}
                     </div>
+                <AnnotationForm />
                         {/* {annotating && <AnnotationForm /> } */}
 
                 </div>
