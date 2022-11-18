@@ -63,7 +63,7 @@ export default function TrackInfo() {
   }, [index])
 
 
-  const annotateThis = async (e) => {
+  const annotateThis = (e) => {
     // console.log(React.Children.toArray(track.lyrics?.split('\n').map(chunk => chunk)).join(''))
     e.preventDefault()
     // console.log(trackId)
@@ -76,8 +76,8 @@ export default function TrackInfo() {
       const highlight = selected.getRangeAt(0)
       setIndex([highlight.startOffset, highlight.endOffset])
       // console.log("SETSTSETSDFDSF", index)
-      // console.log("SETSTSETSDFDSF", startIndex)
-      // console.log("SETSTSETSDFDSF", endIndex)
+      console.log("SETSTSETSDFDSF", startIndex)
+      console.log("SETSTSETSDFDSF", endIndex)
       // console.log(highlight)
     }
 
@@ -178,7 +178,8 @@ export default function TrackInfo() {
             </div>
           </div>
           <div className='lyric-annotate'>
-            {annotating && <AnnotationForm indexes={[startIndex, endIndex]} setAnnotating={['annotating', 'asds']} />}
+            {/* {annotating && <AnnotationForm indexes={[startIndex, endIndex]} />} */}
+            {annotating && <AnnotationForm startIndex={startIndex} endIndex={endIndex} />}
           </div>
           {/* {annotating && <AnnotationForm /> } */}
 
