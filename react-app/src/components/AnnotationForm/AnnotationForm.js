@@ -28,7 +28,7 @@ const AnnotationForm = (startIndex, endIndex, setAnnotating) => {
   const closeSubmit = (e) => {
     e.preventDefault();
     setShowMenu(false);
-    setAnnotating(false)
+    // setAnnotating(false)
   };
 
   useEffect(() => {
