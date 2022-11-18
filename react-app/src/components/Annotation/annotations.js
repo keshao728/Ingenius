@@ -3,8 +3,9 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useState, useEffect } from 'react';
 import { NavLink, useParams } from 'react-router-dom'
 import { upvoteThunk,downvoteThunk,unvoteThunk } from '../../store/votes';
-import AnnotationForm from '../AnnotationForm/AnnotationForm';
 import './vote.css'
+import AnnotationForm from '../AnnotationForm/AnnotationForm';
+
 const Annotations = () => {
   const dispatch = useDispatch();
   const { trackId } = useParams();
@@ -41,9 +42,9 @@ const Annotations = () => {
     // console.log('ANNOTATIONSARR', annotationsArr)
     return (
       <div>
-        {annotationsArr.map((annotation) => (
+        {/* {annotationsArr.map((annotation) => (
           <div key={annotation.id}>
-            {annotation.annotation_body}
+            {annotation.annotation_body} */}
             <div>
                 {annotationsArr.map((annotation) => (
                     <div key={annotation.id}>
@@ -60,8 +61,8 @@ const Annotations = () => {
                     </div>
                 ))}
             </div>
-          </div>
-        ))}
+          {/* </div>
+        ))} */}
       </div>
     )
   }
