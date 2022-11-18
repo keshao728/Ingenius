@@ -5,7 +5,7 @@
   left: 1200px;
 } */
 
-.annotation-form-parent{
+.annotation-form-parent {
   background-color: #E9E9E9;
   width: 450px;
   height: auto;
@@ -15,12 +15,13 @@
   display: flex;
   flex-direction: column;
 }
+
 /* .annotate-text{
   border-bottom: 1px solid black;
   margin-bottom: 30px;
 } */
 
-.annotation-input{
+.annotation-input {
   resize: none;
   width: 390px;
   height: 150px;
@@ -38,16 +39,30 @@
 }
 
 .cancel-create-annotation {
-  background-color: transparent;
-  border: none;
+  border: 1px solid transparent;
+  border-radius: 25px;
+  font-size: 20px;
+  width: 100px;
+  padding: 10px 15px;
+  font-weight: bold;
+  background: none;
+  font-size: 14px;
+  display: flex;
+  justify-content: center;
   cursor: pointer;
-  height: 17px;
-  text-decoration-line: underline;
+}
+
+.cancel-create-annotation:hover {
+  background-color: rgb(214, 214, 214);
+  border: 1px solid rgb(214, 214, 214);
+
+  visibility: visible;
 }
 
 .cancel-create-annotation:active {
   text-decoration-line: none;
 }
+
 .button-create-annotation {
   /* visibility: hidden; */
   border: 1px solid black;
@@ -67,4 +82,17 @@
   background-color: black;
   color: white;
   visibility: visible;
+}
+
+.annotation-button{
+  background-color: white;
+  border: 1px solid black;
+  padding: 3px 7px;
+
+}
+
+.annotation-button:hover{
+  background-color: black;
+  color: white;
+
 }

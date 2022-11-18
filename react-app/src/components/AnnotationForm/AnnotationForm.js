@@ -71,7 +71,7 @@ const AnnotationForm = ({startIndex, endIndex, setAnnotating}) => {
   if (sessionUser) {
     sessionLinks = (
       <div className='annotation-wrapper'>
-        <button className="annotation-button" onClick={openMenu}> MEOW </button>
+        <button className="annotation-button" onClick={openMenu}> Start the Ingenius Annotation </button>
         {showMenu &&
           <form className="annotation-form-parent" onSubmit={handleSubmit}>
             {/* <div className='annotate-text'>Annotate</div> */}
