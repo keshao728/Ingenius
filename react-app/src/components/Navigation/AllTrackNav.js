@@ -155,7 +155,7 @@ const AllTrackNav = () => {
     <div>
         <div className='survey'>
             <div className='work_in_progress'>
-            🚧  The new song page is a work in progress! We need your help to continue improving contributor features. Take our survey 🚧
+            🚧  The new song page is a work in progress! 🚧
             </div>
         </div>
         <div className="main-nav-alltrack">
