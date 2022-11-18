@@ -75,7 +75,8 @@
 .individual-comment-display {
   display: flex;
   flex-direction: column;
-  width: 100%;
+  width: 759px;
+  overflow-wrap: break-word;
 }
 
 .delete-comment-button {
