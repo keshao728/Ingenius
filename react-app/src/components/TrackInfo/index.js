@@ -11,8 +11,8 @@ import React from 'react';
 import { createAnnotation } from '../../store/annotations';
 import AnnotationForm from '../AnnotationForm/AnnotationForm';
 import DisplayLyrics from '../TrackLyrics';
-import ReactMarkdown from 'react-markdown';
-import ReactDom from 'react-dom';
+// import ReactMarkdown from 'react-markdown';
+// import ReactDom from 'react-dom';
 
 
 
