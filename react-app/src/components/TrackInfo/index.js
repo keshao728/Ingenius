@@ -21,6 +21,19 @@ export default function TrackInfo() {
   const user = useSelector(state => state.session.user)
   // console.log("awdeeeeeeeeeeeeeeeeeeeeeewwwwwadw", track)
   const history = useHistory()
+  const [showFact, setShowFact] = useState(true);
+
+
+  const openFact = () => {
+    if (showFact) return;
+    setShowFact(!showFact);
+  };
+
+
+  const closeFact = (e) => {
+    e.preventDefault();
+    setShowFact(false);
+  };
 
   // const annotations = useSelector(state => state.tracks.oneTrack.Annotations)
 
@@ -174,24 +187,54 @@ export default function TrackInfo() {
       </div>
       <div className='track-video'>
         <div className='about-wrapper'>
-
-          {/* <div>Video</div> */}
           <div className='music-vid-text'> About </div>
+          <div className='show-fact'>
+            {showFact ?
+              <div className="fact-div" onClick={closeFact} >
+                <div>
+                  Did you know?
+                </div>
+                <div className='open-close-fact-button'>
+                  -
+                </div>
+              </div>
+              : <div className="fact-div" onClick={openFact}>
+                <div>
+                  Did you know?
+                </div>
+                <div className='open-close-fact-button'>
+                  +
+                </div>
 
-          <div className='about-artist'>
-            <div className='about-album-cover'>
-              <img className="about-cover" src={track.track_art}></img>
+              </div>}
+          </div>
+          {showFact && (
+            <div className='fact-wrapper'>
+              <div className='fact-genius'>
+                Genius Answer
+              </div>
+              <div className='fact-text'>
+                MEOWMEOWMEOWMEOW
+              </div>
             </div>
-            <div className='album-details'>
+          )}
+          <div className='about-artist-wrapper'>
 
-              <div className='about-track-title'>
-                {track.track_title}
+            <div className='about-artist'>
+              <div className='about-album-cover'>
+                <img className="about-cover" src={track.track_art}></img>
               </div>
+              <div className='album-details'>
 
-              <div className='about-track-des'>
-                on {track.album} (album)
+                <div className='about-track-title'>
+                  {track.track_title}
+                </div>
+
+                <div className='about-track-des'>
+                  on {track.album} (album)
+                </div>
+
               </div>
-
             </div>
           </div>
           <div className='credits-wrapper'>
@@ -208,7 +251,7 @@ export default function TrackInfo() {
                 </div>
               </div>
               <div className='about-credit-name'>
-              <div className='about-credit'>
+                <div className='about-credit'>
                   Uploaded by
                 </div>
                 <div>
