@@ -1,6 +1,7 @@
-from flask import Blueprint, jsonify
+from flask import Blueprint, jsonify, request
 from flask_login import login_required, current_user
-from app.models import User, Track, Comment, Annotation, Vote
+from app.models import db, User, Track, Comment, Annotation, Vote
+from ..forms import ImageForm
 
 
 user_routes = Blueprint('users', __name__)
@@ -32,7 +33,26 @@ def user_special(id):
     """
     user = User.query.get(id)
     return user.to_dict()
+    
+# EDIT user photo
+@user_routes.route('/<int:id>/photos', methods=["PUT"])
+@login_required
+def editProfile(id):
+    form = ImageForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
 
+    user = User.query.get(id)
+    if current_user.id != user.id:
+        return {'errors': 'Unauthorized', 'statusCode':401}
+
+    if form.validate_on_submit():
+        user.username = form.username.data
+        user.email = form.email.data
+        user.profile_img = form.profile_img.data
+        user.banner_img = form.banner_img.data
+
+        db.session.commit()
+        return user.to_dict()
 
 # get current user info
 @user_routes.route('/<int:id>/info')
