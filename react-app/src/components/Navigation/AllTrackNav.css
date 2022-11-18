@@ -23,7 +23,7 @@
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
-    height:38px
+    height: 38px
 }
 
 .main-nav-list-alltrack-left {
@@ -60,6 +60,8 @@
     width: 27px;
     height: 27px;
     margin-right: 23px;
+    border: 1.5px solid white;
+
 }
 
 .main-nav-list-1-track:hover {
