@@ -62,13 +62,7 @@ const SignUpForm = () => {
 //     setShowLoginModal(true);
 // }
   function isValidEmail(email) {
-    // return /^\w+([.-]?\w+)@\w+([.-]?\w+)(.\w{2,3})+$/.test(email);
-    // return email.match(/^\w+([.-]?\w+)@\w+([.-]?\w+)(.\w{2,3})+$/)
-    return String(email)
-    .toLowerCase()
-    .match(
-      /^(([^<>()[]\.,;:\s@"]+(.[^<>()[]\.,;:\s@"]+)*)|(".+"))@(([[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}])|(([a-zA-Z-0-9]+.)+[a-zA-Z]{2,}))$/
-    );
+    return /\S+@\S+\.\S+/.test(email);
   }
 
   useEffect(async() => {
@@ -77,7 +71,7 @@ const SignUpForm = () => {
     if(username.length > 15) err.push('Username must be less than 15 characters');
     if(username.length<3) err.push('Username must be at least 3 characters');
     if(!email) err.push('Please provide an email');
-    if(isValidEmail(email)) err.push('Please provide a valid email');
+    // if(isValidEmail(email)) err.push('Please provide a valid email');
     if (password !== repeatPassword)err.push('Passwords must match')
     if ( password.length < 6) err.push('Password must be at least 6 characters')
     setErrors(err)
@@ -121,7 +115,7 @@ const SignUpForm = () => {
                 <div className='sign-up-input-box'>
                   <input
                     className='sign-up-input'
-                    type='text'
+                    type='email'
                     name='email'
                     onChange={updateEmail}
                     value={email}

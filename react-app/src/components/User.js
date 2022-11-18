@@ -6,6 +6,7 @@ import ImageForm from './UserProfile/PfpBannerForm';
 // import EditAnnotation from './AnnotationEditForm/EditAnnotationForm';
 import './UserProfile/UserProfile.css'
 import defaultPro from './UserProfile/Profile-Images/defaultpro.png'
+import editPen from './UserProfile/Profile-Images/editPen.png'
 
 function User() {
   const [user, setUser] = useState({});
@@ -51,7 +52,7 @@ function User() {
 
             <div id='pp-top-left'>
               <div id='pp-profile-photo-container'>
-                <img id='pp-profile-photo' src={user.profile_img ? user.profile_img : defaultPro} />
+                <img onError={(e)=> e.target.src=defaultPro} id='pp-profile-photo' src={user.profile_img ? user.profile_img : defaultPro} />
               </div>
             </div>
             <div id='pp-top-right'></div>
@@ -65,7 +66,7 @@ function User() {
 {/* fix here. access sessionUser Id here somehow */}
               <div>{user.id === userId ?
                 <div id='pp-pfp-edit-button-container'>{showEdit ? <button id='pp-pfp-edit-button' onClick={() => setShowEdit(false)}>
-                    <img id='pp-pfp-edit-button-pen-image' src={'https://www.pngrepo.com/png/105166/180/edit.png'} />
+                    <img onError={(e)=> e.target.src=defaultPro} id='pp-pfp-edit-button-pen-image' src={editPen} />
                     Edit
                   </button> : <ImageForm setShowEdit={setShowEdit} userInfo={user} />}
                 </div>
