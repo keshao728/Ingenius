@@ -5,6 +5,7 @@ import UserAnnotations from './UserProfile';
 import ImageForm from './UserProfile/PfpBannerForm';
 // import EditAnnotation from './AnnotationEditForm/EditAnnotationForm';
 import './UserProfile/UserProfile.css'
+import defaultPro from './UserProfile/Profile-Images/defaultpro.png'
 
 function User() {
   const [user, setUser] = useState({});
@@ -50,7 +51,7 @@ function User() {
 
             <div id='pp-top-left'>
               <div id='pp-profile-photo-container'>
-                <img id='pp-profile-photo' src={user.profile_img} />
+                <img id='pp-profile-photo' src={user.profile_img ? user.profile_img : defaultPro} />
               </div>
             </div>
             <div id='pp-top-right'></div>
@@ -67,9 +68,9 @@ function User() {
                     <img id='pp-pfp-edit-button-pen-image' src={'https://www.pngrepo.com/png/105166/180/edit.png'} />
                     Edit
                   </button> : <ImageForm setShowEdit={setShowEdit} userInfo={user} />}
-                </div> 
+                </div>
                 :<div></div>}
-              
+
 {/* <div>{user.id}</div>
 <div>{userId}</div>
 <div>{sessionUser}</div> */}

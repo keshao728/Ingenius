@@ -78,9 +78,9 @@ export default function EditTrack({ setModalOpen }) {
     if (album.length > 100) err.push('Album name must not exceed 100 characters')
     if (releaseDate > date) err.push('Please provide a valid Release Date') // test later
     if (producedBy.length > 100) err.push('Producer information must not exceed 100 characters')
-    if (!trackArt.match(/^https?:\/\/.*\/.*\.(png|gif|webp|jpeg|jpg)\??.*$/gmi)) err.push("Please enter a valid URL ending with png, gif, webp, jpeg, or jpg")
+    if (trackArt && !trackArt.match(/^https?:\/\/.*\/.*\.(png|gif|webp|jpeg|jpg)\??.*$/gmi)) err.push("Please enter a valid URL ending with png, gif, webp, jpeg, or jpg")
 
-    if (!trackUrl.match(/http(?:s?):\/\/(?:www\.)?youtu(?:be\.com\/watch\?v=|\.be\/)([\w\-\_]*)(&(amp;)?‌​[\w\?‌​=]*)?/)) err.push("Please enter a valid Youtube URL") // test later
+    if (trackUrl && !trackUrl.match(/http(?:s?):\/\/(?:www\.)?youtu(?:be\.com\/watch\?v=|\.be\/)([\w\-\_]*)(&(amp;)?‌​[\w\?‌​=]*)?/)) err.push("Please enter a valid Youtube URL") // test later
 
     setErrors(err)
 
@@ -181,7 +181,6 @@ export default function EditTrack({ setModalOpen }) {
                 className="edit-track-input"
                 type="text"
                 value={album}
-                required
                 onChange={(e) => setAlbum(e.target.value)}
               />
               <label className='edit-track-input-label'>Album Name</label>
