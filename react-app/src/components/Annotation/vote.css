@@ -1,0 +1,11 @@
+.vote{
+    width:12px;
+    height:12px;
+
+}
+
+.vote:hover{
+    font-size:20px ;
+    color:blue;
+    cursor:pointer;
+}
