@@ -59,15 +59,15 @@ const EditAnnotation = ({ setShowEdit, annotate }) => {
   };
 
   return (
-    <div id='anno-edit-container'>
+    <div className='anno-edit-container'>
       <form onSubmit={handleSubmit}>
-        <textarea id='anno-edit-text-area'
+        <textarea className='anno-edit-text-area'
           type='text'
           value={annotation}
           onChange={updateAnnotation} />
-        <div>
-          <button type='submit'>Save</button>
-          <button type="button" onClick={handleCancelClick}>Cancel</button>
+        <div className='anno-save-buttons'>
+          <button className='save-edit-anno' type='submit'>Save</button>
+          <button className='cancel-edit-anno' type="button" onClick={handleCancelClick}>Cancel</button>
         </div>
         <div>
           <ul>
