@@ -1,19 +1,23 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from "react-redux";
 import { createAnnotation } from '../../store/annotations';
+import { useParams } from 'react-router-dom';
 import LoginForm from "../auth/LoginForm";
 import "./AnnotationForm.css";
 
 
-const AnnotationForm = (startIndex, endIndex) => {
+const AnnotationForm = (startIndex, endIndex, setAnnotating) => {
   const dispatch = useDispatch();
   const [annotation, setAnnotation] = useState('')
   const [validationErrors, setValidationErrors] = useState([])
   const [displayErrors, setDisplayErrors] = useState(false)
   const [showMenu, setShowMenu] = useState(false);
+  const [startingIndex, setStaringtIndex] = useState(startIndex)
+  const [endingIndex, setEndingIndex] = useState(endIndex)
 
   const sessionUser = useSelector((state) => state.session.user);
-
+  // const trackId = useParams()
+  const track = useSelector(state => state.tracks.oneTrack)
 
 
   const openMenu = () => {
@@ -24,6 +28,7 @@ const AnnotationForm = (startIndex, endIndex) => {
   const closeSubmit = (e) => {
     e.preventDefault();
     setShowMenu(false);
+    setAnnotating(false)
   };
 
   useEffect(() => {
@@ -40,18 +45,19 @@ const AnnotationForm = (startIndex, endIndex) => {
     if (!validationErrors.length) {
       const payload = {
         annotation_body: annotation,
-        startIndex,
-        endIndex
+        startIndex: startingIndex,
+        endIndex: endingIndex
       }
       setAnnotation("");
 
-      let newAnnotation = await dispatch(createAnnotation(payload)).catch(async (res) => {
+      let newAnnotation = await dispatch(createAnnotation(track.id, payload)).catch(async (res) => {
         const data = await res.json();
         if (data && data.errors) setValidationErrors(data.errors)
       })
 
       if (newAnnotation) {
         setDisplayErrors(false)
+        setAnnotating(false)
         // setShowMenu(false)
       }
     }
@@ -77,6 +83,7 @@ const AnnotationForm = (startIndex, endIndex) => {
                   required
                   onChange={(e) => setAnnotation(e.target.value)}
                 />
+
                 {/* {showErrors && showSubmit && (
               <ul className="annotation-form-errors">
               {validationErrors.length > 0 &&
@@ -117,4 +124,3 @@ const AnnotationForm = (startIndex, endIndex) => {
   )
 }
 export default AnnotationForm
-

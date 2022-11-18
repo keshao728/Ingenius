@@ -51,7 +51,42 @@ export default function TrackInfo() {
     // console.log(React.Children.toArray(track.lyrics?.split('\n').map(chunk => chunk)).join(''))
     e.preventDefault()
     // console.log(trackId)
-    // console.log(annotations)
+    const dispatch = useDispatch()
+    const track = useSelector(state => state.tracks.oneTrack)
+    const user = useSelector(state => state.session.user)
+    const history = useHistory()
+
+    // const annotations = useSelector(state => state.tracks.oneTrack.Annotations)
+
+    const [errors, setErrors] = useState([])
+
+
+    //annotation stuff
+
+    const [index, setIndex] = useState([])
+    const [startIndex, setStartIndex] = useState()
+    const [endIndex, setEndIndex] = useState()
+
+    const [annotating, setAnnotating] = useState(false)
+
+    // useEffect(() => {
+    //     if (startIndex && endIndex) {
+    //         setAnnotating(true)
+    //     }
+    //     else setAnnotating(false)
+    // }, [startIndex, endIndex])
+
+    useEffect(() => {
+        setStartIndex(Math.min(...index))
+        setEndIndex(Math.max(...index))
+    }, [index])
+
+
+    const annotateThis = async (e) => {
+        // console.log(React.Children.toArray(track.lyrics?.split('\n').map(chunk => chunk)).join(''))
+        e.preventDefault()
+        // console.log(trackId)
+        // console.log(annotations)
 
     const selected = window.getSelection && window.getSelection()
 

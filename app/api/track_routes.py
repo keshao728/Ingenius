@@ -138,16 +138,28 @@ def deletetrack(id):
 @track_routes.route('/<int:id>', methods=["POST"])
 @login_required
 def annotation_post(id):
-    track = Track.query.get(id)
+    form = AnnotationForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
 
-    annotation = Annotation(
-      user_id = current_user.id,
-      track_id = track.id,
-      annotation_body = 'body',
-      startIndex = 3,
-      endIndex = 3
-    )
+    # track = Track.query.get(id)
 
-    db.session.add(annotation)
-    db.session.commit()
-    return annotation.to_dict()
+    if form.validate_on_submit():
+        annotation = Annotation(
+            user_id = current_user.id,
+            track_id = id,
+            annotation_body=form.annotation_body.data,
+            startIndex=startIndex,
+            endIndex=endIndex,
+        )
+        db.session.add(annotation)
+        db.session.commit()
+        return annotation.to_dict()
+    return {'errors': validation_errors(form.errors), "statusCode": 401}
+
+    # annotation = Annotation(
+    #   user_id = current_user.id,
+    #   track_id = track.id,
+    #   annotation_body = 'body',
+    #   startIndex = 3,
+    #   endIndex = 3
+    # )
