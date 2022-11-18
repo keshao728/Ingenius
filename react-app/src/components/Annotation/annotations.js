@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useState, useEffect } from 'react';
 import { NavLink, useParams } from 'react-router-dom'
 import { upvoteThunk,downvoteThunk,unvoteThunk } from '../../store/votes';
+import AnnotationForm from '../AnnotationForm/AnnotationForm';
 import './vote.css'
 const Annotations = () => {
   const dispatch = useDispatch();
