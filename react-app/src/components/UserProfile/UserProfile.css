@@ -19,7 +19,8 @@
 #pp-banner-photo {
   width: 100%;
   background-size: cover;
-  opacity: 75%;
+  opacity: 90%;
+  filter: blur(6px);
 }
 #pp-top-content-footer-container{
   z-index: 10;
@@ -70,23 +71,26 @@
     /* optionnal if you want to keep footer at screen 
   overflow:auto; */
   flex-direction: row;
-  /* row-gap: 10px; */
+  justify-content: space-between;
 
 }
 #pp-left {
-  /* border: 5px solid blue; */
+  border: 5px solid blue;
   height: auto;
   width: 40%;
-
+}
+.pp-div-align{
+  border: 1px solid pink;
+  height: 61px;
 }
 #pp-right {
   /* border: 5px solid blueviolet; */
   height: auto;
-  width: 60%;
+  width: 58%;
 
 }
 #pp-footer {
-  /* border: 5px solid orange; */
+  border: 5px solid orange;
 
 }
 
