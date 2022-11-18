@@ -10,7 +10,7 @@ const store = configureStore();
 
 ReactDOM.render(
   <React.StrictMode>
-    <Provider store={store}>
+    <Provider store={store} onUpdate={() => window.scrollTo(0, 0)}>
       <ModalProvider>
         <App />
       </ModalProvider>

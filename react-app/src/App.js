@@ -33,6 +33,10 @@ function App() {
     return null;
   }
 
+  // componentDidUpdate() {
+  //   window.scrollTo(0, 0);
+  // }
+
   return (
     <BrowserRouter>
 
