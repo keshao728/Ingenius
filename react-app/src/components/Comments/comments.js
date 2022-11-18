@@ -189,7 +189,9 @@ const AllComments = () => {
               <div className="comment-display">
                 <div className="individual-comment-display" key={comment?.id}>
                   <div className="individual-comment-header">
-                    <img className="comment-profile-img" src={comment?.commentter?.profile_img}></img>
+                    < NavLink to={`/users/${comment.user_id}`} >
+                      <img className="comment-profile-img" src={comment?.commentter?.profile_img}></img>
+                    </NavLink>
                     <div className="comment-user">{comment?.commentter?.username}</div>
                     <div className="comment-time-stamp">{moment(comment.created_at).fromNow()}</div>
                   </div>
@@ -209,7 +211,7 @@ const AllComments = () => {
       </div>
       <div className="footer">
         <div className="footer-message">
-        Ingenius is the world’s smallest collection of song lyrics and musical knowledge
+          Ingenius is the world’s smallest collection of song lyrics and musical knowledge
         </div>
       </div>
     </>
