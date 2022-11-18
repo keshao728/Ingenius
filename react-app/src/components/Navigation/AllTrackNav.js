@@ -3,6 +3,7 @@ import { NavLink } from 'react-router-dom';
 import './AllTrackNav.css'
 import { useSelector } from 'react-redux';
 import LogoutButton from '../auth/LogoutButton';
+import defaultpro from './NavImage/defaultpro.png';
 import singletrack from './NavImage/singletrack.png';
 import SignUpForm from '../auth/SignUpForm';
 import LoginForm from '../auth/LoginForm';
@@ -11,6 +12,8 @@ import { HashLink as Link } from 'react-router-hash-link';
 
 const AllTrackNav = () => {
     const sessionUser = useSelector(state => state.session.user);
+    const pfp = useSelector(state => state.session.user?.profile_img)
+
     const [showMenu, setShowMenu] = useState(false);
 
     const openMenu = () => {
@@ -74,9 +77,13 @@ const AllTrackNav = () => {
             <div className='main-nav-list-2-track' >
                 FEED
             </div> */}
-            <div className='main-nav-list-2-track' onClick={openMenu}>
-                ME
-            </div>
+       <img
+          onClick={openMenu}
+          className='main-nav-list-2-track'
+          src={pfp ? pfp : defaultpro}
+          alt="Default Profile"
+        >
+        </img>
 
             {showMenu && (
                 <div className='user-dropdown-menu2'>
@@ -128,12 +135,18 @@ const AllTrackNav = () => {
                 Videos
                 </Link>
 
+                <Link className="main-nav-list-1-track" smooth to="/#devs"
+                style={{ textDecoration: 'none' }}>
+                Devs
+                </Link>
+
             </>
         )
         sessionLinks2 = (
         <div className='main-nav-list'>
             {/* FORCE USER TO SIGN IN */}
-            <div className='main-nav-list-4' id='action-nav-links'>
+            <div className='main-nav-list-3-track'
+            style={{ textDecoration: 'none' }}>
             <SignUpForm />
             </div>
         </div>

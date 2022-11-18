@@ -213,7 +213,7 @@ const HomePage = () => {
         {allTracks.slice(0, showTracks).map((track) => {
           return (
             <div key={track.id} className="all-tracks">
-              <NavLink class="tracks-navlink" to={`/tracks/${track.id}`}>
+              <NavLink class="tracks-navlink" to={`/tracks/${track.id}`} onClick={() => window.scrollTo(0, 0)}>
                 <div className="individual-tracks">
                   <div className="track-num">
                     {track.id}

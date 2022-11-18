@@ -19,8 +19,27 @@
   padding-right: 40px;
   padding-left: 20px;
 }
+#action-nav-links-add{
+  color: white;
+  font-size: 14px;
+  font-weight: bold;
+  margin: 10px;
+  padding-right: 25px;
+  padding-left: 35px;
+}
 
-#action-nav-links:hover {
+#action-nav-links-devs{
+  color: white;
+  font-size: 14px;
+  font-weight: bold;
+  margin: 10px;
+  padding-right: 25px;
+  padding-left: 25px;
+}
+
+#action-nav-links:hover,
+#action-nav-links-add:hover,
+#action-nav-links-devs:hover {
   cursor: pointer;
   color:#FFFF64;
   transition: .4s;
@@ -28,9 +47,20 @@
 
 .main-nav-list-1,
 .main-nav-list-2,
-.main-nav-list-3,
-.main-nav-list-5 {
+.main-nav-list-3 {
   border-right: white 1px solid;
   text-decoration: none;
   color: inherit;
+}
+
+.main-nav-list-5{
+  text-decoration: none;
+  color: inherit;
+}
+
+.main-nav-list-4 {
+  border-left: white 1px solid;
+  text-decoration: none;
+  color: inherit;
+  margin-left: 100px;
 }

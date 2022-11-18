@@ -1,6 +1,7 @@
-from flask import Blueprint, jsonify
+from flask import Blueprint, jsonify, request
 from flask_login import login_required, current_user
-from app.models import User, Track, Comment, Annotation, Vote
+from app.models import db, User, Track, Comment, Annotation, Vote
+from ..forms import ImageForm
 
 
 user_routes = Blueprint('users', __name__)
@@ -23,7 +24,11 @@ def user(id):
     Query for a user by id and returns that user in a dictionary
     """
     user = User.query.get(id)
-    return user.to_dict()
+    user_dct = user.to_dict()
+    user_dct['my_comment'] = [comment.to_dict() for comment in user.user_comment] if user.user_comment else []
+    user_dct['my_annotation'] = [annotation.to_dict() for annotation in user.user_annotation] if user.user_annotation else []
+    user_dct['my_upload'] = [track.to_dict() for track in user.user_track] if user.user_track else []
+    return user_dct
 
 @user_routes.route('/<int:id>/special')
 def user_special(id):
@@ -33,6 +38,39 @@ def user_special(id):
     user = User.query.get(id)
     return user.to_dict()
 
+# EDIT user photo
+@user_routes.route('/<int:id>/photos', methods=["PUT"])
+@login_required
+def editProfile(id):
+    form = ImageForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
+
+    user = User.query.get(id)
+    print(
+            '''
+            
+            
+            r
+            d
+            w
+            
+
+            ''',user,
+            '''
+            e
+            n
+            d
+            ''')
+    if current_user.id != user.id:
+        return {'errors': 'Unauthorized', 'statusCode':401}
+
+    if form.validate_on_submit():
+        user.profile_img = form.profile_img.data
+        user.banner_img = form.banner_img.data
+
+        db.session.commit()
+        return user.to_dict()
+        
 
 # get current user info
 @user_routes.route('/<int:id>/info')

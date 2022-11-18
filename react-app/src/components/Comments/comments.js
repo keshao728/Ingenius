@@ -5,6 +5,8 @@ import { useState, useEffect } from "react";
 import { NavLink, useParams } from "react-router-dom"
 import { getAllComments, createComment, deleteComment } from "../../store/comments";
 import LoginForm from "../auth/LoginForm";
+import SignUpForm from "../auth/SignUpForm";
+
 import * as moment from 'moment';
 // import { getOneTrack } from '../../store/tracks';
 import "./comments.css"
@@ -29,7 +31,6 @@ const AllComments = () => {
     if (showSubmit) return;
     setShowSubmit(true);
   };
-
 
 
   const closeSubmit = (e) => {
@@ -63,6 +64,7 @@ const AllComments = () => {
     setShowErrors(true)
 
     if (!validationErrors.length) {
+      setShowErrors(false)
       const newComment = {
         comment_body: userComments
         // user_id:
@@ -84,6 +86,7 @@ const AllComments = () => {
   // : { border: "1px solid red"}
 
   let sessionLinks;
+  let sessionLinks2;
   if (sessionUser) {
     sessionLinks = (
       <form className="comment-form-parent" onSubmit={handleSubmit}>
@@ -128,12 +131,25 @@ const AllComments = () => {
     )
   } else {
     sessionLinks = (
-      <div>
-        <div>
-          Sign In to Comment!
+      <div className="comment-sign-in">
+        <div className="login-comment">
+          <LoginForm />
         </div>
         <div>
-          <LoginForm />
+          to Comment!
+        </div>
+      </div>
+    )
+    sessionLinks2 = (
+      <div className="knowledge-wrapper">
+        <div className="knowledge-title">
+          Sign Up And Drop Knowledge 🤓
+        </div>
+        <div className="knowledge-des">
+          Genius is the ultimate source of music knowledge, created by scholars like you who share facts and insight about the songs and artists they love.
+        </div>
+        <div className="signup-knowledge">
+          <SignUpForm />
         </div>
       </div>
     )
@@ -189,7 +205,9 @@ const AllComments = () => {
               <div className="comment-display">
                 <div className="individual-comment-display" key={comment?.id}>
                   <div className="individual-comment-header">
-                    <img className="comment-profile-img" src={comment?.commentter?.profile_img}></img>
+                    < NavLink to={`/users/${comment.user_id}`} >
+                      <img className="comment-profile-img" src={comment?.commentter?.profile_img}></img>
+                    </NavLink>
                     <div className="comment-user">{comment?.commentter?.username}</div>
                     <div className="comment-time-stamp">{moment(comment.created_at).fromNow()}</div>
                   </div>
@@ -206,10 +224,13 @@ const AllComments = () => {
             )
           })}
         </div>
+        <div>
+          {sessionLinks2}
+        </div>
       </div>
       <div className="footer">
         <div className="footer-message">
-          Genius is the world’s biggest collection of song lyrics and musical knowledge
+          Ingenius is the world’s smallest collection of song lyrics and musical knowledge
         </div>
       </div>
     </>

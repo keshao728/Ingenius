@@ -21,7 +21,7 @@
   display: flex;
   flex-direction: column;
   align-self: center;
-  padding: 50px 50px;
+  padding:50px;
 }
 
 .sign-up-form-child {
@@ -84,4 +84,18 @@
 .submit-sign-up-button:hover {
   background-color: black;
   color: white;
+}
+
+.error2{
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  padding-left: 50px;
+  /* padding-right: 50px; */
+  padding-top:50px;
+
+}
+
+.error2msg {
+  color:red;
 }

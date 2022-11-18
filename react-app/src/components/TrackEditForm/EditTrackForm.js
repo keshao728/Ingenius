@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useHistory } from 'react-router-dom'
 import { editTrack, getOneTrack, actionResetTrack } from '../../store/tracks'
-import { useParams } from 'react-router-dom'
+import { useParams, Redirect } from 'react-router-dom'
 import './EditTrackForm.css'
 
 
@@ -11,6 +11,7 @@ export default function EditTrack({ setModalOpen }) {
   const dispatch = useDispatch()
   const history = useHistory()
   // const { id } = useParams()
+  const sessionUser = useSelector(state => state.session.user)
   const track = useSelector(state => state.tracks.oneTrack)
   const user = useSelector(state => state.session.user)
 
@@ -55,72 +56,92 @@ export default function EditTrack({ setModalOpen }) {
   //     return validationErrors
 
   // }
+  useEffect(() => {
+    dispatch(getOneTrack(id))
 
+    return () => dispatch(getOneTrack(id))
+    // return () => dispatch(actionResetTrack())
+  }, [dispatch, id])
 
   // useEffect(() => {
   //     if (displayErrors) validate()
   // }, [])
+  let validate = () => {
+    let err = []
 
-  useEffect(() => {
-    const err = []
-    if(!trackTitle || trackTitle.length>100) err.push('Please enter a track title that is less than 100 characters')
-    if(!artist || artist.length>50) err.push('Please enter an artist name that is less than 50 characters')
-    if(!lyrics) err.push('Please enter lyrics')
+    if (!trackTitle) err.push('Track must have a title')
+    if (trackTitle.length > 100) err.push('Title must not exceed 100 characters')
+    if (!artist) err.push('Track must have an artist')
+    if (artist.length > 50) err.push('Artist name must not exceed 50 characters')
+    // if (!lyrics) err.push('You must enter lyrics for the track')
+    // if (lyrics.length > 10000) err.push('Lyrics must not exceed 10000 characters')
+    if (album.length > 100) err.push('Album name must not exceed 100 characters')
+    if (releaseDate > date) err.push('Please provide a valid Release Date') // test later
+    if (producedBy.length > 100) err.push('Producer information must not exceed 100 characters')
+    if (!trackArt.match(/^https?:\/\/.*\/.*\.(png|gif|webp|jpeg|jpg)\??.*$/gmi)) err.push("Please enter a valid URL ending with png, gif, webp, jpeg, or jpg")
+
+    if (!trackUrl.match(/http(?:s?):\/\/(?:www\.)?youtu(?:be\.com\/watch\?v=|\.be\/)([\w\-\_]*)(&(amp;)?‌​[\w\?‌​=]*)?/)) err.push("Please enter a valid Youtube URL") // test later
+
     setErrors(err)
-  },[trackTitle,artist,lyrics])
 
+    if (err.length) setDisplayErrors(true)
+
+    return err
+  }
+  useEffect(() => {
+    if (displayErrors) validate()
+  }, [trackTitle, artist, album, producedBy, trackArt, trackUrl, releaseDate])
+
+  if (!sessionUser) {
+    return <Redirect to="/" />
+  }
 
   // useEffect(() => {
-    //   // setId(track.id)
-    //   setTrackTitle(track.trackTitle)
-    //   setArtist(track.artist)
-    //   setAlbum(track.album)
-    //   setReleaseDate(track.releaseDate)
-    //   setProducedBy(track.producedBy)
-    //   // setLyrics(track.lyrics)
-    //   setTrackArt(track.trackArt)
-    //   setTrackUrl(track.trackUrl)
-    // }, [track])
-    useEffect(() => {
-      dispatch(getOneTrack(id))
-
-      return () => dispatch(getOneTrack(id))
-      // return () => dispatch(actionResetTrack())
-  }, [dispatch, id])
+  //   // setId(track.id)
+  //   setTrackTitle(track.trackTitle)
+  //   setArtist(track.artist)
+  //   setAlbum(track.album)
+  //   setReleaseDate(track.releaseDate)
+  //   setProducedBy(track.producedBy)
+  //   // setLyrics(track.lyrics)
+  //   setTrackArt(track.trackArt)
+  //   setTrackUrl(track.trackUrl)
+  // }, [track])
 
 
-  const handleSubmit = (e) => {
-      e.preventDefault()
 
 
+
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    if (!errors.length) {
+      setErrors([])
+      setDisplayErrors(false)
+      let validationErrors = validate()
+      if (validationErrors.length) return
+
+      setModalOpen(false)
       if (!errors.length) {
-          setErrors([])
-          setDisplayErrors(false)
-          // let validationErrors = validate()
-          // if (validationErrors.length) return
-          setModalOpen(false)
+        const trackEdits = {
+          id,
+          track_title: trackTitle,
+          artist,
+          album,
+          release_date: releaseDate,
+          produced_by: producedBy,
+          lyrics,
+          track_art: trackArt,
+          track_url: trackUrl
+        }
 
-          const trackEdits = {
-              id,
-              track_title: trackTitle,
-              artist,
-              album,
-              release_date: releaseDate,
-              produced_by: producedBy,
-              lyrics,
-              track_art: trackArt,
-              track_url: trackUrl
-          }
-
-          return dispatch(editTrack(trackEdits, id)).catch(async (res) => {
-              const data = await res.json()
-              if (data && data.errors) setErrors(data.errors)
-
-          })
-
+        let improvedTrack = await dispatch(editTrack(trackEdits, id)).catch(async (res) => {
+          const data = await res.json()
+          if (data && data.errors) setErrors(data.errors)
+        })
+        if (improvedTrack) history.push(`/tracks/${id}`)
       }
-      history.push(`/tracks/${id}`)
-      return errors
+    }
+    return errors
   }
 
   return (
@@ -235,14 +256,12 @@ export default function EditTrack({ setModalOpen }) {
             <button className='submit-cancel-edit-track-button' onClick={() => setModalOpen(false)}>Cancel</button>
           </div>
         </div>
-
-
       </form>
       <div>
-        {errors && errors.map((error, idx) =>
+        {/* {errors && errors.map((error, idx) =>
           <li key={idx}>
             {error}
-          </li>)}
+          </li>)} */}
       </div>
     </div>
   )

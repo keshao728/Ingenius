@@ -5,12 +5,14 @@ import { useParams } from 'react-router-dom'
 import { getUserInfo, deleteAnnotation, editAnnotation } from '../../store/session';
 import React from 'react';
 import './UserIndex.css'
+import unreviewed from './Profile-Images/unreviewed.png';
+
 import EditAnnotation from '../AnnotationEditForm/EditAnnotationForm';
 import * as moment from 'moment';
 
 
 
-const UserAnnotations = () => {
+const UserAnnotations = ({setUser}) => {
   const dispatch = useDispatch()
   const { userId } = useParams()
   console.log('USERID', userId)
@@ -29,29 +31,15 @@ const UserAnnotations = () => {
       .then(() => setIsLoaded(true))
   }, [dispatch, userId])
 
-  // useEffect(() => {
-  //   if (!showEdit) return
-  //   const closeEdit = () => {
-  //     setShowEdit(false)
-  //   }
-  //   document.addEventListener('click', closeEdit);
+  const userProp = async () => {
+    const response = await fetch(`/api/users/${userId}`);
+    const user = await response.json();
+    setUser(user);
+  }
 
-  //   return () => document.removeEventListener("click", closeEdit)
-
-  // }, [showEdit])
-
-  // handleDelete = (e) => {
-  //   const id =
-  // }
-  // const handleEditClick = async (e) => {
-  //   e.preventDefault()
-  //   setShowEdit(true)
-  // }
-
-  // const loggedIn = (userId) => {
-  //   return sessionUser.id === userId
-  // }
-
+  // document.getElementById("pp-annotation-edit")?.addEventListener("click", () => {
+  //   document.getElementById("anno-edit-text-area").focus();
+  // });
 
   if (!annotationArr) return null
   else return isLoaded &&
@@ -71,7 +59,8 @@ const UserAnnotations = () => {
               lyrics
             </div>
             <div>
-
+              <img className="unreviewed" src={unreviewed}></img>
+              <div className="unreviewed-hover"> Genius is a crowdsourced website — this annotation has not yet been edited, reviewed, or fact checked by the Genius Editorial Board. </div>
             </div>
           </div>
           <div id='pp-annotation-inner-content'>
@@ -82,22 +71,27 @@ const UserAnnotations = () => {
               </div>
               <div id='pp-annotation-created-at-moment'>{moment(annotation?.created_at).fromNow()}</div>
             </div>
-            <div>{ sessionUser?.id === annotation.user.id ? 
+            <div>{sessionUser?.id === annotation.user.id ?
               <div >{showEdit === annotation.id ? <EditAnnotation setShowEdit={setShowEdit} annotate={annotation} /> :
                 <div>
                   <div id='pp-annotation-body'>{annotation.annotation_body}</div>
                   <div id='pp-annotation-delete-edit'>
                     <button id='pp-annotation-edit' onClick={() => setShowEdit(annotation.id)}>Edit</button>
-                    <button id='pp-annotation-delete' onClick={() => dispatch(deleteAnnotation(annotation.id))}>Delete</button>
+                    <button id='pp-annotation-delete' onClick={() => {dispatch(deleteAnnotation(annotation.id)).then(()=>userProp())}}>Delete</button>
                   </div>
                 </div>
-              }</div>
-              : <div id='pp-noauth-annotation-body'>{annotation.annotation_body}</div>
+              }</div>:
+               <div id='pp-noauth-annotation-body'>{annotation.annotation_body}</div>
             }</div>
             <div id='pp-annotation-upvote-container'>
-              <img className='thumbs' src={'https://www.pngrepo.com/png/331959/180/thumbs-up.png'} />
-              <div id='pp-annotation-upvote'>Upvote {annotation.vote_count}</div>
-              <img className='thumbs' src={'https://www.pngrepo.com/png/331957/180/thumbs-down.png'} />
+              <div className='upvote-wrapper'>
+                <i class="fa-regular fa-thumbs-up"></i>
+                <div id='pp-annotation-upvote'>Upvote </div>
+              </div>
+              <div className='vote-count'> {annotation.vote_count}</div>
+              <div className='downvote-wrapper'>
+                <i class="fa-regular fa-thumbs-down"></i>
+              </div>
             </div>
           </div>
         </div>

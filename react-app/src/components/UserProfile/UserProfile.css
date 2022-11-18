@@ -4,27 +4,59 @@
   display: flex;
   justify-content: center;
   /* border: 10px solid red; */
-  background-color:whitesmoke;
+  background-color: whitesmoke;
   position: relative;
 }
+
+/****************BANNER*******************/
+/****************BANNER*******************/
 #pp-cover {
-   /* whatever width you want for the cover div */
+  /* whatever width you want for the cover div */
   width: 100%;
   height: 280px;
-  background-color:whitesmoke;
+  background-color: whitesmoke;
   overflow: hidden;
   /* border: 10px solid green; */
   position: absolute;
-}
-#pp-banner-photo {
-  width: 100%;
-  background-size: cover;
-  opacity: 75%;
-}
-#pp-top-content-footer-container{
-  z-index: 10;
+  background: linear-gradient(to bottom, white 40%, black 90%);
 }
 
+#pp-banner-photo {
+  width: 100%;
+  /* height: 1000px; */
+  background-size: cover;
+  opacity: 90%;
+  /* position: relative; */
+  filter: brightness(30%);
+}
+
+#pp-right:after,
+#pp-right:before {
+  content: '';
+  color: transparent;
+  display: block;
+  position: absolute;
+  left: 30px;
+  width: 0;
+  height: 0;
+  border-style: solid;
+}
+
+#pp-right:after {
+  top: -1px;
+  border-color: rgb(34, 34, 34) transparent transparent transparent;
+  border-width: 10px;
+}
+
+#pp-right:before {
+  top: 0px;
+  border-color: black transparent transparent transparent;
+  border-width: 10px;
+}
+
+#pp-top-content-footer-container {
+  z-index: 10;
+}
 
 #pp-top-content-footer-container {
   /* border: 10px solid red; */
@@ -35,67 +67,191 @@
   justify-content: space-between;
 
 }
+
 #pp-cover-content-footer-container>* {
   padding: 1em;
 }
+
+/****************TOP CONTENT*******************/
+/****************TOP CONTENT*******************/
 #pp-top {
   /* border: 5px solid pink; */
-  height: 280px; /* change up */
+  height: 280px;
+  /* change up */
   background-color: fade(#FFFFFF, 50%);
   display: flex;
   flex-direction: row;
 }
+
 #pp-top-left {
   /* border: 5px solid pink; */
   width: 40%;
 }
+
 #pp-top-right {
   /* border: 5px solid pink; */
   width: 60%;
 }
-#pp-profile-photo-container{
-  margin: 40px 0px 0px 20px;
+
+#pp-profile-photo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 40px;
 
 }
-#pp-profile-photo{
+
+#pp-profile-photo {
   border: 2px solid white;
   border-radius: 50%;
   height: 300px;
   width: 300px;
+  overflow: hidden
 }
+
 #pp-content {
   display: flex;
   flex: 1;
   /* border: 5px solid purple; */
-    /* optionnal if you want to keep footer at screen 
+  /* optionnal if you want to keep footer at screen
   overflow:auto; */
   flex-direction: row;
-  /* row-gap: 10px; */
+  justify-content: space-between;
 
+  /****************LEFT CONTENT*******************/
+  /****************LEFT CONTENT*******************/
 }
+
 #pp-left {
   /* border: 5px solid blue; */
   height: auto;
   width: 40%;
-
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-right: 23px;
 }
+
+.pp-div-align {
+  /* border: 1px solid pink; */
+  height: 90px;
+  width: 100%;
+}
+
+#pp-main-username {
+  /* display: flex; */
+  /* flex-direction: row;
+  justify-content: center; */
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+#left-content-outer {
+  padding: 10px
+}
+
+#pp-pfp-edit-button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+#pp-pfp-edit-button-pen-image {
+  height: 15px;
+  margin-right: 5px;
+  display: flex;
+  justify-content: center;
+}
+
+#pp-pfp-edit-button {
+  margin-bottom: 30px;
+  background-color: transparent;
+  font-weight: bold;
+  padding: 7px 10px;
+  display: flex;
+  justify-content: center;
+  cursor: pointer;
+}
+
+#pp-pfp-edit-button:hover {
+  background-color: #dadada;
+  transition: .4s;
+  cursor: pointer;
+}
+
+.top-div-outer {
+  width: 95%;
+}
+
+.white-box-text {
+  padding: 20px 10px;
+  text-transform: uppercase;
+  font-size: 12px;
+  font-weight: 600;
+  color: darkgray;
+}
+
+#white-top-div {
+  width: 100%;
+  height: auto;
+  padding: 15px;
+  background-color: white;
+  font-size: 15px;
+}
+
+#white-mid-div-wrapper {
+  width: 100%;
+  height: auto;
+  background-color: white;
+}
+
+#blank-white-bot-div {
+  width: 100%;
+  height: 100px;
+  background-color: white;
+}
+
+/****************RIGHT CONTENT*******************/
+/****************RIGHT CONTENT*******************/
 #pp-right {
   /* border: 5px solid blueviolet; */
   height: auto;
-  width: 60%;
-
-}
-#pp-footer {
-  /* border: 5px solid orange; */
+  width: 58%;
+  position: relative;
 
 }
 
 
+.unreviewed {
+  margin-top: 23px;
+  width: 100%;
+  transition: 1s;
+  cursor: pointer;
+}
+
+.unreviewed-hover {
+  display: none;
+  width: 400px;
+  background-color: white;
+  font-size: 12px;
+  border: 2px black solid;
+  padding: 10px;
+  margin-left: 50px;
+  font-weight: bold;
+  line-height: 20px;
+}
+
+.unreviewed:hover+.unreviewed-hover {
+  display: block;
+  position: absolute;
+}
 
 .user-contributions-title {
   text-transform: uppercase;
   font-size: 12px;
-  font-weight:600;
+  font-weight: 600;
   color: darkgray;
   margin-top: 40px;
   padding-bottom: 10px;
@@ -106,3 +262,98 @@
 
 /* pp-annotation */
 
+#pp-main-username {
+  font-size: 20px;
+  font-weight: 600;
+  color: black;
+  margin-top: 10px;
+  padding: 0px;
+  display: flex;
+  justify-content: center;
+}
+
+
+.mid-contents{
+  display: flex;
+  flex-direction: column;
+  width: 33%;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.mid-items{
+  display: flex;
+  flex-direction: row;
+}
+
+.white-mid-div{
+  display: flex;
+  padding: 15px;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  color:#545454
+}
+
+.fa-solid{
+  font-size: 25px;
+  margin-right: 10px;
+}
+
+.mid-item-text{
+  margin-top: 5px;
+  font-size: 10px;
+  color:#9A9A9A
+}
+
+.mid-count{
+  font-size:20px
+}
+
+.pp-devs{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  background-color: black;
+}
+#pp-footer {
+  background-color: black;
+  height: auto;
+  border-top: 10px solid black;
+  color: #9A9A9A;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
+}
+
+.individual-devs{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 10px 20px;
+}
+
+.dev-link{
+  text-decoration:none;
+  color:#FFFF64;
+
+}
+
+.dev-link:hover{
+  color:#99A7EE;
+}
+
+.project-link{
+  text-decoration:none;
+  color:#99A7EE;
+  margin-top: 20px;
+  margin-bottom: 20px;
+
+
+}

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { Redirect } from 'react-router-dom';
 import { signUp } from '../../store/session';
@@ -13,6 +13,8 @@ const SignUpForm = () => {
   const [password, setPassword] = useState('');
   const [repeatPassword, setRepeatPassword] = useState('');
   const [showModal, setShowModal] = useState(false);
+  const [showErrors, setShowErrors] = useState(false);
+
   // const [showLoginModal, setShowLoginModal] = useState(false);
 
 
@@ -21,7 +23,8 @@ const SignUpForm = () => {
 
   const onSignUp = async (e) => {
     e.preventDefault();
-    if (password === repeatPassword) {
+    setShowErrors(true)
+    if (!errors && (password === repeatPassword)) {
       const data = await dispatch(signUp(username, email, password));
       if (data) {
         setErrors(data)
@@ -58,6 +61,21 @@ const SignUpForm = () => {
 //     setShowModal(false)
 //     setShowLoginModal(true);
 // }
+  function isValidEmail(email) {
+    return /\S+@\S+\.\S+/.test(email);
+  }
+
+  useEffect(async() => {
+    const err = [];
+    if(!username) err.push('Please provide a username');
+    if(username.length > 15) err.push('Username must be less than 15 characters');
+    if(username.length<3) err.push('Username must be at least 3 characters');
+    if(!email) err.push('Please provide an email');
+    if(isValidEmail(email)) err.push('Please provide a valid email');
+    if (password !== repeatPassword)err.push('Passwords must match')
+    if ( password.length < 6) err.push('Password must be at least 6 characters')
+    setErrors(err)
+  },[username,email,password,repeatPassword])
 
   if (user) {
     return <Redirect to='/' />;
@@ -70,11 +88,14 @@ const SignUpForm = () => {
         <Modal showModal={showModal} onClose={() => onCloseModal()}>
 
           <form onSubmit={onSignUp}>
-            <div>
-              {errors.map((error, ind) => (
-                <div key={ind}>{error}</div>
-              ))}
-            </div>
+            {showErrors &&(
+              <div className='error2'>
+                {errors.map((error, ind) => (
+                  <li className='error2msg'key={ind}>{error}</li>
+                ))}
+              </div>
+            )
+            }
 
             <div className='sign-up-form-wrapper'>
               <div className='sign-up-form-child'>

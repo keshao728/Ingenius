@@ -29,17 +29,25 @@ export default function CreateTrack() {
   const [errors, setErrors] = useState([])
   const [displayErrors, setDisplayErrors] = useState(false);
 
-
-
-
   let validate = () => {
     let validationErrors = []
 
-    if (!trackTitle) validationErrors.push('Track must have a title')
-    if (trackTitle.length > 100) validationErrors.push('Title must not exceed 100 characters')
     if (!artist) validationErrors.push('Track must have an artist')
     if (artist.length > 50) validationErrors.push('Artist name must not exceed 50 characters')
+    if (!trackTitle) validationErrors.push('Track must have a title')
+    if (trackTitle.length > 100) validationErrors.push('Title must not exceed 100 characters')
+    if (album.length > 100) validationErrors.push('Album name must not exceed 100 characters')
     if (!lyrics) validationErrors.push('You must enter lyrics for the track')
+    if (lyrics.length > 10000) validationErrors.push('Lyrics must not exceed 10000 characters')
+
+    if (producedBy.length > 100) validationErrors.push('Producer information must not exceed 100 characters')
+    if (!trackArt.match(/^https?:\/\/.*\/.*\.(png|gif|webp|jpeg|jpg)\??.*$/gmi)) validationErrors.push("Please enter a valid URL ending with png, gif, webp, jpeg, or jpg")
+    if (releaseDate > date) validationErrors.push('Please provide a valid Release Date') // test later
+
+    if (!trackUrl.match(/http(?:s?):\/\/(?:www\.)?youtu(?:be\.com\/watch\?v=|\.be\/)([\w\-\_]*)(&(amp;)?‌​[\w\?‌​=]*)?/)) validationErrors.push("Please enter a valid Youtube URL") // test later
+    
+    
+
 
     setErrors(validationErrors)
 
@@ -50,7 +58,7 @@ export default function CreateTrack() {
 
   useEffect(() => {
     if (displayErrors) validate()
-  }, [trackTitle, artist, lyrics])
+  }, [trackTitle, artist, lyrics, album, producedBy, trackArt, trackUrl, releaseDate])
 
   if (!sessionUser) {
     return <Redirect to="/" />
@@ -91,7 +99,7 @@ export default function CreateTrack() {
 
   return (
     <div className='full-screen-add-song'>
-      <form id="trackForm" onSubmit={handleSubmit}>
+      <form id="trackForm" onSubmit={handleSubmit} spellcheck="false">
 
         <div className='add-song-wrapper'>
           <div className='add-song-child'>
@@ -231,7 +239,7 @@ export default function CreateTrack() {
                   </div>
 
                   <div className='add-song-input-box'>
-                    <label>YOUTUBE URL  (embeded link only)</label>
+                    <label>YOUTUBE URL</label>
                     <input
                       type="text"
                       value={trackUrl}

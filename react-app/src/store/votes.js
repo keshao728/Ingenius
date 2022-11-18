@@ -27,6 +27,19 @@ const unvote = (id) => {
 
 
 //-----  THUNK  -----//
+export const votecount = (id) => async (dispatch) => {
+    const response = await fetch(`/api/votes/${id}/total`);
+    console.log('this is response for votecount in thunk',response)
+    console.log('this is id for votecount in thunk',id)
+    if (response.ok) {
+        const data = await response.json();
+        console.log('this is data for votecount in thunk',data.count)
+        return data.count
+        // return data;
+    }
+    // return response
+}
+
 //upvote
 export const upvoteThunk = (id) => async (dispatch) => {
     const response = await fetch(`/api/votes/${id}/upvote`, {

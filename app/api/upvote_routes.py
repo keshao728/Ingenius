@@ -3,6 +3,13 @@ from ..models import db,Vote
 from flask_login import login_required, current_user
 
 upvote_routes = Blueprint('upvotes',__name__)
+@upvote_routes.route('/<int:id>/total')
+def votecount(id):
+    votes = Vote.query.filter(Vote.annotation_id == id).all()
+    count = 0
+    for votevalue in votes:
+        count += votevalue.vote
+    return {"count": count}
 
 @upvote_routes.route('/<int:id>/upvote',methods=['POST'])
 @login_required

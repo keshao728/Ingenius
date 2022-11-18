@@ -19,9 +19,9 @@
 }
 
 /* .react-player__play-icon{ */
-  /* background-color: gray; */
-  /* padding: 10%; */
-  /* color: black; */
+/* background-color: gray; */
+/* padding: 10%; */
+/* color: black; */
 /* } */
 
 /* .react-player__shadow{
@@ -72,7 +72,7 @@
 .top-feature-news {
   position: relative;
   bottom: -8px;
-  width: 35px;
+  width: 44px;
   background-color: white;
   padding-right: 10px;
   font-size: 12px;
@@ -141,16 +141,16 @@
 }
 
 /* .bottom-feature-1 { */
-  /* padding-right: 20px; */
+/* padding-right: 20px; */
 /* } */
 
 /* .bottom-feature-4 { */
-  /* padding-left: 20px; */
+/* padding-left: 20px; */
 /* } */
 /*
 .bottom-feature-2,
 .bottom-feature-3 { */
-  /* padding-right: 20px;
+/* padding-right: 20px;
   padding-left: 20px; */
 
 /* } */
@@ -172,7 +172,7 @@
   font-size: 11px;
   font-weight: bold;
   margin-bottom: 10px;
-  padding: 0 3%;
+  padding: 0 5%;
 }
 
 .dev-text {
@@ -234,7 +234,7 @@
   object-fit: cover;
   height: 60px;
   width: 60px;
-  border: 1px solid rgb(197, 197, 197);
+  border: 1px solid rgb(236, 236, 236);
 }
 
 .track-cover-name {
@@ -255,8 +255,11 @@
 .track-artist {
   justify-content: flex-end;
   font-size: 18px;
-  margin-left: 40px;
-  width: 140px;
+  margin-left: 35px;
+  width: 180px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
   /* font-weight: bold; */
 }
 
@@ -264,7 +267,7 @@
   /* display: flex; */
   /* align-content: flex-end; */
   font-size: 18px;
-  margin-left: 210px;
+  margin-left: 180px;
   /* display: inline-flex; */
 }
 
@@ -575,12 +578,12 @@
   text-decoration: none;
 }
 
-.footer-links-ul > li > a {
+.footer-links-ul>li>a {
   text-decoration: none;
   color: whitesmoke
 }
 
-.footer-links-ul > li > a:hover{
+.footer-links-ul>li>a:hover {
   color: #FCFF68;
 }
 
