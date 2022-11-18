@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { Redirect } from 'react-router-dom';
 import { signUp } from '../../store/session';
@@ -58,6 +58,21 @@ const SignUpForm = () => {
 //     setShowModal(false)
 //     setShowLoginModal(true);
 // }
+  function isValidEmail(email) {
+    return /\S+@\S+\.\S+/.test(email);
+  }
+
+  useEffect(async() => {
+    const err = [];
+    if(!username) err.push('Please provide a username');
+    if(username.length > 15) err.push('Username must be less than 15 characters');
+    if(username.length<3) err.push('Username must be at least 3 characters');
+    if(!email) err.push('Please provide an email');
+    if(isValidEmail(email)) err.push('Please provide a valid email');
+    if (password !== repeatPassword)err.push('Passwords must match')
+    if ( password.length < 6) err.push('Password must be at least 6 characters')
+    setErrors(err)
+  },[username,email,password,repeatPassword])
 
   if (user) {
     return <Redirect to='/' />;
@@ -125,7 +140,7 @@ const SignUpForm = () => {
                   <label className='sign-up-input-label'>Repeat Password</label>
                 </div>
               </div>
-              <button className='submit-sign-up-button' type='submit'>Sign Up</button>
+              <button className='submit-sign-up-button' disabled={!!errors.length}type='submit'>Sign Up</button>
             </div>
           </form>
               {/* ADD THIS LATER
