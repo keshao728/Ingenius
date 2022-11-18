@@ -5,7 +5,7 @@ import LoginForm from "../auth/LoginForm";
 
 
 
-const AnnotationForm = () => {
+const AnnotationForm = (startIndex, endIndex) => {
   const dispatch = useDispatch();
   const [annotation, setAnnotation] = useState('')
   const [validationErrors, setValidationErrors] = useState([])
@@ -47,10 +47,16 @@ const AnnotationForm = () => {
 
     if (!validationErrors.length) {
       const payload = {
-        annotation_body: annotation
+        annotation_body: annotation,
+        startIndex,
+        endIndex
       }
       setAnnotation("");
-      let newAnnotation = await dispatch(createAnnotation(payload))
+
+      let newAnnotation = await dispatch(createAnnotation(payload)).catch(async (res) => {
+        const data = await res.json();
+        if (data && data.errors) setValidationErrors(data.errors)
+      })
 
       if (newAnnotation) {
         setDisplayErrors(false)
@@ -58,7 +64,6 @@ const AnnotationForm = () => {
       }
     }
   }
-
 
   let sessionLinks;
   if (sessionUser) {
@@ -121,3 +126,4 @@ const AnnotationForm = () => {
   )
 }
 export default AnnotationForm
+
