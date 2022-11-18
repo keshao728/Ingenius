@@ -31,7 +31,6 @@ const AllComments = () => {
   };
 
 
-
   const closeSubmit = (e) => {
     e.preventDefault();
     setShowSubmit(false);
