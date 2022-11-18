@@ -135,6 +135,11 @@ const AllTrackNav = () => {
                 Videos
                 </Link>
 
+                <Link className="main-nav-list-1-track" smooth to="/#devs"
+                style={{ textDecoration: 'none' }}>
+                Devs
+                </Link>
+
             </>
         )
         sessionLinks2 = (
