@@ -233,6 +233,11 @@ export default function reducer(state = initialState, action) {
       newState.annotations[action.annotation.id] = action.annotation
 
       return newState
+    case EDIT_USER_IMG:
+      newState = {...state}
+      newState.user = {...state.user}
+      newState.user[action.user.id] = action.user
+
     case DELETE_ANNOTATION:
       newState = {...state, annotations: {...state.annotations}}
       delete newState.annotations[action.annotation]
