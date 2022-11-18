@@ -7,6 +7,7 @@
   background-color:whitesmoke;
   position: relative;
 }
+
 #pp-cover {
    /* whatever width you want for the cover div */
   width: 100%;
@@ -15,13 +16,19 @@
   overflow: hidden;
   /* border: 10px solid green; */
   position: absolute;
+  /* box-shadow: 0px 10px 30px 10px rgb(0, 0, 0); */
+  background: linear-gradient(to bottom, white 40%, black 90%);
+  /* background:linear-gradient(to bottom, rgba(0,0,0,0) 20%, rgba(0,0,0,1)) */
 }
+
 #pp-banner-photo {
   width: 100%;
   background-size: cover;
   opacity: 90%;
-  filter: blur(6px);
+  filter: brightness(30%);
 }
+
+
 #pp-top-content-footer-container{
   z-index: 10;
 }
