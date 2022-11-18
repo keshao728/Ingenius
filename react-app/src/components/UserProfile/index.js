@@ -13,40 +13,21 @@ import * as moment from 'moment';
 const UserAnnotations = () => {
   const dispatch = useDispatch()
   const { userId } = useParams()
-
+  console.log('USERID', userId)
   const annotations = useSelector(state => state.session.annotations)
-
-  console.log('USERINOFORMATION', annotations)
+  const sessionUser = useSelector(state => state.session.user)
+  // console.log('sessionUserID', sessionUser.id)
+  // console.log('USERINOFORMATION', annotations)
   const annotationArr = Object.values(annotations)
-  console.log('ANNOTATIONAAARR', annotationArr)
+  // console.log('ANNOTATIONAAARR', annotationArr)
 
   const [isLoaded, setIsLoaded] = useState(false)
   const [showEdit, setShowEdit] = useState(false)
-
 
   useEffect(() => {
     dispatch(getUserInfo(userId))
       .then(() => setIsLoaded(true))
   }, [dispatch, userId])
-
-  // useEffect(() => {
-  //   if (!showEdit) return
-  //   const closeEdit = () => {
-  //     setShowEdit(false)
-  //   }
-  //   document.addEventListener('click', closeEdit);
-
-  //   return () => document.removeEventListener("click", closeEdit)
-
-  // }, [showEdit])
-
-  // handleDelete = (e) => {
-  //   const id =
-  // }
-  // const handleEditClick = async (e) => {
-  //   e.preventDefault()
-  //   setShowEdit(true)
-  // }
 
 
   if (!annotationArr) return null
@@ -72,19 +53,29 @@ const UserAnnotations = () => {
           </div>
           <div id='pp-annotation-inner-content'>
             <div id='pp-annotation-username-icon-moment-container'>
-            <div id='pp-annotation-username-icon-container'>
-              <img id='pp-annotation-username-icon' src={annotation.user?.profile_img} />
-              <div id='pp-annotation-username'>{annotation.user?.username}</div>
+              <div id='pp-annotation-username-icon-container'>
+                <img id='pp-annotation-username-icon' src={annotation.user?.profile_img} />
+                <div id='pp-annotation-username'>{annotation.user?.username}</div>
+              </div>
+              <div id='pp-annotation-created-at-moment'>{moment(annotation?.created_at).fromNow()}</div>
             </div>
-            <div id='pp-annotation-created-at-moment'>{moment(annotation?.created_at).fromNow()}</div>
+            <div>{ sessionUser?.id === annotation.user.id ? 
+              <div >{showEdit === annotation.id ? <EditAnnotation setShowEdit={setShowEdit} annotate={annotation} /> :
+                <div>
+                  <div id='pp-annotation-body'>{annotation.annotation_body}</div>
+                  <div id='pp-annotation-delete-edit'>
+                    <button id='pp-annotation-edit' onClick={() => setShowEdit(annotation.id)}>Edit</button>
+                    <button id='pp-annotation-delete' onClick={() => dispatch(deleteAnnotation(annotation.id))}>Delete</button>
+                  </div>
+                </div>
+              }</div>
+              : <div id='pp-noauth-annotation-body'>{annotation.annotation_body}</div>
+            }</div>
+            <div id='pp-annotation-upvote-container'>
+              <img className='thumbs' src={'https://www.pngrepo.com/png/331959/180/thumbs-up.png'} />
+              <div id='pp-annotation-upvote'>Upvote {annotation.vote_count}</div>
+              <img className='thumbs' src={'https://www.pngrepo.com/png/331957/180/thumbs-down.png'} />
             </div>
-            <div id='pp-annotation-annotation-body'>{showEdit == annotation.id ? <EditAnnotation setShowEdit={setShowEdit} annotate={annotation} /> : annotation.annotation_body}</div>
-            <div id='pp-annotation-delete-edit'>
-              <button id='pp-annotation-edit' onClick={() => setShowEdit(annotation.id)}>Edit</button>
-              <button id='pp-annotation-delete' onClick={() => dispatch(deleteAnnotation(annotation.id))}>Delete</button>
-            </div>
-
-            <div id='pp-annotation-upvote'>Upvote {annotation.vote_count}</div>
           </div>
         </div>
       </div>

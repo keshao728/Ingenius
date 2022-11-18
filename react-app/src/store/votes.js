@@ -36,15 +36,31 @@ export const upvoteThunk = (id) => async (dispatch) => {
         },
         body: JSON.stringify(id)
     })
+    // console.log('id from upvote thunk',id)
+    // console.log('response from upvote thunk',response)
     if (response.ok) {
         const data = await response.json()
-        await dispatch(upvote(data))
-        return data
+        console.log('data from upvote thunk',data)
+        // await dispatch(upvote(data))
+        if(data.statusCode == 401) {
+            const response2 = await fetch(`/api/votes/${id}/unvote`, {
+                method: "DELETE",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(id)
+            })
+            if(response2.ok) {
+                const data2 = await response2.json()
+                return data2
+            }
+        }
+        return data.errors
     }
     return
 }
 //downvote
-export const downvoteThunk = (id) => async (dispatch) => {
+export const downvoteThunk = (id) => async () => {
     const response = await fetch(`/api/votes/${id}/downvote`, {
         method: "POST",
         headers: {
@@ -52,12 +68,25 @@ export const downvoteThunk = (id) => async (dispatch) => {
         },
         body: JSON.stringify(id)
     })
-    console.log(id)
-    console.log(response)
+    console.log('id from downvote thunk',id)
+    console.log('response from downvote thunk',response)
     if (response.ok) {
         const data = await response.json()
-        await dispatch(downvote(data))
-        return data
+        // const data2 = await dispatch(downvote(data))
+        if(data.statusCode == 401) {
+            const response2 = await fetch(`/api/votes/${id}/unvote`, {
+                method: "DELETE",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(id)
+            })
+            if(response2.ok) {
+                const data2 = await response2.json()
+                return data2
+            }
+        }
+        return data.errors
     }
     return
 }

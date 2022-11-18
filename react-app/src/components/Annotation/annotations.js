@@ -14,27 +14,19 @@ const Annotations = () => {
 
     const upvote = async(e) => {
         e.preventDefault();
-        await dispatch(upvoteThunk(1)).catch(async (res) => {
+        await dispatch(upvoteThunk(2))
+        .catch(async (res) => {
             let data = await res.json();
-            console.log('this is data',data)
-            if(data && data.errors)
-                return dispatch(unvoteThunk(1)).catch(async (res2) => {
-                    let data2 = await res2.json();
-                    console.log('this is data2',data2)
-                    if(data2 && data2.errors) return;
+            return
             });
-        })
     }
-
 
     const downvote = async(e) => {
         e.preventDefault();
-       await dispatch(downvoteThunk(1)).catch(async (res) => {
+        await dispatch(downvoteThunk(2))
+        .catch(async (res) => {
             let data = await res.json();
-            if(data && data.errors) await dispatch(unvoteThunk(1)).catch(async (res2) => {
-                let data2 = await res2.json();
-                if(data2.errors) return;
-            });
+            return
         })
     }
 

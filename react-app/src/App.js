@@ -44,11 +44,11 @@ function App() {
           <HomePage />
         </Route>
 
-        <ProtectedRoute path='/users/:userId' exact={true} >
+        <Route path='/users/:userId' exact={true} >
           <NavBar />
           <ActionNav />
           <User />
-        </ProtectedRoute>
+        </Route>
 
         <Route path='/tracks' exact={true}>
           <AllTracks />

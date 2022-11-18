@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
-import { editAnnotation, getUserInfo  } from '../../store/session';
+import { editAnnotation, getUserInfo } from '../../store/session';
 // import { useHistory } from 'react-router-dom'
+import './EditAnnotationForm.css'
 
-const EditAnnotation = ({setShowEdit, annotate}) => {
+const EditAnnotation = ({ setShowEdit, annotate }) => {
   const dispatch = useDispatch()
   // const annotations = useSelector(state => state.session.annotations)
   // console.log('ANNOTATIONS', annotations)
@@ -39,7 +40,7 @@ const EditAnnotation = ({setShowEdit, annotate}) => {
         annotation_body: annotation,
         startIndex: annotate.startIndex,
         endIndex: annotate.endIndex,
-        
+
       }
 
       let newAnnotation = await dispatch(editAnnotation(payload))
@@ -53,26 +54,30 @@ const EditAnnotation = ({setShowEdit, annotate}) => {
   const handleCancelClick = (e) => {
     e.preventDefault();
     setShowEdit(false)
-    
-    
+
+
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <textarea
-        type='text'
-        value={annotation}
-        onChange={updateAnnotation} />
-      <button type='submit'>Save</button>
-      <button type="button" onClick={handleCancelClick}>Cancel</button>
-      <div>
-        <ul>
-          {showErrors && validationErrors.length > 0 && validationErrors.map(error => (
-            <li key={error}>{error}</li>
-          ))}
-        </ul>
-      </div>
-    </form>
+    <div id='anno-edit-container'>
+      <form onSubmit={handleSubmit}>
+        <textarea id='anno-edit-text-area'
+          type='text'
+          value={annotation}
+          onChange={updateAnnotation} />
+        <div>
+          <button type='submit'>Save</button>
+          <button type="button" onClick={handleCancelClick}>Cancel</button>
+        </div>
+        <div>
+          <ul>
+            {showErrors && validationErrors.length > 0 && validationErrors.map(error => (
+              <li key={error}>{error}</li>
+            ))}
+          </ul>
+        </div>
+      </form>
+    </div>
   )
 }
 
