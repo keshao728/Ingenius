@@ -3,3 +3,4 @@ from .signup_form import SignUpForm
 from .annotation_form import AnnotationForm
 from .comment_form import CommentForm
 from .track_form import TrackForm
+from .image_form import ImageForm

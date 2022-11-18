@@ -2,17 +2,19 @@ import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import UserAnnotations from './UserProfile';
+import ImageForm from './UserProfile/PfpBannerForm';
 // import EditAnnotation from './AnnotationEditForm/EditAnnotationForm';
 import './UserProfile/UserProfile.css'
 
 function User() {
   const [user, setUser] = useState({});
+  const [showEdit, setShowEdit] = useState(false)
   // const other = useSelector(state => state.session.annotations)
   // const otherUser = other
   // console.log('OTHER', otherUser)
 
   const { userId } = useParams();
-  console.log(user)
+  console.log('iamuser', user)
 
   useEffect(() => {
     if (!userId) {
@@ -48,11 +50,13 @@ function User() {
           <div id='pp-left'>
             <div className='pp-div-align'></div>
             <div id='pp-main-username'>@{user.username}</div>
+            <button></button>
+            <ImageForm userInfo={user} />
           </div>
           <div id='pp-right'>
             <div>
               <div className='user-contributions-title'> {user.username}'s Contributions</div>
-              <UserAnnotations />
+              <UserAnnotations/>
             </div>
           </div>
         </div>
