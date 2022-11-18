@@ -122,7 +122,7 @@ export default function TrackInfo() {
 
       </div>
       <div className='track_art'>
-        <img src={track.track_art}></img>
+        <img className='album-cover' src={track.track_art}></img>
       </div>
 
       <div className='track_title_artist'>

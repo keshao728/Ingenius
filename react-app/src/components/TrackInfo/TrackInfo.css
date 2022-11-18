@@ -6,7 +6,6 @@
     left: 18%;
     top: 15%;
     object-fit: contain;
-    border: 1px solid rgb(189, 189, 189);
     height: 310px;
     width: 310px;
     object-fit: contain
@@ -240,4 +239,11 @@
     font-size: 25px;
     position: relative;
     /* height: 30px; */
+}
+
+.album-cover{
+    width:310px;
+    height:310px;
+    border: 1px solid rgb(189, 189, 189);
+    object-fit: cover;
 }
