@@ -54,8 +54,6 @@ const EditAnnotation = ({ setShowEdit, annotate }) => {
   const handleCancelClick = (e) => {
     e.preventDefault();
     setShowEdit(false)
-
-
   };
 
   // document.getElementById("pp-annotation-edit").addEventListener("click", () => {
