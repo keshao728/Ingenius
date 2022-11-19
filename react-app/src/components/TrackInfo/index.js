@@ -152,6 +152,33 @@ export default function TrackInfo() {
   // }
 
 
+
+  const annotations = useSelector((state) => state.tracks.oneTrack.Annotations);
+  // console.log(annotations)
+  const [showAnnotation, setShowAnnotation] = useState(false)
+
+
+  useEffect(() => {
+    if (annotations) {
+      for (let annotation of annotations) {
+        // console.log(annotation.span_ids.split(','))
+        annotation.span_ids.split(',').map(anno =>
+          document.getElementById(anno).classList.add('annotated')
+        )
+        annotation.span_ids.split(',').map(anno =>
+          document.getElementById(anno).addEventListener('click', () => setShowAnnotation(true))
+          )
+
+
+        // console.log(splitted)
+      }
+      // console.log('-----------------------------------------------------------------------------')
+    }
+
+
+  }, [annotations, dispatch, showAnnotation])
+
+
   // end annotation stuff
 
 
@@ -231,7 +258,7 @@ export default function TrackInfo() {
             {annotated && <AnnotationForm setDocu={setDocu} docu={docu} setAnnotated={setAnnotated} spanIds={spanIds} />}
           </div>
           <div>
-            {<Annotations/>}
+            {<Annotations setShowAnnotation={setShowAnnotation} showAnnotation={showAnnotation}/>}
           </div>
           {/* {annotating && <AnnotationForm /> } */}
 
