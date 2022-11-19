@@ -97,8 +97,6 @@ const Annotations = () => {
                     </div>
                 {/* ))} */}
             </div>
-          ))}
-        </div>
         {/* </div>
         ))} */}
       </div>
