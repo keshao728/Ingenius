@@ -7,7 +7,7 @@ import LoginForm from "../auth/LoginForm";
 import "./AnnotationForm.css";
 
 
-const AnnotationForm = ({setDocu, docu, setAnnotated,spanIds, setShowAnnotation}) => {
+const AnnotationForm = ({ setDocu, docu, setAnnotated, spanIds, setShowAnnotation }) => {
   const dispatch = useDispatch();
   const [annotation, setAnnotation] = useState('')
   const [validationErrors, setValidationErrors] = useState([])
@@ -37,7 +37,7 @@ const AnnotationForm = ({setDocu, docu, setAnnotated,spanIds, setShowAnnotation}
     setShowMenu(false);
     setAnnotated(false)
 
-    if(docu.length) {
+    if (docu.length) {
       for (let doc of docu)
         doc.className = ''
     }
@@ -45,10 +45,16 @@ const AnnotationForm = ({setDocu, docu, setAnnotated,spanIds, setShowAnnotation}
     // setAnnotating(false)
   };
 
+  function isEmpty(str) {
+    if (!str.trim().length)
+      return { border: "1px solid red" }
+  }
+
   useEffect(() => {
     const errors = []
-    if (!annotation) errors.push('Need more info pls')
-    // console.log('oooooooooo', spanIds)
+    if (!annotation || annotation === "" || isEmpty(annotation)) errors.push('Comment is Required')
+    if (annotation.length > 200) errors.push("Please enter less than 200 characters")
+
 
     setValidationErrors(errors)
   }, [annotation])
@@ -65,25 +71,24 @@ const AnnotationForm = ({setDocu, docu, setAnnotated,spanIds, setShowAnnotation}
     setAnnotated(false)
 
     if (!validationErrors.length) {
+      setDisplayErrors(false)
       const payload = {
         annotation_body: annotation,
         span_ids: spanIds
       }
       setAnnotation("");
 
-      let newAnnotation = await dispatch(createAnnotation(track.id, payload)).catch(async (res) => {
-        const data = await res.json();
-        if (data && data.errors) setValidationErrors(data.errors)
-      })
+      let newAnnotation = await dispatch(createAnnotation(track.id, payload))
 
       if (newAnnotation) {
         setDisplayErrors(false)
         setAnnotated(false)
         // setAnnotating(false)
-        // setShowMenu(false)
+        setShowMenu(false)
       }
     }
   }
+
 
   let sessionLinks;
   if (sessionUser) {
@@ -104,21 +109,24 @@ const AnnotationForm = ({setDocu, docu, setAnnotated,spanIds, setShowAnnotation}
                   // onClick={openSubmit}
                   required
                   onChange={(e) => setAnnotation(e.target.value)}
-                />
+                  />
+                  {displayErrors && (
+                    <ul className="annotation-form-errors">
+                      {validationErrors.length > 0 &&
+                        validationErrors.map(error => (
+                          <li className="annotation-form-error-text" key={error}>{error}</li>
+                        ))}
+                    </ul>
+                  )}
 
                 {/* <input hidden type='number' value={startIndex}></input>
                 <input hidden type='number' value={endIndex}></input> */}
-                <input hidden type='text' value={spanIds}></input>
+                <input
+                  hidden
+                  type='text'
+                  value={spanIds}>
+                </input>
 
-                {/* {showErrors && showSubmit && (
-              <ul className="annotation-form-errors">
-              {validationErrors.length > 0 &&
-                validationErrors.map(error => (
-                  <li className="annotation-form-error-text" key={error}>{error}</li>
-                  ))}
-                  </ul>
-                  )
-                } */}
               </label>
               <div className="annotation-submit-buttons">
                 <button className="button-create-annotation" type="submit" onSubmit={handleSubmit}> Save </button>
