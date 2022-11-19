@@ -19,7 +19,7 @@ function User() {
   // console.log('OTHER', otherUser)
 
   const { userId } = useParams();
-  console.log('USERID', typeof(userId))
+  console.log('USERID', typeof (userId))
   console.log('iamuser', user)
   console.log('sessionUSER', sessionUser)
 
@@ -44,7 +44,7 @@ function User() {
     <div>
       <div id='pp-outer'>
         <div id='pp-cover'>
-          <img id='pp-banner-photo' src={user.banner_img} />
+          <img id='pp-banner-photo' src={user.profile_img} />
         </div>
 
 
@@ -53,7 +53,7 @@ function User() {
 
             <div id='pp-top-left'>
               <div id='pp-profile-photo-container'>
-                <img onError={(e)=> e.target.src=defaultPro} id='pp-profile-photo' src={user.profile_img ? user.profile_img : defaultPro} />
+                <img onError={(e) => e.target.src = defaultPro} id='pp-profile-photo' src={user.profile_img ? user.profile_img : defaultPro} />
               </div>
             </div>
             <div id='pp-top-right'></div>
@@ -64,18 +64,18 @@ function User() {
               <div className='pp-div-align'></div>
               <div id='pp-main-username'>@{user.username}</div>
 
-{/* fix here. access sessionUser Id here somehow */}
+              {/* fix here. access sessionUser Id here somehow */}
               <div>{sessionUser?.id === Number(userId) ?
                 <div id='pp-pfp-edit-button-container'>{showEdit ? <button id='pp-pfp-edit-button' onClick={() => setShowEdit(false)}>
-                    <img onError={(e)=> e.target.src=defaultPro} id='pp-pfp-edit-button-pen-image' src={'https://www.pngrepo.com/png/105166/180/edit.png'} />
-                    Edit
-                  </button> : <ImageForm setShowEdit={setShowEdit} userInfo={user} />}
+                  <img onError={(e) => e.target.src = defaultPro} id='pp-pfp-edit-button-pen-image' src={'https://www.pngrepo.com/png/105166/180/edit.png'} />
+                  Edit
+                </button> : <ImageForm setShowEdit={setShowEdit} userInfo={user} />}
                 </div>
-                :<div></div>}
+                : <div></div>}
 
-{/* {<div>{user.id}</div>}
+                {/* {<div>{user.id}</div>}
 {<div>{userId}</div>} */}
-{/* {<div>{sessionUser}</div>} */}
+                {/* {<div>{sessionUser}</div>} */}
 
 
               </div>

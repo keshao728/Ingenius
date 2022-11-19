@@ -9,11 +9,10 @@ import ReactPlayer from 'react-player'
 import './TrackInfo.css';
 import React from 'react';
 // import Vote from '../Annotation/vote';
-// import { createAnnotation, actionResetAnnotation } from '../../store/annotations';
+import { createAnnotation, actionResetAnnotation } from '../../store/annotations';
 import AnnotationForm from '../AnnotationForm/AnnotationForm';
 import DisplayLyrics from '../TrackLyrics';
 import Annotations from '../Annotation/annotations';
-// import { actionResetAnnotation } from '../../store/annotations'
 
 
 
@@ -30,6 +29,7 @@ export default function TrackInfo() {
 
   useEffect(() => {
     dispatch(getOneTrack(trackId))
+
 
     return () => dispatch(actionResetTrack())
   }, [dispatch, user, trackId])
@@ -79,7 +79,6 @@ export default function TrackInfo() {
 
   useEffect(() => {
     docu.length ? setAnnotated(true) : setAnnotated(false)
-    // dispatch(actionResetAnnotation())
   }, [docu])
 
   // const sortedAnnotations = Object.values(track?.Annotations).sort(
@@ -151,6 +150,33 @@ export default function TrackInfo() {
 
 
   // }
+
+
+
+  const annotations = useSelector((state) => state.tracks.oneTrack.Annotations);
+  // console.log(annotations)
+  const [showAnnotation, setShowAnnotation] = useState(false)
+
+
+  useEffect(() => {
+    if (annotations) {
+      for (let annotation of annotations) {
+        // console.log(annotation.span_ids.split(','))
+        annotation.span_ids.split(',').map(anno =>
+          document.getElementById(anno).classList.add('annotated')
+        )
+        annotation.span_ids.split(',').map(anno =>
+          document.getElementById(anno).addEventListener('click', () => setShowAnnotation(true))
+          )
+
+
+        // console.log(splitted)
+      }
+      // console.log('-----------------------------------------------------------------------------')
+    }
+
+
+  }, [annotations, dispatch, showAnnotation])
 
 
   // end annotation stuff
@@ -229,17 +255,11 @@ export default function TrackInfo() {
             {/* {annotating && <AnnotationForm indexes={[startIndex, endIndex]} />} */}
             {/* {annotating && <AnnotationForm startIndex={startIndex} endIndex={endIndex} setAnnotating={setAnnotating} />} */}
             {/* {annotating && <AnnotationForm setAnnotating={setAnnotating} />} */}
-            {annotated ?
-              <AnnotationForm
-                setDocu={setDocu}
-                docu={docu}
-                setAnnotated={setAnnotated}
-                spanIds={spanIds} />
-              : <Annotations />}
+            {annotated && <AnnotationForm setDocu={setDocu} docu={docu} setAnnotated={setAnnotated} spanIds={spanIds} />}
           </div>
-          {/* <div>
-            {<Annotations />}
-          </div> */}
+          <div>
+            {<Annotations setShowAnnotation={setShowAnnotation} showAnnotation={showAnnotation}/>}
+          </div>
           {/* {annotating && <AnnotationForm /> } */}
 
         </div>

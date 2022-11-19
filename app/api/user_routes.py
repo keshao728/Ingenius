@@ -66,9 +66,24 @@ def editProfile(id):
 
     if form.validate_on_submit():
         user.profile_img = form.profile_img.data
-        user.banner_img = form.banner_img.data
+        # user.banner_img = form.banner_img.data
 
         db.session.commit()
+        print(
+            '''
+
+
+            r
+            d
+            3
+
+
+            ''',user,
+            '''
+            e
+            n
+            d
+            ''')
         return user.to_dict()
 
 

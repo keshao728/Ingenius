@@ -1,19 +1,20 @@
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { NavLink, useParams } from 'react-router-dom'
 import { upvoteThunk, downvoteThunk, unvoteThunk, votecount } from '../../store/votes';
 import { getOneTrack, actionResetTrack } from '../../store/tracks';
 import './vote.css'
 import AnnotationForm from '../AnnotationForm/AnnotationForm';
 import Vote from './vote'
-import { actionResetAnnotation } from '../../store/annotations'
 // import { useEffect } from 'react';
 
 
-const Annotations = () => {
+export default function Annotations({ setShowAnnotation, showAnnotation }) {
+  console.log(showAnnotation)
   const dispatch = useDispatch();
   const { trackId } = useParams();
+  // const annoMenu = useRef(null)
   // const [isLoaded, setIsLoaded] = useState(false);
   // const sessionUser = useSelector((state) => state.session.user);
 
@@ -23,43 +24,52 @@ const Annotations = () => {
 
   const annotations = useSelector((state) => state.tracks.oneTrack.Annotations);
   // console.log(annotations)
-  const [showAnnotation, setShowAnnotation] = useState(false)
+  // const [showAnnotation, setShowAnnotation] = useState(false)
 
-  useEffect(() => {
-    if (annotations) {
-      for (let annotation of annotations) {
-        // console.log(annotation.span_ids.split(','))
-        annotation.span_ids.split(',').map(anno =>
-          document.getElementById(anno).classList.add('annotated')
-        )
-        annotation.span_ids.split(',').map(anno =>
-          document.getElementById(anno).addEventListener('click', () => setShowAnnotation(!showAnnotation))
-        )
-        dispatch(actionResetAnnotation())
-        // console.log(splitted)
-      }
-    }
-  }, [annotations, dispatch, showAnnotation])
+  // useEffect(() => {
+  //   if (annotations) {
+  //     for (let annotation of annotations) {
+  //       // console.log(annotation.span_ids.split(','))
+  //       annotation.span_ids.split(',').map(anno =>
+  //         document.getElementById(anno).classList.add('annotated')
+  //       )
+  //       annotation.span_ids.split(',').map(anno =>
+  //         document.getElementById(anno).addEventListener('click', () => setShowAnnotation(!showAnnotation))
+  //       )
+
+
+  //       // console.log(splitted)
+  //     }
+  //   }
+
+
+  // }, [annotations, dispatch, showAnnotation])
   // console.log('ANNOTATIONS', annotations)
 
+  // useEffect (()=> {
+  //   if (showAnnotation === true) document.addEventListener('click', () => setShowAnnotation(!showAnnotation))
 
-  // const upvote = async (e) => {
-  //   e.preventDefault();
-  //   await dispatch(upvoteThunk(2))
-  //     .catch(async (res) => {
-  //       let data = await res.json();
-  //       return
-  //     });
-  // }
+  //   return () => document.removeEventListener('click', setShowAnnotation(false))
+  // },[showAnnotation])
 
-  // const downvote = async (e) => {
-  //   e.preventDefault();
-  //   await dispatch(downvoteThunk(2))
-  //     .catch(async (res) => {
-  //       let data = await res.json();
-  //       return
-  //     })
-  // }
+
+  const upvote = async (e) => {
+    e.preventDefault();
+    await dispatch(upvoteThunk(2))
+      .catch(async (res) => {
+        let data = await res.json();
+        return
+      });
+  }
+
+  const downvote = async (e) => {
+    e.preventDefault();
+    await dispatch(downvoteThunk(2))
+      .catch(async (res) => {
+        let data = await res.json();
+        return
+      })
+  }
 
   // const votetotal = async(e) => {
   //   e.preventDefault();
@@ -81,16 +91,31 @@ const Annotations = () => {
     )
   } else {
     const annotationsArr = Object.values(annotations);
-    console.log('ANNOTATIONSARR', annotationsArr)
     const annotation = annotationsArr[0]
-    return (
-      showAnnotation && <div>
-        {/* {annotationsArr.map((annotation) => (
-          <div key={annotation.id}>
-            {annotation.annotation_body} */}
-        <div>
-          {/* {annotationsArr.map((annotation) => ( */}
+    // console.log('ANNOTATIONSARR', annotationsArr)
+    // const annotation = annotationsArr.map(anno => anno.span_ids)
+    // for(let i=1; i<annotation.length; i++) {
+    //   if (annotation[i].includes(`${i}`))
+    //     break
+    //     // console.log(annotationsArr[i].id, annotationsArr[i].annotation_body)
+    // }
+    // // console.log(annotation)
+    // return (
+    //   showAnnotation && <div>
+    //     {
 
+    //     'yo'
+
+
+    //     }
+
+
+    // </div>
+    return (
+
+
+      showAnnotation && <div>
+        <div>
           <div key={annotation.id}>
             {annotation.annotation_body}
             <div>
@@ -100,19 +125,16 @@ const Annotations = () => {
                                 <div className='votetotal'><Vote num={annotation.id}/></div>
                                 <div className='vote' type='button' onClick={downvote}>
                                     <i class="fa-regular fa-thumbs-down"></i>
-
                                 </div> */}
               <Vote num={annotation.id} />
             </div>
           </div>
-          {/* ))} */}
+
         </div>
-        {/* </div>
-        ))} */}
       </div>
+
     )
+
   }
 
 }
-
-export default Annotations
