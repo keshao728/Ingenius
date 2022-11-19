@@ -14,7 +14,6 @@
   padding: 30px;
   display: flex;
   flex-direction: column;
-  margin-top: 20px;
 }
 
 /* .annotate-text{
@@ -74,7 +73,7 @@
   margin-bottom: 40px;
 }
 
-.login-anno{
+.login-anno {
   border-radius: 30px;
   border: 1px solid black;
   padding: 5px 8px;
@@ -104,21 +103,23 @@
   visibility: visible;
 }
 
-.annotation-button{
+.annotation-button {
   border: 1px solid black;
   border-radius: 25px;
-  padding: 6px 12px;
+  padding: 5px 5px;
   font-weight: bold;
   background: none;
   font-size: 12px;
-  display: flex;
-  justify-content: center;
   cursor: pointer;
-  margin-right: 3px;
-
+  /* margin-right: 3px; */
+  position: relative;
+  left: -470px;
+  top: -81px;
+  height: 29px;
+  width: 200px;
 }
 
-.annotation-button:hover{
+.annotation-button:hover {
   background-color: black;
   color: white;
   cursor: pointer;
