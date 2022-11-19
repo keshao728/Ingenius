@@ -25,9 +25,6 @@ export default function TrackInfo() {
   const history = useHistory()
   const [showFact, setShowFact] = useState(true);
 
-  const annotation =  useSelector(state => state.tracks.oneTrack.Annotation)
-
-
   useEffect(() => {
     dispatch(getOneTrack(trackId))
 
