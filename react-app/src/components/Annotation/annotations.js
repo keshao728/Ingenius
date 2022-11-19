@@ -57,13 +57,15 @@ const Annotations = () => {
   } else {
     const annotationsArr = Object.values(annotations);
     console.log('ANNOTATIONSARR', annotationsArr)
+    const annotation = annotationsArr[0]
     return (
       <div>
         {/* {annotationsArr.map((annotation) => (
           <div key={annotation.id}>
             {annotation.annotation_body} */}
             <div>
-                {annotationsArr.map((annotation) => (
+                {/* {annotationsArr.map((annotation) => ( */}
+
                     <div key={annotation.id}>
                             {annotation.annotation_body}
                             <div>
@@ -78,7 +80,7 @@ const Annotations = () => {
                                 <Vote num={annotation.id}/>
                             </div>
                     </div>
-                ))}
+                {/* ))} */}
             </div>
           {/* </div>
         ))} */}
