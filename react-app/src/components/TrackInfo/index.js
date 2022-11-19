@@ -8,9 +8,11 @@ import { actionResetTrack } from '../../store/tracks';
 import ReactPlayer from 'react-player'
 import './TrackInfo.css';
 import React from 'react';
+// import Vote from '../Annotation/vote';
 import { createAnnotation, actionResetAnnotation } from '../../store/annotations';
 import AnnotationForm from '../AnnotationForm/AnnotationForm';
 import DisplayLyrics from '../TrackLyrics';
+import Annotations from '../Annotation/annotations';
 
 
 
@@ -227,6 +229,9 @@ export default function TrackInfo() {
             {/* {annotating && <AnnotationForm startIndex={startIndex} endIndex={endIndex} setAnnotating={setAnnotating} />} */}
             {/* {annotating && <AnnotationForm setAnnotating={setAnnotating} />} */}
             {annotated && <AnnotationForm setDocu={setDocu} docu={docu} setAnnotated={setAnnotated} spanIds={spanIds} />}
+          </div>
+          <div>
+            {<Annotations/>}
           </div>
           {/* {annotating && <AnnotationForm /> } */}
 
