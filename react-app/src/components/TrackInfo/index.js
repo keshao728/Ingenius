@@ -11,8 +11,7 @@ import React from 'react';
 import { createAnnotation } from '../../store/annotations';
 import AnnotationForm from '../AnnotationForm/AnnotationForm';
 import DisplayLyrics from '../TrackLyrics';
-// import ReactMarkdown from 'react-markdown';
-// import ReactDom from 'react-dom';
+
 
 
 
@@ -57,11 +56,17 @@ export default function TrackInfo() {
 
   // const [annotating, setAnnotating] = useState(false)
 
+
   const [docu, setDocu] = useState('')
 
+
   const [annotated, setAnnotated] = useState(false)
-  let classes = Array.from(document.getElementsByClassName('selected'))
-  console.log('zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz',classes)
+
+
+  let spanIds = Array.from(document.getElementsByClassName('selected')).map(span => span.id).join(',')
+  console.log('mmmmmmmmaaaaaadddddd', docu)
+  // let spanIds = docu?.forEach(m => m.id)
+  // console.log('SPAAAAAAAAAAAAAAAAANIDS', spanIds)
 
   // useEffect(() =>{
   //   console.log(document.getElementsByClassName('selected'));
@@ -69,7 +74,7 @@ export default function TrackInfo() {
   //   console.log(classes)
   // }, [annotated, classes])
 
-  useEffect(() =>{
+  useEffect(() => {
     docu.length ? setAnnotated(true) : setAnnotated(false)
   }, [docu])
 
@@ -95,6 +100,11 @@ export default function TrackInfo() {
   //   setStartIndex(Math.min(...index))
   //   setEndIndex(Math.max(...index))
   // }, [index])
+
+  // useEffect(() => {
+  //   setSpanIds(Array.from(document.getElementsByClassName('selected')).map(span => span.id).join(','))
+
+  // }, [spanIds])
 
 
   // const annotateThis = (e) => {
@@ -198,8 +208,8 @@ export default function TrackInfo() {
             {/* <div className='lyric-track' onMouseUp={annotateThis}> */}
             <div className='lyric-track'>
 
-            {/* <DisplayLyrics track={track} setAnnotating={setAnnotating} setIndex={setIndex}/> */}
-            <DisplayLyrics track={track} setDocu={setDocu}/>
+              {/* <DisplayLyrics track={track} setAnnotating={setAnnotating} setIndex={setIndex}/> */}
+              <DisplayLyrics track={track} setDocu={setDocu} />
               {/* {track.lyrics?.split('\n').map(chunk => <div key={chunk}>{chunk}</div>)} */}
               {/* {track.lyrics} */}
               {/* {track.lyrics?.split("\n")} */}
@@ -215,7 +225,7 @@ export default function TrackInfo() {
             {/* {annotating && <AnnotationForm indexes={[startIndex, endIndex]} />} */}
             {/* {annotating && <AnnotationForm startIndex={startIndex} endIndex={endIndex} setAnnotating={setAnnotating} />} */}
             {/* {annotating && <AnnotationForm setAnnotating={setAnnotating} />} */}
-            {annotated && <AnnotationForm setDocu={setDocu} docu={docu} setAnnotated={setAnnotated} />}
+            {annotated && <AnnotationForm setDocu={setDocu} docu={docu} setAnnotated={setAnnotated} spanIds={spanIds} />}
           </div>
           {/* {annotating && <AnnotationForm /> } */}
 

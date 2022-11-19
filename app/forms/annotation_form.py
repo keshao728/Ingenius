@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms import TextAreaField, SubmitField, IntegerField
+from wtforms import TextAreaField, SubmitField, IntegerField, StringField
 from wtforms.validators import DataRequired, ValidationError
 
 
@@ -10,6 +10,7 @@ def valid_annotation(form, field):
 
 class AnnotationForm(FlaskForm):
     annotation_body = TextAreaField("Annotation", validators=[DataRequired(), valid_annotation])
-    startIndex = IntegerField("Annotation", validators=[DataRequired()])
-    endIndex = IntegerField("Annotation", validators=[DataRequired()])
+    # startIndex = IntegerField("Annotation", validators=[DataRequired()])
+    # endIndex = IntegerField("Annotation", validators=[DataRequired()])
+    span_ids = StringField("Annotation", validators=[DataRequired()])
     submit = SubmitField('Submit')
