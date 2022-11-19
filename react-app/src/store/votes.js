@@ -65,7 +65,7 @@ export const upvoteThunk = (id) => async (dispatch) => {
         console.log('data from upvote thunk',data)
         await dispatch(votecount(id))
         // await dispatch(upvote(data))
-        if(data.statusCode == 401) {
+        if(data.statusCode === 401) {
             const response2 = await fetch(`/api/votes/${id}/unvote`, {
                 method: "DELETE",
                 headers: {
@@ -98,7 +98,7 @@ export const downvoteThunk = (id) => async (dispatch) => {
         const data = await response.json()
         await dispatch(votecount(id))
         // const data2 = await dispatch(downvote(data))
-        if(data.statusCode == 401) {
+        if(data.statusCode === 401) {
             const response2 = await fetch(`/api/votes/${id}/unvote`, {
                 method: "DELETE",
                 headers: {

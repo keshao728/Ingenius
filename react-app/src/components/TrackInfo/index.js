@@ -79,6 +79,7 @@ export default function TrackInfo() {
 
   useEffect(() => {
     docu.length ? setAnnotated(true) : setAnnotated(false)
+    // console.log('OOOOOOOOOOOOOOOOOOOOOOO',docu)
   }, [docu])
 
   // const sortedAnnotations = Object.values(track?.Annotations).sort(
@@ -154,11 +155,22 @@ export default function TrackInfo() {
 
 
   const annotations = useSelector((state) => state.tracks.oneTrack.Annotations);
-  // console.log(annotations)
+  // console.log('0000000000000000000000000000000000000000000000000000000000000',annotations)
   const [showAnnotation, setShowAnnotation] = useState(false)
 
 
+
+
   useEffect(() => {
+    function getAnno (e) {
+      for (let annos of annotations) {
+        console.log('vvvvvvvvvvvvvvvvvvvvvv',annos)
+        if (annos.span_ids.includes('4')) {
+          console.log('33333333333333333',annos)
+        }
+      }
+    }
+
     if (annotations) {
       for (let annotation of annotations) {
         // console.log(annotation.span_ids.split(','))
@@ -166,7 +178,7 @@ export default function TrackInfo() {
           document.getElementById(anno).classList.add('annotated')
         )
         annotation.span_ids.split(',').map(anno =>
-          document.getElementById(anno).addEventListener('click', () => setShowAnnotation(true))
+          document.getElementById(anno).addEventListener('click', ()=> {setShowAnnotation(true); getAnno()} )
           )
 
 
