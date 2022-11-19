@@ -10,7 +10,7 @@ export default function DisplayLyrics({ track, setAnnotating, setDocu }) {
     const [Ref, setRef] = useState(null)
 
     const [isSelected, setIsSelected] = useState(false)
-
+    const annotations = useSelector((state) => state.tracks.oneTrack.Annotations);
 
     // const handleClick = () => {
 
@@ -53,7 +53,7 @@ export default function DisplayLyrics({ track, setAnnotating, setDocu }) {
         // console.log(value)
 
         // e.currentTarget.className === '' ? e.currentTarget.className = 'selected' : e.currentTarget.className = ''
-
+        console.log(e.currentTarget ,'e current target')
         if (e.currentTarget.className === '') {
             e.currentTarget.className = 'selected'
         } else if (e.currentTarget.className === 'selected') {
@@ -62,7 +62,15 @@ export default function DisplayLyrics({ track, setAnnotating, setDocu }) {
         }
 
         setDocu(Array.from(document.getElementsByClassName('selected')))
-        // console.log(e.currentTarget)
+        console.log(typeof(e.currentTarget.id),'hihihihi')
+
+        for (let i = 0 ; i < annotations.length; i++){
+            if(annotations[i].span_ids.includes(e.currentTarget.id)){
+                console.log(annotations[i].id,'hahahahaha')
+                return annotations[i].id
+                }
+            return null
+        }
     };
 
 

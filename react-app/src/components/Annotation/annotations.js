@@ -53,23 +53,23 @@ export default function Annotations({ setShowAnnotation, showAnnotation, annotat
   // },[showAnnotation])
 
 
-  const upvote = async (e) => {
-    e.preventDefault();
-    await dispatch(upvoteThunk(2))
-      .catch(async (res) => {
-        let data = await res.json();
-        return
-      });
-  }
+  // const upvote = async (e) => {
+  //   e.preventDefault();
+  //   await dispatch(upvoteThunk(2))
+  //     .catch(async (res) => {
+  //       let data = await res.json();
+  //       return
+  //     });
+  // }
 
-  const downvote = async (e) => {
-    e.preventDefault();
-    await dispatch(downvoteThunk(2))
-      .catch(async (res) => {
-        let data = await res.json();
-        return
-      })
-  }
+  // const downvote = async (e) => {
+  //   e.preventDefault();
+  //   await dispatch(downvoteThunk(2))
+  //     .catch(async (res) => {
+  //       let data = await res.json();
+  //       return
+  //     })
+  // }
 
   // const votetotal = async(e) => {
   //   e.preventDefault();
