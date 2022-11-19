@@ -12,7 +12,6 @@ export default function DisplayLyrics({ track, setAnnotating, setDocu }) {
     const [isSelected, setIsSelected] = useState(false)
 
 
-
     // const handleClick = () => {
 
     //     let value = ref.current
@@ -24,7 +23,6 @@ export default function DisplayLyrics({ track, setAnnotating, setDocu }) {
     //     value.className = 'selected'
     //     console.log(value)
     //     // Ref.className = 'selected'
-
 
 
     //     e.currentTarget.className = 'selected'
@@ -50,16 +48,23 @@ export default function DisplayLyrics({ track, setAnnotating, setDocu }) {
     // }, [docu])
 
 
-
     const handleClick = (e) => {
         // let value = ref.current
         // console.log(value)
-        e.currentTarget.className === '' ? e.currentTarget.className = 'selected' : e.currentTarget.className = ''
+
+        // e.currentTarget.className === '' ? e.currentTarget.className = 'selected' : e.currentTarget.className = ''
+
+        if (e.currentTarget.className === '') {
+            e.currentTarget.className = 'selected'
+        } else if (e.currentTarget.className === 'selected') {
+            e.currentTarget.className = ''
+        } else if (e.currentTarget.className === 'annotated') {
+
+        }
+
         setDocu(Array.from(document.getElementsByClassName('selected')))
         // console.log(e.currentTarget)
     };
-
-
 
 
     // const doccer = () => {

@@ -2,7 +2,8 @@ import React from 'react'
 import { useSelector, useDispatch } from 'react-redux';
 import { useState, useEffect } from 'react';
 import { NavLink, useParams } from 'react-router-dom'
-import { upvoteThunk,downvoteThunk,unvoteThunk, votecount} from '../../store/votes';
+import { upvoteThunk, downvoteThunk, unvoteThunk, votecount } from '../../store/votes';
+import { getOneTrack, actionResetTrack } from '../../store/tracks';
 import './vote.css'
 import AnnotationForm from '../AnnotationForm/AnnotationForm';
 // import { useEffect } from 'react';
@@ -15,7 +16,21 @@ const Annotations = () => {
   // const sessionUser = useSelector((state) => state.session.user);
 
   const annotations = useSelector((state) => state.tracks.oneTrack.Annotations);
-  console.log('ANNOTATIONS', annotations)
+  // console.log(annotations)
+
+  useEffect(() => {
+    if (annotations) {
+      for (let annotation of annotations) {
+        // console.log(annotation.span_ids.split(','))
+        annotation.span_ids.split(',').map(anno =>
+          document.getElementById(anno).classList.add('annotated')
+        )
+        // console.log(splitted)
+      }
+    }
+  }, [annotations, dispatch])
+  // console.log('ANNOTATIONS', annotations)
+
 
   const upvote = async (e) => {
     e.preventDefault();
@@ -35,16 +50,16 @@ const Annotations = () => {
       })
   }
 
-  const votetotal = async(e) => {
+  const votetotal = async (e) => {
     e.preventDefault();
-   await dispatch(votecount(2))
-    .catch(async (res) => {
-      // if(res.ok){
-      // let data = await res.json();
-      // console.log('this is data for vote total',data)
-      // console.log(res)
-      return res
-    // }
+    await dispatch(votecount(2))
+      .catch(async (res) => {
+        // if(res.ok){
+        // let data = await res.json();
+        // console.log('this is data for vote total',data)
+        // console.log(res)
+        return res
+        // }
       })
   }
 
@@ -61,23 +76,23 @@ const Annotations = () => {
         {/* {annotationsArr.map((annotation) => (
           <div key={annotation.id}>
             {annotation.annotation_body} */}
-            <div>
-                {annotationsArr.map((annotation) => (
-                    <div key={annotation.id}>
-                            {annotation.annotation_body}
-                            <div>
-                                <div className='vote' type='button' onClick={upvote}>
-                                    <i class="fa-regular fa-thumbs-up"></i>
-                                </div>
-                                <div className='votetotal'>{votetotal}</div>
-                                <div className='vote' type='button' onClick={downvote}>
-                                    <i class="fa-regular fa-thumbs-down"></i>
-                                </div>
-                            </div>
-                    </div>
-                ))}
+        <div>
+          {annotationsArr.map((annotation) => (
+            <div key={annotation.id}>
+              {annotation.annotation_body}
+              <div>
+                <div className='vote' type='button' onClick={upvote}>
+                  <i class="fa-regular fa-thumbs-up"></i>
+                </div>
+                <div className='votetotal'>{votetotal}</div>
+                <div className='vote' type='button' onClick={downvote}>
+                  <i class="fa-regular fa-thumbs-down"></i>
+                </div>
+              </div>
             </div>
-          {/* </div>
+          ))}
+        </div>
+        {/* </div>
         ))} */}
       </div>
     )

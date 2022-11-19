@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from "react-redux";
-import { createAnnotation } from '../../store/annotations';
+import { createAnnotation, actionResetAnnotation } from '../../store/annotations';
+import { actionResetTrack, getOneTrack } from '../../store/tracks';
 import { useParams } from 'react-router-dom';
 import LoginForm from "../auth/LoginForm";
 import "./AnnotationForm.css";
@@ -52,6 +53,12 @@ const AnnotationForm = ({setDocu, docu, setAnnotated,spanIds}) => {
     setValidationErrors(errors)
   }, [annotation])
 
+  // useEffect(() => {
+  //   return () => {
+  //     dispatch(actionResetAnnotation())
+  //   }
+  // })
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setDisplayErrors(true)
@@ -71,6 +78,7 @@ const AnnotationForm = ({setDocu, docu, setAnnotated,spanIds}) => {
 
       if (newAnnotation) {
         setDisplayErrors(false)
+        setAnnotated(false)
         // setAnnotating(false)
         // setShowMenu(false)
       }
