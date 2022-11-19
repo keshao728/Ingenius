@@ -65,6 +65,8 @@
 .track-info-container {
     height: 280px;
     background: #B395A9;
+    background: linear-gradient(to bottom, #B395A9 30%, #aa859b 90%);
+
 }
 
 .body_page {
