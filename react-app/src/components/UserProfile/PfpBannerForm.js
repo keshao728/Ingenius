@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { editAnnotation, editUserPhoto, getUserInfo } from '../../store/session';
 import './pfpBanner.css'
+import defaultPro from '../UserProfile/Profile-Images/defaultpro.png'
 const ImageForm = ({ setShowEdit, userInfo }) => {
   const dispatch = useDispatch()
 
@@ -19,8 +20,8 @@ const ImageForm = ({ setShowEdit, userInfo }) => {
   useEffect(() => {
     const errors = []
     if (image && !image.match(/^https?:\/\/.*\/.*\.(png|gif|webp|jpeg|jpg)\??.*$/gmi)) errors.push('"Please enter a valid URL ending with png, gif, webp, jpeg, or jpg"')
-    // if (image && !banner) image = banner
-    // if (banner && !image) banner = image
+    // if (image==='') image=defaultPro
+
     // if (banner && !image.match(/^https?:\/\/.*\/.*\.(png|gif|webp|jpeg|jpg)\??.*$/gmi)) errors.push('"Please enter a valid URL ending with png, gif, webp, jpeg, or jpg"')
 
     setValidationErrors(errors)
@@ -60,7 +61,8 @@ const ImageForm = ({ setShowEdit, userInfo }) => {
       let res = await dispatch(editUserPhoto(user))
       console.log('RESRESRESRES', res)
       if (res) {
-        setShowEdit(false)
+        console.log('222222222222RES', res)
+        setShowEdit(true)
       }
     }
   }
