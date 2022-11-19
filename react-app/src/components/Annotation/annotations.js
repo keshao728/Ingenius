@@ -5,6 +5,7 @@ import { NavLink, useParams } from 'react-router-dom'
 import { upvoteThunk,downvoteThunk,unvoteThunk, votecount} from '../../store/votes';
 import './vote.css'
 import AnnotationForm from '../AnnotationForm/AnnotationForm';
+import Vote from './vote'
 // import { useEffect } from 'react';
 
 
@@ -35,18 +36,18 @@ const Annotations = () => {
       })
   }
 
-  const votetotal = async(e) => {
-    e.preventDefault();
-   await dispatch(votecount(2))
-    .catch(async (res) => {
-      // if(res.ok){
-      // let data = await res.json();
-      // console.log('this is data for vote total',data)
-      // console.log(res)
-      return res
-    // }
-      })
-  }
+  // const votetotal = async(e) => {
+  //   e.preventDefault();
+  //  await dispatch(votecount(2))
+  //   .catch(async (res) => {
+  //     // if(res.ok){
+  //     // let data = await res.json();
+  //     // console.log('this is data for vote total',data)
+  //     // console.log(res)
+  //     return res
+  //   // }
+  //     })
+  // }
 
   let annotationLinks;
   if (!annotations) {
@@ -66,13 +67,15 @@ const Annotations = () => {
                     <div key={annotation.id}>
                             {annotation.annotation_body}
                             <div>
-                                <div className='vote' type='button' onClick={upvote}>
+                                {/* <div className='vote' type='button' onClick={upvote}>
                                     <i class="fa-regular fa-thumbs-up"></i>
                                 </div>
-                                <div className='votetotal'>{votetotal}</div>
+                                <div className='votetotal'><Vote num={annotation.id}/></div>
                                 <div className='vote' type='button' onClick={downvote}>
                                     <i class="fa-regular fa-thumbs-down"></i>
-                                </div>
+
+                                </div> */}
+                                <Vote num={annotation.id}/>
                             </div>
                     </div>
                 ))}
