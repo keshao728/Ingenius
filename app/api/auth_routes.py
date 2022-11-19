@@ -66,8 +66,8 @@ def sign_up():
             username=form.data['username'],
             email=form.data['email'],
             password=form.data['password'],
-            profile_img=None,
-            banner_img=None
+            profile_img=None
+            # banner_img=None
 
         )
         print(
