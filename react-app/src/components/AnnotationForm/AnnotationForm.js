@@ -7,7 +7,7 @@ import LoginForm from "../auth/LoginForm";
 import "./AnnotationForm.css";
 
 
-const AnnotationForm = ({setDocu, docu, setAnnotated,spanIds}) => {
+const AnnotationForm = ({setDocu, docu, setAnnotated,spanIds, setShowAnnotation}) => {
   const dispatch = useDispatch();
   const [annotation, setAnnotation] = useState('')
   const [validationErrors, setValidationErrors] = useState([])

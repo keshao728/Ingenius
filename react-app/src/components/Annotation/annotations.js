@@ -13,7 +13,7 @@ import Vote from './vote'
 export default function Annotations({ setShowAnnotation, showAnnotation }) {
   console.log(showAnnotation)
   const dispatch = useDispatch();
-  const { trackId } = useParams();
+  // const { trackId } = useParams();
   // const annoMenu = useRef(null)
   // const [isLoaded, setIsLoaded] = useState(false);
   // const sessionUser = useSelector((state) => state.session.user);
@@ -84,10 +84,10 @@ export default function Annotations({ setShowAnnotation, showAnnotation }) {
   //     })
   // }
 
-  let annotationLinks;
+  // let annotationLinks;
   if (!annotations) {
     return (
-      <AnnotationForm />
+      <AnnotationForm setShowAnnotation={setShowAnnotation}/>
     )
   } else {
     const annotationsArr = Object.values(annotations);
@@ -116,7 +116,7 @@ export default function Annotations({ setShowAnnotation, showAnnotation }) {
 
       showAnnotation && <div>
         <div>
-          <div key={annotation.id}>
+          <div key={annotation.id} >
             {annotation.annotation_body}
             <div>
               {/* <div className='vote' type='button' onClick={upvote}>
