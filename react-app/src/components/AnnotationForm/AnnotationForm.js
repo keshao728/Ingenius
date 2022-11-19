@@ -100,7 +100,7 @@ const AnnotationForm = ({setDocu, docu, setAnnotated,spanIds}) => {
 
                 {/* <input hidden type='number' value={startIndex}></input>
                 <input hidden type='number' value={endIndex}></input> */}
-                <input hidden type='text' value={spanIds}></input>
+                <input hidden type='text' value={spanIds} readOnly></input>
 
                 {/* {showErrors && showSubmit && (
               <ul className="annotation-form-errors">

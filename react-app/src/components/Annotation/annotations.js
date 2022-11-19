@@ -15,7 +15,7 @@ const Annotations = () => {
   // const sessionUser = useSelector((state) => state.session.user);
 
   const annotations = useSelector((state) => state.tracks.oneTrack.Annotations);
-  // console.log('ANNOTATIONS', annotations)
+  console.log('ANNOTATIONS', annotations)
 
   const upvote = async (e) => {
     e.preventDefault();
