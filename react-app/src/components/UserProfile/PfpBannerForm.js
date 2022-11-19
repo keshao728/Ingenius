@@ -12,6 +12,9 @@ const ImageForm = ({ setShowEdit, userInfo }) => {
   // let [banner, setBanner] = useState(userInfo.banner_img)
   const [validationErrors, setValidationErrors] = useState([])
   const [showErrors, setShowErrors] = useState(false);
+  
+  const current = useSelector(state => state.session.user)
+  
 
   // const { userId } = useParams();
   const uploadImage = (e) => setImage(e.target.value);
@@ -27,6 +30,7 @@ const ImageForm = ({ setShowEdit, userInfo }) => {
     setValidationErrors(errors)
   }, [image])
 
+  
   // useEffect(() => {
   //   if (!userId) {
   //     return;

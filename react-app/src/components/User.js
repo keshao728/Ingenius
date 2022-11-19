@@ -32,19 +32,17 @@ function User() {
       const user = await response.json();
       setUser(user);
     })();
-  }, [userId]);
+  }, [userId, sessionUser]);
 
   if (!user) {
     return null;
   }
 
-
-
   return (
     <div>
       <div id='pp-outer'>
         <div id='pp-cover'>
-          <img id='pp-banner-photo' src={user.profile_img} />
+          <img onError={(e) => e.target.src = defaultPro} id='pp-banner-photo' src={user.profile_img} />
         </div>
 
 

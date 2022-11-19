@@ -156,6 +156,24 @@ export const getUserInfo = (userId) => async dispatch => {
   if (response.ok) {
       const userInfo = await response.json();
       console.log('IS IT WORKING YET', userInfo)
+
+      
+
+      const userInfoObj = Object.values(userInfo.annotations)
+      console.log('USERINFOBJJJ',userInfoObj)
+      
+      userInfoObj.forEach(async (info) => {
+        console.log('CORRECT!!', info.id)
+        const newRes = await fetch(`/api/votes/${info.id}/total`)
+        console.log('IT HMEeeeeeeeeeeEE', newRes)
+
+        if (newRes.ok) {
+          console.log('AMIUNDEFINED', newRes.votetotalvalue)
+          info['voteTotal'] = newRes.votetotalvalue
+          console.log('HIT ME',info)
+        }
+      });
+
       await dispatch(actionGetUserInfo(userInfo));
       console.log('HOW BOUT NOW', userInfo)
       return userInfo
@@ -229,7 +247,7 @@ export default function reducer(state = initialState, action) {
       newState.tracks = tracks
       newState.comments = comments
       newState.votes = votes
-      console.log('NEWNEWSTATESTATE', newState)
+      // console.log('NEWNEWSTATESTATE', newState)
       return newState
     case EDIT_ANNOTATION: 
       newState = {...state}
@@ -240,7 +258,7 @@ export default function reducer(state = initialState, action) {
     case EDIT_USER_IMG:
       newState = {...state}
       newState.user = {...state.user, ...action.user}
-      
+
       return newState
     case DELETE_ANNOTATION:
       newState = {...state, annotations: {...state.annotations}}
