@@ -8,7 +8,8 @@
 .anno-wrap{
     display: flex;
     flex-direction: column;
-    width: 440px;
+    width: 450px;
+    margin-top: 20px;
     height: auto;
     /* margin-bottom: 10px; */
     background-color: #E9E9E9;

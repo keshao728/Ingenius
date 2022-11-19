@@ -14,6 +14,7 @@
   padding: 30px;
   display: flex;
   flex-direction: column;
+  margin-top: 20px;
 }
 
 /* .annotate-text{
@@ -104,14 +105,22 @@
 }
 
 .annotation-button{
-  background-color: white;
   border: 1px solid black;
-  padding: 3px 7px;
+  border-radius: 25px;
+  padding: 6px 12px;
+  font-weight: bold;
+  background: none;
+  font-size: 12px;
+  display: flex;
+  justify-content: center;
+  cursor: pointer;
+  margin-right: 3px;
 
 }
 
 .annotation-button:hover{
   background-color: black;
   color: white;
-
+  cursor: pointer;
+  visibility: visible;
 }

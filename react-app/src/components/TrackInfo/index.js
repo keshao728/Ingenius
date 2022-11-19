@@ -306,89 +306,100 @@ export default function TrackInfo() {
                 showAnnotation={showAnnotation}
                 annotationId={annotationId} />}
             </div>
+              {/* {annotated ?
+                <AnnotationForm
+                  setDocu={setDocu}
+                  docu={docu}
+                  setAnnotated={setAnnotated}
+                  spanIds={spanIds} />
+                : <Annotations
+                  setShowAnnotation={setShowAnnotation}
+                  showAnnotation={showAnnotation}
+                  annotationId={annotationId} />}
+            </div> */}
+            </div>
+            {/* {annotating && <AnnotationForm /> } */}
+
           </div>
-          {/* {annotating && <AnnotationForm /> } */}
 
         </div>
+        <div className='track-video'>
+          <div className='about-wrapper'>
+            <div className='music-vid-text'> About </div>
+            <div className='show-fact'>
+              {showFact ?
+                <div className="fact-div" onClick={closeFact} >
+                  <div>
+                    Did you know?
+                  </div>
+                  <div className='open-close-fact-button'>
+                    -
+                  </div>
+                </div>
+                : <div className="fact-div" onClick={openFact}>
+                  <div>
+                    Did you know?
+                  </div>
+                  <div className='open-close-fact-button'>
+                    +
+                  </div>
 
-      </div>
-      <div className='track-video'>
-        <div className='about-wrapper'>
-          <div className='music-vid-text'> About </div>
-          <div className='show-fact'>
-            {showFact ?
-              <div className="fact-div" onClick={closeFact} >
-                <div>
-                  Did you know?
-                </div>
-                <div className='open-close-fact-button'>
-                  -
-                </div>
-              </div>
-              : <div className="fact-div" onClick={openFact}>
-                <div>
-                  Did you know?
-                </div>
-                <div className='open-close-fact-button'>
-                  +
-                </div>
-
-              </div>}
-          </div>
-          {showFact && (
-            <div className='fact-wrapper'>
-              <div className='fact-genius'>
-                Ingenius Answer
-              </div>
-              <div className='fact-text'>
-                MEOWMEOWMEOWMEOW
-              </div>
+                </div>}
             </div>
-          )}
-          <div className='about-artist-wrapper'>
-
-            <div className='about-artist'>
-              <div className='about-album-cover'>
-                <img className="about-cover" src={track.track_art}></img>
-              </div>
-              <div className='album-details'>
-
-                <div className='about-track-title'>
-                  {track.track_title}
+            {showFact && (
+              <div className='fact-wrapper'>
+                <div className='fact-genius'>
+                  Ingenius Answer
                 </div>
-
-                <div className='about-track-des'>
-                  on {track.album} (album)
-                </div>
-
-              </div>
-            </div>
-          </div>
-          <div className='credits-wrapper'>
-            <div className='credits-text'>
-              Credits
-            </div>
-            <div className='credits-people'>
-              <div className='about-credit-name'>
-                <div className='about-credit'>
-                  Produced by
-                </div>
-                <div>
-                  {track.produced_by}
+                <div className='fact-text'>
+                  MEOWMEOWMEOWMEOW
                 </div>
               </div>
-              <div className='about-credit-name'>
-                <div className='about-credit'>
-                  Uploaded by
+            )}
+            <div className='about-artist-wrapper'>
+
+              <div className='about-artist'>
+                <div className='about-album-cover'>
+                  <img className="about-cover" src={track.track_art}></img>
                 </div>
-                <div>
-                  {track?.uploader?.username}
+                <div className='album-details'>
+
+                  <div className='about-track-title'>
+                    {track.track_title}
+                  </div>
+
+                  <div className='about-track-des'>
+                    on {track.album} (album)
+                  </div>
+
                 </div>
               </div>
             </div>
-          </div>
-          <ReactPlayer className="mv" width="750px" height="450px" url={track.track_url} />
-          {/* <iframe
+            <div className='credits-wrapper'>
+              <div className='credits-text'>
+                Credits
+              </div>
+              <div className='credits-people'>
+                <div className='about-credit-name'>
+                  <div className='about-credit'>
+                    Produced by
+                  </div>
+                  <div>
+                    {track.produced_by}
+                  </div>
+                </div>
+                <div className='about-credit-name'>
+                  <div className='about-credit'>
+                    Uploaded by
+                  </div>
+                  <div>
+                    {track?.uploader?.username}
+                  </div>
+                </div>
+              </div>
+            </div>
+            <ReactPlayer className="mv" width="750px" height="450px" url={track.track_url} />
+            {/* <iframe
                         width="560"
                         height="315"
                         src={track.track_url}
@@ -399,11 +410,11 @@ export default function TrackInfo() {
                     >
                     </iframe> */}
 
-          {/* Track Url: {track.track_url} */}
+            {/* Track Url: {track.track_url} */}
+          </div>
         </div>
+
+
       </div>
-
-
-    </div>
-  )
+      )
 }
