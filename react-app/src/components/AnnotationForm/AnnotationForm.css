@@ -14,6 +14,34 @@
   padding: 30px;
   display: flex;
   flex-direction: column;
+  margin-top: -30px;
+  margin-bottom: 20px;
+  position: relative;
+
+}
+
+.annotation-form-parent:after,
+.annotation-form-parent:before {
+    content: '';
+    display: block;
+    position: absolute;
+    left: -28px;
+    width: 0;
+    height: 0;
+    border-style: solid;
+}
+
+
+.annotation-form-parent:after {
+  top: 120px;
+  border-color: transparent #E9E9E9 transparent transparent;
+  border-width: 15px;
+}
+
+.annotation-form-parent:before {
+  top: 120px;
+  border-color: transparent #E9E9E9 transparent transparent;
+  border-width: 15px;
 }
 
 /* .annotate-text{
@@ -117,6 +145,30 @@
   top: -81px;
   height: 29px;
   width: 200px;
+}
+
+@media (max-width: 1900px) {
+  .annotation-button {
+    left: -440px;
+  }
+}
+
+@media (max-width: 1800px) {
+  .annotation-button {
+    left: -380px;
+  }
+}
+
+@media (max-width: 1600px) {
+  .annotation-button {
+    left: -340px;
+  }
+}
+
+@media (max-width: 1400px) {
+  .annotation-button {
+    left: -300px;
+  }
 }
 
 .annotation-button:hover {

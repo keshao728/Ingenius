@@ -260,9 +260,12 @@
         width: 250px;
         /* margin-bottom: 5px; */
     }
+    .annotation-button{
+        left: 50%;
+    }
 
     .track_title_artist{
-        left: 35%;
+        left: 40%;
         /* top: 23%; */
         font-size: 13px;
         margin-left:2%
