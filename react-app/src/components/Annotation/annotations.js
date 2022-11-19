@@ -125,7 +125,6 @@ export default function Annotations({ setShowAnnotation, showAnnotation }) {
                                 <div className='votetotal'><Vote num={annotation.id}/></div>
                                 <div className='vote' type='button' onClick={downvote}>
                                     <i class="fa-regular fa-thumbs-down"></i>
-
                                 </div> */}
               <Vote num={annotation.id} />
             </div>
