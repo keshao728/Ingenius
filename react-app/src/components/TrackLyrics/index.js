@@ -89,6 +89,15 @@ export default function DisplayLyrics({ track, setAnnotating, setDocu }) {
     //     <div className={"bold-me"}> </div>
     // }
 
+    useEffect(()=> {
+        let spans = (document.getElementsByTagName('span'))
+        for (let span of spans) {
+            if (span.textContent.includes('[')) {
+                span.classList.add('bold-me')
+            }
+        }
+    })
+
     return (
         <>
             {/* Something */}
