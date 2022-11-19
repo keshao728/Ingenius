@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from "react-redux";
-import { createAnnotation } from '../../store/annotations';
+import { createAnnotation, actionResetAnnotation } from '../../store/annotations';
+import { actionResetTrack, getOneTrack } from '../../store/tracks';
 import { useParams } from 'react-router-dom';
 import LoginForm from "../auth/LoginForm";
 import "./AnnotationForm.css";
 
 
-const AnnotationForm = ({setDocu, docu, setAnnotated}) => {
+const AnnotationForm = ({setDocu, docu, setAnnotated,spanIds}) => {
   const dispatch = useDispatch();
   const [annotation, setAnnotation] = useState('')
   const [validationErrors, setValidationErrors] = useState([])
@@ -23,6 +24,7 @@ const AnnotationForm = ({setDocu, docu, setAnnotated}) => {
   // console.log('adfasdfads', startIndex)
   // console.log('adfasdfads', endIndex)
   // console.log(setAnnotating)
+  // console.log('oooooooooo', spanIds)
 
 
   const openMenu = () => {
@@ -46,17 +48,26 @@ const AnnotationForm = ({setDocu, docu, setAnnotated}) => {
   useEffect(() => {
     const errors = []
     if (!annotation) errors.push('Need more info pls')
+    // console.log('oooooooooo', spanIds)
 
     setValidationErrors(errors)
   }, [annotation])
 
+  // useEffect(() => {
+  //   return () => {
+  //     dispatch(actionResetAnnotation())
+  //   }
+  // })
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setDisplayErrors(true)
+    setAnnotated(false)
 
     if (!validationErrors.length) {
       const payload = {
         annotation_body: annotation,
+        span_ids: spanIds
       }
       setAnnotation("");
 
@@ -67,6 +78,7 @@ const AnnotationForm = ({setDocu, docu, setAnnotated}) => {
 
       if (newAnnotation) {
         setDisplayErrors(false)
+        setAnnotated(false)
         // setAnnotating(false)
         // setShowMenu(false)
       }
@@ -96,6 +108,7 @@ const AnnotationForm = ({setDocu, docu, setAnnotated}) => {
 
                 {/* <input hidden type='number' value={startIndex}></input>
                 <input hidden type='number' value={endIndex}></input> */}
+                <input hidden type='text' value={spanIds}></input>
 
                 {/* {showErrors && showSubmit && (
               <ul className="annotation-form-errors">

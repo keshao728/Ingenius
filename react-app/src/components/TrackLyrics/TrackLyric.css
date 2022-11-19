@@ -1,3 +1,13 @@
+
+.annotated {
+    background-color: rgb(233, 233, 233)
+}
+
+.annotated:hover {
+    color: rgb(255, 255, 255);
+    background-color: rgb(172, 108, 68);
+}
+
 .selected {
     background-color: #FFFF64;
 }
@@ -5,8 +15,3 @@
 /* .selected:hover {
     background-color: red;
 } */
-
-
-.annotated {
-    background-color: #FFFF64;
-}

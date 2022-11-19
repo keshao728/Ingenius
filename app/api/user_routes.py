@@ -48,12 +48,12 @@ def editProfile(id):
     user = User.query.get(id)
     print(
             '''
-            
-            
+
+
             r
             d
             w
-            
+
 
             ''',user,
             '''
@@ -70,7 +70,7 @@ def editProfile(id):
 
         db.session.commit()
         return user.to_dict()
-        
+
 
 # get current user info
 @user_routes.route('/<int:id>/info')
