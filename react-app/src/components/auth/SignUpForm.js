@@ -62,12 +62,13 @@ const SignUpForm = () => {
     if (!errors.length) {
       const data = await dispatch(signUp(username, email, password));
       if (data) {
-        // setErrors(data.error)
-        setShowErrors(false)
-        setShowModal(false)
+        setErrors(data)
       }
+    return
     }
-    return null
+    setShowModal(false)
+    setShowErrors(false)
+    return
   };
 
   const onCloseModal = () => {
