@@ -204,13 +204,13 @@ export default function TrackInfo() {
         )
         annotation.span_ids.split(',').map(anno =>
           document.getElementById(anno).addEventListener('click', (e) => { setShowAnnotation(true); getAnno(e) })
-          )
+        )
 
 
-          // console.log(splitted)
-        }
-        // console.log('-----------------------------------------------------------------------------')
+        // console.log(splitted)
       }
+      // console.log('-----------------------------------------------------------------------------')
+    }
 
   }, [annotations, dispatch, showAnnotation])
 
@@ -287,14 +287,25 @@ export default function TrackInfo() {
               {/* {track.lyrics?.split('\n').slice(1, 6)} */}
             </div>
           </div>
-          <div className='lyric-annotate'>
-            {/* {annotating && <AnnotationForm indexes={[startIndex, endIndex]} />} */}
-            {/* {annotating && <AnnotationForm startIndex={startIndex} endIndex={endIndex} setAnnotating={setAnnotating} />} */}
-            {/* {annotating && <AnnotationForm setAnnotating={setAnnotating} />} */}
-            {annotated && <AnnotationForm setDocu={setDocu} docu={docu} setAnnotated={setAnnotated} spanIds={spanIds} />}
-          </div>
           <div>
-            {<Annotations setShowAnnotation={setShowAnnotation} showAnnotation={showAnnotation} annotationId={annotationId}/>}
+
+            <div className='lyric-annotate'>
+              {/* {annotating && <AnnotationForm indexes={[startIndex, endIndex]} />} */}
+              {/* {annotating && <AnnotationForm startIndex={startIndex} endIndex={endIndex} setAnnotating={setAnnotating} />} */}
+              {/* {annotating && <AnnotationForm setAnnotating={setAnnotating} />} */}
+              {annotated &&
+                <AnnotationForm
+                  setDocu={setDocu}
+                  docu={docu}
+                  setAnnotated={setAnnotated}
+                  spanIds={spanIds} />}
+            </div>
+            <div>
+              {<Annotations
+                setShowAnnotation={setShowAnnotation}
+                showAnnotation={showAnnotation}
+                annotationId={annotationId} />}
+            </div>
           </div>
           {/* {annotating && <AnnotationForm /> } */}
 

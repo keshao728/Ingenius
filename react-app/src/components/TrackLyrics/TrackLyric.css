@@ -4,8 +4,7 @@
 }
 
 .annotated:hover {
-    color: rgb(255, 255, 255);
-    background-color: rgb(172, 108, 68);
+    background-color: #B395A9;
 }
 
 .selected {
@@ -15,3 +14,7 @@
 /* .selected:hover {
     background-color: red;
 } */
+
+.bold-me{
+    font-weight: bold;
+}

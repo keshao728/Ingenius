@@ -1,17 +1,40 @@
-.vote{
-    width:12px;
-    height:12px;
-    margin : 20px;
+.votetotal {}
+
+.vote:hover {}
+
+.anno-vote {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    font-size: 15px;
+
 }
 
-.votetotal{
-    font-size: 20px;
-    border-color: blue;
-    margin: 10px;
+
+
+#up {
+    cursor: pointer;
+    color: #000000;
+    transition: .4s;
+
 }
 
-.vote:hover{
-    font-size:20px ;
-    color:blue;
-    cursor:pointer;
+
+#up:active,
+#down:active {
+    cursor: pointer;
+    color: #B395A9;
+    transition: .4s;
+}
+
+#down {
+    cursor: pointer;
+    color: #000000;
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    transition: .4s;
+    margin-top: 9px;
+    transform: scaleX(-1);
 }

@@ -4,7 +4,7 @@ import { useState, useEffect, useRef } from 'react';
 import { NavLink, useParams } from 'react-router-dom'
 import { upvoteThunk, downvoteThunk, unvoteThunk, votecount } from '../../store/votes';
 import { getOneTrack, actionResetTrack } from '../../store/tracks';
-import './vote.css'
+import './annotations.css'
 import AnnotationForm from '../AnnotationForm/AnnotationForm';
 import Vote from './vote'
 // import { useEffect } from 'react';
@@ -117,14 +117,17 @@ export default function Annotations({ setShowAnnotation, showAnnotation, annotat
         {showAnnotation &&
           annotationsArr.map(anno => anno.id === annotationId ?
 
-            <div>
-              <div>
-                <div key={anno.id} >
+            <div className='anno-wrap'>
+              <div className='anno-title'>
+                Ingenius Annotation
+              </div>
+              <div key={anno.id} className="anno-quote-body">
+                <div className='anno-body'>
                   {anno.annotation_body}
-                  <div>
-                    <Vote num={anno.id} />
-                  </div>
                 </div>
+              </div>
+              <div className='anno-vote'>
+                <Vote num={anno.id} />
               </div>
             </div>
 

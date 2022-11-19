@@ -12,6 +12,7 @@ export default function DisplayLyrics({ track, setAnnotating, setDocu }) {
     const [isSelected, setIsSelected] = useState(false)
     const annotations = useSelector((state) => state.tracks.oneTrack.Annotations);
 
+
     // const handleClick = () => {
 
     //     let value = ref.current
@@ -84,6 +85,9 @@ export default function DisplayLyrics({ track, setAnnotating, setDocu }) {
 
 
     // console.log('annotating', annotating)
+    // if (track.lyrics?.split("").includes("[")) {
+    //     <div className={"bold-me"}> </div>
+    // }
 
     return (
         <>
@@ -107,6 +111,8 @@ export default function DisplayLyrics({ track, setAnnotating, setDocu }) {
             {/* {track.lyrics?.split('\n').map(chunk => <div key={chunk}><span className={`lyric-${1}`} ref={ref} onClick={handleClick}>{chunk}</span></div>)} */}
             {/* {track.lyrics?.split('\n').map((chunk, idx) => <div ><span key={idx} className={isSelected ? 'selected': 'not-selected'} ref={ref} onClick={handleClick}>{chunk}</span></div>)} */}
             {/* {track.lyrics?.split('\n').map(chunk => <div key={chunk}><span className={'not-selected'} ref={ref} onClick={handleClick}>{chunk}</span></div>)} */}
+
+            {/* {track.lyrics?.includes("[") ? <div className={"bold-me"}> </div> : null} */}
 
             {track.lyrics?.split('\n').map((chunk, idx) => <div ><span key={idx} className={''} id={idx} ref={ref} onClick={handleClick}>{chunk}</span></div>)}
         </>
