@@ -7,6 +7,7 @@ import { getOneTrack, actionResetTrack } from '../../store/tracks';
 import './vote.css'
 import AnnotationForm from '../AnnotationForm/AnnotationForm';
 import Vote from './vote'
+import { actionResetAnnotation } from '../../store/annotations'
 // import { useEffect } from 'react';
 
 
@@ -32,9 +33,9 @@ const Annotations = () => {
           document.getElementById(anno).classList.add('annotated')
         )
         annotation.span_ids.split(',').map(anno =>
-          document.getElementById(anno).addEventListener('click', ()=> setShowAnnotation(!showAnnotation)  )
+          document.getElementById(anno).addEventListener('click', () => setShowAnnotation(!showAnnotation))
         )
-
+        dispatch(actionResetAnnotation())
         // console.log(splitted)
       }
     }
@@ -42,23 +43,23 @@ const Annotations = () => {
   // console.log('ANNOTATIONS', annotations)
 
 
-  const upvote = async (e) => {
-    e.preventDefault();
-    await dispatch(upvoteThunk(2))
-      .catch(async (res) => {
-        let data = await res.json();
-        return
-      });
-  }
+  // const upvote = async (e) => {
+  //   e.preventDefault();
+  //   await dispatch(upvoteThunk(2))
+  //     .catch(async (res) => {
+  //       let data = await res.json();
+  //       return
+  //     });
+  // }
 
-  const downvote = async (e) => {
-    e.preventDefault();
-    await dispatch(downvoteThunk(2))
-      .catch(async (res) => {
-        let data = await res.json();
-        return
-      })
-  }
+  // const downvote = async (e) => {
+  //   e.preventDefault();
+  //   await dispatch(downvoteThunk(2))
+  //     .catch(async (res) => {
+  //       let data = await res.json();
+  //       return
+  //     })
+  // }
 
   // const votetotal = async(e) => {
   //   e.preventDefault();
@@ -87,13 +88,13 @@ const Annotations = () => {
         {/* {annotationsArr.map((annotation) => (
           <div key={annotation.id}>
             {annotation.annotation_body} */}
-            <div>
-                {/* {annotationsArr.map((annotation) => ( */}
+        <div>
+          {/* {annotationsArr.map((annotation) => ( */}
 
-                    <div key={annotation.id}>
-                            {annotation.annotation_body}
-                            <div>
-                                {/* <div className='vote' type='button' onClick={upvote}>
+          <div key={annotation.id}>
+            {annotation.annotation_body}
+            <div>
+              {/* <div className='vote' type='button' onClick={upvote}>
                                     <i class="fa-regular fa-thumbs-up"></i>
                                 </div>
                                 <div className='votetotal'><Vote num={annotation.id}/></div>
@@ -101,11 +102,11 @@ const Annotations = () => {
                                     <i class="fa-regular fa-thumbs-down"></i>
 
                                 </div> */}
-                                <Vote num={annotation.id}/>
-                            </div>
-                    </div>
-                {/* ))} */}
+              <Vote num={annotation.id} />
             </div>
+          </div>
+          {/* ))} */}
+        </div>
         {/* </div>
         ))} */}
       </div>
