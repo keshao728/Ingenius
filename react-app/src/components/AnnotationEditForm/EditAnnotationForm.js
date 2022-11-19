@@ -38,8 +38,7 @@ const EditAnnotation = ({ setShowEdit, annotate }) => {
         user_id: annotate.user_id,
         track_id: annotate.track_id,
         annotation_body: annotation,
-        startIndex: annotate.startIndex,
-        endIndex: annotate.endIndex,
+        span_ids: annotate.span_ids
 
       }
 
