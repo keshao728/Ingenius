@@ -22,6 +22,7 @@ const ImageForm = ({ setShowEdit, userInfo }) => {
 
   useEffect(() => {
     const errors = []
+    if (!image) errors.push('Please provide image URL')
     if (image && !image.match(/^https?:\/\/.*\/.*\.(png|gif|webp|jpeg|jpg)\??.*$/gmi)) errors.push('"Please enter a valid URL ending with png, gif, webp, jpeg, or jpg"')
     // if (image==='') image=defaultPro
 
@@ -97,12 +98,12 @@ const ImageForm = ({ setShowEdit, userInfo }) => {
           <button className='save-edit-profile' type='submit'>Save</button>
           <button className="cancel-edit-profile" type="button" onClick={handleCancelClick}>Cancel</button>
         </div>
-        <div>
-          <ul>
+        <div id='error-container'>
+          <div>
             {showErrors && validationErrors.length > 0 && validationErrors.map(error => (
-              <li key={error}>{error}</li>
+              <li className='errors-list' key={error}>{error}</li>
             ))}
-          </ul>
+          </div>
         </div>
       </form>
     </div>

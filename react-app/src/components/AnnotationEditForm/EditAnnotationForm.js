@@ -18,8 +18,8 @@ const EditAnnotation = ({ setShowEdit, annotate }) => {
 
   useEffect(() => {
     const errors = []
-    if (!annotation) errors.push('Need more info pls')
-
+    if (!annotation) errors.push('Please fill out this field.')
+    if (annotation.length > 500) errors.push('Annotation must not exceed 500 characters')
     setValidationErrors(errors)
   }, [annotation])
 
@@ -71,9 +71,9 @@ const EditAnnotation = ({ setShowEdit, annotate }) => {
           <button className='cancel-edit-anno' type="button" onClick={handleCancelClick}>Cancel</button>
         </div>
         <div>
-          <ul>
+          <ul >
             {showErrors && validationErrors.length > 0 && validationErrors.map(error => (
-              <li key={error}>{error}</li>
+              <li  className='errors-list' key={error}>{error}</li>
             ))}
           </ul>
         </div>

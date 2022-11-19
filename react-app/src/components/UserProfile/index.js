@@ -47,7 +47,7 @@ const UserAnnotations = ({setUser}) => {
   else return isLoaded &&
     annotationArr.map(annotation => (
       <div id='pp-annotations-outer-container' key={annotation.id}>
-        <div id='pp-annotation-created-at'> {annotation.created_at}</div>
+        <div id='pp-annotation-created-at'> {annotation.created_at?.split(' ').slice(0, -2).slice(1).join(' ')}</div>
         <div id='pp-annotation-inner-container'>
           <div id='pp-song-info'>
             <img id='pp-album-photo' onError={(e)=> e.target.src=defaultPro} src={annotation.track?.track_art} />
@@ -73,7 +73,7 @@ const UserAnnotations = ({setUser}) => {
               </div>
               <div id='pp-annotation-created-at-moment'>{moment(annotation?.created_at).fromNow()}</div>
             </div>
-            <div>{sessionUser?.id === annotation.user.id ?
+            <div>{sessionUser?.id === annotation.user?.id ?
               <div >{showEdit === annotation.id ? <EditAnnotation setShowEdit={setShowEdit} annotate={annotation} /> :
                 <div>
                   <div id='pp-annotation-body'>{annotation.annotation_body}</div>

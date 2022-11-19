@@ -10,9 +10,7 @@ export default function CreateTrack() {
   const dispatch = useDispatch()
   const history = useHistory()
   const sessionUser = useSelector(state => state.session.user)
-
-
-
+  
   const date = new Date();
   const futureDate = date.getDate() + 3;
   date.setDate(futureDate);
@@ -46,13 +44,8 @@ export default function CreateTrack() {
 
     if (trackUrl && !trackUrl.match(/http(?:s?):\/\/(?:www\.)?youtu(?:be\.com\/watch\?v=|\.be\/)([\w\-\_]*)(&(amp;)?‌​[\w\?‌​=]*)?/)) validationErrors.push("Please enter a valid Youtube URL") // test later
 
-
-
-
     setErrors(validationErrors)
-
     if (validationErrors.length) setDisplayErrors(true)
-
     return validationErrors
   }
 
