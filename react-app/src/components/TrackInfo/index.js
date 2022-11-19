@@ -155,26 +155,45 @@ export default function TrackInfo() {
 
 
   const annotations = useSelector((state) => state.tracks.oneTrack.Annotations);
-  // console.log('0000000000000000000000000000000000000000000000000000000000000',annotations)
+  console.log('0000000000000000000000000000000000000000000000000000000000000', annotations)
   const [showAnnotation, setShowAnnotation] = useState(false)
 
 
-
+  const [annotationId, setAnnotationId] = useState('')
 
   useEffect(() => {
-    function getAnno (e) {
-      let currentAnno = e.currentTarget
-      console.log('currentAnno', currentAnno)
-      for (let annos of annotations) {
-        // console.log('vvvvvvvvvvvvvvvvvvvvvv',annos)
-        let meow = annos.span_ids.split(",").find(e => e === currentAnno.id)
-        // console.log('meow', meow)
+    // function getAnno(e) {
+    //   console.log(e.currentTarget)
+    //   let currentAnno = e.currentTarget.id
+    //   console.log('currentAnno', currentAnno)
+    //   console.log('UUUUUUUUUUUUUUUUUUUU', annotations)
+    //   for (let annos of annotations) {
+    //     console.log('vvvvvvvvvvvvvvvvvvvvvv',annos)
+    //     return annos?.span_ids?.split(",")?.find(e => e === currentAnno) ? console.log('Annoid',annos.id) : null
+    //     // console.log('meow', meow)
 
-        return meow ? annos.id : null
-        // if (annos.span_ids.find(e => e === e.currentTarget.id)) {
-        //   console.log('444444444444',annos)
-        // }
-      }
+    //     // return meow ? annos.id : null
+    //     // if (annos.span_ids.find(e => e === e.currentTarget.id)) {
+    //     //   console.log('444444444444',annos)
+    //     // }
+    //   }
+    // }
+
+
+
+    // }
+
+    function getAnno(e) {
+      console.log(e.currentTarget)
+      let currentAnno = e.currentTarget.id
+      console.log('currentAnno', currentAnno)
+      console.log('UUUUUUUUUUUUUUUUUUUU', annotations)
+
+      // let siu = annotations.map(anno => anno.span_ids.split(',').map(e => e.includes(currentAnno)))
+      // let siu = annotations.map(anno => anno.span_ids.split(',')?.find(e => e === currentAnno) ? anno?.id : null)
+      let id = annotations?.filter(anno => anno.span_ids.split(',').find(e => e === currentAnno))[0].id
+      console.log('SSSSSSSSSIIIIIIIIIIIIIIIUUUUUUUUUUUUUUUUUUUUUUUUUU', id)
+      setAnnotationId(id)
     }
 
     if (annotations) {
@@ -184,15 +203,14 @@ export default function TrackInfo() {
           document.getElementById(anno).classList.add('annotated')
         )
         annotation.span_ids.split(',').map(anno =>
-          document.getElementById(anno).addEventListener('click', (e)=> {setShowAnnotation(true); getAnno(e)} )
+          document.getElementById(anno).addEventListener('click', (e) => { setShowAnnotation(true); getAnno(e) })
           )
 
 
-        // console.log(splitted)
+          // console.log(splitted)
+        }
+        // console.log('-----------------------------------------------------------------------------')
       }
-      // console.log('-----------------------------------------------------------------------------')
-    }
-
 
   }, [annotations, dispatch, showAnnotation])
 
@@ -276,7 +294,7 @@ export default function TrackInfo() {
             {annotated && <AnnotationForm setDocu={setDocu} docu={docu} setAnnotated={setAnnotated} spanIds={spanIds} />}
           </div>
           <div>
-            {<Annotations setShowAnnotation={setShowAnnotation} showAnnotation={showAnnotation}/>}
+            {<Annotations setShowAnnotation={setShowAnnotation} showAnnotation={showAnnotation} annotationId={annotationId}/>}
           </div>
           {/* {annotating && <AnnotationForm /> } */}
 

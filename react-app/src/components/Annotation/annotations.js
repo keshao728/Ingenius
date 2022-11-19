@@ -10,7 +10,7 @@ import Vote from './vote'
 // import { useEffect } from 'react';
 
 
-export default function Annotations({ setShowAnnotation, showAnnotation }) {
+export default function Annotations({ setShowAnnotation, showAnnotation, annotationId }) {
   console.log(showAnnotation)
   const dispatch = useDispatch();
   // const { trackId } = useParams();
@@ -87,12 +87,13 @@ export default function Annotations({ setShowAnnotation, showAnnotation }) {
   // let annotationLinks;
   if (!annotations) {
     return (
-      <AnnotationForm setShowAnnotation={setShowAnnotation}/>
+      <AnnotationForm setShowAnnotation={setShowAnnotation} />
     )
   } else {
     const annotationsArr = Object.values(annotations);
     const annotation = annotationsArr[0]
-    // console.log('ANNOTATIONSARR', annotationsArr)
+    console.log('ANNOTATIONSARR', annotationsArr)
+    console.log('BEBARAERLAJASD', annotationId)
     // const annotation = annotationsArr.map(anno => anno.span_ids)
     // for(let i=1; i<annotation.length; i++) {
     //   if (annotation[i].includes(`${i}`))
@@ -112,26 +113,46 @@ export default function Annotations({ setShowAnnotation, showAnnotation }) {
 
     // </div>
     return (
+      <>
+        {showAnnotation &&
+          annotationsArr.map(anno => anno.id === annotationId ?
 
-
-      showAnnotation && <div>
-        <div>
-          <div key={annotation.id} >
-            {annotation.annotation_body}
             <div>
-              {/* <div className='vote' type='button' onClick={upvote}>
-                                    <i class="fa-regular fa-thumbs-up"></i>
-                                </div>
-                                <div className='votetotal'><Vote num={annotation.id}/></div>
-                                <div className='vote' type='button' onClick={downvote}>
-                                    <i class="fa-regular fa-thumbs-down"></i>
-                                </div> */}
-              <Vote num={annotation.id} />
+              <div>
+                <div key={anno.id} >
+                  {anno.annotation_body}
+                  <div>
+                    <Vote num={anno.id} />
+                  </div>
+                </div>
+              </div>
             </div>
-          </div>
 
-        </div>
-      </div>
+
+
+
+            : null)}
+
+      </>
+
+      // showAnnotation && <div>
+      //   <div>
+      //     <div key={annotation.id} >
+      //       {annotation.annotation_body}
+      //       <div>
+      //         {/* <div className='vote' type='button' onClick={upvote}>
+      //                               <i class="fa-regular fa-thumbs-up"></i>
+      //                           </div>
+      //                           <div className='votetotal'><Vote num={annotation.id}/></div>
+      //                           <div className='vote' type='button' onClick={downvote}>
+      //                               <i class="fa-regular fa-thumbs-down"></i>
+      //                           </div> */}
+      //         <Vote num={annotation.id} />
+      //       </div>
+      //     </div>
+
+      //   </div>
+      // </div>
 
     )
 
