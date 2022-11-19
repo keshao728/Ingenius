@@ -62,7 +62,7 @@ export default function DisplayLyrics({ track, setAnnotating, setDocu }) {
         } else if (e.currentTarget.className === 'annotated') {
         }
 
-        // setDocu(Array.from(document.getElementsByClassName('selected')))
+        setDocu(Array.from(document.getElementsByClassName('selected')))
         // console.log(typeof(e.currentTarget.id),'hihihihi')
 
         // for (let i = 0 ; i < annotations.length; i++){
