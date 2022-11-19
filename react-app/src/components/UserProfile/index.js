@@ -16,7 +16,7 @@ import * as moment from 'moment';
 const UserAnnotations = ({setUser}) => {
   const dispatch = useDispatch()
   const { userId } = useParams()
-  console.log('USERID', userId)
+  // console.log('USERID', userId)
   const annotations = useSelector(state => state.session.annotations)
   const sessionUser = useSelector(state => state.session.user)
   // console.log('sessionUserID', sessionUser.id)

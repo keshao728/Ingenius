@@ -8,7 +8,7 @@ const EditAnnotation = ({ setShowEdit, annotate }) => {
   const dispatch = useDispatch()
   // const annotations = useSelector(state => state.session.annotations)
   // console.log('ANNOTATIONS', annotations)
-  console.log('helloworld', annotate)
+  // console.log('helloworld', annotate)
   const [annotation, setAnnotation] = useState(annotate.annotation_body)
   const [validationErrors, setValidationErrors] = useState([])
   // const [showEdit, setShowEdit] = useState(show)
@@ -43,7 +43,7 @@ const EditAnnotation = ({ setShowEdit, annotate }) => {
       }
 
       let newAnnotation = await dispatch(editAnnotation(payload))
-      console.log('PAYLOAD', payload)
+      // console.log('PAYLOAD', payload)
 
       if (newAnnotation) {
         setShowEdit(false)

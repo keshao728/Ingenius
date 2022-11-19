@@ -98,6 +98,8 @@ export default function DisplayLyrics({ track, setAnnotating, setDocu }) {
         }
     })
 
+
+
     return (
         <>
             {/* Something */}

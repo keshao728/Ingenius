@@ -70,28 +70,28 @@ def sign_up():
             # banner_img=None
 
         )
-        print(
-            '''
-            L
-            K
-            K
-            DK
-            S
-            A
-            QEEEEEEE
+        # print(
+        #     '''
+        #     L
+        #     K
+        #     K
+        #     DK
+        #     S
+        #     A
+        #     QEEEEEEE
 
-            ''', user,
-            '''
-            
-            END
-            '''
-        )
+        #     ''', user,
+        #     '''
+
+        #     END
+        #     '''
+        # )
         db.session.add(user)
         db.session.commit()
 
         login_user(user)
         return user.to_dict()
-    return {'errors': validation_errors_to_error_messages(form.errors)}, 401, 
+    return {'errors': validation_errors_to_error_messages(form.errors)}, 401,
 
 
 @auth_routes.route('/unauthorized')

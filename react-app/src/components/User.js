@@ -19,9 +19,9 @@ function User() {
   // console.log('OTHER', otherUser)
 
   const { userId } = useParams();
-  console.log('USERID', typeof (userId))
-  console.log('iamuser', user)
-  console.log('sessionUSER', sessionUser)
+  // console.log('USERID', typeof (userId))
+  // console.log('iamuser', user)
+  // console.log('sessionUSER', sessionUser)
 
   useEffect(() => {
     if (!userId) {

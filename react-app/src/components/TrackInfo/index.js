@@ -184,15 +184,15 @@ export default function TrackInfo() {
     // }
 
     function getAnno(e) {
-      console.log(e.currentTarget)
+      // console.log(e.currentTarget)
       let currentAnno = e.currentTarget.id
-      console.log('currentAnno', currentAnno)
-      console.log('UUUUUUUUUUUUUUUUUUUU', annotations)
+      // console.log('currentAnno', currentAnno)
+      // console.log('UUUUUUUUUUUUUUUUUUUU', annotations)
 
       // let siu = annotations.map(anno => anno.span_ids.split(',').map(e => e.includes(currentAnno)))
       // let siu = annotations.map(anno => anno.span_ids.split(',')?.find(e => e === currentAnno) ? anno?.id : null)
       let id = annotations?.filter(anno => anno.span_ids.split(',').find(e => e === currentAnno))[0].id
-      console.log('SSSSSSSSSIIIIIIIIIIIIIIIUUUUUUUUUUUUUUUUUUUUUUUUUU', id)
+      // console.log('SSSSSSSSSIIIIIIIIIIIIIIIUUUUUUUUUUUUUUUUUUUUUUUUUU', id)
       setAnnotationId(id)
     }
 
@@ -218,6 +218,13 @@ export default function TrackInfo() {
   // end annotation stuff
 
 
+  // useEffect(() => {
+  //   if (showAnnotation) {
+  //     document.addEventListener('click', () => setShowAnnotation(false))
+  //   }
+
+  //   return () => document.removeEventListener('click', () =>setShowAnnotation(false))
+  // })
 
 
 

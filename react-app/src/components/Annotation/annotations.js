@@ -4,14 +4,16 @@ import { useState, useEffect, useRef } from 'react';
 import { NavLink, useParams } from 'react-router-dom'
 import { upvoteThunk, downvoteThunk, unvoteThunk, votecount } from '../../store/votes';
 import { getOneTrack, actionResetTrack } from '../../store/tracks';
+import './vote.css'
 import './annotations.css'
 import AnnotationForm from '../AnnotationForm/AnnotationForm';
+import EditAnnotation from '../AnnotationEditForm/EditAnnotationForm';
 import Vote from './vote'
 // import { useEffect } from 'react';
 
 
 export default function Annotations({ setShowAnnotation, showAnnotation, annotationId }) {
-  console.log(showAnnotation)
+  // console.log(showAnnotation)
   const dispatch = useDispatch();
   // const { trackId } = useParams();
   // const annoMenu = useRef(null)
@@ -114,21 +116,17 @@ export default function Annotations({ setShowAnnotation, showAnnotation, annotat
     // </div>
     return (
       <>
+
         {showAnnotation &&
           annotationsArr.map(anno => anno.id === annotationId ?
 
-            <div className='anno-wrap'>
-              <div className='anno-title'>
-                Ingenius Annotation
-              </div>
-              <div key={anno.id} className="anno-quote-body">
-                <div className='anno-body'>
+            <div className='annotation-container'>
+                <div key={anno.id} >
                   {anno.annotation_body}
+                  <div>
+                    <Vote num={anno.id} />
+                  </div>
                 </div>
-              </div>
-              <div className='anno-vote'>
-                <Vote num={anno.id} />
-              </div>
             </div>
 
 
