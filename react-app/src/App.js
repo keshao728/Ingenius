@@ -55,9 +55,9 @@ function App() {
           <User />
         </Route>
 
-        <Route path='/tracks' exact={true}>
+        {/* <Route path='/tracks' exact={true}>
           <AllTracks />
-        </Route>
+        </Route> */}
 
         <Route path='/tracks/new'>
           <NavBar />
