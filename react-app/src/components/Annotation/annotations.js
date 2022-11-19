@@ -91,9 +91,9 @@ export default function Annotations({ setShowAnnotation, showAnnotation, annotat
     )
   } else {
     const annotationsArr = Object.values(annotations);
-    const annotation = annotationsArr[0]
-    console.log('ANNOTATIONSARR', annotationsArr)
-    console.log('BEBARAERLAJASD', annotationId)
+    // const annotation = annotationsArr[0]
+    // console.log('ANNOTATIONSARR', annotationsArr)
+    // console.log('BEBARAERLAJASD', annotationId)
     // const annotation = annotationsArr.map(anno => anno.span_ids)
     // for(let i=1; i<annotation.length; i++) {
     //   if (annotation[i].includes(`${i}`))

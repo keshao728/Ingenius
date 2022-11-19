@@ -53,7 +53,7 @@ export default function DisplayLyrics({ track, setAnnotating, setDocu }) {
         // console.log(value)
 
         // e.currentTarget.className === '' ? e.currentTarget.className = 'selected' : e.currentTarget.className = ''
-        console.log(e.currentTarget ,'e current target')
+        // console.log(e.currentTarget ,'e current target')
         if (e.currentTarget.className === '') {
             e.currentTarget.className = 'selected'
         } else if (e.currentTarget.className === 'selected') {
@@ -61,16 +61,16 @@ export default function DisplayLyrics({ track, setAnnotating, setDocu }) {
         } else if (e.currentTarget.className === 'annotated') {
         }
 
-        setDocu(Array.from(document.getElementsByClassName('selected')))
-        console.log(typeof(e.currentTarget.id),'hihihihi')
+        // setDocu(Array.from(document.getElementsByClassName('selected')))
+        // console.log(typeof(e.currentTarget.id),'hihihihi')
 
-        for (let i = 0 ; i < annotations.length; i++){
-            if(annotations[i].span_ids.includes(e.currentTarget.id)){
-                console.log(annotations[i].id,'hahahahaha')
-                return annotations[i].id
-                }
-            return null
-        }
+        // for (let i = 0 ; i < annotations.length; i++){
+        //     if(annotations[i].span_ids.includes(e.currentTarget.id)){
+        //         console.log(annotations[i].id,'hahahahaha')
+        //         return annotations[i].id
+        //         }
+        //     return null
+        // }
     };
 
 

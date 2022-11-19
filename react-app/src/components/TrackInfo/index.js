@@ -155,7 +155,7 @@ export default function TrackInfo() {
 
 
   const annotations = useSelector((state) => state.tracks.oneTrack.Annotations);
-  console.log('0000000000000000000000000000000000000000000000000000000000000', annotations)
+  // console.log('0000000000000000000000000000000000000000000000000000000000000', annotations)
   const [showAnnotation, setShowAnnotation] = useState(false)
 
 
