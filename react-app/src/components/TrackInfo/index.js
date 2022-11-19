@@ -14,7 +14,6 @@ import DisplayLyrics from '../TrackLyrics';
 
 
 
-
 export default function TrackInfo() {
   const { trackId } = useParams()
   // console.log(trackId)
@@ -50,33 +49,11 @@ export default function TrackInfo() {
 
   //annotation stuff
 
-  // const [index, setIndex] = useState([])
-  // const [startIndex, setStartIndex] = useState()
-  // const [endIndex, setEndIndex] = useState()
+  const [index, setIndex] = useState([])
+  const [startIndex, setStartIndex] = useState()
+  const [endIndex, setEndIndex] = useState()
 
-  // const [annotating, setAnnotating] = useState(false)
-
-
-  const [docu, setDocu] = useState('')
-
-
-  const [annotated, setAnnotated] = useState(false)
-
-
-  let spanIds = Array.from(document.getElementsByClassName('selected')).map(span => span.id).join(',')
-  console.log('mmmmmmmmaaaaaadddddd', docu)
-  // let spanIds = docu?.forEach(m => m.id)
-  // console.log('SPAAAAAAAAAAAAAAAAANIDS', spanIds)
-
-  // useEffect(() =>{
-  //   console.log(document.getElementsByClassName('selected'));
-  //   document.getElementsByClassName('selected') ? setAnnotated(true) : setAnnotated(false)
-  //   console.log(classes)
-  // }, [annotated, classes])
-
-  useEffect(() => {
-    docu.length ? setAnnotated(true) : setAnnotated(false)
-  }, [docu])
+  const [annotating, setAnnotating] = useState(false)
 
   // const sortedAnnotations = Object.values(track?.Annotations).sort(
   //   (a, b) => a.startIndex - b.startIndex
@@ -89,64 +66,59 @@ export default function TrackInfo() {
 
 
 
-  // useEffect(() => {
-  //   if (startIndex !== endIndex && startIndex !== Infinity) {
-  //     setAnnotating(true)
-  //   }
-  //   else setAnnotating(false)
-  // }, [startIndex, endIndex])
+  useEffect(() => {
+    if (startIndex !== endIndex && startIndex !== Infinity) {
+      setAnnotating(true)
+    }
+    else setAnnotating(false)
+  }, [startIndex, endIndex])
 
-  // useEffect(() => {
-  //   setStartIndex(Math.min(...index))
-  //   setEndIndex(Math.max(...index))
-  // }, [index])
-
-  // useEffect(() => {
-  //   setSpanIds(Array.from(document.getElementsByClassName('selected')).map(span => span.id).join(','))
-
-  // }, [spanIds])
+  useEffect(() => {
+    setStartIndex(Math.min(...index))
+    setEndIndex(Math.max(...index))
+  }, [index])
 
 
-  // const annotateThis = (e) => {
-  //   // console.log(React.Children.toArray(track.lyrics?.split('\n').map(chunk => chunk)).join(''))
-  //   e.preventDefault()
-  //   // console.log(trackId)
-  //   // console.log(annotations)
+  const annotateThis = (e) => {
+    // console.log(React.Children.toArray(track.lyrics?.split('\n').map(chunk => chunk)).join(''))
+    e.preventDefault()
+    // console.log(trackId)
+    // console.log(annotations)
 
-  //   const selected = window.getSelection && window.getSelection()
-
-
-  //   if (selected && selected.rangeCount > 0) {
-  //     const highlight = selected.getRangeAt(0)
-  //     setIndex([highlight.startOffset, highlight.endOffset])
-  //     // console.log("SETSTSETSDFDSF", index)
-  //     // console.log("SETSTSETSDFDSF", startIndex)
-  //     // console.log("SETSTSETSDFDSF", endIndex)
-  //     // console.log(highlight)
-  //   }
-
-  //   // const annotationInfo = {
-  //   //   annotation_body: 'something',
-  //   //   startIndex: startIndex,
-  //   //   endIndex: endIndex,
-  //   // }
-
-  //   // let createdAnnotation = await dispatch(createAnnotation(trackId, annotationInfo)).catch(async (res) => {
-  //   //   const data = await res.json();
-  //   //   if (data && data.errors) setErrors(data.errors)
-  //   // })
-  //   // if (createdAnnotation) {
-
-  //   //   // console.log('SELECTED',selected)
-  //   //   // console.log('RANGECOUNT',selected.rangeCount)
-  //   //   // console.log(trackId)
-  //   //   // console.log(createdAnnotation)
-  //   //   history.push(`/tracks/${trackId}`)
-  //   // }
-  //   // else return errors
+    const selected = window.getSelection && window.getSelection()
 
 
-  // }
+    if (selected && selected.rangeCount > 0) {
+      const highlight = selected.getRangeAt(0)
+      setIndex([highlight.startOffset, highlight.endOffset])
+      // console.log("SETSTSETSDFDSF", index)
+      // console.log("SETSTSETSDFDSF", startIndex)
+      // console.log("SETSTSETSDFDSF", endIndex)
+      // console.log(highlight)
+    }
+
+    // const annotationInfo = {
+    //   annotation_body: 'something',
+    //   startIndex: startIndex,
+    //   endIndex: endIndex,
+    // }
+
+    // let createdAnnotation = await dispatch(createAnnotation(trackId, annotationInfo)).catch(async (res) => {
+    //   const data = await res.json();
+    //   if (data && data.errors) setErrors(data.errors)
+    // })
+    // if (createdAnnotation) {
+
+    //   // console.log('SELECTED',selected)
+    //   // console.log('RANGECOUNT',selected.rangeCount)
+    //   // console.log(trackId)
+    //   // console.log(createdAnnotation)
+    //   history.push(`/tracks/${trackId}`)
+    // }
+    // else return errors
+
+
+  }
 
 
   // end annotation stuff
@@ -205,11 +177,9 @@ export default function TrackInfo() {
           <div className='lyrics_body'>
             {/* Track Lyrics: */}
 
-            {/* <div className='lyric-track' onMouseUp={annotateThis}> */}
-            <div className='lyric-track'>
+            <div className='lyric-track' onMouseUp={annotateThis}>
 
-              {/* <DisplayLyrics track={track} setAnnotating={setAnnotating} setIndex={setIndex}/> */}
-              <DisplayLyrics track={track} setDocu={setDocu} />
+            <DisplayLyrics track={track} setAnnotating={setAnnotating} setIndex={setIndex}/>
               {/* {track.lyrics?.split('\n').map(chunk => <div key={chunk}>{chunk}</div>)} */}
               {/* {track.lyrics} */}
               {/* {track.lyrics?.split("\n")} */}
@@ -223,9 +193,7 @@ export default function TrackInfo() {
           </div>
           <div className='lyric-annotate'>
             {/* {annotating && <AnnotationForm indexes={[startIndex, endIndex]} />} */}
-            {/* {annotating && <AnnotationForm startIndex={startIndex} endIndex={endIndex} setAnnotating={setAnnotating} />} */}
-            {/* {annotating && <AnnotationForm setAnnotating={setAnnotating} />} */}
-            {annotated && <AnnotationForm setDocu={setDocu} docu={docu} setAnnotated={setAnnotated} spanIds={spanIds} />}
+            {annotating && <AnnotationForm startIndex={startIndex} endIndex={endIndex} setAnnotating={setAnnotating} />}
           </div>
           {/* {annotating && <AnnotationForm /> } */}
 
