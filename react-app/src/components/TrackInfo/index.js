@@ -219,12 +219,12 @@ export default function TrackInfo() {
 
 
   // useEffect(() => {
-  //   if (showAnnotation) {
-  //     document.addEventListener('click', () => setShowAnnotation(false))
+  //   if (showAnnotation === true) {
+  //     document.addEventListener('click', () => setShowAnnotation(!showAnnotation))
   //   }
 
-  //   return () => document.removeEventListener('click', () =>setShowAnnotation(false))
-  // })
+  //   return () => document.removeEventListener('click', () => setShowAnnotation(!showAnnotation))
+  // },[showAnnotation])
 
 
 
