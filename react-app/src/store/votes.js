@@ -36,11 +36,11 @@ const  votecounter = (data) => {
 //-----  THUNK  -----//
 export const votecount = (id) => async (dispatch) => {
     const response = await fetch(`/api/votes/${id}/total`);
-    console.log('this is response for votecount in thunk',response)
-    console.log('this is id for votecount in thunk',id)
+    // console.log('this is response for votecount in thunk',response)
+    // console.log('this is id for votecount in thunk',id)
     if (response.ok) {
         const data = await response.json();
-        console.log('this is data for votecount in thunk',data)
+        // console.log('this is data for votecount in thunk',data)
         await dispatch(votecounter(data))
         return data
         // return data;
@@ -62,7 +62,7 @@ export const upvoteThunk = (id) => async (dispatch) => {
     // console.log('response from upvote thunk',response)
     if (response.ok) {
         const data = await response.json()
-        console.log('data from upvote thunk',data)
+        // console.log('data from upvote thunk',data)
         await dispatch(votecount(id))
         // await dispatch(upvote(data))
         if(data.statusCode === 401) {
@@ -92,8 +92,8 @@ export const downvoteThunk = (id) => async (dispatch) => {
         },
         body: JSON.stringify(id)
     })
-    console.log('id from downvote thunk',id)
-    console.log('response from downvote thunk',response)
+    // console.log('id from downvote thunk',id)
+    // console.log('response from downvote thunk',response)
     if (response.ok) {
         const data = await response.json()
         await dispatch(votecount(id))

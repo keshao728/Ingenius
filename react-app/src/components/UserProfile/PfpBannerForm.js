@@ -12,9 +12,9 @@ const ImageForm = ({ setShowEdit, userInfo }) => {
   // let [banner, setBanner] = useState(userInfo.banner_img)
   const [validationErrors, setValidationErrors] = useState([])
   const [showErrors, setShowErrors] = useState(false);
-  
+
   const current = useSelector(state => state.session.user)
-  
+
 
   // const { userId } = useParams();
   const uploadImage = (e) => setImage(e.target.value);
@@ -31,7 +31,7 @@ const ImageForm = ({ setShowEdit, userInfo }) => {
     setValidationErrors(errors)
   }, [image])
 
-  
+
   // useEffect(() => {
   //   if (!userId) {
   //     return;
@@ -64,9 +64,9 @@ const ImageForm = ({ setShowEdit, userInfo }) => {
       }
 
       let res = await dispatch(editUserPhoto(user))
-      console.log('RESRESRESRES', res)
+      // console.log('RESRESRESRES', res)
       if (res) {
-        console.log('222222222222RES', res)
+        // console.log('222222222222RES', res)
         setShowEdit(true)
       }
     }

@@ -41,8 +41,8 @@ const actionDeleteAnnotation = (annotation) => {
   }
 }
 
-const initialState = { 
-  user: null, 
+const initialState = {
+  user: null,
   annotations: {},
   comments: {},
   tracks: {},
@@ -116,15 +116,15 @@ export const signUp = (username, email, password) => async (dispatch) => {
     }),
   });
 
-  console.log('response', response)
-  
+  // console.log('response', response)
+
   if (response.ok) {
     const data = await response.json();
     dispatch(setUser(data))
     return null;
   } else if (response.status < 500) {
     const data = await response.json();
-    console.log('data', data)
+    // console.log('data', data)
     if (data.errors) {
       return data.errors;
     }
@@ -140,13 +140,13 @@ export const editUserPhoto = (user) => async dispatch => {
     headers: {"Content-Type": "application/json"},
     body: JSON.stringify(user)
   })
-  console.log('SIMONSUSER', user)
-  console.log('SIMON RESPONSE', response)
-  
+  // console.log('SIMONSUSER', user)
+  // console.log('SIMON RESPONSE', response)
+
   if (response.ok) {
     const newPhoto = await response.json();
     await dispatch(actionEditUserImg(newPhoto))
-  console.log('NEWPHOTO', newPhoto)
+  // console.log('NEWPHOTO', newPhoto)
     return newPhoto
   }
 }
@@ -155,27 +155,27 @@ export const getUserInfo = (userId) => async dispatch => {
   const response = await fetch(`/api/users/${userId}/info`);
   if (response.ok) {
       const userInfo = await response.json();
-      console.log('IS IT WORKING YET', userInfo)
+      // console.log('IS IT WORKING YET', userInfo)
 
-      
+
 
       const userInfoObj = Object.values(userInfo.annotations)
-      console.log('USERINFOBJJJ',userInfoObj)
-      
+      // console.log('USERINFOBJJJ',userInfoObj)
+
       userInfoObj.forEach(async (info) => {
-        console.log('CORRECT!!', info.id)
+        // console.log('CORRECT!!', info.id)
         const newRes = await fetch(`/api/votes/${info.id}/total`)
-        console.log('IT HMEeeeeeeeeeeEE', newRes)
+        // console.log('IT HMEeeeeeeeeeeEE', newRes)
 
         if (newRes.ok) {
-          console.log('AMIUNDEFINED', newRes.votetotalvalue)
+          // console.log('AMIUNDEFINED', newRes.votetotalvalue)
           info['voteTotal'] = newRes.votetotalvalue
-          console.log('HIT ME',info)
+          // console.log('HIT ME',info)
         }
       });
 
       await dispatch(actionGetUserInfo(userInfo));
-      console.log('HOW BOUT NOW', userInfo)
+      // console.log('HOW BOUT NOW', userInfo)
       return userInfo
   }
   return null
@@ -188,8 +188,8 @@ export const editAnnotation = (annotation) => async dispatch => {
       headers: {"Content-Type": "application/json"},
       body: JSON.stringify(annotation)
   })
-  console.log('annotation from thunk!', annotation)
-  console.log('RESPONSE from thunk!', response)
+  // console.log('annotation from thunk!', annotation)
+  // console.log('RESPONSE from thunk!', response)
   if (response.ok) {
       const editedAnnotation = await response.json();
       await dispatch(actionEditAnnotation(editedAnnotation))
@@ -225,7 +225,7 @@ export default function reducer(state = initialState, action) {
       let comments = {}
       let votes = {}
       newState = { ...state}
-      console.log('GET_ALL_ANNOTATIONSACTION', action)
+      // console.log('GET_ALL_ANNOTATIONSACTION', action)
 
       action.payload.annotations.forEach(annotation => {
         annotations[annotation.id] = annotation
@@ -234,7 +234,7 @@ export default function reducer(state = initialState, action) {
       action.payload.tracks.forEach(track => {
         tracks[track.id] = track
       })
-      
+
       action.payload.comments.forEach(comment => {
         comments[comment.id] = comment
       })
@@ -249,7 +249,7 @@ export default function reducer(state = initialState, action) {
       newState.votes = votes
       // console.log('NEWNEWSTATESTATE', newState)
       return newState
-    case EDIT_ANNOTATION: 
+    case EDIT_ANNOTATION:
       newState = {...state}
       newState.annotations = {...state.annotations}
       newState.annotations[action.annotation.id] = action.annotation
