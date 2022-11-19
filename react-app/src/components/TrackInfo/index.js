@@ -8,7 +8,7 @@ import { actionResetTrack } from '../../store/tracks';
 import ReactPlayer from 'react-player'
 import './TrackInfo.css';
 import React from 'react';
-import { createAnnotation } from '../../store/annotations';
+import { createAnnotation, actionResetAnnotation } from '../../store/annotations';
 import AnnotationForm from '../AnnotationForm/AnnotationForm';
 import DisplayLyrics from '../TrackLyrics';
 
@@ -27,6 +27,7 @@ export default function TrackInfo() {
 
   useEffect(() => {
     dispatch(getOneTrack(trackId))
+
 
     return () => dispatch(actionResetTrack())
   }, [dispatch, user, trackId])
@@ -64,7 +65,7 @@ export default function TrackInfo() {
 
 
   let spanIds = Array.from(document.getElementsByClassName('selected')).map(span => span.id).join(',')
-  console.log('mmmmmmmmaaaaaadddddd', docu)
+  // console.log('mmmmmmmmaaaaaadddddd', docu)
   // let spanIds = docu?.forEach(m => m.id)
   // console.log('SPAAAAAAAAAAAAAAAAANIDS', spanIds)
 

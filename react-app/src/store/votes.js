@@ -63,6 +63,7 @@ export const upvoteThunk = (id) => async (dispatch) => {
     if (response.ok) {
         const data = await response.json()
         console.log('data from upvote thunk',data)
+        await dispatch(votecount(id))
         // await dispatch(upvote(data))
         if(data.statusCode == 401) {
             const response2 = await fetch(`/api/votes/${id}/unvote`, {
@@ -74,6 +75,7 @@ export const upvoteThunk = (id) => async (dispatch) => {
             })
             if(response2.ok) {
                 const data2 = await response2.json()
+                await dispatch(votecount(id))
                 return data2
             }
         }
@@ -82,7 +84,7 @@ export const upvoteThunk = (id) => async (dispatch) => {
     return
 }
 //downvote
-export const downvoteThunk = (id) => async () => {
+export const downvoteThunk = (id) => async (dispatch) => {
     const response = await fetch(`/api/votes/${id}/downvote`, {
         method: "POST",
         headers: {
@@ -94,6 +96,7 @@ export const downvoteThunk = (id) => async () => {
     console.log('response from downvote thunk',response)
     if (response.ok) {
         const data = await response.json()
+        await dispatch(votecount(id))
         // const data2 = await dispatch(downvote(data))
         if(data.statusCode == 401) {
             const response2 = await fetch(`/api/votes/${id}/unvote`, {
@@ -105,6 +108,7 @@ export const downvoteThunk = (id) => async () => {
             })
             if(response2.ok) {
                 const data2 = await response2.json()
+                await dispatch(votecount(id))
                 return data2
             }
         }
@@ -136,7 +140,7 @@ const voteReducer = (state = initialState, action) => {
     let newState
     switch (action.type) {
         case VOTECOUNT:
-            newState = {...state }
+            newState = {...state}
             newState.votes = action.data
             return newState
 

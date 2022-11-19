@@ -2,7 +2,8 @@ import React from 'react'
 import { useSelector, useDispatch } from 'react-redux';
 import { useState, useEffect } from 'react';
 import { NavLink, useParams } from 'react-router-dom'
-import { upvoteThunk,downvoteThunk,unvoteThunk, votecount} from '../../store/votes';
+import { upvoteThunk, downvoteThunk, unvoteThunk, votecount } from '../../store/votes';
+import { getOneTrack, actionResetTrack } from '../../store/tracks';
 import './vote.css'
 import AnnotationForm from '../AnnotationForm/AnnotationForm';
 import Vote from './vote'
@@ -16,7 +17,21 @@ const Annotations = () => {
   // const sessionUser = useSelector((state) => state.session.user);
 
   const annotations = useSelector((state) => state.tracks.oneTrack.Annotations);
-  console.log('ANNOTATIONS', annotations)
+  // console.log(annotations)
+
+  useEffect(() => {
+    if (annotations) {
+      for (let annotation of annotations) {
+        // console.log(annotation.span_ids.split(','))
+        annotation.span_ids.split(',').map(anno =>
+          document.getElementById(anno).classList.add('annotated')
+        )
+        // console.log(splitted)
+      }
+    }
+  }, [annotations, dispatch])
+  // console.log('ANNOTATIONS', annotations)
+
 
   const upvote = async (e) => {
     e.preventDefault();
@@ -57,13 +72,15 @@ const Annotations = () => {
   } else {
     const annotationsArr = Object.values(annotations);
     console.log('ANNOTATIONSARR', annotationsArr)
+    const annotation = annotationsArr[0]
     return (
       <div>
         {/* {annotationsArr.map((annotation) => (
           <div key={annotation.id}>
             {annotation.annotation_body} */}
             <div>
-                {annotationsArr.map((annotation) => (
+                {/* {annotationsArr.map((annotation) => ( */}
+
                     <div key={annotation.id}>
                             {annotation.annotation_body}
                             <div>
@@ -78,9 +95,9 @@ const Annotations = () => {
                                 <Vote num={annotation.id}/>
                             </div>
                     </div>
-                ))}
+                {/* ))} */}
             </div>
-          {/* </div>
+        {/* </div>
         ))} */}
       </div>
     )
