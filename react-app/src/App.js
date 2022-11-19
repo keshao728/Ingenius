@@ -69,7 +69,7 @@ function App() {
           <AllTrackNav />
           <TrackInfo />
           {/* <AnnotationForm /> */}
-          <Annotation />
+          {/* <Annotation /> */}
           <AllComments />
         </Route>
 

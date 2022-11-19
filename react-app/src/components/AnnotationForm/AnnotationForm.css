@@ -14,6 +14,34 @@
   padding: 30px;
   display: flex;
   flex-direction: column;
+  margin-top: -30px;
+  margin-bottom: 20px;
+  position: relative;
+
+}
+
+.annotation-form-parent:after,
+.annotation-form-parent:before {
+    content: '';
+    display: block;
+    position: absolute;
+    left: -28px;
+    width: 0;
+    height: 0;
+    border-style: solid;
+}
+
+
+.annotation-form-parent:after {
+  top: 120px;
+  border-color: transparent #E9E9E9 transparent transparent;
+  border-width: 15px;
+}
+
+.annotation-form-parent:before {
+  top: 120px;
+  border-color: transparent #E9E9E9 transparent transparent;
+  border-width: 15px;
 }
 
 /* .annotate-text{
@@ -73,7 +101,7 @@
   margin-bottom: 40px;
 }
 
-.login-anno{
+.login-anno {
   border-radius: 30px;
   border: 1px solid black;
   padding: 5px 8px;
@@ -103,15 +131,49 @@
   visibility: visible;
 }
 
-.annotation-button{
-  background-color: white;
+.annotation-button {
   border: 1px solid black;
-  padding: 3px 7px;
-
+  border-radius: 25px;
+  padding: 5px 5px;
+  font-weight: bold;
+  background: none;
+  font-size: 12px;
+  cursor: pointer;
+  /* margin-right: 3px; */
+  position: relative;
+  left: -470px;
+  top: -81px;
+  height: 29px;
+  width: 200px;
 }
 
-.annotation-button:hover{
+@media (max-width: 1900px) {
+  .annotation-button {
+    left: -440px;
+  }
+}
+
+@media (max-width: 1800px) {
+  .annotation-button {
+    left: -380px;
+  }
+}
+
+@media (max-width: 1600px) {
+  .annotation-button {
+    left: -340px;
+  }
+}
+
+@media (max-width: 1400px) {
+  .annotation-button {
+    left: -300px;
+  }
+}
+
+.annotation-button:hover {
   background-color: black;
   color: white;
-
+  cursor: pointer;
+  visibility: visible;
 }

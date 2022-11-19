@@ -5,37 +5,32 @@ def seed_annotations():
         user_id=1,
         track_id=1,
         annotation_body='first annotation',
-        startIndex=1,
-        endIndex=10,
+        span_ids='1,2,3'
     )
 
     annotation2 = Annotation(
         user_id=1,
         track_id=1,
         annotation_body='second annotation',
-        startIndex=11,
-        endIndex=20,
+        span_ids='4,5,6'
     )
     annotation3 = Annotation(
         user_id=1,
         track_id=2,
         annotation_body='third annotation',
-        startIndex=5,
-        endIndex=15,
+        span_ids='8,9,10'
     )
     annotation4 = Annotation(
         user_id=2,
         track_id=2,
         annotation_body='fourth annotation',
-        startIndex=16,
-        endIndex=30,
+        span_ids='1,2,3'
     )
     annotation5 = Annotation(
         user_id=3,
         track_id=3,
         annotation_body='fifth annotation',
-        startIndex=25,
-        endIndex=35,
+        span_ids='15,16,17'
     )
 
     db.session.add(annotation1)

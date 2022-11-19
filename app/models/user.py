@@ -13,7 +13,7 @@ class User(db.Model, UserMixin):
     username = db.Column(db.String(40), nullable=False, unique=True)
     email = db.Column(db.String(255), nullable=False, unique=True)
     profile_img = db.Column(db.String(255), nullable=True)
-    banner_img = db.Column(db.String(255), nullable=True)
+    # banner_img = db.Column(db.String(255), nullable=True)
     hashed_password = db.Column(db.String(255), nullable=False)
 
 # RESET THESE STUFF
@@ -39,7 +39,7 @@ class User(db.Model, UserMixin):
             "username": self.username,
             "email": self.email,
             "profile_img": self.profile_img,
-            "banner_img": self.banner_img,
+            # "banner_img": self.banner_img,
             # "my_comment": [comment.to_dict() for comment in self.user_comment] if self.user_comment else [],
             # "my_annotation": [annotation.to_dict() for annotation in self.user_annotation] if self.user_annotation else [],
             # "my_upload": [track.to_dict() for track in self.user_track] if self.user_track else [],

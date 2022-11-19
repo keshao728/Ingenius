@@ -65,6 +65,8 @@
 .track-info-container {
     height: 280px;
     background: #B395A9;
+    background: linear-gradient(to bottom, #B395A9 30%, #aa859b 90%);
+
 }
 
 .body_page {
@@ -120,6 +122,9 @@
     flex-direction: row;
     /* width: 100%; */
     font-size: 18px;
+    line-height: 30px;
+    font-weight: 500;
+
 }
 
 .lyric-annotate {
@@ -242,8 +247,9 @@
 }
 
 .album-cover{
-    width:310px;
-    height:310px;
+    width:300px;
+    height:300px;
+    margin-left: 15%;
     border: 1px solid rgb(189, 189, 189);
     object-fit: cover;
 }
@@ -256,9 +262,12 @@
         width: 250px;
         /* margin-bottom: 5px; */
     }
+    .annotation-button{
+        left: 50%;
+    }
 
     .track_title_artist{
-        left: 35%;
+        left: 40%;
         /* top: 23%; */
         font-size: 13px;
         margin-left:2%
@@ -268,10 +277,6 @@
         font-size: 20px;
         /* left:40% */
         margin:2%
-    }
-
-    .track_producer{
-        /* top:23% */
     }
 
     .track_release{
@@ -298,3 +303,4 @@
         left:60%;
     }
 }
+

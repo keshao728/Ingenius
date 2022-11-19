@@ -6,6 +6,7 @@ const GET_ONE_ANNOTATION = 'annotations/getOneAnnotation';
 const CREATE_ANNOTATION = 'annotations/createAnnotation';
 // const EDIT_ANNOTATION = 'annotations/editAnnotation';
 // const DELETE_ANNOTATION = 'annotations/deleteAnnotation';
+const RESET_ANNOTATION = 'annotations/resetAnnotation';
 
 
 //actions
@@ -40,6 +41,12 @@ const actionCreateAnnotation = (annotation) => {
     return {
         type: CREATE_ANNOTATION,
         annotation
+    }
+}
+
+export const actionResetAnnotation = () => {
+    return {
+        type: RESET_ANNOTATION
     }
 }
 
@@ -166,12 +173,15 @@ export const annotationReducer = (state = initialState, action) => {
             newState.oneAnnotation = {...action.annotation}
             return newState
 
-        // case CREATE_ANNOTATION:
-        //     newState = {...state, allAnnotations: {...state.allAnnotations}}
-        //     newState.allAnnotations[action.annotation.id] = action.annotation
+        case CREATE_ANNOTATION:
+            newState = {...state, allAnnotations: {...state.allAnnotations}}
+            newState.allAnnotations[action.annotation.id] = action.annotation
 
-        //     newState.oneAnnotation = action.annotation
-        //     return newState
+            newState.oneAnnotation = action.annotation
+            return newState
+
+        case RESET_ANNOTATION:
+            return initialState
 
         // case EDIT_ANNOTATION:
         //     newState = {...state}

@@ -12,7 +12,7 @@ import './NavBar.css'
 const NavBar = () => {
   const sessionUser = useSelector(state => state.session.user);
   const pfp = useSelector(state => state.session.user?.profile_img)
-  console.log('PFP', pfp)
+  // console.log('PFP', pfp)
   const [showMenu, setShowMenu] = useState(false);
 
   const openMenu = () => {

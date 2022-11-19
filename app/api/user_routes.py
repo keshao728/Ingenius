@@ -46,31 +46,46 @@ def editProfile(id):
     form['csrf_token'].data = request.cookies['csrf_token']
 
     user = User.query.get(id)
-    print(
-            '''
-            
-            
-            r
-            d
-            w
-            
+    # print(
+    #         '''
 
-            ''',user,
-            '''
-            e
-            n
-            d
-            ''')
+
+    #         r
+    #         d
+    #         w
+
+
+    #         ''',user,
+    #         '''
+    #         e
+    #         n
+    #         d
+    #         ''')
     if current_user.id != user.id:
         return {'errors': 'Unauthorized', 'statusCode':401}
 
     if form.validate_on_submit():
         user.profile_img = form.profile_img.data
-        user.banner_img = form.banner_img.data
+        # user.banner_img = form.banner_img.data
 
         db.session.commit()
+        # print(
+        #     '''
+
+
+        #     r
+        #     d
+        #     3
+
+
+        #     ''',user,
+        #     '''
+        #     e
+        #     n
+        #     d
+        #     ''')
         return user.to_dict()
-        
+
 
 # get current user info
 @user_routes.route('/<int:id>/info')
@@ -78,23 +93,23 @@ def editProfile(id):
 def annotations_by_userId(id):
     user_annotations = Annotation.query.filter(Annotation.user_id == id).all()
     user_dictionary = {}
-    print(
-        '''
-        L
-        O
-        O
-        K
+    # print(
+    #     '''
+    #     L
+    #     O
+    #     O
+    #     K
 
-        ''',
-        user_annotations)
-    print(
-        '''
-        H
-        E
-        R
-        E
-        ''',
-        user_dictionary)
+    #     ''',
+    #     user_annotations)
+    # print(
+    #     '''
+    #     H
+    #     E
+    #     R
+    #     E
+    #     ''',
+    #     user_dictionary)
     current_user = User.query.get(id)
     current_user_annotations = current_user.user_annotation
     current_user_tracks = current_user.user_track
@@ -105,14 +120,14 @@ def annotations_by_userId(id):
     user_dictionary['tracks'] = [track.to_dict() for track in current_user_tracks]
     user_dictionary['comments'] = [comment.to_dict() for comment in current_user_comment]
     user_dictionary['votes'] = [vote.to_dict() for vote in current_user_vote]
-    print(
-        '''
-        a
-        a
-        a
-        a
-        a
-        ''', user_dictionary)
+    # print(
+    #     '''
+    #     a
+    #     a
+    #     a
+    #     a
+    #     a
+    #     ''', user_dictionary)
     return user_dictionary
     # print(
     #     '''

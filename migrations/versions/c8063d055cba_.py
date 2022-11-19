@@ -1,8 +1,8 @@
 """empty message
 
-Revision ID: 0e62b2279b77
+Revision ID: c8063d055cba
 Revises: 
-Create Date: 2022-11-17 20:25:16.366378
+Create Date: 2022-11-18 22:13:12.124510
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = '0e62b2279b77'
+revision = 'c8063d055cba'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -23,7 +23,6 @@ def upgrade():
     sa.Column('username', sa.String(length=40), nullable=False),
     sa.Column('email', sa.String(length=255), nullable=False),
     sa.Column('profile_img', sa.String(length=255), nullable=True),
-    sa.Column('banner_img', sa.String(length=255), nullable=True),
     sa.Column('hashed_password', sa.String(length=255), nullable=False),
     sa.PrimaryKeyConstraint('id'),
     sa.UniqueConstraint('email'),
@@ -50,8 +49,7 @@ def upgrade():
     sa.Column('user_id', sa.Integer(), nullable=True),
     sa.Column('track_id', sa.Integer(), nullable=True),
     sa.Column('annotation_body', sa.String(length=500), nullable=False),
-    sa.Column('startIndex', sa.Integer(), nullable=False),
-    sa.Column('endIndex', sa.Integer(), nullable=False),
+    sa.Column('span_ids', sa.String(), nullable=False),
     sa.Column('created_at', sa.DateTime(timezone=True), server_default=sa.text('(CURRENT_TIMESTAMP)'), nullable=True),
     sa.Column('updated_at', sa.DateTime(timezone=True), nullable=True),
     sa.ForeignKeyConstraint(['track_id'], ['tracks.id'], ),

@@ -8,7 +8,7 @@ const EditAnnotation = ({ setShowEdit, annotate }) => {
   const dispatch = useDispatch()
   // const annotations = useSelector(state => state.session.annotations)
   // console.log('ANNOTATIONS', annotations)
-  console.log('helloworld', annotate)
+  // console.log('helloworld', annotate)
   const [annotation, setAnnotation] = useState(annotate.annotation_body)
   const [validationErrors, setValidationErrors] = useState([])
   // const [showEdit, setShowEdit] = useState(show)
@@ -18,8 +18,8 @@ const EditAnnotation = ({ setShowEdit, annotate }) => {
 
   useEffect(() => {
     const errors = []
-    if (!annotation) errors.push('Need more info pls')
-
+    if (!annotation) errors.push('Please fill out this field.')
+    if (annotation.length > 500) errors.push('Annotation must not exceed 500 characters')
     setValidationErrors(errors)
   }, [annotation])
 
@@ -38,13 +38,12 @@ const EditAnnotation = ({ setShowEdit, annotate }) => {
         user_id: annotate.user_id,
         track_id: annotate.track_id,
         annotation_body: annotation,
-        startIndex: annotate.startIndex,
-        endIndex: annotate.endIndex,
+        span_ids: annotate.span_ids
 
       }
 
       let newAnnotation = await dispatch(editAnnotation(payload))
-      console.log('PAYLOAD', payload)
+      // console.log('PAYLOAD', payload)
 
       if (newAnnotation) {
         setShowEdit(false)
@@ -54,8 +53,6 @@ const EditAnnotation = ({ setShowEdit, annotate }) => {
   const handleCancelClick = (e) => {
     e.preventDefault();
     setShowEdit(false)
-
-
   };
 
   // document.getElementById("pp-annotation-edit").addEventListener("click", () => {
@@ -74,9 +71,9 @@ const EditAnnotation = ({ setShowEdit, annotate }) => {
           <button className='cancel-edit-anno' type="button" onClick={handleCancelClick}>Cancel</button>
         </div>
         <div>
-          <ul>
+          <ul >
             {showErrors && validationErrors.length > 0 && validationErrors.map(error => (
-              <li key={error}>{error}</li>
+              <li  className='errors-list' key={error}>{error}</li>
             ))}
           </ul>
         </div>

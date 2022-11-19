@@ -3,3 +3,31 @@
     height:18px;
     opacity: 50%;
 }
+
+
+.anno-wrap{
+    display: flex;
+    flex-direction: column;
+    width: 450px;
+    margin-top: 20px;
+    height: auto;
+    /* margin-bottom: 10px; */
+    background-color: #E9E9E9;
+    padding: 10% 10%
+}
+
+.anno-title{
+    font-size: 12px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.anno-body{
+    font-size: 18px;
+    margin-top: 10px;
+}
+
+
+.anno-vote{
+    margin-top: 10px;
+}

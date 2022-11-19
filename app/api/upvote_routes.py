@@ -6,26 +6,26 @@ upvote_routes = Blueprint('upvotes',__name__)
 @upvote_routes.route('/<int:id>/total')
 def votecount(id):
     votes = Vote.query.filter(Vote.annotation_id == id).all()
-    print('''this
-          is
-          a
-          vote
-          query
-          '''
-          ,votes)
+    # print('''this
+    #       is
+    #       a
+    #       vote
+    #       query
+    #       '''
+    #       ,votes)
     count = 0
     array = []
 
     for votevalue in votes:
         count += votevalue.vote
-        print('this is the count',count)
+        # print('this is the count',count)
         # votevalue['count'] = count
         votevalue = votevalue.to_dict()
         votevalue['count'] = count
-        print('helloooooooo',votevalue)
+        # print('helloooooooo',votevalue)
         array.append(votevalue)
-        print('array testing testing',array)
-    print('this is final votes', array)
+        # print('array testing testing',array)
+    # print('this is final votes', array)
     return {'votes':array,'votetotalvalue':count}
 
 @upvote_routes.route('/<int:id>/upvote',methods=['POST'])
@@ -70,7 +70,7 @@ def downvote(id):
     vote2 = Vote.query.filter(Vote.annotation_id == id, Vote.user_id == current_user.id, Vote.vote == 1).first()
 
     # vote2 = Vote.query.get(Vote.user_id == current_user.id, Vote.annotation_id == id) #find by PK
-    print (' >>>>>>>vote >>>>>>>>>',vote2)
+    # print (' >>>>>>>vote >>>>>>>>>',vote2)
     if vote1 :
         return {'errors': 'You have already downvoted this annotation',"statusCode": 401}
 
@@ -88,7 +88,7 @@ def downvote(id):
             return downvote.to_dict()
 
         else:
-            print('vote2>>>>', vote2)
+            # print('vote2>>>>', vote2)
             db.session.delete(vote2)
             downvote = Vote(
             user_id=current_user.id,

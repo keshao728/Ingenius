@@ -10,7 +10,7 @@ export default function DisplayLyrics({ track, setAnnotating, setDocu }) {
     const [Ref, setRef] = useState(null)
 
     const [isSelected, setIsSelected] = useState(false)
-
+    const annotations = useSelector((state) => state.tracks.oneTrack.Annotations);
 
 
     // const handleClick = () => {
@@ -24,7 +24,6 @@ export default function DisplayLyrics({ track, setAnnotating, setDocu }) {
     //     value.className = 'selected'
     //     console.log(value)
     //     // Ref.className = 'selected'
-
 
 
     //     e.currentTarget.className = 'selected'
@@ -50,16 +49,30 @@ export default function DisplayLyrics({ track, setAnnotating, setDocu }) {
     // }, [docu])
 
 
-
     const handleClick = (e) => {
         // let value = ref.current
         // console.log(value)
-        e.currentTarget.className === '' ? e.currentTarget.className = 'selected' : e.currentTarget.className = ''
+
+        // e.currentTarget.className === '' ? e.currentTarget.className = 'selected' : e.currentTarget.className = ''
+        // console.log(e.currentTarget ,'e current target')
+        if (e.currentTarget.className === '') {
+            e.currentTarget.className = 'selected'
+        } else if (e.currentTarget.className === 'selected') {
+            e.currentTarget.className = ''
+        } else if (e.currentTarget.className === 'annotated') {
+        }
+
         setDocu(Array.from(document.getElementsByClassName('selected')))
-        // console.log(e.currentTarget)
+        // console.log(typeof(e.currentTarget.id),'hihihihi')
+
+        // for (let i = 0 ; i < annotations.length; i++){
+        //     if(annotations[i].span_ids.includes(e.currentTarget.id)){
+        //         console.log(annotations[i].id,'hahahahaha')
+        //         return annotations[i].id
+        //         }
+        //     return null
+        // }
     };
-
-
 
 
     // const doccer = () => {
@@ -72,6 +85,20 @@ export default function DisplayLyrics({ track, setAnnotating, setDocu }) {
 
 
     // console.log('annotating', annotating)
+    // if (track.lyrics?.split("").includes("[")) {
+    //     <div className={"bold-me"}> </div>
+    // }
+
+    useEffect(()=> {
+        let spans = (document.getElementsByTagName('span'))
+        for (let span of spans) {
+            if (span.textContent.includes('[')) {
+                span.classList.add('bold-me')
+            }
+        }
+    })
+
+
 
     return (
         <>
@@ -95,6 +122,8 @@ export default function DisplayLyrics({ track, setAnnotating, setDocu }) {
             {/* {track.lyrics?.split('\n').map(chunk => <div key={chunk}><span className={`lyric-${1}`} ref={ref} onClick={handleClick}>{chunk}</span></div>)} */}
             {/* {track.lyrics?.split('\n').map((chunk, idx) => <div ><span key={idx} className={isSelected ? 'selected': 'not-selected'} ref={ref} onClick={handleClick}>{chunk}</span></div>)} */}
             {/* {track.lyrics?.split('\n').map(chunk => <div key={chunk}><span className={'not-selected'} ref={ref} onClick={handleClick}>{chunk}</span></div>)} */}
+
+            {/* {track.lyrics?.includes("[") ? <div className={"bold-me"}> </div> : null} */}
 
             {track.lyrics?.split('\n').map((chunk, idx) => <div ><span key={idx} className={''} id={idx} ref={ref} onClick={handleClick}>{chunk}</span></div>)}
         </>
