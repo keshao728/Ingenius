@@ -1,6 +1,7 @@
 const UPVOTE = 'vote/upvote'
 const DOWNVOTE = 'vote/downvote'
 const UNVOTE = 'vote/unvote'
+const VOTECOUNT = 'vote/votecount'
 
 //-----  ACTION  -----//
 //upvote
@@ -25,6 +26,12 @@ const unvote = (id) => {
     }
 }
 
+const  votecounter = (data) => {
+    return {
+        type: VOTECOUNT,
+        data
+    }
+}
 
 //-----  THUNK  -----//
 export const votecount = (id) => async (dispatch) => {
@@ -34,10 +41,12 @@ export const votecount = (id) => async (dispatch) => {
     if (response.ok) {
         const data = await response.json();
         console.log('this is data for votecount in thunk',data)
-        return data.votetotalvalue
+        dispatch(votecounter(data))
+        return data
         // return data;
     }
     // return response
+    return
 }
 
 //upvote
@@ -119,13 +128,17 @@ export const unvoteThunk = (id) => async (dispatch) => {
     }
     return
 }
-
+const initialState = {
+    votes: {}
+}
 //-----   REDUCER   -----//
-// const voteReducer = (state = {}, action) => {
-//     let newState
-//     switch (action.type) {
-//         case voteload:
-//             newState = {...state}
+const voteReducer = (state = initialState, action) => {
+    let newState
+    switch (action.type) {
+        case VOTECOUNT:
+            newState = {...state }
+            newState.votes = action.data
+            return newState
 
 
 //         case UPVOTE:
@@ -140,7 +153,9 @@ export const unvoteThunk = (id) => async (dispatch) => {
 //             newState = {...state}
 //             delete newState[action.id]
 //             return newState
-//         default:
-//             return state
-//     }
-// }
+        default:
+            return state
+    }
+}
+
+export default voteReducer

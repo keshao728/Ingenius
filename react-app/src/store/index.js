@@ -5,14 +5,14 @@ import session from './session'
 import trackReducer from './tracks';
 import commentReducer from './comments';
 import annotationReducer from './annotations';
-// import voteReducer from './votes';
+import voteReducer from './votes';
 
 const rootReducer = combineReducers({
   session,
   tracks: trackReducer,
   comments: commentReducer,
   annotations: annotationReducer,
-  // upvote: voteReducer
+  upvote: voteReducer
 });
 
 
