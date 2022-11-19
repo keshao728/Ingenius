@@ -7,11 +7,11 @@
 }
 
 #pp-annotation-created-at {
-  background-color:whitesmoke;
+  background-color: whitesmoke;
   text-transform: uppercase;
   font-size: small;
-  font-weight:600;
-  color:darkgray;
+  font-weight: 600;
+  color: darkgray;
   padding: 30px 0px 10px 0px;
 }
 
@@ -19,12 +19,13 @@
   padding: 10px;
 }
 
-#pp-song-info{
+#pp-song-info {
   display: flex;
   flex-direction: row;
   padding: 12px;
 }
-#pp-album-photo{
+
+#pp-album-photo {
   background-color: black;
   object-fit: cover;
   border: 1px solid rgb(234, 234, 234);
@@ -32,19 +33,23 @@
   height: 70px;
 
 }
+
 #pp-title-artist {
   /* border: 1px solid pink; */
   padding: 5px 0px 0px 7px;
-  font-weight:600;
+  font-weight: 600;
 
 }
-#pp-annotation-song-title{
+
+#pp-annotation-song-title {
   font-size: 15px;
 }
-#pp-annotation-song-artist{
+
+#pp-annotation-song-artist {
   font-size: 11px;
 }
-#pp-annotation-lyric-container{
+
+#pp-annotation-lyric-container {
   padding: 12px;
   margin-top: 15px;
   border-top: 1px solid #E9E9E9;
@@ -52,7 +57,7 @@
 }
 
 #pp-annotation-lyric-container:after,
-#pp-annotation-lyric-container:before{
+#pp-annotation-lyric-container:before {
   content: '';
   display: block;
   position: absolute;
@@ -62,15 +67,15 @@
   border-style: solid;
 }
 
-#pp-annotation-lyric-container:after{
+#pp-annotation-lyric-container:after {
   top: -19px;
   border-color: transparent transparent white transparent;
   border-width: 10px;
 }
 
-#pp-annotation-lyric-container:before{
+#pp-annotation-lyric-container:before {
   top: -20px;
-  border-color: transparent  transparent #E9E9E9 transparent;
+  border-color: transparent transparent #E9E9E9 transparent;
   border-width: 10px;
 }
 
@@ -80,37 +85,42 @@
   font-weight: bold;
   background-color: #DDDDDD;
   padding: 5px 0px;
-  margin-top:5px;
+  margin-top: 5px;
   /* margin: 0px; */
   word-wrap: break-word;
 }
+
 #pp-annotation-inner-content {
   /* border: 1px solid pink; */
   padding: 12px;
 }
+
 #pp-annotation-username-icon-moment-container {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
 }
+
 #pp-annotation-username-icon-container {
   display: flex;
   flex-direction: row;
-  align-items:center;
+  align-items: center;
 }
 
-#pp-annotation-username-icon{
+#pp-annotation-username-icon {
   width: 20px;
   height: 20px;
   border-radius: 50%;
   overflow: hidden
 }
-#pp-annotation-username{
+
+#pp-annotation-username {
   margin-left: 5px;
   font-size: 14px;
   font-weight: bold;
 }
+
 #pp-annotation-created-at-moment {
   font-size: 11px;
   font-weight: bold;
@@ -121,17 +131,20 @@
   margin: 14px 0px 14px 0px;
   word-wrap: break-word;
 }
-#pp-noauth-annotation-body{
+
+#pp-noauth-annotation-body {
   margin: 30px 0px 30px 0px;
   word-wrap: break-word;
 
 }
+
 #pp-annotation-delete-edit {
   display: flex;
   flex-direction: row;
   gap: 5px;
   margin-bottom: 20px;
 }
+
 #pp-annotation-edit {
   background-color: transparent;
   border: 2px solid black;
@@ -141,6 +154,7 @@
   transition: .4s;
   cursor: pointer;
 }
+
 #pp-annotation-edit:hover {
   background-color: #dadada;
   transition: .4s;
@@ -159,15 +173,16 @@
   cursor: pointer;
 }
 
-#pp-annotation-delete:hover{
+#pp-annotation-delete:hover {
   border: 2px solid #cfcfcf;
   background-color: #cfcfcf;
   transition: .4s;
   cursor: pointer;
 }
+
 #pp-annotation-upvote-container {
   display: flex;
-  color:#9A9A9A;
+  color: #9A9A9A;
   flex-direction: row;
   align-content: center;
   gap: 10px;
@@ -175,38 +190,41 @@
   margin-top: 20px;
   font-weight: bold;
 }
-.vote-count{
+
+.vote-count {
   font-size: 14px;
   display: flex;
   align-items: center;
 }
-.upvote-wrapper{
+
+.upvote-wrapper {
   display: flex;
   flex-direction: row;
   align-items: center;
   gap: 5px;
-  color:#9A9A9A;
+  color: #9A9A9A;
   transition: .4s;
   font-weight: bold;
 
 }
-.upvote-wrapper:hover{
+
+.upvote-wrapper:hover {
   color: #0ECB27;
   transition: .4s;
   cursor: pointer;
 }
 
 
-.downvote-wrapper{
+.downvote-wrapper {
   display: flex;
   flex-direction: row;
   align-items: flex-end;
   transition: .4s;
-margin-top: 4px;
-transform: scaleX(-1);
+  margin-top: 4px;
+  transform: scaleX(-1);
 }
 
-.downvote-wrapper:hover{
+.downvote-wrapper:hover {
   color: #FF1414;
   transition: .4s;
   cursor: pointer;
@@ -217,11 +235,11 @@ transform: scaleX(-1);
   font-size: 14px;
 }
 
-.thumbs{
+.thumbs {
   width: 18px;
   height: 18px;
   opacity: 25%;
 }
 
-  /* text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000; */
-  /* -webkit-text-stroke-color: white; */
+/* text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000; */
+/* -webkit-text-stroke-color: white; */

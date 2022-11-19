@@ -39,13 +39,15 @@ const Vote = ({ num }) => {
   //     return null
   // else
   return (
-    <div className='anno-vote'>
-      <div className='vote' id='btn' type='button' onClick={upvote}>
-        <i class="fa-regular fa-thumbs-up" id="up"></i>
-      </div>
-      <div className='votetotal'>{votecounter}</div>
-      <div className='vote' id='btn' type='button' onClick={downvote}>
-        <i class="fa-regular fa-thumbs-down" id="down"></i>
+    <div className='anno-vote-wrap'>
+      <div className='anno-vote'>
+        <div className='vote' id='btn' type='button' onClick={upvote}>
+          <i class="fa-regular fa-thumbs-up" id="up"></i>
+        </div>
+        <div className='votetotal'>{votecounter}</div>
+        <div className='vote' id='btn' type='button' onClick={downvote}>
+          <i class="fa-regular fa-thumbs-down" id="down"></i>
+        </div>
       </div>
     </div>
   )
