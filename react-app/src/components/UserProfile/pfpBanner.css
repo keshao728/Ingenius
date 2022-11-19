@@ -66,3 +66,12 @@
   transition: .4s;
   cursor: pointer;
 }
+#error-container{
+  width: 100%;
+  
+}
+
+.errors-list {
+  color: red;
+  /* list-style: none */
+}
