@@ -16,8 +16,13 @@ const Annotations = () => {
   // const [isLoaded, setIsLoaded] = useState(false);
   // const sessionUser = useSelector((state) => state.session.user);
 
+  // const momo =() => {
+  //   console.log('momo')
+  // }
+
   const annotations = useSelector((state) => state.tracks.oneTrack.Annotations);
   // console.log(annotations)
+  const [showAnnotation, setShowAnnotation] = useState(false)
 
   useEffect(() => {
     if (annotations) {
@@ -26,10 +31,14 @@ const Annotations = () => {
         annotation.span_ids.split(',').map(anno =>
           document.getElementById(anno).classList.add('annotated')
         )
+        annotation.span_ids.split(',').map(anno =>
+          document.getElementById(anno).addEventListener('click', ()=> setShowAnnotation(!showAnnotation)  )
+        )
+
         // console.log(splitted)
       }
     }
-  }, [annotations, dispatch])
+  }, [annotations, dispatch, showAnnotation])
   // console.log('ANNOTATIONS', annotations)
 
 
@@ -74,7 +83,7 @@ const Annotations = () => {
     console.log('ANNOTATIONSARR', annotationsArr)
     const annotation = annotationsArr[0]
     return (
-      <div>
+      showAnnotation && <div>
         {/* {annotationsArr.map((annotation) => (
           <div key={annotation.id}>
             {annotation.annotation_body} */}
