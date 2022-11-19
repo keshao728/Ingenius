@@ -41,10 +41,10 @@ export default function CreateTrack() {
     if (lyrics.length > 10000) validationErrors.push('Lyrics must not exceed 10000 characters')
 
     if (producedBy.length > 100) validationErrors.push('Producer information must not exceed 100 characters')
-    if (!trackArt.match(/^https?:\/\/.*\/.*\.(png|gif|webp|jpeg|jpg)\??.*$/gmi)) validationErrors.push("Please enter a valid URL ending with png, gif, webp, jpeg, or jpg")
+    if (trackArt && !trackArt.match(/^https?:\/\/.*\/.*\.(png|gif|webp|jpeg|jpg)\??.*$/gmi)) validationErrors.push("Please enter a valid URL ending with png, gif, webp, jpeg, or jpg")
     if (releaseDate > date) validationErrors.push('Please provide a valid Release Date') // test later
 
-    if (!trackUrl.match(/http(?:s?):\/\/(?:www\.)?youtu(?:be\.com\/watch\?v=|\.be\/)([\w\-\_]*)(&(amp;)?‌​[\w\?‌​=]*)?/)) validationErrors.push("Please enter a valid Youtube URL") // test later
+    if (trackUrl && !trackUrl.match(/http(?:s?):\/\/(?:www\.)?youtu(?:be\.com\/watch\?v=|\.be\/)([\w\-\_]*)(&(amp;)?‌​[\w\?‌​=]*)?/)) validationErrors.push("Please enter a valid Youtube URL") // test later
 
 
 

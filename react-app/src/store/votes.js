@@ -1,6 +1,7 @@
 const UPVOTE = 'vote/upvote'
 const DOWNVOTE = 'vote/downvote'
 const UNVOTE = 'vote/unvote'
+const VOTECOUNT = 'vote/votecount'
 
 //-----  ACTION  -----//
 //upvote
@@ -25,19 +26,27 @@ const unvote = (id) => {
     }
 }
 
+const  votecounter = (data) => {
+    return {
+        type: VOTECOUNT,
+        data
+    }
+}
 
 //-----  THUNK  -----//
 export const votecount = (id) => async (dispatch) => {
     const response = await fetch(`/api/votes/${id}/total`);
-    console.log('this is response for votecount in thunk',response)
-    console.log('this is id for votecount in thunk',id)
+    // console.log('this is response for votecount in thunk',response)
+    // console.log('this is id for votecount in thunk',id)
     if (response.ok) {
         const data = await response.json();
-        console.log('this is data for votecount in thunk',data.count)
-        return data.count
+        console.log('this is data for votecount in thunk',data)
+        dispatch(votecounter(data))
+        return data
         // return data;
     }
     // return response
+    return
 }
 
 //upvote
@@ -119,11 +128,19 @@ export const unvoteThunk = (id) => async (dispatch) => {
     }
     return
 }
-
+const initialState = {
+    votes: {}
+}
 //-----   REDUCER   -----//
-// const voteReducer = (state = {}, action) => {
-//     let newState
-//     switch (action.type) {
+const voteReducer = (state = initialState, action) => {
+    let newState
+    switch (action.type) {
+        case VOTECOUNT:
+            newState = {...state }
+            newState.votes = action.data
+            return newState
+
+
 //         case UPVOTE:
 //             newState = {...state}
 //             newState[action.id] = 1
@@ -136,7 +153,9 @@ export const unvoteThunk = (id) => async (dispatch) => {
 //             newState = {...state}
 //             delete newState[action.id]
 //             return newState
-//         default:
-//             return state
-//     }
-// }
+        default:
+            return state
+    }
+}
+
+export default voteReducer
