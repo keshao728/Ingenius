@@ -7,22 +7,24 @@ const ImageForm = ({ setShowEdit, userInfo }) => {
   const dispatch = useDispatch()
 
   // const [user, setUser] = useState({})
-  const [image, setImage] = useState(userInfo.profile_img)
-  const [banner, setBanner] = useState(userInfo.banner_img)
+  let [image, setImage] = useState(userInfo.profile_img)
+  // let [banner, setBanner] = useState(userInfo.banner_img)
   const [validationErrors, setValidationErrors] = useState([])
   const [showErrors, setShowErrors] = useState(false);
 
   // const { userId } = useParams();
   const uploadImage = (e) => setImage(e.target.value);
-  const uploadBanner = (e) => setBanner(e.target.value);
+  // const uploadBanner = (e) => setBanner(e.target.value);
 
   useEffect(() => {
     const errors = []
-    if (!image) errors.push('Profile Image: Please provide valid URL')
-    if (!banner) errors.push('Banner Image: Please provide valid URL')
+    if (image && !image.match(/^https?:\/\/.*\/.*\.(png|gif|webp|jpeg|jpg)\??.*$/gmi)) errors.push('"Please enter a valid URL ending with png, gif, webp, jpeg, or jpg"')
+    // if (image && !banner) image = banner
+    // if (banner && !image) banner = image
+    // if (banner && !image.match(/^https?:\/\/.*\/.*\.(png|gif|webp|jpeg|jpg)\??.*$/gmi)) errors.push('"Please enter a valid URL ending with png, gif, webp, jpeg, or jpg"')
 
     setValidationErrors(errors)
-  }, [image, banner])
+  }, [image])
 
   // useEffect(() => {
   //   if (!userId) {
@@ -52,12 +54,11 @@ const ImageForm = ({ setShowEdit, userInfo }) => {
         username: userInfo.username,
         email: userInfo.email,
         profile_img: image,
-        banner_img: banner
+        // banner_img: banner
       }
 
       let res = await dispatch(editUserPhoto(user))
-      // console.log("PHOTOPAYLOAD", payload)
-
+      console.log('RESRESRESRES', res)
       if (res) {
         setShowEdit(false)
       }
@@ -70,7 +71,7 @@ const ImageForm = ({ setShowEdit, userInfo }) => {
 
   return (
     <div id='pfp-edit-container'>
-      <form className="edit-profile-wrapper" onSubmit={handleSubmit} spellcheck="false">
+      <form className="edit-profile-wrapper" onSubmit={handleSubmit} spellCheck="false">
         <div className='edit-profile-text'>
           Edit Profile
         </div>
@@ -80,12 +81,12 @@ const ImageForm = ({ setShowEdit, userInfo }) => {
           placeholder='Profile Photo (URL)'
           value={image}
           onChange={uploadImage} />
-        <input
+        {/* <input
           className='edit-profile-input'
           type='url'
           placeholder='Banner Photo (URL)'
           value={banner}
-          onChange={uploadBanner} />
+          onChange={uploadBanner} /> */}
         <div>
           <button className='save-edit-profile' type='submit'>Save</button>
           <button className="cancel-edit-profile" type="button" onClick={handleCancelClick}>Cancel</button>

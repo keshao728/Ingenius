@@ -44,7 +44,7 @@ function User() {
     <div>
       <div id='pp-outer'>
         <div id='pp-cover'>
-          <img id='pp-banner-photo' src={user.banner_img} />
+          <img id='pp-banner-photo' src={user.profile_img} />
         </div>
 
 
