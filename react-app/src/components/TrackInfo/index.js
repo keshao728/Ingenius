@@ -163,11 +163,17 @@ export default function TrackInfo() {
 
   useEffect(() => {
     function getAnno (e) {
+      let currentAnno = e.currentTarget
+      console.log('currentAnno', currentAnno)
       for (let annos of annotations) {
-        console.log('vvvvvvvvvvvvvvvvvvvvvv',annos)
-        if (annos.span_ids.includes('4')) {
-          console.log('33333333333333333',annos)
-        }
+        // console.log('vvvvvvvvvvvvvvvvvvvvvv',annos)
+        let meow = annos.span_ids.split(",").find(e => e === currentAnno.id)
+        // console.log('meow', meow)
+
+        return meow ? annos.id : null
+        // if (annos.span_ids.find(e => e === e.currentTarget.id)) {
+        //   console.log('444444444444',annos)
+        // }
       }
     }
 
@@ -178,7 +184,7 @@ export default function TrackInfo() {
           document.getElementById(anno).classList.add('annotated')
         )
         annotation.span_ids.split(',').map(anno =>
-          document.getElementById(anno).addEventListener('click', ()=> {setShowAnnotation(true); getAnno()} )
+          document.getElementById(anno).addEventListener('click', (e)=> {setShowAnnotation(true); getAnno(e)} )
           )
 
 
