@@ -26,6 +26,8 @@ const AllComments = () => {
   const [validationErrors, setValidationErrors] = useState([])
   const [showErrors, setShowErrors] = useState(false)
   const [showSubmit, setShowSubmit] = useState(false);
+  const [isLoaded, setIsLoaded] = useState(false)
+
 
   const openSubmit = () => {
     if (showSubmit) return;
@@ -57,6 +59,8 @@ const AllComments = () => {
 
   useEffect(() => {
     dispatch(getAllComments(trackId))
+    .then(()=>setIsLoaded(true))
+
     // dispatch(getOneTrack(trackId))
   }, [dispatch, trackId])
 
@@ -191,7 +195,7 @@ const AllComments = () => {
     //     </form>
   }
 
-  return (
+  return isLoaded && (
     <>
       <div className="comments-mother">
         <div className="comments-text">

@@ -70,14 +70,14 @@ export default function EditTrack({ setModalOpen }) {
     let err = []
 
     if (!trackTitle) err.push('Track must have a title')
-    if (trackTitle.length > 100) err.push('Title must not exceed 100 characters')
+    if (trackTitle.length > 30) err.push('Title must not exceed 30 characters')
     if (!artist) err.push('Track must have an artist')
-    if (artist.length > 50) err.push('Artist name must not exceed 50 characters')
+    if (artist.length > 30) err.push('Artist name must not exceed 30 characters')
     // if (!lyrics) err.push('You must enter lyrics for the track')
     // if (lyrics.length > 10000) err.push('Lyrics must not exceed 10000 characters')
-    if (album.length > 100) err.push('Album name must not exceed 100 characters')
+    if (album.length > 30) err.push('Album name must not exceed 30 characters')
     if (releaseDate > date) err.push('Please provide a valid Release Date') // test later
-    if (producedBy.length > 100) err.push('Producer information must not exceed 100 characters')
+    if (producedBy.length > 30) err.push('Producer information must not exceed 30 characters')
     if (trackArt && !trackArt.match(/^https?:\/\/.*\/.*\.(png|gif|webp|jpeg|jpg)\??.*$/gmi)) err.push("Please enter a valid URL ending with png, gif, webp, jpeg, or jpg")
 
     if (trackUrl && !trackUrl.match(/http(?:s?):\/\/(?:www\.)?youtu(?:be\.com\/watch\?v=|\.be\/)([\w\-\_]*)(&(amp;)?‌​[\w\?‌​=]*)?/)) err.push("Please enter a valid Youtube URL") // test later

@@ -1,11 +1,11 @@
-.vote{
-    width:18px;
-    height:18px;
+.vote {
+    width: 18px;
+    height: 18px;
     opacity: 50%;
 }
 
 
-.anno-wrap{
+.anno-wrap {
     display: flex;
     flex-direction: column;
     width: 450px;
@@ -16,25 +16,29 @@
     padding: 10% 10% 0% 10%
 }
 
-.anno-title{
+.anno-title {
     font-size: 12px;
     font-weight: bold;
     margin-bottom: 10px;
 }
 
-.anno-body{
+.anno-body {
     font-size: 18px;
     margin-top: 10px;
+    text-overflow: ellipsis;
+    /* overflow: hidden; */
+    overflow-wrap: break-word;
+    white-space: wrap;
 }
 
 
 
-.anno-vote{
+.anno-vote {
     margin-top: 10px;
 }
 
 
-.cancel-show-anno{
+.cancel-show-anno {
     font-size: 20px;
     display: flex;
     position: relative;
@@ -44,11 +48,23 @@
     border-radius: 50px;
     text-decoration: none;
     cursor: pointer;
-    top: -160px;
+    top: -280px;
     left: 415px;
 }
 
-.cancel-show-anno:hover{
-background-color: black;
-color: white;
+.cancel-show-anno:hover {
+    background-color: black;
+    color: white;
+}
+
+@media (max-width: 1500px) {
+    .anno-wrap {
+        width: 300px;
+        left: -20px;
+    }
+
+    .cancel-show-anno {
+        top: -325px;
+        left: 280px;
+    }
 }

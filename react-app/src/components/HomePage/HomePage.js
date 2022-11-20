@@ -14,6 +14,8 @@ import feature3 from "./HomePageImage/feature3.png"
 import feature4 from "./HomePageImage/feature4.png"
 import feature5 from "./HomePageImage/feature5.png"
 import videoImg from "./HomePageImage/videoImg.jpg"
+import defaultalbum2 from './HomePageImage/defaultalbum2.png';
+
 import vidplay from "./HomePageImage/vidplay.png"
 import NavBar from '../Navigation/NavBar';
 import ActionNav from '../Navigation/ActionNav';
@@ -66,9 +68,9 @@ const HomePage = () => {
   //   e.preventDefault();
   //   devRef.current.scrollIntoView({ behavior: "smooth" });
   // }
-// useEffect(()=> {
-//   return ()=> videoRandomizer
-// })
+  // useEffect(()=> {
+  //   return ()=> videoRandomizer
+  // })
   const videoRandomizer = () => {
     let randomVideo = {
       verified: {
@@ -132,6 +134,11 @@ const HomePage = () => {
               height="480px"
               // playIcon={vidplay}
               // light={videoImg}
+              // config={{
+              //   youtube: {
+              //     playerVars: { showinfo: 0 }
+              //   }
+              // }}
               url={randoEntry.video}
             // react-player__preview={videoImg}
             />
@@ -329,7 +336,7 @@ const HomePage = () => {
                   </div>
                   <div className="track-cover-name">
                     <div>
-                      <img id="track-cover" src={track.track_art} alt="Logo"></img>
+                      <img id="track-cover" src={track.track_art?track.track_art : defaultalbum2} alt="Logo"></img>
                     </div>
                     <div className="track-name-lyric">
                       <div className="track-name">
@@ -430,7 +437,7 @@ const HomePage = () => {
               LOAD MORE
             </button>
           </div> */}
-      ?
+
 
 
 
@@ -575,7 +582,7 @@ const HomePage = () => {
       </div>
 
 
-      <div className="footer">
+      <div className="home-footer">
 
         <div className="footer-inner">
           <div className="footer-message">
@@ -584,19 +591,62 @@ const HomePage = () => {
 
           <div className="footer-links">
             <ul className="footer-links-ul">
-              <li><a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Free Music</a></li>
-              <li><a href="https://media.tenor.com/Y84Uql0KSwEAAAAd/oprah-winfrey.gif">Dont click this</a></li>
-              <li><a href="https://www.musicalmum.com/what-is-a-music-genre/">Music Genre explained</a></li>
-              <li><a href="https://www.music-map.com/">Music Map</a></li>
+              <li>
+                <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+                  target="_blank"
+                  rel="noreferrer">
+                  Free Music
+                </a></li>
+              <li>
+                <a href="https://media.tenor.com/Y84Uql0KSwEAAAAd/oprah-winfrey.gif"
+                  target="_blank"
+                  rel="noreferrer">
+                  Dont click this
+                </a></li>
+              <li>
+                <a href="https://www.youtube.com/watch?v=HmZm8vNHBSU"
+                  target="_blank"
+                  rel="noreferrer">
+                  Stop Piracy
+                </a></li>
+              <li><a href="https://github.com/keshao728/Genius"
+                target="_blank"
+                rel="noreferrer">
+                Project Github
+              </a></li>
             </ul>
           </div>
 
           <div className="footer-links">
             <ul className="footer-links-ul">
-              <li><a href="https://genius.com/Genius-about-genius-annotated">About Ingenius</a></li>
-              <li><a href="https://genius.com/developers">Genius API</a></li>
-              <li><a href="https://www.youtube.com/watch?v=HmZm8vNHBSU">Stop Piracy</a></li>
-              <li><a href="https://github.com/keshao728/Genius">Contact Us</a></li>
+              <li>
+                <a href="https://github.com/keshao728"
+                  target="_blank"
+                  rel="noopener noreferrer">
+                  Kelly Shao
+                </a>
+              </li>
+              <li>
+                <a href="https://github.com/Schaeffy"
+                  target="_blank"
+                  rel="noopener noreferrer">
+                  Schaeffer Anh
+                </a>
+              </li>
+              <li>
+                <a href="https://github.com/SimonMTan"
+                  target="_blank"
+                  rel="noopener noreferrer">
+                  Simon Tan
+                </a>
+              </li>
+              <li>
+                <a href="https://github.com/k-rewd"
+                  target="_blank"
+                  rel="noopener noreferrer">
+                  Andrew Kim
+                </a>
+              </li>
             </ul>
           </div>
         </div>

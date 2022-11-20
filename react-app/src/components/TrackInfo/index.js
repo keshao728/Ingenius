@@ -5,6 +5,7 @@ import { getOneTrack } from '../../store/tracks';
 import EditTrackModal from '../TrackEditForm/index';
 import DeleteTrackModal from '../TrackDelete/index';
 import { actionResetTrack } from '../../store/tracks';
+
 import ReactPlayer from 'react-player'
 import './TrackInfo.css';
 import defaultalbum from './TrackImage/defaultalbum.png'
@@ -32,7 +33,7 @@ export default function TrackInfo() {
 
   useEffect(() => {
     dispatch(getOneTrack(trackId))
-    setIsLoaded(true)
+    .then(()=>setIsLoaded(true))
 
 
     return () => dispatch(actionResetTrack())
@@ -160,6 +161,8 @@ export default function TrackInfo() {
 
 
   const annotations = useSelector((state) => state.tracks.oneTrack.Annotations);
+
+  const newAnnotation = useSelector(state => state.annotations.oneAnnotation)
   // console.log('0000000000000000000000000000000000000000000000000000000000000', annotations)
   const [showAnnotation, setShowAnnotation] = useState(false)
 
@@ -197,7 +200,26 @@ export default function TrackInfo() {
       // let siu = annotations.map(anno => anno.span_ids.split(',').map(e => e.includes(currentAnno)))
       // let siu = annotations.map(anno => anno.span_ids.split(',')?.find(e => e === currentAnno) ? anno?.id : null)
       let id = annotations?.filter(anno => anno.span_ids.split(',').find(e => e === currentAnno))[0].id
-      // console.log('SSSSSSSSSIIIIIIIIIIIIIIIUUUUUUUUUUUUUUUUUUUUUUUUUU', id)
+      // console.log('SSSSSSSSSIIIIIIIIIIIIIIIUUUUUUUUUUUUUUUUUUUUUUUUUU', annotations?.filter(anno => anno.span_ids.split(',').find(e => e === currentAnno)))
+
+
+
+
+      // Keep annotated lyrics highlighted darker when annotation window is showing
+
+      // let found = annotations?.filter(anno => anno.span_ids.split(',').find(e => e === currentAnno))[0].span_ids
+
+      // found.split(',').map(element =>
+      //   showAnnotation ?
+      //   document.getElementById(element).classList.add('now-annotating') :
+      //   document.getElementById(element).classList.remove('now-annotating')
+      // );
+      // console.log('SSSSSSSSSIIIIIIIIIIIIIIIUUUUUUUUUUUUUUUUUUUUUUUUUU', found.split(','))
+
+
+
+
+
       setAnnotationId(id)
       setIsLoaded(true)
     }
@@ -217,8 +239,50 @@ export default function TrackInfo() {
       }
       // console.log('-----------------------------------------------------------------------------')
     }
+    // console.log('-----------------------------------------------------------------------------', newAnnotation)
 
-  }, [annotations, dispatch, showAnnotation])
+    function getNewAnno(e) {
+
+      let currentAnno = e.currentTarget.id
+      // console.log('CURRENT ANNO', currentAnno)
+      // console.log('AAAAAAAAAAAAAAAANNNNNNNNNNNNDDDDDDDDDREW', newAnnotation?.span_ids.split(','))
+
+      // console.log('SPLITTED', newAnnotation?.span_ids.split(','))
+
+      // console.log('FINDED', newAnnotation?.span_ids.split(',').find(e => e === currentAnno))
+
+      let id = newAnnotation?.span_ids.split(',').find(e => e === currentAnno)
+
+      // console.log('AAAAAAAAAAAAAAAANNNNNNNNNNNNDDDDDDDDDREW', newAnnotation?.span_ids.split(','))
+      // console.log('AAAAAAAAAAAAAAAANNNNNNNNNNNNDDDDDDDDDREW', id)
+
+
+      setAnnotationId(id)
+      setIsLoaded(true)
+
+    }
+
+    if (newAnnotation) {
+
+      // console.log(annotation.span_ids.split(','))
+      // newAnnotation?.span_ids?.split(',').map(anno =>
+      //   document?.getElementById(anno).classList.add('annotated')
+      // )
+      // console.log('LLLLLLLLLLLLLLLLLLLLL',newAnnotation?.span_ids?.split(','))
+      // console.log('LLLLLLLLLLLLLLLLLLLLL',newAnnotation?.span_ids?.split(',').map(anno =>
+      //   document?.getElementById(anno)))
+
+      // console.log('LLLLLLLLLLLLLLLLLLLLL',newAnnotation?.span_ids?.split(',').map(anno =>
+      //   document?.getElementById(anno)?.addEventListener('click', (e) => { setShowAnnotation(true); getNewAnno(e) })))
+      newAnnotation?.span_ids?.split(',').map(anno =>
+        document?.getElementById(anno)?.addEventListener('click', (e) => { setShowAnnotation(true); getNewAnno(e) })
+      )
+
+      // console.log(splitted)
+    // console.log('-----------------------------------------------------------------------------')
+  }
+
+  }, [annotations, dispatch, showAnnotation, newAnnotation])
 
 
   // end annotation stuff
@@ -233,8 +297,10 @@ export default function TrackInfo() {
   // },[showAnnotation])
 
 
-
-  return isLoaded && (
+if (!Object.values(track).length){
+  return <div className='loading'>{" "}</div>
+}
+  return isLoaded ? (
     <div>
       <div className="track-info-container">
 
@@ -250,10 +316,10 @@ export default function TrackInfo() {
           {track.track_title}
         </div>
         <div className='track_artist'>
-          artist: {track.artist}
+          {track.artist}
         </div>
-        <div>
-          album: {track.album}
+        <div className='track-album'>
+          on {track.album}
         </div>
       </div>
       <div className='track_producer'>
@@ -366,10 +432,9 @@ export default function TrackInfo() {
                 Ingenius Answer
               </div>
               <div className='fact-text'>
-                To create an annotation,
-                select any amount of lines of lyrics by clickin over them.
-                A button will appear to the bottom of the lyrics that reads “Start the Ingenius Annotation.”
-              </div>
+              To create an annotation,
+              click on any number of lines of lyrics to select them.
+              A button will appear to the bottom of the lyrics that reads “Start the Ingenius Annotation.” </div>
             </div>
           )}
           <div className='about-artist-wrapper'>
@@ -388,7 +453,7 @@ export default function TrackInfo() {
                 </div>
 
                 <div className='about-track-des'>
-                  track: {track.album}
+                  on {track.album}
                 </div>
 
               </div>
@@ -403,7 +468,7 @@ export default function TrackInfo() {
                 <div className='about-credit'>
                   Produced by
                 </div>
-                <div>
+                <div className='about-pro-by'>
                   {track.produced_by ? track.produced_by : 'Unknown'}
                 </div>
               </div>
@@ -435,5 +500,5 @@ export default function TrackInfo() {
 
 
     </div>
-  )
+  ): (<h1></h1>)
 }

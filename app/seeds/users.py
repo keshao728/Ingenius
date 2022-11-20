@@ -4,25 +4,25 @@ from app.models import db, User, environment, SCHEMA
 # Adds a demo user, you can add other users here if you want
 def seed_users():
     demo = User(
-        username='Demo', 
-        email='demo@aa.io', 
-        password='password', 
-        profile_img='https://64.media.tumblr.com/eca7c1a0c4df7688d52cf781e53142d1/3e3c47d5fa9f904a-71/s540x810/1ee4b3b16a25a49c4f61326f895cbf341088041e.jpg' 
-        # banner_img='https://64.media.tumblr.com/eca7c1a0c4df7688d52cf781e53142d1/3e3c47d5fa9f904a-71/s540x810/1ee4b3b16a25a49c4f61326f895cbf341088041e.jpg' 
+        username='John-Leeeeeeeeeee',
+        email='john@aa.io',
+        password='password',
+        profile_img='https://64.media.tumblr.com/eca7c1a0c4df7688d52cf781e53142d1/3e3c47d5fa9f904a-71/s540x810/1ee4b3b16a25a49c4f61326f895cbf341088041e.jpg'
+        # banner_img='https://64.media.tumblr.com/eca7c1a0c4df7688d52cf781e53142d1/3e3c47d5fa9f904a-71/s540x810/1ee4b3b16a25a49c4f61326f895cbf341088041e.jpg'
         )
-    
+
     marnie = User(
-        username='marnie', 
-        email='marnie@aa.io', 
-        password='password', 
-        profile_img='https://aniyuki.com/wp-content/uploads/2022/05/aniyuki-anya-forger-image-55-1536x864.jpg' 
+        username='Jakey',
+        email='jake@aa.io',
+        password='password',
+        profile_img='https://aniyuki.com/wp-content/uploads/2022/05/aniyuki-anya-forger-image-55-1536x864.jpg'
         # banner_img='https://aniyuki.com/wp-content/uploads/2022/05/aniyuki-anya-forger-image-55-1536x864.jpg'
         )
     bobbie = User(
-        username='bobbie', 
-        email='bobbie@aa.io', 
-        password='password', 
-        profile_img='https://media.tenor.com/zayuqO6PpXMAAAAC/anya-heh.gif' 
+        username='d-Nash',
+        email='david@aa.io',
+        password='password',
+        profile_img='https://media.tenor.com/zayuqO6PpXMAAAAC/anya-heh.gif'
         # banner_img='https://media.tenor.com/zayuqO6PpXMAAAAC/anya-heh.gif'
         )
 
@@ -43,5 +43,5 @@ def undo_users():
         db.session.execute(f"TRUNCATE table {SCHEMA}.users RESTART IDENTITY CASCADE;")
     else:
         db.session.execute("DELETE FROM users")
-        
+
     db.session.commit()
