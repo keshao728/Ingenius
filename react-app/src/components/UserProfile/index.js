@@ -40,11 +40,12 @@ const UserAnnotations = ({setUser}) => {
   console.log('this is my sum', sum())
   const [isLoaded, setIsLoaded] = useState(false)
   const [showEdit, setShowEdit] = useState(false)
+  const [refresh , setRefresh] = useState(false)
 
   useEffect(() => {
     dispatch(getUserInfo(userId))
       .then(() => setIsLoaded(true))
-  }, [dispatch, userId,sum])
+  }, [dispatch, userId,refresh , setRefresh])
 
   const userProp = async () => {
     const response = await fetch(`/api/users/${userId}`);
@@ -127,13 +128,14 @@ const UserAnnotations = ({setUser}) => {
                <div id='pp-noauth-annotation-body'>{annotation.annotation_body}</div>
             }</div>
             <div id='pp-annotation-upvote-container'>
-              <div className='upvote-wrapper' onClick={() => {dispatch(upvoteThunk(annotation.id)).then(dispatch(votecount(annotation.id)))}}>
+              <div className='upvote-wrapper' onClick={() => {dispatch(upvoteThunk(annotation.id)).then(dispatch(votecount(annotation.id)),setRefresh(!refresh))}}>
+
               {/* <div className='vote' id='btn' type='button' > */}
                 <i class="fa-regular fa-thumbs-up"></i>
                 <div id='pp-annotation-upvote'>Upvote </div>
               </div>
               <div className='vote-count'> {sum(annotation.votes)}</div>
-              <div className='downvote-wrapper' onClick={() => {dispatch(downvoteThunk(annotation.id)).then(dispatch(votecount(annotation.id)))}}>
+              <div className='downvote-wrapper' onClick={() => {dispatch(downvoteThunk(annotation.id)).then(dispatch(votecount(annotation.id)),setRefresh(!refresh))}}>
                 <i class="fa-regular fa-thumbs-down"></i>
               </div>
               {/* <Vote num={annotation.id} /> */}
