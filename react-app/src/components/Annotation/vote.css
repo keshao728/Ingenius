@@ -1,7 +1,3 @@
-.votetotal {}
-
-.vote:hover {}
-
 .anno-vote {
     display: flex;
     flex-direction: row;
