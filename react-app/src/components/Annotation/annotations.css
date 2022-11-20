@@ -47,3 +47,8 @@
     top: -160px;
     left: 415px;
 }
+
+.cancel-show-anno:hover{
+background-color: black;
+color: white;
+}
