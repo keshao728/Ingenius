@@ -245,7 +245,7 @@ export default function CreateTrack() {
             </div>
           </div>
           <div>
-            <button className="add-song-submit" type="submit">Submit</button>
+            <button className="add-song-submit" onClick={() => window.scrollTo(0, 0)} type="submit">Submit</button>
           </div>
         </div>
       </form>
