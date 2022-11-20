@@ -100,7 +100,7 @@ const LoginForm = () => {
                 <button className='demo-login-button'
                   type="submit"
                   onClick={() => {
-                    setEmail("demo@aa.io")
+                    setEmail("john@aa.io")
                     setPassword("password")
                   }}>
                   Demo User

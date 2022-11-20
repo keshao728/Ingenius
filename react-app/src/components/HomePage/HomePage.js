@@ -14,6 +14,8 @@ import feature3 from "./HomePageImage/feature3.png"
 import feature4 from "./HomePageImage/feature4.png"
 import feature5 from "./HomePageImage/feature5.png"
 import videoImg from "./HomePageImage/videoImg.jpg"
+import defaultalbum2 from './HomePageImage/defaultalbum2.png';
+
 import vidplay from "./HomePageImage/vidplay.png"
 import NavBar from '../Navigation/NavBar';
 import ActionNav from '../Navigation/ActionNav';
@@ -132,6 +134,11 @@ const HomePage = () => {
               height="480px"
               // playIcon={vidplay}
               // light={videoImg}
+              // config={{
+              //   youtube: {
+              //     playerVars: { showinfo: 0 }
+              //   }
+              // }}
               url={randoEntry.video}
             // react-player__preview={videoImg}
             />
@@ -329,7 +336,7 @@ const HomePage = () => {
                   </div>
                   <div className="track-cover-name">
                     <div>
-                      <img id="track-cover" src={track.track_art} alt="Logo"></img>
+                      <img id="track-cover" src={track.track_art?track.track_art : defaultalbum2} alt="Logo"></img>
                     </div>
                     <div className="track-name-lyric">
                       <div className="track-name">

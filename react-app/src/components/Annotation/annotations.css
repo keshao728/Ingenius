@@ -25,6 +25,10 @@
 .anno-body {
     font-size: 18px;
     margin-top: 10px;
+    text-overflow: ellipsis;
+    /* overflow: hidden; */
+    overflow-wrap: break-word;
+    white-space: wrap;
 }
 
 
@@ -44,7 +48,7 @@
     border-radius: 50px;
     text-decoration: none;
     cursor: pointer;
-    top: -160px;
+    top: -280px;
     left: 415px;
 }
 
@@ -60,7 +64,7 @@
     }
 
     .cancel-show-anno {
-        top: -150px;
+        top: -325px;
         left: 280px;
     }
 }

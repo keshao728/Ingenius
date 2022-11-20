@@ -86,6 +86,13 @@ export default function Annotations({ setShowAnnotation, showAnnotation, annotat
   //     })
   // }
 
+  // useEffect(()=>  {
+  //   if (showAnnotation){
+  //     annotations?.map(anno => anno?.span_ids?.split(',').map(span => document?.getElementById(span?.id)?.classList.add('currently-annotating')))
+  //   }
+  //   else (document.getElementsByTagName('span').classList.remove('currently-annotating'))
+  // },[annotations, showAnnotation])
+
   const closeSubmit = (e) => {
     e.preventDefault();
     setShowAnnotation(false);

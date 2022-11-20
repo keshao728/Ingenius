@@ -30,7 +30,7 @@ function App() {
   }, [dispatch]);
 
   if (!loaded) {
-    return null;
+    return <h1></h1>;
   }
 
   // componentDidUpdate() {
