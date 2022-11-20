@@ -31,3 +31,18 @@
 .anno-vote{
     margin-top: 10px;
 }
+
+
+.cancel-show-anno{
+    font-size: 20px;
+    display: flex;
+    position: relative;
+    border: 1px solid black;
+    background-color: transparent;
+    padding: 10px 17px;
+    border-radius: 50px;
+    text-decoration: none;
+    cursor: pointer;
+    top: -160px;
+    left: 415px;
+}

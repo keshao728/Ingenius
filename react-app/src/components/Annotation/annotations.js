@@ -86,6 +86,11 @@ export default function Annotations({ setShowAnnotation, showAnnotation, annotat
   //     })
   // }
 
+  const closeSubmit = (e) => {
+    e.preventDefault();
+    setShowAnnotation(false);
+  };
+
   // let annotationLinks;
   if (!annotations) {
     return (
@@ -126,12 +131,13 @@ export default function Annotations({ setShowAnnotation, showAnnotation, annotat
                   Ingenius Annotation
                 </div>
                 <div className='anno-body'>
-
                   {anno.annotation_body}
                 </div>
                 <div className='anno-vote'>
                   <Vote num={anno.id} />
                 </div>
+                <button type="button" className="cancel-show-anno" onClick={closeSubmit}>x</button>
+
               </div>
             </div>
 
