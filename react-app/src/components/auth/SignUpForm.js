@@ -59,15 +59,15 @@ const SignUpForm = () => {
   const onSignUp = async (e) => {
     e.preventDefault();
     setShowErrors(true)
-    if (!errors.length) {
+    if (errors.length<1) {
       const data = await dispatch(signUp(username, email, password));
       if (data) {
         setErrors(data)
+        setShowModal(false)
       }
-    return
+      return
     }
-    setShowModal(false)
-    setShowErrors(false)
+    setShowErrors(true)
     return
   };
 
