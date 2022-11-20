@@ -11,7 +11,7 @@ import defaultPro from './UserProfile/Profile-Images/defaultpro.png'
 function User() {
   const [user, setUser] = useState({});
   const [showEdit, setShowEdit] = useState(true)
-  const [isLoaded, setIsLoaded] = useState(false)
+  // const [isLoaded, setIsLoaded] = useState(false)
   const sessionUser = useSelector(state => state.session.user)
 
   // const other = useSelector(state => state.session.annotations)
@@ -42,7 +42,12 @@ function User() {
     <div>
       <div id='pp-outer'>
         <div id='pp-cover'>
-          <img onError={(e) => e.target.src = defaultPro} id='pp-banner-photo' src={user.profile_img} />
+          <img
+            onError={(e) => e.target.src = defaultPro}
+            id='pp-banner-photo'
+            src={user.profile_img}
+            alt="user-profile"
+          />
         </div>
 
 
@@ -51,7 +56,12 @@ function User() {
 
             <div id='pp-top-left'>
               <div id='pp-profile-photo-container'>
-                <img onError={(e) => e.target.src = defaultPro} id='pp-profile-photo' src={user.profile_img ? user.profile_img : defaultPro} />
+                <img
+                  alt="profile-pic"
+                  onError={(e) => e.target.src = defaultPro}
+                  id='pp-profile-photo'
+                  src={user.profile_img ? user.profile_img : defaultPro}
+                />
               </div>
             </div>
             <div id='pp-top-right'></div>
@@ -65,7 +75,12 @@ function User() {
               {/* fix here. access sessionUser Id here somehow */}
               <div>{sessionUser?.id === Number(userId) ?
                 <div id='pp-pfp-edit-button-container'>{showEdit ? <button id='pp-pfp-edit-button' onClick={() => setShowEdit(false)}>
-                  <img onError={(e) => e.target.src = defaultPro} id='pp-pfp-edit-button-pen-image' src={'https://www.pngrepo.com/png/105166/180/edit.png'} />
+                  <img
+                  alt="default-profile-pic"
+                    onError={(e) => e.target.src = defaultPro}
+                    id='pp-pfp-edit-button-pen-image'
+                    src={'https://www.pngrepo.com/png/105166/180/edit.png'}
+                  />
                   Edit
                 </button> : <ImageForm setShowEdit={setShowEdit} userInfo={user} />}
                 </div>
