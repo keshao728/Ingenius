@@ -4,30 +4,30 @@ def seed_comments():
   comment1 = Comment(
     user_id=1,
     track_id=1,
-    comment_body='hello my name is kelly and this is a sad boy song',
+    comment_body='He knows how to get people in their feelings that they hide…',
   )
 
   comment2 = Comment(
     user_id=3,
     track_id=1,
-    comment_body='hello my name is andrew and i am sad'
+    comment_body='i wanna cry'
   )
 
   comment3 = Comment(
     user_id=2,
     track_id=4,
-    comment_body='hello my name is simon and i am perfect'
+    comment_body='this song is everything to me'
   )
   comment4 = Comment(
     user_id=1,
     track_id=3,
-    comment_body='hello my name is kelly and i am just a sad little girl letsgooooooooooooOooooO'
+    comment_body='this song at 3 am hits different 😭😭'
   )
 
   comment5 = Comment(
     user_id=2,
     track_id=5,
-    comment_body='generic comment'
+    comment_body='This song is a masterpiece'
   )
 
   all_comments = [comment1, comment2, comment3, comment4,comment5]
