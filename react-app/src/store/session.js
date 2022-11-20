@@ -152,30 +152,32 @@ export const editUserPhoto = (user) => async dispatch => {
 }
 
 export const getUserInfo = (userId) => async dispatch => {
-  const response = await fetch(`/api/users/${userId}/info`);
+  let response = await fetch(`/api/users/${userId}/info`);
   if (response.ok) {
-      const userInfo = await response.json();
-      // console.log('IS IT WORKING YET', userInfo)
+      let userInfo = await response.json();
+      console.log('IS IT WORKING YET', userInfo)
 
 
 
-      const userInfoObj = Object.values(userInfo.annotations)
-      console.log('USERINFOBJJJ',userInfoObj)
+      // let userInfoObj = Object.values(userInfo.annotations)
+      // // console.log('USERINFOBJJJ',userInfoObj)
 
-      userInfoObj.forEach(async (info) => {
-        // console.log('CORRECT!!', info.id)
-        const newRes = await fetch(`/api/votes/${info.id}/total`)
-        // console.log('IT HMEeeeeeeeeeeEE', newRes)
-        if (newRes.ok) {
-          const data = await newRes.json()
-          // console.log('AMIUNDEFINED', newRes.votetotalvalue)
-          info['voteTotal'] = data.votetotalvalue
-          console.log('HIT ME',info)
-        }
-      });
+      // userInfoObj.forEach(async (info) => {
+      //   // console.log('CORRECT!!', info.id)
+      //   const newRes = await fetch(`/api/votes/${info.id}/total`)
+      //   // console.log('IT HMEeeeeeeeeeeEE', newRes)
+      //   if (newRes.ok) {
+      //     const data = await newRes.json()
+      //     // console.log('AMIUNDEFINED', newRes.votetotalvalue)
+      //     info.vote_count = data.votetotalvalue
+      //     // console.log('HIT ME',info)
+      //   }
+      // });
+      // userInfo.annotations = userInfoObj
 
       await dispatch(actionGetUserInfo(userInfo));
-      // console.log('HOW BOUT NOW', userInfo)
+      console.log('HOW BOUT NOW', userInfo)
+      // console.log('HOW BOUT NOW222', userInfoObj)
       return userInfo
   }
   return null

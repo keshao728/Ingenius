@@ -35,6 +35,7 @@ class Annotation(db.Model):
             "updated_at": self.updated_at,
             "user": self.annotation_user.to_dict(),
             "track": self.annotation_track.to_dict(),
-            "vote_count": len(self.annotation_vote),
+            # "vote_count": len(self.annotation_vote),
             # "votes": self.annotation_vote.to_dict(),
+            "votes": [vote.to_dict() for vote in self.annotation_vote]
         }

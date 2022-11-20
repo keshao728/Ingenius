@@ -14,8 +14,12 @@ import Vote from './vote'
 
 export default function Annotations({ setShowAnnotation, showAnnotation, annotationId }) {
   // console.log(showAnnotation)
+  // console.log('ANNOTATION ID', annotationId)
+  const realId = annotationId
+  console.log('REAL ID', realId)
   const dispatch = useDispatch();
-  // const { trackId } = useParams();
+  const { trackId } = useParams();
+  // const [showAnnotation, setShowAnnotation] = useState(showAnnotation);
   // const annoMenu = useRef(null)
   // const [isLoaded, setIsLoaded] = useState(false);
   // const sessionUser = useSelector((state) => state.session.user);
@@ -25,7 +29,7 @@ export default function Annotations({ setShowAnnotation, showAnnotation, annotat
   // }
 
   const annotations = useSelector((state) => state.tracks.oneTrack.Annotations);
-  // console.log(annotations)
+  console.log(annotations , "mic  check 1")
   // const [showAnnotation, setShowAnnotation] = useState(false)
 
   // useEffect(() => {
@@ -93,9 +97,14 @@ export default function Annotations({ setShowAnnotation, showAnnotation, annotat
   //   else (document.getElementsByTagName('span').classList.remove('currently-annotating'))
   // },[annotations, showAnnotation])
 
+  // useEffect(async() => {
+  //   await dispatch(getOneTrack(trackId))
+  // },[dispatch,getOneTrack])
+
   const closeSubmit = (e) => {
     e.preventDefault();
-    setShowAnnotation(false);
+    setShowAnnotation(false)
+    dispatch(getOneTrack(trackId));
   };
 
   // let annotationLinks;
@@ -106,7 +115,7 @@ export default function Annotations({ setShowAnnotation, showAnnotation, annotat
   } else {
     const annotationsArr = Object.values(annotations);
     // const annotation = annotationsArr[0]
-    // console.log('ANNOTATIONSARR', annotationsArr)
+    console.log('ANNOTATIONSARR', annotationsArr)
     // console.log('BEBARAERLAJASD', annotationId)
     // const annotation = annotationsArr.map(anno => anno.span_ids)
     // for(let i=1; i<annotation.length; i++) {
@@ -130,7 +139,7 @@ export default function Annotations({ setShowAnnotation, showAnnotation, annotat
       <>
 
         {showAnnotation &&
-          annotationsArr.map(anno => anno.id === annotationId ?
+          annotationsArr.map(anno => anno.id === realId ?
 
             <div className='anno-wrap'>
               <div className="anno-child" key={anno.id} >
@@ -151,7 +160,10 @@ export default function Annotations({ setShowAnnotation, showAnnotation, annotat
 
 
 
-            : null)}
+            :
+            // null
+            <h1>wrong id</h1>
+            )}
 
       </>
 
