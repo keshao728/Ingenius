@@ -15,7 +15,6 @@
     display: flex;
     flex-direction: column;
     position: absolute;
-    /* z-index: 2; */
     left: 35%;
     top: 12%;
     width: 400px;
@@ -28,7 +27,6 @@
     width: 100%;
     font-weight: bold;
     text-overflow: ellipsis;
-    /* overflow: hidden; */
     overflow-wrap: break-word;
     white-space: wrap;
 }
@@ -316,7 +314,6 @@
 
     .track_title_artist{
         left: 40%;
-        /* top: 23%; */
         font-size: 13px;
         margin-left:2%
     }
@@ -324,7 +321,7 @@
     .track_title{
         font-size: 20px;
         /* left:40% */
-        margin:2%
+        /* margin:2% */
     }
 
     .track_release{

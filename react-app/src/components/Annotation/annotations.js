@@ -1,13 +1,13 @@
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux';
-import { useState, useEffect, useRef } from 'react';
-import { NavLink, useParams } from 'react-router-dom'
-import { upvoteThunk, downvoteThunk, unvoteThunk, votecount } from '../../store/votes';
-import { getOneTrack, actionResetTrack } from '../../store/tracks';
+// import { useState, useEffect, useRef } from 'react';
+import { useParams } from 'react-router-dom'
+// import { upvoteThunk, downvoteThunk, unvoteThunk, votecount } from '../../store/votes';
+import { getOneTrack} from '../../store/tracks';
 import './vote.css'
 import './annotations.css'
 import AnnotationForm from '../AnnotationForm/AnnotationForm';
-import EditAnnotation from '../AnnotationEditForm/EditAnnotationForm';
+// import EditAnnotation from '../AnnotationEditForm/EditAnnotationForm';
 import Vote from './vote'
 // import { useEffect } from 'react';
 

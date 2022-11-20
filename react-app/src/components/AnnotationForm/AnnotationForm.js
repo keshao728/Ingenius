@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from "react-redux";
-import { createAnnotation, actionResetAnnotation } from '../../store/annotations';
-import { actionResetTrack, getOneTrack } from '../../store/tracks';
-import { useParams } from 'react-router-dom';
+import { createAnnotation} from '../../store/annotations';
+// import { actionResetTrack, getOneTrack } from '../../store/tracks';
+// import { useParams } from 'react-router-dom';
 import LoginForm from "../auth/LoginForm";
 import "./AnnotationForm.css";
 
