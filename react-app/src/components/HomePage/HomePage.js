@@ -132,6 +132,11 @@ const HomePage = () => {
               height="480px"
               // playIcon={vidplay}
               // light={videoImg}
+              // config={{
+              //   youtube: {
+              //     playerVars: { showinfo: 0 }
+              //   }
+              // }}
               url={randoEntry.video}
             // react-player__preview={videoImg}
             />
