@@ -230,11 +230,11 @@ export default function TrackInfo() {
     if (annotations) {
       for (let annotation of annotations) {
         // console.log(annotation.span_ids.split(','))
-        annotation.span_ids.split(',').map(anno =>
-          document.getElementById(anno).classList.add('annotated')
+        annotation?.span_ids?.split(',')?.map(anno =>
+          document?.getElementById(anno)?.classList.add('annotated')
         )
-        annotation.span_ids.split(',').map(anno =>
-          document.getElementById(anno).addEventListener('click', (e) => { setShowAnnotation(true); getAnno(e) })
+        annotation?.span_ids?.split(',')?.map(anno =>
+          document?.getElementById(anno)?.addEventListener('click', (e) => { setShowAnnotation(true); getAnno(e) })
         )
 
 
