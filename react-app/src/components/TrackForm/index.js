@@ -31,14 +31,14 @@ export default function CreateTrack() {
     let validationErrors = []
 
     if (!artist) validationErrors.push('Track must have an artist')
-    if (artist.length > 50) validationErrors.push('Artist name must not exceed 50 characters')
+    if (artist.length > 30) validationErrors.push('Artist name must not exceed 30 characters')
     if (!trackTitle) validationErrors.push('Track must have a title')
-    if (trackTitle.length > 100) validationErrors.push('Title must not exceed 100 characters')
-    if (album.length > 100) validationErrors.push('Album name must not exceed 100 characters')
+    if (trackTitle.length > 30) validationErrors.push('Title must not exceed 30 characters')
+    if (album.length > 30) validationErrors.push('Album name must not exceed 30 characters')
     if (!lyrics) validationErrors.push('You must enter lyrics for the track')
     if (lyrics.length > 10000) validationErrors.push('Lyrics must not exceed 10000 characters')
 
-    if (producedBy.length > 100) validationErrors.push('Producer information must not exceed 100 characters')
+    if (producedBy.length > 30) validationErrors.push('Producer information must not exceed 30 characters')
     if (trackArt && !trackArt.match(/^https?:\/\/.*\/.*\.(png|gif|webp|jpeg|jpg)\??.*$/gmi)) validationErrors.push("Please enter a valid URL ending with png, gif, webp, jpeg, or jpg")
     if (releaseDate > date) validationErrors.push('Please provide a valid Release Date') // test later
 
@@ -222,7 +222,7 @@ export default function CreateTrack() {
 
                 <div className='add-song-others-right'>
                   <div className='add-song-input-box'>
-                    <label>RELEASED DATE</label>
+                    <label>RELEASE DATE</label>
                     <input
                       type="date"
                       className='add-song-input'

@@ -18,17 +18,33 @@
     /* z-index: 2; */
     left: 35%;
     top: 12%;
+    width: 400px;
     color: black;
     font-size: 17px;
 }
 
 .track_title {
     font-size: 32px;
+    width: 100%;
     font-weight: bold;
+    text-overflow: ellipsis;
+    /* overflow: hidden; */
+    overflow-wrap: break-word;
+    white-space: wrap;
 }
 
 .track_artist {
     margin-top: 10px;
+    text-overflow: ellipsis;
+    /* overflow: hidden; */
+    overflow-wrap: break-word;
+    white-space: wrap;
+}
+.track-album{
+    text-overflow: ellipsis;
+    /* overflow: hidden; */
+    overflow-wrap: break-word;
+    white-space: wrap;
 }
 
 .track_producer {
@@ -40,6 +56,16 @@
     top: 12%;
     left: 60%;
     color: black;
+    text-overflow: ellipsis;
+    /* overflow: hidden; */
+    overflow-wrap: break-word;
+    white-space: wrap;
+}
+.about-pro-by{
+    text-overflow: ellipsis;
+    /* overflow: hidden; */
+    overflow-wrap: break-word;
+    white-space: wrap;
 }
 
 .track_producer_name {
@@ -85,6 +111,10 @@
     width: 50%;
     display: flex;
     flex-direction: column;
+    text-overflow: ellipsis;
+    /* overflow: hidden; */
+    overflow-wrap: break-word;
+    white-space: wrap;
 }
 
 
@@ -145,8 +175,19 @@
     width: 230px;
 }
 
+.about-track-title{
+    text-overflow: ellipsis;
+    /* overflow: hidden; */
+    overflow-wrap: break-word;
+    white-space: wrap;
+}
+
 .about-track-des {
     font-size: 13px;
+    text-overflow: ellipsis;
+    /* overflow: hidden; */
+    overflow-wrap: break-word;
+    white-space: wrap;
 }
 
 .about-artist {
@@ -163,6 +204,8 @@
     margin-left: 40px;
     justify-content: center;
     text-align: start;
+    width: 60.5%;
+
 }
 
 .about-album-cover {

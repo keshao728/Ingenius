@@ -5,6 +5,7 @@ import { getOneTrack } from '../../store/tracks';
 import EditTrackModal from '../TrackEditForm/index';
 import DeleteTrackModal from '../TrackDelete/index';
 import { actionResetTrack } from '../../store/tracks';
+
 import ReactPlayer from 'react-player'
 import './TrackInfo.css';
 import defaultalbum from './TrackImage/defaultalbum.png'
@@ -315,7 +316,7 @@ export default function TrackInfo() {
         <div className='track_artist'>
           {track.artist}
         </div>
-        <div>
+        <div className='track-album'>
           on {track.album}
         </div>
       </div>
@@ -450,7 +451,7 @@ export default function TrackInfo() {
                 </div>
 
                 <div className='about-track-des'>
-                  track: {track.album}
+                  on {track.album}
                 </div>
 
               </div>
@@ -465,7 +466,7 @@ export default function TrackInfo() {
                 <div className='about-credit'>
                   Produced by
                 </div>
-                <div>
+                <div className='about-pro-by'>
                   {track.produced_by ? track.produced_by : 'Unknown'}
                 </div>
               </div>

@@ -280,6 +280,11 @@
   flex-direction: row;
   gap: 10px;
   margin-left: 30px;
+  width: 80%;
+  text-overflow: ellipsis;
+  /* overflow: hidden; */
+  overflow-wrap: break-word;
+  white-space: wrap;
   align-items: center;
 }
 
@@ -310,6 +315,9 @@
 .track-name {
   font-weight: bold;
   font-size: 20px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
 }
 
 .fa-eye {

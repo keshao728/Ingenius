@@ -25,6 +25,10 @@
 .anno-body {
     font-size: 18px;
     margin-top: 10px;
+    text-overflow: ellipsis;
+    /* overflow: hidden; */
+    overflow-wrap: break-word;
+    white-space: wrap;
 }
 
 
