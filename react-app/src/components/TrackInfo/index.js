@@ -342,7 +342,7 @@ export default function TrackInfo() {
             {showFact ?
               <div className="fact-div" onClick={closeFact} >
                 <div>
-                  Did you know?
+                  How to annotate a track?
                 </div>
                 <div className='open-close-fact-button'>
                   -
@@ -350,7 +350,7 @@ export default function TrackInfo() {
               </div>
               : <div className="fact-div" onClick={openFact}>
                 <div>
-                  Did you know?
+                  How to annotate a track?
                 </div>
                 <div className='open-close-fact-button'>
                   +
@@ -364,7 +364,9 @@ export default function TrackInfo() {
                 Ingenius Answer
               </div>
               <div className='fact-text'>
-                MEOWMEOWMEOWMEOW
+                To create an annotation,
+                select any amount of lines of lyrics by clickin over them.
+                A button will appear to the bottom of the lyrics that reads “Start the Ingenius Annotation.”
               </div>
             </div>
           )}
