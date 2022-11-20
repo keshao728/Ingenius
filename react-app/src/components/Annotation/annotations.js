@@ -126,7 +126,7 @@ export default function Annotations({ setShowAnnotation, showAnnotation, annotat
           annotationsArr.map(anno => anno.id === annotationId ?
 
             <div className='anno-wrap'>
-              <div key={anno.id} >
+              <div className="anno-child" key={anno.id} >
                 <div className='anno-title'>
                   Ingenius Annotation
                 </div>
