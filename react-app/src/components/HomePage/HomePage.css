@@ -91,6 +91,7 @@
   font-weight: bold;
   overflow-wrap: break-word;
   margin-bottom: 5px;
+  /* font-weight: 500; */
 }
 
 .top-feature-title:hover{
@@ -490,7 +491,7 @@
 }
 
 .latest-des {
-  color: #6464FF;
+  color: #dede6e;
   padding: 10px 0px;
   font-size: 14px;
   font-weight: bold;
