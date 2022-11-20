@@ -201,15 +201,22 @@ export default function TrackInfo() {
       let id = annotations?.filter(anno => anno.span_ids.split(',').find(e => e === currentAnno))[0].id
       // console.log('SSSSSSSSSIIIIIIIIIIIIIIIUUUUUUUUUUUUUUUUUUUUUUUUUU', annotations?.filter(anno => anno.span_ids.split(',').find(e => e === currentAnno)))
 
+
+
+
+      // Keep annotated lyrics highlighted darker when annotation window is showing
+
       // let found = annotations?.filter(anno => anno.span_ids.split(',').find(e => e === currentAnno))[0].span_ids
 
-      // found.split(',').forEach(element => {
-      //   if (showAnnotation){
-      //     document.getElementById(element).classList.add('now-annotating')
-      //   }
-      //   if(!showAnnotation) document.getElementById(element).classList.remove('now-annotating')
-      // });
+      // found.split(',').map(element =>
+      //   showAnnotation ?
+      //   document.getElementById(element).classList.add('now-annotating') :
+      //   document.getElementById(element).classList.remove('now-annotating')
+      // );
       // console.log('SSSSSSSSSIIIIIIIIIIIIIIIUUUUUUUUUUUUUUUUUUUUUUUUUU', found.split(','))
+
+
+
 
 
       setAnnotationId(id)
@@ -261,8 +268,13 @@ export default function TrackInfo() {
       //   document?.getElementById(anno).classList.add('annotated')
       // )
       // console.log('LLLLLLLLLLLLLLLLLLLLL',newAnnotation?.span_ids?.split(','))
+      // console.log('LLLLLLLLLLLLLLLLLLLLL',newAnnotation?.span_ids?.split(',').map(anno =>
+      //   document?.getElementById(anno)))
+
+      // console.log('LLLLLLLLLLLLLLLLLLLLL',newAnnotation?.span_ids?.split(',').map(anno =>
+      //   document?.getElementById(anno)?.addEventListener('click', (e) => { setShowAnnotation(true); getNewAnno(e) })))
       newAnnotation?.span_ids?.split(',').map(anno =>
-        document?.getElementById(anno).addEventListener('click', (e) => { setShowAnnotation(true); getNewAnno(e) })
+        document?.getElementById(anno)?.addEventListener('click', (e) => { setShowAnnotation(true); getNewAnno(e) })
       )
 
       // console.log(splitted)
