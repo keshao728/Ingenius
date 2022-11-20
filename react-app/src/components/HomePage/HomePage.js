@@ -66,6 +66,113 @@ const HomePage = () => {
   //   e.preventDefault();
   //   devRef.current.scrollIntoView({ behavior: "smooth" });
   // }
+// useEffect(()=> {
+//   return ()=> videoRandomizer
+// })
+  const videoRandomizer = () => {
+    let randomVideo = {
+      verified: {
+        cat: 'VERIFIED',
+        title: 'Chlöe Breaks Down The Meaning of “For The Night”',
+        description: "Learn about the song’s lyrics on the latest episode of ‘Verified.’",
+        author: 'by ButterflyHoney /',
+        date: 'Nov 9 2022',
+        video: 'https://www.youtube.com/watch?v=KH7_PFZgPn4'
+      },
+      between: {
+        cat: 'BETWEEN THE LINES',
+        title: "Vin Diesel & Ludacris Explain 'Fast & Furious' Lyrical References",
+        description: "The F9 stars dicussed the bars that reference the film franchise",
+        author: 'Rahel Bereyes /',
+        date: 'Nov 16 2022',
+        video: 'https://www.youtube.com/watch?v=q5Mqa3GZeog'
+      },
+      irl: {
+        cat: 'IRL',
+        title: 'H.E.R Talks Black Music Icons & Cooks Authentic Filipino Dishes',
+        description: 'H.E.R. reflects on her upbringing in a mixed ethnic household and her career',
+        author: 'Rob Markman /',
+        date: 'Feb 20 2020',
+        video: 'https://www.youtube.com/watch?v=XL8C4tnO8Jk'
+      },
+      open: {
+        cat: 'OPEN MIC',
+        title: 'Dvsn Performs "If I Get Caught" Live',
+        description: "Watch him perform the song on the latest episode of ‘Open Mic.’",
+        author: 'ButterflyHoney /',
+        date: 'Sep 1 2022',
+        video: 'https://www.youtube.com/watch?v=-Qsh2zbT-1Q'
+      },
+      decon: {
+        cat: 'DECONSTRUCTED',
+        title: 'The Making Of BTS - Dynamite With David Stewart',
+        description: 'UK Producer Breaks Down How The Song Was Made',
+        author: 'Ndeye Thioubou /',
+        date: 'Nov 18 2020',
+        video: 'https://www.youtube.com/watch?v=qBCM1Fy-ByY'
+      }
+    }
+    const entries = Object.entries(randomVideo)
+    const randoEntry = Object.values(entries[Math.floor(Math.random() * entries.length)])[1]
+    // console.log('0000000000000000000000000000000000000000000',randoEntry)
+    return (
+      <div className="video-wrapper">
+        <div className="video-title">
+          VIDEOS
+        </div>
+        <div className="video-series">
+          INGENIUS ORIGINAL SERIES
+        </div>
+
+        <div className="video-verified">
+          <div>
+            <ReactPlayer
+              width="830px"
+              height="480px"
+              // playIcon={vidplay}
+              // light={videoImg}
+              url={randoEntry.video}
+            // react-player__preview={videoImg}
+            />
+
+            {/* <iframe className="video"
+              //IT'S AUTOPLAYING!!! STAHP IT
+              src='//players.brightcove.net/4863540648001/S1ZcmcOC1x_default/index.html?videoId=6315238407112' width="850"
+              height="480" frameborder="0" allow="fullscreen" allowfullscreen></iframe> */}
+          </div>
+          <div className="video-right">
+            <div className="video-right-verified">
+              {randoEntry.cat}
+            </div>
+            <div className="video-verified-wrapper">
+              <div className="video-verified-title">
+                {randoEntry.title}
+              </div>
+              <div className="video-verified-description">
+                {randoEntry.description}
+              </div>
+
+              <div className="video-verified-author-date">
+                <div className="video-verified-author">
+                  {randoEntry.author}
+                </div>
+
+                <div className="top-feature-date">
+                  {randoEntry.date}
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+        {/* <div className="video-button">
+          <button className="video-load-more">
+            LOAD MORE
+          </button>
+        </div> */}
+      </div>
+    )
+  }
 
 
   useEffect(() => {
@@ -247,14 +354,14 @@ const HomePage = () => {
 
         <div className='load-track-container'>
 
-            {allTracks.length > showTracks ? <div className="track-button"><button className="track-load-more" onClick={() => setShowTracks(showTracks + 5)}>
-              LOAD MORE
-            </button></div> : ''}
+          {allTracks.length > showTracks ? <div className="track-button"><button className="track-load-more" onClick={() => setShowTracks(showTracks + 5)}>
+            LOAD MORE
+          </button></div> : ''}
 
 
-            {showTracks > 5 ? <div className="track-button"><button className="track-load-more" onClick={() => setShowTracks(showTracks - 5)}>
-              SHOW LESS
-            </button></div> : ''}
+          {showTracks > 5 ? <div className="track-button"><button className="track-load-more" onClick={() => setShowTracks(showTracks - 5)}>
+            SHOW LESS
+          </button></div> : ''}
 
         </div>
 
@@ -263,6 +370,9 @@ const HomePage = () => {
       {/* VIDEOS - ALL PLACEHOLDERS RN!!!!!!!!! */}
       {/* <div className="video-page" ref={videoRef} id='testing'> */}
       <div className="video-page" id='video'>
+        {videoRandomizer()}
+      </div>
+      {/* <div className="video-page" id='video'>
 
         <div className="video-wrapper">
           <div className="video-title">
@@ -281,13 +391,13 @@ const HomePage = () => {
                 light={videoImg}
                 url="https://www.youtube.com/watch?v=KH7_PFZgPn4&ab_channel=Genius"
               // react-player__preview={videoImg}
-              />
+              /> */}
 
-              {/* <iframe className="video"
+      {/* <iframe className="video"
                 //IT'S AUTOPLAYING!!! STAHP IT
                 src='//players.brightcove.net/4863540648001/S1ZcmcOC1x_default/index.html?videoId=6315238407112' width="850"
                 height="480" frameborder="0" allow="fullscreen" allowfullscreen></iframe> */}
-            </div>
+      {/* </div>
             <div className="video-right">
               <div className="video-right-verified">
                 VERIFIED
@@ -312,14 +422,13 @@ const HomePage = () => {
               </div>
 
             </div>
-          </div>
-          {/* <div className="video-button">
+          </div> */}
+      {/* <div className="video-button">
             <button className="video-load-more">
               LOAD MORE
             </button>
           </div> */}
-        </div>
-      </div>
+      ?
 
 
 
