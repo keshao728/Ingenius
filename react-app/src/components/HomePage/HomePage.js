@@ -13,10 +13,10 @@ import feature2 from "./HomePageImage/feature2.png"
 import feature3 from "./HomePageImage/feature3.png"
 import feature4 from "./HomePageImage/feature4.png"
 import feature5 from "./HomePageImage/feature5.png"
-import videoImg from "./HomePageImage/videoImg.jpg"
+// import videoImg from "./HomePageImage/videoImg.jpg"
 import defaultalbum2 from './HomePageImage/defaultalbum2.png';
 
-import vidplay from "./HomePageImage/vidplay.png"
+// import vidplay from "./HomePageImage/vidplay.png"
 import NavBar from '../Navigation/NavBar';
 import ActionNav from '../Navigation/ActionNav';
 

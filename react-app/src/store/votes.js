@@ -1,23 +1,23 @@
-const UPVOTE = 'vote/upvote'
-const DOWNVOTE = 'vote/downvote'
+// const UPVOTE = 'vote/upvote'
+// const DOWNVOTE = 'vote/downvote'
 const UNVOTE = 'vote/unvote'
 const VOTECOUNT = 'vote/votecount'
 
 //-----  ACTION  -----//
 //upvote
-const upvote = (id) => {
-    return {
-        type: UPVOTE,
-        id
-    }
-}
-//downvote
-const downvote = (id) => {
-    return {
-        type: DOWNVOTE,
-        id
-    }
-}
+// const upvote = (id) => {
+//     return {
+//         type: UPVOTE,
+//         id
+//     }
+// }
+// //downvote
+// const downvote = (id) => {
+//     return {
+//         type: DOWNVOTE,
+//         id
+//     }
+// }
 //unvote
 const unvote = (id) => {
     return {

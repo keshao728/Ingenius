@@ -101,7 +101,7 @@ const AllComments = () => {
           <label>
             <div className="commenter-img-input">
 
-              <img className="commenter-img" src={sessionUser.profile_img}></img>
+              <img alt="comment-img" className="commenter-img" src={sessionUser.profile_img}></img>
               <textarea
                 placeholder="Add a comment"
                 type="text"
@@ -211,7 +211,7 @@ const AllComments = () => {
                 <div className="individual-comment-display" key={comment?.id}>
                   <div className="individual-comment-header">
                     < NavLink to={`/users/${comment.user_id}`} >
-                      <img className="comment-profile-img" src={comment?.commentter?.profile_img}></img>
+                      <img alt="comment-profile-img" className="comment-profile-img" src={comment?.commentter?.profile_img}></img>
                     </NavLink>
                     <div className="comment-user">{comment?.commentter?.username}</div>
                     <div className="comment-time-stamp">{moment(comment.created_at).fromNow()}</div>

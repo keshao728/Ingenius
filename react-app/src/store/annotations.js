@@ -1,6 +1,6 @@
 // import { csrfFetch } from './csrf'
 
-const GET_ALL_ANNOTATIONS = 'annotations/getAllAnnotations';
+// const GET_ALL_ANNOTATIONS = 'annotations/getAllAnnotations';
 const GET_ONE_ANNOTATION = 'annotations/getOneAnnotation';
 // const GET_USER_ANNOTATIONS = 'tracks/getUserAnnotations';
 const CREATE_ANNOTATION = 'annotations/createAnnotation';
@@ -22,19 +22,19 @@ const RESET_ANNOTATION = 'annotations/resetAnnotation';
 // }
 
 // get all user annotations
-const actionGetUserAnnotations = (payload) => {
-    return {
-        type: GET_ALL_ANNOTATIONS,
-        payload
-    }
-}
+// const actionGetUserAnnotations = (payload) => {
+//     return {
+//         type: GET_ALL_ANNOTATIONS,
+//         payload
+//     }
+// }
 
-const actionGetOneAnnotation = (annotationId) => {
-    return {
-        type: GET_ONE_ANNOTATION,
-        annotationId
-    }
-}
+// const actionGetOneAnnotation = (annotationId) => {
+//     return {
+//         type: GET_ONE_ANNOTATION,
+//         annotationId
+//     }
+// }
 
 //create a annotation
 const actionCreateAnnotation = (annotation) => {
