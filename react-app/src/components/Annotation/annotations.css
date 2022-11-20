@@ -44,6 +44,11 @@
     border-radius: 50px;
     text-decoration: none;
     cursor: pointer;
-    top: -160px;
+    top: -130px;
     left: 415px;
+}
+
+.cancel-show-anno:hover{
+background-color: black;
+color: white;
 }

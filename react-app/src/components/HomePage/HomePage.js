@@ -202,24 +202,27 @@ const HomePage = () => {
             <div className="top-feature-news" >
               NEWS
             </div>
-            <div className="top-feature-news-wrapper">
-              <div className="top-feature-title">
-                Gucci Mane Remembers Takeoff and Other Fallen Rappers On New Song “Letter To Takeoff”
-              </div>
-              <div className="top-feature-description">
-                Gucci also pays respect to Shawty Lo, Young Dolph, and PnB Rock, among others.
-              </div>
+            <a className="dev-text-link" href="https://genius.com/a/gucci-mane-remembers-takeoff-and-other-fallen-rappers-on-new-song-letter-to-takeoff" target="_blank" rel="noreferrer">
 
-              <div className="top-feature-author-date">
-                <div className="top-feature-author">
-                  by Ken Partridge /
+              <div className="top-feature-news-wrapper">
+                <div className="top-feature-title">
+                  Gucci Mane Remembers Takeoff and Other Fallen Rappers On New Song “Letter To Takeoff”
+                </div>
+                <div className="top-feature-description">
+                  Gucci also pays respect to Shawty Lo, Young Dolph, and PnB Rock, among others.
                 </div>
 
-                <div className="top-feature-date">
-                  Nov 16 2022
+                <div className="top-feature-author-date">
+                  <div className="top-feature-author">
+                    by Ken Partridge /
+                  </div>
+
+                  <div className="top-feature-date">
+                    Nov 16 2022
+                  </div>
                 </div>
               </div>
-            </div>
+            </a>
           </div>
 
           <div className="top-feature-right">
@@ -228,86 +231,84 @@ const HomePage = () => {
         </div>
         <div className="bottom-feature">
           <div className="bottom-feature-1">
-            <div>
-
-              <div id="dev">NEWS</div>
+            <div id="dev">NEWS</div>
+            <a className="dev-text-link" href="https://genius.com/a/cigarettes-after-sex-pine-for-their-ex-on-new-song-pistol" target="_blank" rel="noreferrer">
               <div className="dev-text">
                 Cigarettes After Sex Pine For Their Ex On New Song “Pistol”
               </div>
-            </div>
-            <div>
+              <div className='top-bottom-feature'>
+                <div className="top-feature-author-date2">
+                  <div className="top-feature-author">
+                    by Ken Partridge /
+                  </div>
 
-              <div className="top-feature-author-date2">
-                <div className="top-feature-author">
-                  by Ken Partridge /
+                  <div className="top-feature-date">
+                    Nov 16 2022
+                  </div>
                 </div>
-
-                <div className="top-feature-date">
-                  Nov 16 2022
-                </div>
+                <img id="individual-fries" src={feature2} alt="Logo"></img>
               </div>
-              <img id="individual-fries" src={feature2} alt="Logo"></img>
-            </div>
-          </div>
-          <div className="bottom-feature-2">
-            <div>
-              <div id="dev">NEWS</div>
-              <div className="dev-text">
-                Rihanna Will Fight Until The End On New ‘Black Panther: Wakanda Forever’ Song “Born Again”
-              </div>
-            </div>
-            <div>
-              <div className="top-feature-author-date2">
-                <div className="top-feature-author">
-                  by Leah Degrazia /
-                </div>
-
-                <div className="top-feature-date">
-                  Nov 11 2022
-                </div>
-              </div>
-              <img id="individual-fries" src={feature3} alt="Logo"></img>
-            </div>
+            </a>
           </div>
           <div className="bottom-feature-3">
-            <div>
-              <div id="dev">NEWS</div>
+            <div id="dev">NEWS</div>
+            <a className="dev-text-link" href="https://genius.com/a/roddy-ricch-showcases-his-chemistry-with-lil-durk-on-new-single-twin" target="_blank" rel="noreferrer">
               <div className="dev-text">
                 Roddy Ricch Showcases His Chemistry With Lil Durk On New Single “Twin”
               </div>
-            </div>
-            <div>
-              <div className="top-feature-author-date2">
-                <div className="top-feature-author">
-                  by Ken Partridge /
-                </div>
+              <div className='top-bottom-feature'>
+                <div className="top-feature-author-date2">
+                  <div className="top-feature-author">
+                    by Ken Partridge /
+                  </div>
 
-                <div className="top-feature-date">
-                  Nov 15 2022
+                  <div className="top-feature-date">
+                    Nov 15 2022
+                  </div>
                 </div>
+                <img id="individual-fries" src={feature4} alt="Logo"></img>
               </div>
-              <img id="individual-fries" src={feature4} alt="Logo"></img>
-            </div>
+            </a>
           </div>
           <div className="bottom-feature-4">
-            <div>
-              <div id="dev">NEWS</div>
+            <div id="dev">NEWS</div>
+            <a className="dev-text-link" href="https://genius.com/a/nas-celebrates-his-home-borough-of-queens-on-new-song-thun" target="_blank" rel="noreferrer">
               <div className="dev-text">
                 Nas Celebrates His Home Borough of Queens On New Song “Thun”
               </div>
-            </div>
-            <div>
-              <div className="top-feature-author-date2">
-                <div className="top-feature-author">
-                  by Ken Partridge /
-                </div>
+              <div className='top-bottom-feature'>
+                <div className="top-feature-author-date2">
+                  <div className="top-feature-author">
+                    by Ken Partridge /
+                  </div>
 
-                <div className="top-feature-date">
-                  Nov 14 2022
+                  <div className="top-feature-date">
+                    Nov 14 2022
+                  </div>
                 </div>
+                <img id="individual-fries" src={feature5} alt="Logo"></img>
               </div>
-              <img id="individual-fries" src={feature5} alt="Logo"></img>
-            </div>
+            </a>
+          </div>
+          <div className="bottom-feature-2">
+            <div id="dev">NEWS</div>
+            <a className="dev-text-link" href="https://genius.com/a/rihanna-will-fight-until-the-end-on-new-black-panther-wakanda-forever-song-born-again" target="_blank" rel="noreferrer">
+              <div className="dev-text">
+                Rihanna Will Fight Until The End On New ‘Black Panther: Wakanda Forever’ Song “Born Again”
+              </div>
+              <div className='top-bottom-feature'>
+                <div className="top-feature-author-date2">
+                  <div className="top-feature-author">
+                    by Leah Degrazia /
+                  </div>
+
+                  <div className="top-feature-date">
+                    Nov 11 2022
+                  </div>
+                </div>
+                <img id="individual-fries" src={feature3} alt="Logo"></img>
+              </div>
+            </a>
           </div>
         </div>
       </div>

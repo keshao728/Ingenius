@@ -91,6 +91,11 @@
   font-weight: bold;
   overflow-wrap: break-word;
   margin-bottom: 5px;
+  /* font-weight: 500; */
+}
+
+.top-feature-title:hover{
+  text-decoration: underline 1px;
 }
 
 .top-feature-description {
@@ -117,6 +122,16 @@
   padding: 0 5%;
 }
 
+.top-feature-author-date2:hover {
+  text-decoration: none !important;
+}
+
+/* .top-bottom-feature {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+} */
+
 .top-feature-date {
   color: gray;
   margin-left: 7px;
@@ -134,7 +149,7 @@
 
 
 .bottom-feature-1,
-.bottom-feature-2,
+.bottom-feature-4,
 .bottom-feature-3 {
   border-right: black 2px solid;
   padding: 0 0
@@ -165,7 +180,7 @@
   width: 25%;
   /* padding: 0px 20px; */
   font-size: 20px;
-  justify-content: space-between;
+  /* justify-content: space-between; */
 }
 
 #dev {
@@ -177,8 +192,24 @@
 
 .dev-text {
   padding: 0 5%;
+  height: 186px;
   /* color: red; */
 }
+
+.dev-text:hover{
+  text-decoration: underline 1px;
+  color: black;
+}
+
+.dev-text-link {
+  text-decoration: none;
+  color: black;
+}
+
+/* .dev-text-link:hover {
+  text-decoration: underline;
+  color: black;
+} */
 
 #individual-fries {
   display: flex;
@@ -460,7 +491,7 @@
 }
 
 .latest-des {
-  color: #6464FF;
+  color: #fe84ad;
   padding: 10px 0px;
   font-size: 14px;
   font-weight: bold;
