@@ -33,7 +33,10 @@ const Vote = ({ num }) => {
       await dispatch(votecount(num))
     }
     return fetchData()
-  }, [num, votecounter, dispatch])
+  }, [
+    num
+    , votecounter
+    , dispatch])
 
   // if(!isLoaded)
   //     return null
