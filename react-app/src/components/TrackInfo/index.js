@@ -33,7 +33,7 @@ export default function TrackInfo() {
 
   useEffect(() => {
     dispatch(getOneTrack(trackId))
-    setIsLoaded(true)
+    .then(()=>setIsLoaded(true))
 
 
     return () => dispatch(actionResetTrack())
@@ -297,8 +297,10 @@ export default function TrackInfo() {
   // },[showAnnotation])
 
 
-
-  return isLoaded && (
+if (!Object.values(track).length){
+  return <div className='loading'>{" "}</div>
+}
+  return isLoaded ? (
     <div>
       <div className="track-info-container">
 
@@ -498,5 +500,5 @@ export default function TrackInfo() {
 
 
     </div>
-  )
+  ): (<h1></h1>)
 }

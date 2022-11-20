@@ -117,6 +117,10 @@
     white-space: wrap;
 }
 
+.loading{
+    height: 280px;
+    background-color: #B395A9;
+}
 
 .buttons {
     display: flex;
