@@ -45,10 +45,10 @@
   visibility: visible;
 } */
 
-.comment-input:invalid {
+/* .comment-input:invalid {
   border-color: transparent;
   border: 1px solid red;
-}
+} */
 
 
 .button-create-comment {

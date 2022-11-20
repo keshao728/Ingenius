@@ -78,9 +78,9 @@ const AllComments = () => {
       }
     }
   }
-  const invalidInput = (userComments === " " || userComments.length > 200)
-    ? { border: "1px solid red" }
-    : { border: "1px solid black" }
+  // const invalidInput = (userComments === " " || userComments.length > 200)
+  //   ? { border: "1px solid red" }
+  //   : { border: "1px solid black" }
 
   // const invalidInput = (userComments!==" " || userComments.length < 200)
   // ? { border: "1px solid black"}
@@ -107,7 +107,7 @@ const AllComments = () => {
                 value={userComments}
                 onClick={openSubmit}
                 required
-                style={invalidInput}
+                // style={invalidInput}
                 onChange={(e) => setUserComments(e.target.value)}
               />
             </div>
