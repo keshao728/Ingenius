@@ -55,7 +55,7 @@ def seed_tracks():
         Somebody take 'em
         ''',
         track_art='https://t2.genius.com/unsafe/331x331/https%3A%2F%2Fimages.genius.com%2F0c68f4642eadc6d1160d3815cf66ec96.831x831x1.jpg',
-        track_url='https://www.youtube.com/embed/w_6fWYY6pRw',
+        track_url='https://www.youtube.com/watch?v=w_6fWYY6pRw',
     )
 
     track2 = Track(
@@ -129,7 +129,7 @@ def seed_tracks():
         And it’s fine if we’re only pretending)
         ''',
         track_art='https://t2.genius.com/unsafe/222x222/https%3A%2F%2Fimages.genius.com%2F7ceb52b68969dc66835a05857636415d.800x800x1.jpg',
-        track_url='https://www.youtube.com/embed/0JpMEztTCM0',
+        track_url='https://www.youtube.com/watch?v=0JpMEztTCM0',
     )
     track3 = Track(
         user_id=2,
@@ -203,7 +203,7 @@ def seed_tracks():
         Oh
         ''',
         track_art='https://t2.genius.com/unsafe/222x222/https%3A%2F%2Fimages.genius.com%2Fc04671d3a6d390614bec909a0c129169.830x830x1.jpg',
-        track_url='https://www.youtube.com/embed/RivEsavD6ZE',
+        track_url='https://www.youtube.com/watch?v=RivEsavD6ZE',
     )
     track4 = Track(
         user_id=2,
@@ -266,7 +266,7 @@ def seed_tracks():
         You look perfect tonight
         ''',
         track_art='https://t2.genius.com/unsafe/222x222/https%3A%2F%2Fimages.genius.com%2F35fad95b68ee49ae50eb71a918075e75.1000x1000x1.png',
-        track_url='https://www.youtube.com/embed/BgoImewGGMo',
+        track_url='https://www.youtube.com/watch?v=BgoImewGGMo',
     )
     track5 = Track(
         user_id=2,
@@ -347,7 +347,7 @@ def seed_tracks():
         We are not beautiful
         ''',
         track_art='https://t2.genius.com/unsafe/222x222/https%3A%2F%2Fimages.genius.com%2Fe99160501d4dc49fa6767573cdaf0aaa.1000x1000x1.jpg',
-        track_url='https://www.youtube.com/embed/74yb9E3WY1I',
+        track_url='https://www.youtube.com/watch?v=74yb9E3WY1I',
     )
 
     track6 = Track(
@@ -414,7 +414,7 @@ def seed_tracks():
         Would you feel a thing if you saw me right now?
         ''',
         track_art='https://t2.genius.com/unsafe/327x327/https%3A%2F%2Fimages.genius.com%2F60a28ef85642ff232562de00c1630a99.500x500x1.jpg',
-        track_url='https://www.youtube.com/embed/hsLiJP2rqS8',
+        track_url='https://www.youtube.com/watch?v=hsLiJP2rqS8',
     )
 
     track7 = Track(
@@ -481,7 +481,7 @@ def seed_tracks():
         In another town and country
         ''',
         track_art='https://t2.genius.com/unsafe/327x327/https%3A%2F%2Fimages.genius.com%2Fed7966b5b6444840b9a6307c66345d0f.500x500x1.jpg',
-        track_url='https://www.youtube.com/embed/cgJvMWj3cLc',
+        track_url='https://www.youtube.com/watch?v=cgJvMWj3cLc',
     )
 
     track8 = Track(
@@ -555,7 +555,7 @@ def seed_tracks():
         I need you in my arms
         ''',
         track_art='https://t2.genius.com/unsafe/327x327/https%3A%2F%2Fimages.genius.com%2F55f485e305b226ef7db504e95d944fa0.1000x1000x1.jpg',
-        track_url='https://www.youtube.com/embed/xTl6K8IRoUk',
+        track_url='https://www.youtube.com/watch?v=xTl6K8IRoUk',
     )
 
     track9 = Track(
@@ -613,7 +613,7 @@ def seed_tracks():
         Until your name is next to mine
         ''',
         track_art='https://t2.genius.com/unsafe/286x286/https%3A%2F%2Fimages.genius.com%2F88c87621d8189973e5d542f34fd93aa5.1000x1000x1.jpg',
-        track_url='https://www.youtube.com/embed/Q82-5XizdiQ',
+        track_url='https://www.youtube.com/watch?v=Q82-5XizdiQ',
     )
 
     track10 = Track(
@@ -671,7 +671,7 @@ def seed_tracks():
         All the pieces of you fit perfectly in the hole inside my heart
         ''',
         track_art='https://t2.genius.com/unsafe/327x327/https%3A%2F%2Fimages.genius.com%2F9d9a2b906cea8a2d6d5077e6c57c15a6.1000x1000x1.jpg',
-        track_url='https://www.youtube.com/embed/YErEZo38-VQ',
+        track_url='https://www.youtube.com/watch?v=YErEZo38-VQ',
     )
 
     track11 = Track(
@@ -728,7 +728,7 @@ def seed_tracks():
         Leave and never come back again
         ''',
         track_art='https://t2.genius.com/unsafe/210x210/https%3A%2F%2Fimages.genius.com%2Fe6ff3f5469e21b48ac9c6563c82e4cae.700x700x1.jpg',
-        track_url='https://www.youtube.com/embed/QccUq66u3TQ',
+        track_url='https://www.youtube.com/watch?v=QccUq66u3TQ',
     )
 
     track12 = Track(
@@ -796,7 +796,7 @@ def seed_tracks():
         I've got you here.
         ''',
         track_art='https://t2.genius.com/unsafe/327x327/https%3A%2F%2Fimages.genius.com%2Fe45870466f6fb5973e3c181d00f81c40.1000x1000x1.jpg',
-        track_url='https://www.youtube.com/embed/4RN1qMdcgV8',
+        track_url='https://www.youtube.com/watch?v=4RN1qMdcgV8',
     )
 
     track13 = Track(
@@ -867,7 +867,7 @@ def seed_tracks():
         Whatcha doing there
         ''',
         track_art='https://t2.genius.com/unsafe/268x268/https%3A%2F%2Fimages.genius.com%2F1d8582e283f0f4d717c0ba1fe12df744.1000x1000x1.jpg',
-        track_url='https://www.youtube.com/embed/7T_KKiQiolk',
+        track_url='https://www.youtube.com/watch?v=7T_KKiQiolk',
     )
 
     track14 = Track(
@@ -935,7 +935,7 @@ def seed_tracks():
         I've got you here.
         ''',
         track_art='https://t2.genius.com/unsafe/327x327/https%3A%2F%2Fimages.genius.com%2Fe45870466f6fb5973e3c181d00f81c40.1000x1000x1.jpg',
-        track_url='https://www.youtube.com/embed/4RN1qMdcgV8',
+        track_url='https://www.youtube.com/watch?v=7T_KKiQiolk',
     )
 
 
@@ -1018,7 +1018,7 @@ def seed_tracks():
         Go Larry, go Larry, go, go, go, go, go
         ''',
         track_art='https://t2.genius.com/unsafe/327x327/https%3A%2F%2Fimages.genius.com%2F7b6dfe38098a1bc93c7bc74474735ab6.1000x1000x1.png',
-        track_url='https://www.youtube.com/embed/us3pCHd8PLs',
+        track_url='https://www.youtube.com/watch?v=us3pCHd8PLs',
     )
 
 

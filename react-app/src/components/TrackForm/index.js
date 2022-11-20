@@ -10,7 +10,7 @@ export default function CreateTrack() {
   const dispatch = useDispatch()
   const history = useHistory()
   const sessionUser = useSelector(state => state.session.user)
-  
+
   const date = new Date();
   const futureDate = date.getDate() + 3;
   date.setDate(futureDate);
@@ -125,7 +125,7 @@ export default function CreateTrack() {
                       className='add-song-input'
                       value={trackTitle}
                       placeholder="Track Title"
-                      required
+                      // required
                       onChange={(e) => setTrackTitle(e.target.value)} />
                   </div>
 
@@ -245,7 +245,7 @@ export default function CreateTrack() {
             </div>
           </div>
           <div>
-            <button className="add-song-submit" type="submit">Submit</button>
+            <button className="add-song-submit" onClick={() => window.scrollTo(0, 0)} type="submit">Submit</button>
           </div>
         </div>
       </form>

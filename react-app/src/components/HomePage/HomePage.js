@@ -66,9 +66,9 @@ const HomePage = () => {
   //   e.preventDefault();
   //   devRef.current.scrollIntoView({ behavior: "smooth" });
   // }
-// useEffect(()=> {
-//   return ()=> videoRandomizer
-// })
+  // useEffect(()=> {
+  //   return ()=> videoRandomizer
+  // })
   const videoRandomizer = () => {
     let randomVideo = {
       verified: {
@@ -78,6 +78,7 @@ const HomePage = () => {
         author: 'by ButterflyHoney /',
         date: 'Nov 9 2022',
         video: 'https://www.youtube.com/watch?v=KH7_PFZgPn4'
+        // light={videoImg}
       },
       between: {
         cat: 'BETWEEN THE LINES',
@@ -429,7 +430,7 @@ const HomePage = () => {
               LOAD MORE
             </button>
           </div> */}
-      ?
+
 
 
 
@@ -574,7 +575,7 @@ const HomePage = () => {
       </div>
 
 
-      <div className="footer">
+      <div className="home-footer">
 
         <div className="footer-inner">
           <div className="footer-message">
@@ -583,19 +584,62 @@ const HomePage = () => {
 
           <div className="footer-links">
             <ul className="footer-links-ul">
-              <li><a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Free Music</a></li>
-              <li><a href="https://media.tenor.com/Y84Uql0KSwEAAAAd/oprah-winfrey.gif">Dont click this</a></li>
-              <li><a href="https://www.musicalmum.com/what-is-a-music-genre/">Music Genre explained</a></li>
-              <li><a href="https://www.music-map.com/">Music Map</a></li>
+              <li>
+                <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+                  target="_blank"
+                  rel="noreferrer">
+                  Free Music
+                </a></li>
+              <li>
+                <a href="https://media.tenor.com/Y84Uql0KSwEAAAAd/oprah-winfrey.gif"
+                  target="_blank"
+                  rel="noreferrer">
+                  Dont click this
+                </a></li>
+              <li>
+                <a href="https://www.youtube.com/watch?v=HmZm8vNHBSU"
+                  target="_blank"
+                  rel="noreferrer">
+                  Stop Piracy
+                </a></li>
+              <li><a href="https://github.com/keshao728/Genius"
+                target="_blank"
+                rel="noreferrer">
+                Project Github
+              </a></li>
             </ul>
           </div>
 
           <div className="footer-links">
             <ul className="footer-links-ul">
-              <li><a href="https://genius.com/Genius-about-genius-annotated">About Ingenius</a></li>
-              <li><a href="https://genius.com/developers">Genius API</a></li>
-              <li><a href="https://www.youtube.com/watch?v=HmZm8vNHBSU">Stop Piracy</a></li>
-              <li><a href="https://github.com/keshao728/Genius">Contact Us</a></li>
+              <li>
+                <a href="https://github.com/keshao728"
+                  target="_blank"
+                  rel="noopener noreferrer">
+                  Kelly Shao
+                </a>
+              </li>
+              <li>
+                <a href="https://github.com/Schaeffy"
+                  target="_blank"
+                  rel="noopener noreferrer">
+                  Schaeffer Anh
+                </a>
+              </li>
+              <li>
+                <a href="https://github.com/SimonMTan"
+                  target="_blank"
+                  rel="noopener noreferrer">
+                  Simon Tan
+                </a>
+              </li>
+              <li>
+                <a href="https://github.com/k-rewd"
+                  target="_blank"
+                  rel="noopener noreferrer">
+                  Andrew Kim
+                </a>
+              </li>
             </ul>
           </div>
         </div>

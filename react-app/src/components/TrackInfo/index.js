@@ -7,6 +7,7 @@ import DeleteTrackModal from '../TrackDelete/index';
 import { actionResetTrack } from '../../store/tracks';
 import ReactPlayer from 'react-player'
 import './TrackInfo.css';
+import defaultalbum from './TrackImage/defaultalbum.png'
 import React from 'react';
 // import Vote from '../Annotation/vote';
 import { createAnnotation, actionResetAnnotation } from '../../store/annotations';
@@ -284,14 +285,15 @@ export default function TrackInfo() {
 
 
 
-
   return isLoaded && (
     <div>
       <div className="track-info-container">
 
       </div>
       <div className='track_art'>
-        <img className='album-cover' src={track.track_art}></img>
+        <img className='album-cover'
+        src={track.track_art ? track.track_art : defaultalbum}>
+        </img>
       </div>
 
       <div className='track_title_artist'>
@@ -299,10 +301,10 @@ export default function TrackInfo() {
           {track.track_title}
         </div>
         <div className='track_artist'>
-          artist: {track.artist}
+          {track.artist}
         </div>
         <div>
-          album: {track.album}
+          on {track.album}
         </div>
       </div>
       <div className='track_producer'>
@@ -393,7 +395,7 @@ export default function TrackInfo() {
             {showFact ?
               <div className="fact-div" onClick={closeFact} >
                 <div>
-                  Did you know?
+                  How to annotate a track?
                 </div>
                 <div className='open-close-fact-button'>
                   -
@@ -401,7 +403,7 @@ export default function TrackInfo() {
               </div>
               : <div className="fact-div" onClick={openFact}>
                 <div>
-                  Did you know?
+                  How to annotate a track?
                 </div>
                 <div className='open-close-fact-button'>
                   +
@@ -415,15 +417,19 @@ export default function TrackInfo() {
                 Ingenius Answer
               </div>
               <div className='fact-text'>
-                MEOWMEOWMEOWMEOW
-              </div>
+              To create an annotation,
+              click on any number of lines of lyrics to select them.
+              A button will appear to the bottom of the lyrics that reads “Start the Ingenius Annotation.” </div>
             </div>
           )}
           <div className='about-artist-wrapper'>
 
             <div className='about-artist'>
               <div className='about-album-cover'>
-                <img className="about-cover" src={track.track_art}></img>
+                <img className="about-cover"
+                  src={track.track_art ? track.track_art : defaultalbum}>
+
+                </img>
               </div>
               <div className='album-details'>
 
@@ -448,7 +454,7 @@ export default function TrackInfo() {
                   Produced by
                 </div>
                 <div>
-                  {track.produced_by}
+                  {track.produced_by ? track.produced_by : 'Unknown'}
                 </div>
               </div>
               <div className='about-credit-name'>
