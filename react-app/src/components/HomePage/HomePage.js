@@ -269,7 +269,7 @@ const HomePage = () => {
             VIDEOS
           </div>
           <div className="video-series">
-            GENIUS ORIGINAL SERIES
+            INGENIUS ORIGINAL SERIES
           </div>
 
           <div className="video-verified">
