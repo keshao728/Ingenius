@@ -749,6 +749,10 @@ figure figcaption p {
   .latest-page {
     padding: 0 130px
   }
+  .footer-message{
+    width: 100%;
+    margin-right: 10%;
+  }
 
   .bottom-latest-1,
   .bottom-latest-2,
