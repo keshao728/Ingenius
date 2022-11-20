@@ -140,7 +140,9 @@ export default function Annotations({ setShowAnnotation, showAnnotation, annotat
 
         {showAnnotation &&
           annotationsArr.map(anno => anno.id === realId ?
+<div>
 
+              <button type="button" className="cancel-show-anno" onClick={closeSubmit}>x</button>
             <div className='anno-wrap'>
               <div className="anno-child" key={anno.id} >
                 <div className='anno-title'>
@@ -152,7 +154,7 @@ export default function Annotations({ setShowAnnotation, showAnnotation, annotat
                 <div className='anno-vote'>
                   <Vote num={anno.id} />
                 </div>
-                <button type="button" className="cancel-show-anno" onClick={closeSubmit}>x</button>
+</div>
 
               </div>
             </div>

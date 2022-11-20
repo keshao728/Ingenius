@@ -13,7 +13,7 @@
     height: auto;
     /* margin-bottom: 10px; */
     background-color: #E9E9E9;
-    padding: 10% 10% 0% 10%
+    padding: 10%
 }
 
 .anno-title {
@@ -48,8 +48,8 @@
     border-radius: 50px;
     text-decoration: none;
     cursor: pointer;
-    top: -280px;
-    left: 415px;
+    top: 70px;
+    left: 460px;
 }
 
 .cancel-show-anno:hover {
