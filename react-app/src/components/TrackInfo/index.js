@@ -4,7 +4,7 @@ import { useParams, useHistory, Link, NavLink } from 'react-router-dom';
 import { getOneTrack } from '../../store/tracks';
 import EditTrackModal from '../TrackEditForm/index';
 import DeleteTrackModal from '../TrackDelete/index';
-import { actionResetTrack } from '../../store/tracks';
+// import { actionResetTrack } from '../../store/tracks';
 
 import ReactPlayer from 'react-player'
 import './TrackInfo.css';
@@ -37,7 +37,7 @@ export default function TrackInfo() {
     .then(()=>setIsLoaded(true))
 
 
-    return () => dispatch(actionResetTrack())
+    // return () => dispatch(actionResetTrack())
   }, [dispatch, user, trackId,
     simonannotation
   ])
@@ -165,7 +165,7 @@ export default function TrackInfo() {
 
   const annotations = useSelector((state) => state.tracks.oneTrack.Annotations);
 
-  const newAnnotation = useSelector(state => state.annotations.oneAnnotation)
+  // const newAnnotation = useSelector(state => state.annotations.oneAnnotation)
   // console.log('0000000000000000000000000000000000000000000000000000000000000', annotations)
   const [showAnnotation, setShowAnnotation] = useState(false)
 
@@ -285,7 +285,9 @@ export default function TrackInfo() {
   //   // console.log('-----------------------------------------------------------------------------')
   // }
 
-  }, [annotations, dispatch, showAnnotation, newAnnotation])
+  }, [annotations, dispatch, showAnnotation,
+    // newAnnotation
+  ])
 
 
   // end annotation stuff
