@@ -5,7 +5,7 @@ import { signUp } from '../../store/session';
 import { Modal } from '../../context/Modal';
 // import LoginForm from '../auth/LoginForm';
 import './SignUpForm.css';
-import defaultPro from '../UserProfile/Profile-Images/defaultpro.png'
+// import defaultPro from '../UserProfile/Profile-Images/defaultpro.png'
 
 const SignUpForm = () => {
   const user = useSelector(state => state.session.user);

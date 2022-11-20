@@ -100,7 +100,7 @@ export const createComment = (trackId, comment) => async (dispatch) => {
 
     if (response.ok) {
         const comment = await response.json();
-        console.log("THIS IS RESPONSE OK - COMMENT IN CREATECOMMENT", comment)
+        // console.log("THIS IS RESPONSE OK - COMMENT IN CREATECOMMENT", comment)
         await dispatch(actionCreateComment(trackId, comment))
         return comment
     }
