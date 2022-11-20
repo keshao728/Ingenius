@@ -191,5 +191,17 @@ li {
   font-size: 12px;
   font-weight: bold;
   margin-bottom: 50px;
-  
+  cursor: pointer;
+  transition: 0.4s;
+}
+
+.add-song-submit:hover{
+  background-color: #262626;
+  color: white;
+  padding: 6px 10px;
+  font-size: 12px;
+  font-weight: bold;
+  margin-bottom: 50px;
+  cursor: pointer;
+  opacity: 0.8;
 }
