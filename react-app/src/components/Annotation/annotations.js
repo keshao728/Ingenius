@@ -120,13 +120,19 @@ export default function Annotations({ setShowAnnotation, showAnnotation, annotat
         {showAnnotation &&
           annotationsArr.map(anno => anno.id === annotationId ?
 
-            <div className='annotation-container'>
-                <div key={anno.id} >
-                  {anno.annotation_body}
-                  <div>
-                    <Vote num={anno.id} />
-                  </div>
+            <div className='anno-wrap'>
+              <div key={anno.id} >
+                <div className='anno-title'>
+                  Ingenius Annotation
                 </div>
+                <div className='anno-body'>
+
+                  {anno.annotation_body}
+                </div>
+                <div className='anno-vote'>
+                  <Vote num={anno.id} />
+                </div>
+              </div>
             </div>
 
 
