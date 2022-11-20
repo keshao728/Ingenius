@@ -25,6 +25,7 @@ export default function TrackInfo() {
   const dispatch = useDispatch()
   const track = useSelector(state => state.tracks.oneTrack)
   const user = useSelector(state => state.session.user)
+  const simonannotation = useSelector(state => state.annotations.allAnnotations)
   // console.log("awdeeeeeeeeeeeeeeeeeeeeeewwwwwadw", track)
   const history = useHistory()
   const [showFact, setShowFact] = useState(true);
@@ -37,7 +38,7 @@ export default function TrackInfo() {
 
 
     return () => dispatch(actionResetTrack())
-  }, [dispatch, user, trackId])
+  }, [dispatch, user, trackId,simonannotation])
 
 
   const openFact = () => {
