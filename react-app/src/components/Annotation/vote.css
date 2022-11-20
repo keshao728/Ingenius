@@ -13,6 +13,13 @@
 
 }
 
+@media (max-width: 1500px) {
+    .anno-vote-wrap{
+       left: 15px;
+    }
+}
+
+
 .anno-vote-wrap:after,
 .anno-vote-wrap:before {
     content: '';

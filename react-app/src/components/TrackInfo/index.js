@@ -250,10 +250,10 @@ export default function TrackInfo() {
           {track.track_title}
         </div>
         <div className='track_artist'>
-          artist: {track.artist}
+          {track.artist}
         </div>
         <div>
-          album: {track.album}
+          on {track.album}
         </div>
       </div>
       <div className='track_producer'>
