@@ -96,7 +96,7 @@ export default function DisplayLyrics({ track, setAnnotating, setDocu }) {
                 span.classList.add('bold-me')
             }
         }
-    })
+    },)
 
 
 

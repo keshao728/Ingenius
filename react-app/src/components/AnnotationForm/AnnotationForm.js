@@ -13,6 +13,7 @@ const AnnotationForm = ({ setDocu, docu, setAnnotated, spanIds, setShowAnnotatio
   const [validationErrors, setValidationErrors] = useState([])
   const [displayErrors, setDisplayErrors] = useState(false)
   const [showMenu, setShowMenu] = useState(false);
+  const[showano , setShowano] = useState(false)
   // const [startingIndex, setStaringtIndex] = useState(startIndex)
   // const [endingIndex, setEndingIndex] = useState(endIndex)
 
@@ -30,6 +31,7 @@ const AnnotationForm = ({ setDocu, docu, setAnnotated, spanIds, setShowAnnotatio
   const openMenu = () => {
     if (showMenu) return;
     setShowMenu(true);
+    setShowano(true)
   };
 
   const closeSubmit = (e) => {
@@ -67,6 +69,7 @@ const AnnotationForm = ({ setDocu, docu, setAnnotated, spanIds, setShowAnnotatio
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    // setShowMenu(false);
     setDisplayErrors(true)
     setAnnotated(false)
 
@@ -94,7 +97,9 @@ const AnnotationForm = ({ setDocu, docu, setAnnotated, spanIds, setShowAnnotatio
   if (sessionUser) {
     sessionLinks = (
       <div className='annotation-wrapper'>
+        {!showano &&
         <button className="annotation-button" onClick={openMenu}> Start the Ingenius Annotation </button>
+        }
         {showMenu &&
           <form className="annotation-form-parent" onSubmit={handleSubmit}>
             {/* <div className='annotate-text'>Annotate</div> */}
@@ -134,6 +139,7 @@ const AnnotationForm = ({ setDocu, docu, setAnnotated, spanIds, setShowAnnotatio
               </div>
             </div>
           </form>
+
         }
       </div>
     )

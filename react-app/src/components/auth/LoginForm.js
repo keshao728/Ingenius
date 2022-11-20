@@ -20,8 +20,16 @@ const LoginForm = () => {
     setShowErrors(true)
     const data = await dispatch(login(email, password));
     if (data) {
-      setErrors(data);
+      let err = []
+      for (let error of data) {
+        if(error.startsWith('email'))err.push('email: Invalid email')
+        if(error.startsWith('password'))err.push('password: Invalid password')
+        setErrors(err)
+      // setErrors(data);
+      }
+    return
     }
+    return
   };
 
   const onCloseModal = () => {
@@ -52,7 +60,7 @@ const LoginForm = () => {
             {showErrors &&(
             <div className='errorsmsgs'>
               {errors.map((error, ind) => (
-                <div className='errors' key={ind}>{error}</div>
+                <li className='errors' key={ind}>{error}</li>
               ))}
             </div>
             )}

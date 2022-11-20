@@ -139,10 +139,11 @@
   background: none;
   font-size: 12px;
   cursor: pointer;
+  /* position:element(.button1); */
   /* margin-right: 3px; */
-  position: relative;
-  left: -470px;
-  top: -81px;
+  /* position: relative; */
+  /* left: -470px;
+  top: -81px; */
   height: 29px;
   width: 200px;
 }

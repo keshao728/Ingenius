@@ -219,12 +219,12 @@ export default function TrackInfo() {
 
 
   // useEffect(() => {
-  //   if (showAnnotation) {
-  //     document.addEventListener('click', () => setShowAnnotation(false))
+  //   if (showAnnotation === true) {
+  //     document.addEventListener('click', () => setShowAnnotation(!showAnnotation))
   //   }
 
-  //   return () => document.removeEventListener('click', () =>setShowAnnotation(false))
-  // })
+  //   return () => document.removeEventListener('click', () => setShowAnnotation(!showAnnotation))
+  // },[showAnnotation])
 
 
 
@@ -243,10 +243,10 @@ export default function TrackInfo() {
           {track.track_title}
         </div>
         <div className='track_artist'>
-          {track.artist}
+          artist: {track.artist}
         </div>
         <div>
-          on {track.album} (album)
+           album: {track.album} 
         </div>
       </div>
       <div className='track_producer'>
@@ -376,7 +376,7 @@ export default function TrackInfo() {
                   </div>
 
                   <div className='about-track-des'>
-                    on {track.album} (album)
+                    track: {track.album}
                   </div>
 
                 </div>

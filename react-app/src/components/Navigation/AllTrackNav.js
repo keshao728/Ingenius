@@ -153,11 +153,11 @@ const AllTrackNav = () => {
     }
   return (
     <div>
-        <div className='survey'>
+        {/* <div className='survey'>
             <div className='work_in_progress'>
             🚧  The new song page is a work in progress! 🚧
             </div>
-        </div>
+        </div> */}
         <div className="main-nav-alltrack">
             <div className='main-nav-alltrack-container'>
                 <div className="main-nav-list-alltrack-left">
