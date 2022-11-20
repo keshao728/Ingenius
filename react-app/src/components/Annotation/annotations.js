@@ -161,8 +161,8 @@ export default function Annotations({ setShowAnnotation, showAnnotation, annotat
 
 
             :
-            // null
-            <h1>wrong id</h1>
+            null
+            // <h1>wrong id</h1>
             )}
 
       </>

@@ -4,7 +4,7 @@ import { useParams, useHistory, Link, NavLink } from 'react-router-dom';
 import { getOneTrack } from '../../store/tracks';
 import EditTrackModal from '../TrackEditForm/index';
 import DeleteTrackModal from '../TrackDelete/index';
-import { actionResetTrack } from '../../store/tracks';
+// import { actionResetTrack } from '../../store/tracks';
 
 import ReactPlayer from 'react-player'
 import './TrackInfo.css';
@@ -27,7 +27,7 @@ export default function TrackInfo() {
   const user = useSelector(state => state.session.user)
   const simonannotation = useSelector(state => state.annotations.allAnnotations)
   // console.log("awdeeeeeeeeeeeeeeeeeeeeeewwwwwadw", track)
-  const history = useHistory()
+  // const history = useHistory()
   const [showFact, setShowFact] = useState(true);
   const [isLoaded, setIsLoaded] = useState(false)
 
@@ -37,8 +37,10 @@ export default function TrackInfo() {
     .then(()=>setIsLoaded(true))
 
 
-    return () => dispatch(actionResetTrack())
-  }, [dispatch, user, trackId,simonannotation])
+    // return () => dispatch(actionResetTrack())
+  }, [dispatch, user, trackId,
+    simonannotation
+  ])
 
 
   const openFact = () => {
@@ -163,7 +165,7 @@ export default function TrackInfo() {
 
   const annotations = useSelector((state) => state.tracks.oneTrack.Annotations);
 
-  const newAnnotation = useSelector(state => state.annotations.oneAnnotation)
+  // const newAnnotation = useSelector(state => state.annotations.oneAnnotation)
   // console.log('0000000000000000000000000000000000000000000000000000000000000', annotations)
   const [showAnnotation, setShowAnnotation] = useState(false)
 
@@ -201,7 +203,7 @@ export default function TrackInfo() {
       // let siu = annotations.map(anno => anno.span_ids.split(',').map(e => e.includes(currentAnno)))
       // let siu = annotations.map(anno => anno.span_ids.split(',')?.find(e => e === currentAnno) ? anno?.id : null)
       let id = annotations?.filter(anno => anno.span_ids.split(',').find(e => e === currentAnno))[0].id
-      // console.log('SSSSSSSSSIIIIIIIIIIIIIIIUUUUUUUUUUUUUUUUUUUUUUUUUU', annotations?.filter(anno => anno.span_ids.split(',').find(e => e === currentAnno)))
+      console.log('SSSSSSSSSIIIIIIIIIIIIIIIUUUUUUUUUUUUUUUUUUUUUUUUUU', annotations?.filter(anno => anno.span_ids.split(',').find(e => e === currentAnno)))
 
 
 
@@ -242,48 +244,50 @@ export default function TrackInfo() {
     }
     // console.log('-----------------------------------------------------------------------------', newAnnotation)
 
-    function getNewAnno(e) {
+  //   function getNewAnno(e) {
 
-      let currentAnno = e.currentTarget.id
-      // console.log('CURRENT ANNO', currentAnno)
-      // console.log('AAAAAAAAAAAAAAAANNNNNNNNNNNNDDDDDDDDDREW', newAnnotation?.span_ids.split(','))
+  //     let currentAnno = e.currentTarget.id
+  //     // console.log('CURRENT ANNO', currentAnno)
+  //     // console.log('AAAAAAAAAAAAAAAANNNNNNNNNNNNDDDDDDDDDREW', newAnnotation?.span_ids.split(','))
 
-      // console.log('SPLITTED', newAnnotation?.span_ids.split(','))
+  //     // console.log('SPLITTED', newAnnotation?.span_ids.split(','))
 
-      // console.log('FINDED', newAnnotation?.span_ids.split(',').find(e => e === currentAnno))
+  //     // console.log('FINDED', newAnnotation?.span_ids.split(',').find(e => e === currentAnno))
 
-      let id = newAnnotation?.span_ids.split(',').find(e => e === currentAnno)
+  //     let id = newAnnotation?.span_ids.split(',').find(e => e === currentAnno)
 
-      // console.log('AAAAAAAAAAAAAAAANNNNNNNNNNNNDDDDDDDDDREW', newAnnotation?.span_ids.split(','))
-      // console.log('AAAAAAAAAAAAAAAANNNNNNNNNNNNDDDDDDDDDREW', id)
+  //     // console.log('AAAAAAAAAAAAAAAANNNNNNNNNNNNDDDDDDDDDREW', newAnnotation?.span_ids.split(','))
+  //     console.log('AAAAAAAAAAAAAAAANNNNNNNNNNNNDDDDDDDDDREW', id)
 
 
-      setAnnotationId(id)
-      setIsLoaded(true)
+  //     // setAnnotationId(id)
+  //     setIsLoaded(true)
 
-    }
+  //   }
 
-    if (newAnnotation) {
+  //   if (newAnnotation) {
 
-      // console.log(annotation.span_ids.split(','))
-      // newAnnotation?.span_ids?.split(',').map(anno =>
-      //   document?.getElementById(anno).classList.add('annotated')
-      // )
-      // console.log('LLLLLLLLLLLLLLLLLLLLL',newAnnotation?.span_ids?.split(','))
-      // console.log('LLLLLLLLLLLLLLLLLLLLL',newAnnotation?.span_ids?.split(',').map(anno =>
-      //   document?.getElementById(anno)))
+  //     // console.log(annotation.span_ids.split(','))
+  //     // newAnnotation?.span_ids?.split(',').map(anno =>
+  //     //   document?.getElementById(anno).classList.add('annotated')
+  //     // )
+  //     // console.log('LLLLLLLLLLLLLLLLLLLLL',newAnnotation?.span_ids?.split(','))
+  //     // console.log('LLLLLLLLLLLLLLLLLLLLL',newAnnotation?.span_ids?.split(',').map(anno =>
+  //     //   document?.getElementById(anno)))
 
-      // console.log('LLLLLLLLLLLLLLLLLLLLL',newAnnotation?.span_ids?.split(',').map(anno =>
-      //   document?.getElementById(anno)?.addEventListener('click', (e) => { setShowAnnotation(true); getNewAnno(e) })))
-      newAnnotation?.span_ids?.split(',').map(anno =>
-        document?.getElementById(anno)?.addEventListener('click', (e) => { setShowAnnotation(true); getNewAnno(e) })
-      )
+  //     // console.log('LLLLLLLLLLLLLLLLLLLLL',newAnnotation?.span_ids?.split(',').map(anno =>
+  //     //   document?.getElementById(anno)?.addEventListener('click', (e) => { setShowAnnotation(true); getNewAnno(e) })))
+  //     newAnnotation?.span_ids?.split(',').map(anno =>
+  //       document?.getElementById(anno)?.addEventListener('click', (e) => { setShowAnnotation(true); getNewAnno(e) })
+  //     )
 
-      // console.log(splitted)
-    // console.log('-----------------------------------------------------------------------------')
-  }
+  //     // console.log(splitted)
+  //   // console.log('-----------------------------------------------------------------------------')
+  // }
 
-  }, [annotations, dispatch, showAnnotation, newAnnotation])
+  }, [annotations, dispatch, showAnnotation,
+    // newAnnotation
+  ])
 
 
   // end annotation stuff
