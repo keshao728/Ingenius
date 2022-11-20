@@ -366,10 +366,9 @@ export default function TrackInfo() {
                 Ingenius Answer
               </div>
               <div className='fact-text'>
-                To create an annotation,
-                select any amount of lines of lyrics by clickin over them.
-                A button will appear to the bottom of the lyrics that reads “Start the Ingenius Annotation.”
-              </div>
+              To create an annotation,
+              click on any number of lines of lyrics to select them.
+              A button will appear to the bottom of the lyrics that reads “Start the Ingenius Annotation.” </div>
             </div>
           )}
           <div className='about-artist-wrapper'>
