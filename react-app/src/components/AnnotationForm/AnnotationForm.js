@@ -93,6 +93,11 @@ const AnnotationForm = ({ setDocu, docu, setAnnotated, spanIds, setShowAnnotatio
         // setAnnotating(false)
         setShowMenu(false)
       }
+
+      if (docu.length) {
+        for (let doc of docu)
+          doc.className = 'annotated'
+      }
     }
   }
 

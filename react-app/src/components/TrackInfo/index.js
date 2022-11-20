@@ -160,6 +160,8 @@ export default function TrackInfo() {
 
 
   const annotations = useSelector((state) => state.tracks.oneTrack.Annotations);
+
+  const newAnnotation = useSelector(state => state.annotations.oneAnnotation)
   // console.log('0000000000000000000000000000000000000000000000000000000000000', annotations)
   const [showAnnotation, setShowAnnotation] = useState(false)
 
@@ -197,7 +199,19 @@ export default function TrackInfo() {
       // let siu = annotations.map(anno => anno.span_ids.split(',').map(e => e.includes(currentAnno)))
       // let siu = annotations.map(anno => anno.span_ids.split(',')?.find(e => e === currentAnno) ? anno?.id : null)
       let id = annotations?.filter(anno => anno.span_ids.split(',').find(e => e === currentAnno))[0].id
-      // console.log('SSSSSSSSSIIIIIIIIIIIIIIIUUUUUUUUUUUUUUUUUUUUUUUUUU', id)
+      // console.log('SSSSSSSSSIIIIIIIIIIIIIIIUUUUUUUUUUUUUUUUUUUUUUUUUU', annotations?.filter(anno => anno.span_ids.split(',').find(e => e === currentAnno)))
+
+      // let found = annotations?.filter(anno => anno.span_ids.split(',').find(e => e === currentAnno))[0].span_ids
+
+      // found.split(',').forEach(element => {
+      //   if (showAnnotation){
+      //     document.getElementById(element).classList.add('now-annotating')
+      //   }
+      //   if(!showAnnotation) document.getElementById(element).classList.remove('now-annotating')
+      // });
+      // console.log('SSSSSSSSSIIIIIIIIIIIIIIIUUUUUUUUUUUUUUUUUUUUUUUUUU', found.split(','))
+
+
       setAnnotationId(id)
       setIsLoaded(true)
     }
@@ -217,8 +231,45 @@ export default function TrackInfo() {
       }
       // console.log('-----------------------------------------------------------------------------')
     }
+    // console.log('-----------------------------------------------------------------------------', newAnnotation)
 
-  }, [annotations, dispatch, showAnnotation])
+    function getNewAnno(e) {
+
+      let currentAnno = e.currentTarget.id
+      // console.log('CURRENT ANNO', currentAnno)
+      // console.log('AAAAAAAAAAAAAAAANNNNNNNNNNNNDDDDDDDDDREW', newAnnotation?.span_ids.split(','))
+
+      // console.log('SPLITTED', newAnnotation?.span_ids.split(','))
+
+      // console.log('FINDED', newAnnotation?.span_ids.split(',').find(e => e === currentAnno))
+
+      let id = newAnnotation?.span_ids.split(',').find(e => e === currentAnno)
+
+      // console.log('AAAAAAAAAAAAAAAANNNNNNNNNNNNDDDDDDDDDREW', newAnnotation?.span_ids.split(','))
+      // console.log('AAAAAAAAAAAAAAAANNNNNNNNNNNNDDDDDDDDDREW', id)
+
+
+      setAnnotationId(id)
+      setIsLoaded(true)
+
+    }
+
+    if (newAnnotation) {
+
+      // console.log(annotation.span_ids.split(','))
+      // newAnnotation?.span_ids?.split(',').map(anno =>
+      //   document?.getElementById(anno).classList.add('annotated')
+      // )
+      // console.log('LLLLLLLLLLLLLLLLLLLLL',newAnnotation?.span_ids?.split(','))
+      newAnnotation?.span_ids?.split(',').map(anno =>
+        document?.getElementById(anno).addEventListener('click', (e) => { setShowAnnotation(true); getNewAnno(e) })
+      )
+
+      // console.log(splitted)
+    // console.log('-----------------------------------------------------------------------------')
+  }
+
+  }, [annotations, dispatch, showAnnotation, newAnnotation])
 
 
   // end annotation stuff
