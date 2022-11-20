@@ -4,7 +4,7 @@
     position: absolute;
     /* z-index: 2; */
     left: 15%;
-    top: 15%;
+    top: 12%;
     object-fit: contain;
     height: 310px;
     width: 310px;
@@ -17,7 +17,7 @@
     position: absolute;
     /* z-index: 2; */
     left: 35%;
-    top: 15%;
+    top: 12%;
     color: black;
     font-size: 17px;
 }
@@ -37,7 +37,7 @@
     position: absolute;
     /* z-index: 2; */
     font-size: 12px;
-    top: 15%;
+    top: 12%;
     left: 60%;
     color: black;
 }
@@ -52,7 +52,7 @@
     flex-direction: column;
     position: absolute;
     /* z-index: 2; */
-    top: 15%;
+    top: 12%;
     left: 74%;
     color: black;
     font-size: 12px;
@@ -70,7 +70,7 @@
 }
 
 .body_page {
-    padding: 20px 20%
+    padding: 0px 20%
         /* margin-top: 10px;
     margin-left: 20%;
     margin-right: 20%;
@@ -87,9 +87,6 @@
     flex-direction: column;
 }
 
-/* .lyric-track{ */
-/* width: 400px; */
-/* } */
 
 .buttons {
     display: flex;
@@ -99,12 +96,14 @@
     /* margin-right: 20%; */
     margin-bottom: 30px;
     margin-top: 30px;
+    margin-right:30px;
 }
 
 .button1,
 .button2 {
     padding-right: 5px;
     padding-top: 40px;
+    margin-right:20px;
 }
 
 
@@ -123,6 +122,7 @@
     /* width: 100%; */
     font-size: 18px;
     line-height: 30px;
+    /* padding: 10px 0px; */
     font-weight: 500;
 
 }
@@ -303,4 +303,3 @@
         left:60%;
     }
 }
-

@@ -66,6 +66,114 @@ const HomePage = () => {
   //   e.preventDefault();
   //   devRef.current.scrollIntoView({ behavior: "smooth" });
   // }
+// useEffect(()=> {
+//   return ()=> videoRandomizer
+// })
+  const videoRandomizer = () => {
+    let randomVideo = {
+      verified: {
+        cat: 'VERIFIED',
+        title: 'Chlöe Breaks Down The Meaning of “For The Night”',
+        description: "Learn about the song’s lyrics on the latest episode of ‘Verified.’",
+        author: 'by ButterflyHoney /',
+        date: 'Nov 9 2022',
+        video: 'https://www.youtube.com/watch?v=KH7_PFZgPn4'
+        // light={videoImg}
+      },
+      between: {
+        cat: 'BETWEEN THE LINES',
+        title: "Vin Diesel & Ludacris Explain 'Fast & Furious' Lyrical References",
+        description: "The F9 stars dicussed the bars that reference the film franchise",
+        author: 'Rahel Bereyes /',
+        date: 'Nov 16 2022',
+        video: 'https://www.youtube.com/watch?v=q5Mqa3GZeog'
+      },
+      irl: {
+        cat: 'IRL',
+        title: 'H.E.R Talks Black Music Icons & Cooks Authentic Filipino Dishes',
+        description: 'H.E.R. reflects on her upbringing in a mixed ethnic household and her career',
+        author: 'Rob Markman /',
+        date: 'Feb 20 2020',
+        video: 'https://www.youtube.com/watch?v=XL8C4tnO8Jk'
+      },
+      open: {
+        cat: 'OPEN MIC',
+        title: 'Dvsn Performs "If I Get Caught" Live',
+        description: "Watch him perform the song on the latest episode of ‘Open Mic.’",
+        author: 'ButterflyHoney /',
+        date: 'Sep 1 2022',
+        video: 'https://www.youtube.com/watch?v=-Qsh2zbT-1Q'
+      },
+      decon: {
+        cat: 'DECONSTRUCTED',
+        title: 'The Making Of BTS - Dynamite With David Stewart',
+        description: 'UK Producer Breaks Down How The Song Was Made',
+        author: 'Ndeye Thioubou /',
+        date: 'Nov 18 2020',
+        video: 'https://www.youtube.com/watch?v=qBCM1Fy-ByY'
+      }
+    }
+    const entries = Object.entries(randomVideo)
+    const randoEntry = Object.values(entries[Math.floor(Math.random() * entries.length)])[1]
+    // console.log('0000000000000000000000000000000000000000000',randoEntry)
+    return (
+      <div className="video-wrapper">
+        <div className="video-title">
+          VIDEOS
+        </div>
+        <div className="video-series">
+          INGENIUS ORIGINAL SERIES
+        </div>
+
+        <div className="video-verified">
+          <div>
+            <ReactPlayer
+              width="830px"
+              height="480px"
+              // playIcon={vidplay}
+              // light={videoImg}
+              url={randoEntry.video}
+            // react-player__preview={videoImg}
+            />
+
+            {/* <iframe className="video"
+              //IT'S AUTOPLAYING!!! STAHP IT
+              src='//players.brightcove.net/4863540648001/S1ZcmcOC1x_default/index.html?videoId=6315238407112' width="850"
+              height="480" frameborder="0" allow="fullscreen" allowfullscreen></iframe> */}
+          </div>
+          <div className="video-right">
+            <div className="video-right-verified">
+              {randoEntry.cat}
+            </div>
+            <div className="video-verified-wrapper">
+              <div className="video-verified-title">
+                {randoEntry.title}
+              </div>
+              <div className="video-verified-description">
+                {randoEntry.description}
+              </div>
+
+              <div className="video-verified-author-date">
+                <div className="video-verified-author">
+                  {randoEntry.author}
+                </div>
+
+                <div className="top-feature-date">
+                  {randoEntry.date}
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+        {/* <div className="video-button">
+          <button className="video-load-more">
+            LOAD MORE
+          </button>
+        </div> */}
+      </div>
+    )
+  }
 
 
   useEffect(() => {
@@ -95,24 +203,27 @@ const HomePage = () => {
             <div className="top-feature-news" >
               NEWS
             </div>
-            <div className="top-feature-news-wrapper">
-              <div className="top-feature-title">
-                Gucci Mane Remembers Takeoff and Other Fallen Rappers On New Song “Letter To Takeoff”
-              </div>
-              <div className="top-feature-description">
-                Gucci also pays respect to Shawty Lo, Young Dolph, and PnB Rock, among others.
-              </div>
+            <a className="dev-text-link" href="https://genius.com/a/gucci-mane-remembers-takeoff-and-other-fallen-rappers-on-new-song-letter-to-takeoff" target="_blank" rel="noreferrer">
 
-              <div className="top-feature-author-date">
-                <div className="top-feature-author">
-                  by Ken Partridge /
+              <div className="top-feature-news-wrapper">
+                <div className="top-feature-title">
+                  Gucci Mane Remembers Takeoff and Other Fallen Rappers On New Song “Letter To Takeoff”
+                </div>
+                <div className="top-feature-description">
+                  Gucci also pays respect to Shawty Lo, Young Dolph, and PnB Rock, among others.
                 </div>
 
-                <div className="top-feature-date">
-                  Nov 16 2022
+                <div className="top-feature-author-date">
+                  <div className="top-feature-author">
+                    by Ken Partridge /
+                  </div>
+
+                  <div className="top-feature-date">
+                    Nov 16 2022
+                  </div>
                 </div>
               </div>
-            </div>
+            </a>
           </div>
 
           <div className="top-feature-right">
@@ -121,86 +232,84 @@ const HomePage = () => {
         </div>
         <div className="bottom-feature">
           <div className="bottom-feature-1">
-            <div>
-
-              <div id="dev">NEWS</div>
+            <div id="dev">NEWS</div>
+            <a className="dev-text-link" href="https://genius.com/a/cigarettes-after-sex-pine-for-their-ex-on-new-song-pistol" target="_blank" rel="noreferrer">
               <div className="dev-text">
                 Cigarettes After Sex Pine For Their Ex On New Song “Pistol”
               </div>
-            </div>
-            <div>
+              <div className='top-bottom-feature'>
+                <div className="top-feature-author-date2">
+                  <div className="top-feature-author">
+                    by Ken Partridge /
+                  </div>
 
-              <div className="top-feature-author-date2">
-                <div className="top-feature-author">
-                  by Ken Partridge /
+                  <div className="top-feature-date">
+                    Nov 16 2022
+                  </div>
                 </div>
-
-                <div className="top-feature-date">
-                  Nov 16 2022
-                </div>
+                <img id="individual-fries" src={feature2} alt="Logo"></img>
               </div>
-              <img id="individual-fries" src={feature2} alt="Logo"></img>
-            </div>
-          </div>
-          <div className="bottom-feature-2">
-            <div>
-              <div id="dev">NEWS</div>
-              <div className="dev-text">
-                Rihanna Will Fight Until The End On New ‘Black Panther: Wakanda Forever’ Song “Born Again”
-              </div>
-            </div>
-            <div>
-              <div className="top-feature-author-date2">
-                <div className="top-feature-author">
-                  by Leah Degrazia /
-                </div>
-
-                <div className="top-feature-date">
-                  Nov 11 2022
-                </div>
-              </div>
-              <img id="individual-fries" src={feature3} alt="Logo"></img>
-            </div>
+            </a>
           </div>
           <div className="bottom-feature-3">
-            <div>
-              <div id="dev">NEWS</div>
+            <div id="dev">NEWS</div>
+            <a className="dev-text-link" href="https://genius.com/a/roddy-ricch-showcases-his-chemistry-with-lil-durk-on-new-single-twin" target="_blank" rel="noreferrer">
               <div className="dev-text">
                 Roddy Ricch Showcases His Chemistry With Lil Durk On New Single “Twin”
               </div>
-            </div>
-            <div>
-              <div className="top-feature-author-date2">
-                <div className="top-feature-author">
-                  by Ken Partridge /
-                </div>
+              <div className='top-bottom-feature'>
+                <div className="top-feature-author-date2">
+                  <div className="top-feature-author">
+                    by Ken Partridge /
+                  </div>
 
-                <div className="top-feature-date">
-                  Nov 15 2022
+                  <div className="top-feature-date">
+                    Nov 15 2022
+                  </div>
                 </div>
+                <img id="individual-fries" src={feature4} alt="Logo"></img>
               </div>
-              <img id="individual-fries" src={feature4} alt="Logo"></img>
-            </div>
+            </a>
           </div>
           <div className="bottom-feature-4">
-            <div>
-              <div id="dev">NEWS</div>
+            <div id="dev">NEWS</div>
+            <a className="dev-text-link" href="https://genius.com/a/nas-celebrates-his-home-borough-of-queens-on-new-song-thun" target="_blank" rel="noreferrer">
               <div className="dev-text">
                 Nas Celebrates His Home Borough of Queens On New Song “Thun”
               </div>
-            </div>
-            <div>
-              <div className="top-feature-author-date2">
-                <div className="top-feature-author">
-                  by Ken Partridge /
-                </div>
+              <div className='top-bottom-feature'>
+                <div className="top-feature-author-date2">
+                  <div className="top-feature-author">
+                    by Ken Partridge /
+                  </div>
 
-                <div className="top-feature-date">
-                  Nov 14 2022
+                  <div className="top-feature-date">
+                    Nov 14 2022
+                  </div>
                 </div>
+                <img id="individual-fries" src={feature5} alt="Logo"></img>
               </div>
-              <img id="individual-fries" src={feature5} alt="Logo"></img>
-            </div>
+            </a>
+          </div>
+          <div className="bottom-feature-2">
+            <div id="dev">NEWS</div>
+            <a className="dev-text-link" href="https://genius.com/a/rihanna-will-fight-until-the-end-on-new-black-panther-wakanda-forever-song-born-again" target="_blank" rel="noreferrer">
+              <div className="dev-text">
+                Rihanna Will Fight Until The End On New ‘Black Panther: Wakanda Forever’ Song “Born Again”
+              </div>
+              <div className='top-bottom-feature'>
+                <div className="top-feature-author-date2">
+                  <div className="top-feature-author">
+                    by Leah Degrazia /
+                  </div>
+
+                  <div className="top-feature-date">
+                    Nov 11 2022
+                  </div>
+                </div>
+                <img id="individual-fries" src={feature3} alt="Logo"></img>
+              </div>
+            </a>
           </div>
         </div>
       </div>
@@ -247,14 +356,14 @@ const HomePage = () => {
 
         <div className='load-track-container'>
 
-            {allTracks.length > showTracks ? <div className="track-button"><button className="track-load-more" onClick={() => setShowTracks(showTracks + 5)}>
-              LOAD MORE
-            </button></div> : ''}
+          {allTracks.length > showTracks ? <div className="track-button"><button className="track-load-more" onClick={() => setShowTracks(showTracks + 5)}>
+            LOAD MORE
+          </button></div> : ''}
 
 
-            {showTracks > 5 ? <div className="track-button"><button className="track-load-more" onClick={() => setShowTracks(showTracks - 5)}>
-              SHOW LESS
-            </button></div> : ''}
+          {showTracks > 5 ? <div className="track-button"><button className="track-load-more" onClick={() => setShowTracks(showTracks - 5)}>
+            SHOW LESS
+          </button></div> : ''}
 
         </div>
 
@@ -263,13 +372,16 @@ const HomePage = () => {
       {/* VIDEOS - ALL PLACEHOLDERS RN!!!!!!!!! */}
       {/* <div className="video-page" ref={videoRef} id='testing'> */}
       <div className="video-page" id='video'>
+        {videoRandomizer()}
+      </div>
+      {/* <div className="video-page" id='video'>
 
         <div className="video-wrapper">
           <div className="video-title">
             VIDEOS
           </div>
           <div className="video-series">
-            GENIUS ORIGINAL SERIES
+            INGENIUS ORIGINAL SERIES
           </div>
 
           <div className="video-verified">
@@ -281,13 +393,13 @@ const HomePage = () => {
                 light={videoImg}
                 url="https://www.youtube.com/watch?v=KH7_PFZgPn4&ab_channel=Genius"
               // react-player__preview={videoImg}
-              />
+              /> */}
 
-              {/* <iframe className="video"
+      {/* <iframe className="video"
                 //IT'S AUTOPLAYING!!! STAHP IT
                 src='//players.brightcove.net/4863540648001/S1ZcmcOC1x_default/index.html?videoId=6315238407112' width="850"
                 height="480" frameborder="0" allow="fullscreen" allowfullscreen></iframe> */}
-            </div>
+      {/* </div>
             <div className="video-right">
               <div className="video-right-verified">
                 VERIFIED
@@ -312,14 +424,13 @@ const HomePage = () => {
               </div>
 
             </div>
-          </div>
-          {/* <div className="video-button">
+          </div> */}
+      {/* <div className="video-button">
             <button className="video-load-more">
               LOAD MORE
             </button>
           </div> */}
-        </div>
-      </div>
+      ?
 
 
 

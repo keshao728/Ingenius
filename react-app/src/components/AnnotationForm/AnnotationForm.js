@@ -13,6 +13,9 @@ const AnnotationForm = ({ setDocu, docu, setAnnotated, spanIds, setShowAnnotatio
   const [validationErrors, setValidationErrors] = useState([])
   const [displayErrors, setDisplayErrors] = useState(false)
   const [showMenu, setShowMenu] = useState(false);
+  const [showano, setShowano] = useState(false)
+  // const [isLoaded, setIsLoaded] = useState(false)
+
   // const [startingIndex, setStaringtIndex] = useState(startIndex)
   // const [endingIndex, setEndingIndex] = useState(endIndex)
 
@@ -29,7 +32,9 @@ const AnnotationForm = ({ setDocu, docu, setAnnotated, spanIds, setShowAnnotatio
 
   const openMenu = () => {
     if (showMenu) return;
+
     setShowMenu(true);
+    setShowano(true)
   };
 
   const closeSubmit = (e) => {
@@ -67,10 +72,12 @@ const AnnotationForm = ({ setDocu, docu, setAnnotated, spanIds, setShowAnnotatio
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    // setShowMenu(false);
     setDisplayErrors(true)
     setAnnotated(false)
 
     if (!validationErrors.length) {
+      // setShowMenu(false);
       setDisplayErrors(false)
       const payload = {
         annotation_body: annotation,
@@ -94,7 +101,9 @@ const AnnotationForm = ({ setDocu, docu, setAnnotated, spanIds, setShowAnnotatio
   if (sessionUser) {
     sessionLinks = (
       <div className='annotation-wrapper'>
-        <button className="annotation-button" onClick={openMenu}> Start the Ingenius Annotation </button>
+        {!showano &&
+          <button className="annotation-button" onClick={openMenu}> Start the Ingenius Annotation </button>
+        }
         {showMenu &&
           <form className="annotation-form-parent" onSubmit={handleSubmit}>
             {/* <div className='annotate-text'>Annotate</div> */}
@@ -109,15 +118,15 @@ const AnnotationForm = ({ setDocu, docu, setAnnotated, spanIds, setShowAnnotatio
                   // onClick={openSubmit}
                   required
                   onChange={(e) => setAnnotation(e.target.value)}
-                  />
-                  {displayErrors && (
-                    <ul className="annotation-form-errors">
-                      {validationErrors.length > 0 &&
-                        validationErrors.map(error => (
-                          <li className="annotation-form-error-text" key={error}>{error}</li>
-                        ))}
-                    </ul>
-                  )}
+                />
+                {displayErrors && (
+                  <ul className="annotation-form-errors">
+                    {validationErrors.length > 0 &&
+                      validationErrors.map(error => (
+                        <li className="annotation-form-error-text" key={error}>{error}</li>
+                      ))}
+                  </ul>
+                )}
 
                 {/* <input hidden type='number' value={startIndex}></input>
                 <input hidden type='number' value={endIndex}></input> */}
@@ -134,6 +143,7 @@ const AnnotationForm = ({ setDocu, docu, setAnnotated, spanIds, setShowAnnotatio
               </div>
             </div>
           </form>
+
         }
       </div>
     )

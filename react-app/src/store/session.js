@@ -160,17 +160,17 @@ export const getUserInfo = (userId) => async dispatch => {
 
 
       const userInfoObj = Object.values(userInfo.annotations)
-      // console.log('USERINFOBJJJ',userInfoObj)
+      console.log('USERINFOBJJJ',userInfoObj)
 
       userInfoObj.forEach(async (info) => {
         // console.log('CORRECT!!', info.id)
         const newRes = await fetch(`/api/votes/${info.id}/total`)
         // console.log('IT HMEeeeeeeeeeeEE', newRes)
-
         if (newRes.ok) {
+          const data = await newRes.json()
           // console.log('AMIUNDEFINED', newRes.votetotalvalue)
-          info['voteTotal'] = newRes.votetotalvalue
-          // console.log('HIT ME',info)
+          info['voteTotal'] = data.votetotalvalue
+          console.log('HIT ME',info)
         }
       });
 

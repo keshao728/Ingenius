@@ -85,7 +85,7 @@ body {
   box-shadow: 0px 1px 8px #dddddd;
   border: 1px solid #dddddd;
   right: 20px;
-  top: 45px
+  top: 45px;
 }
 
 .drop-down-button{
@@ -129,4 +129,3 @@ body {
   font-size: 14px;
   font-weight: bold;
 }
-

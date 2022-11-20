@@ -96,7 +96,7 @@ export default function DisplayLyrics({ track, setAnnotating, setDocu }) {
                 span.classList.add('bold-me')
             }
         }
-    })
+    },)
 
 
 
@@ -124,6 +124,7 @@ export default function DisplayLyrics({ track, setAnnotating, setDocu }) {
             {/* {track.lyrics?.split('\n').map(chunk => <div key={chunk}><span className={'not-selected'} ref={ref} onClick={handleClick}>{chunk}</span></div>)} */}
 
             {/* {track.lyrics?.includes("[") ? <div className={"bold-me"}> </div> : null} */}
+            {/* {track.lyrics?.split('\n').map((chunk, idx) => console.log(chunk))} */}
 
             {track.lyrics?.split('\n').map((chunk, idx) => <div ><span key={idx} className={''} id={idx} ref={ref} onClick={handleClick}>{chunk}</span></div>)}
         </>

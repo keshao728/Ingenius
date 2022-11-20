@@ -42,14 +42,18 @@ const SignUpForm = () => {
   // function isValidEmail(email) {
   //   return /\S+@\S+\.\S+/.test(email);
   // }
+  function isEmpty(str) {
+    return !str.trim().length
+  }
 
   useEffect(async() => {
     const err = [];
-    if(!username) err.push('Please provide a username');
+    if(!username || isEmpty(username)) err.push('Please provide a username');
     if(username.length > 15) err.push('Username must be less than 15 characters');
     if(username.length < 3) err.push('Username must be at least 3 characters');
-    if(!email) err.push('Please provide an email');
+    if(!email || isEmpty(email)) err.push('Please provide an email');
     if(!email.toLowerCase().match(/^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,63})$/)) err.push('Please provide a valid email');
+    if(isEmpty(password)) err.push('Please provide a password');
     if (password !== repeatPassword)err.push('Passwords must match')
     if (password.length < 6) err.push('Password must be at least 6 characters')
     if (password.length > 20) err.push('Password length must not exceed 20 characters')
@@ -59,15 +63,16 @@ const SignUpForm = () => {
   const onSignUp = async (e) => {
     e.preventDefault();
     setShowErrors(true)
-    if (!errors.length) {
+    if (errors.length<1) {
       const data = await dispatch(signUp(username, email, password));
       if (data) {
-        // setErrors(data.error)
-        setShowErrors(false)
+        setErrors(data)
         setShowModal(false)
       }
+      return
     }
-    return null
+    setShowErrors(true)
+    return
   };
 
   const onCloseModal = () => {
