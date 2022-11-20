@@ -35,6 +35,7 @@ const AllComments = () => {
 
   const closeSubmit = (e) => {
     e.preventDefault();
+    setShowErrors(false)
     setShowSubmit(false);
   };
 
