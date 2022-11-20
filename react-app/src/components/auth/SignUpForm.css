@@ -63,7 +63,7 @@
 .sign-up-input-box input:focus + label{
   font-size: 10px;
   top: -6px;
-  /* JAKE LEZGO */
+  /* color:green; */
 }
 
 .submit-sign-up-button {
