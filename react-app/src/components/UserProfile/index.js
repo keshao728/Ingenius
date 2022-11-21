@@ -27,7 +27,7 @@ const UserAnnotations = ({ setUser }) => {
   console.log('annotationArr', annotationArr)
   // const tracksArr = Object.values(tracks)
   // console.log('TRACKARR', tracksArr)
-  // const annoArrTracks = 
+  // const annoArrTracks =
 
 
   const sum = (a) => {
@@ -61,7 +61,7 @@ const UserAnnotations = ({ setUser }) => {
   console.log('annoIDX', annoIdx) // ['15,16,17,18,19', '22,23,24,25,26,27', '22'] arr
   // console.log('annoTrackId', annoTrackId) // trackId = [1, 1, 2]
   console.log('annoTrack', annoTrack) // [{…}, {…}, {…}]
-  const lyrics = annoTrack.map(track => track.lyrics)
+  // const lyrics = annoTrack.map(track => track.lyrics)
   // console.log('LYRICS', lyrics[0]) // ["\n        [Verse 1]\n        Stressed out\n        Fe…for the taking\n ]
 
   // const for (let )
@@ -81,7 +81,7 @@ const UserAnnotations = ({ setUser }) => {
   //     arr.push(lineByline[lyricIndex])
   //     console.log(tree)
   //   }
-    
+
   // }
   // console.log('PLEASEEGOD',arr)
 
