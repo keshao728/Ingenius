@@ -18,7 +18,7 @@ const EditAnnotation = ({ setShowEdit, annotate }) => {
 
   useEffect(() => {
     const errors = []
-    if (!annotation) errors.push('Please fill out this field.')
+    if (!annotation || annotation === '') errors.push('Please fill out this field.')
     if (annotation.length > 500) errors.push('Annotation must not exceed 500 characters')
     setValidationErrors(errors)
   }, [annotation])
