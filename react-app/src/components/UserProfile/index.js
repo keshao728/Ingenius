@@ -66,23 +66,42 @@ const UserAnnotations = ({ setUser }) => {
 
   // const for (let )
 
-  const arr = []
+  // const arr = []
 
-  const lineByline = lyrics.map(line => line.split(`\n`)).flat()
-  console.log('lineByline', lineByline) // [[],[],[]]
+  // const lineByline = lyrics.map(line => line.split(`\n`)).flat()
+  // console.log('lineByline', lineByline) // [[],[],[]]
 
-  const annotatedIndexes = annoIdx.map(oneTrackIdx => oneTrackIdx.split(',')).flat()
-  console.log('annotatedIndexes', annotatedIndexes)
+  // const annotatedIndexes = annoIdx.map(oneTrackIdx => oneTrackIdx.split(',')).flat()
+  // console.log('annotatedIndexes', annotatedIndexes)
 
-  for (let num of annotatedIndexes) {
-    console.log('num', num)
-    for (let tree in lineByline) {
-      if (tree === num)
-      arr.push(lineByline[tree])
-    }
+  // for (let index of annotatedIndexes) {
+  //   console.log('num', index)
+  //   for (let lyricIndex in lineByline) {
+  //     if (tree === index)
+  //     arr.push(lineByline[lyricIndex])
+  //     console.log(tree)
+  //   }
     
+  // }
+  // console.log('PLEASEEGOD',arr)
+
+
+
+  const lyricsOnPage = (lyrics) => {
+    console.log('LYRIC!!!', typeof(lyrics))
+    const arr = []
+      const lyrics = [lyrics]
+      const lineByline = lyrics?.map(line => line.split(`\n`)).flat()
+      const annotatedIndexes = annoIdx?.map(oneTrackIdx => oneTrackIdx.split(',')).flat()
+      for (let index of annotatedIndexes) {
+        for (let lyricIndex in lineByline) {
+          if (lyricIndex === index)
+          arr.push(lineByline[lyricIndex])
+        }
+      }
+    // console.log(arr)
+    return arr
   }
-  console.log('PLEASEEGOD',arr)
 
   // console.log('arr', arr)
   // const flat = lineByline.flat();
@@ -246,7 +265,7 @@ const UserAnnotations = ({ setUser }) => {
           </div>
           <div id='pp-annotation-lyric-container'>
             <div id='pp-annotation-lyric'>
-              lyrics
+              {lyricsOnPage(annotation.track.lyrics)}
             </div>
             <div>
               <img
