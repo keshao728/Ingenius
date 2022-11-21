@@ -62,7 +62,7 @@ const AnnotationForm = ({ setDocu, docu, setAnnotated, spanIds, setShowAnnotatio
     e.preventDefault();
     // setShowMenu(false);
     setDisplayErrors(true)
-    setAnnotated(false)
+    setAnnotated(true)
 
     if (!validationErrors.length) {
       // setShowMenu(false);
