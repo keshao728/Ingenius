@@ -28,6 +28,8 @@ const AnnotationForm = ({ setDocu, docu, setAnnotated, spanIds, setShowAnnotatio
   // console.log('adfasdfads', endIndex)
   // console.log(setAnnotating)
   // console.log('oooooooooo', spanIds)
+  const updateAnnotation = (e) => setAnnotation(e.target.value)
+
 
   useEffect(() => {
     const errors = []
@@ -69,7 +71,7 @@ const AnnotationForm = ({ setDocu, docu, setAnnotated, spanIds, setShowAnnotatio
         annotation_body: annotation,
         span_ids: spanIds
       }
-      setAnnotation("");
+      // setAnnotation("");
 
       let newAnnotation = await dispatch(createAnnotation(track.id, payload))
 
@@ -119,19 +121,12 @@ const AnnotationForm = ({ setDocu, docu, setAnnotated, spanIds, setShowAnnotatio
                 <textarea
                   placeholder="Don't just put the lyric in your own words - drop some knowledge!"
                   type="text"
-                  error
+                  // error
                   className="annotation-input"
                   value={annotation}
                   // onClick={openSubmit}
-                  required
-                  onChange={(e) => setAnnotation(e.target.value)}
-                />
-                <ul className="annotation-form-errors">
-                  {displayErrors && validationErrors.length > 0 && validationErrors.map(error => (
-                    <li className="annotation-form-error-text" key={error}>{error}</li>
-                  ))}
-                </ul>
-
+                  onChange={updateAnnotation}
+                  required/>
                 {/* <input hidden type='number' value={startIndex}></input>
                 <input hidden type='number' value={endIndex}></input> */}
                 <input
@@ -142,8 +137,15 @@ const AnnotationForm = ({ setDocu, docu, setAnnotated, spanIds, setShowAnnotatio
 
               </label>
               <div className="annotation-submit-buttons">
-                <button className="button-create-annotation" type="submit" onSubmit={handleSubmit}> Save </button>
+                <button className="button-create-annotation" type="submit" > Save </button>
                 <button type="button" className="cancel-create-annotation" onClick={closeSubmit}>Cancel</button>
+              </div>
+              <div>
+              <ul className="annotation-form-errors">
+                {displayErrors && validationErrors.length > 0 && validationErrors.map(error => (
+                  <li className="annotation-form-error-text" key={error}>{error}</li>
+                ))}
+              </ul>
               </div>
             </div>
           </form>
