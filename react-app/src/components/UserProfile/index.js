@@ -110,7 +110,10 @@ const UserAnnotations = ({ setUser }) => {
 
   if (!annotationArr) return null
   else return isLoaded &&
-    annotationArr.map((annotation, i) => (
+    annotationArr.map((annotation, i) =>
+    (
+
+
       // console.log('annotation', annotation),
       <div id='pp-annotations-outer-container' key={annotation.id}>
         <div id='pp-annotation-created-at'> {annotation.created_at?.split(' ').slice(0, -2).slice(1).join(' ')}</div>
@@ -155,6 +158,7 @@ const UserAnnotations = ({ setUser }) => {
                   <div key={i}>
                     {
                       annotationSomething.map((line, i) => {
+
                         console.log("THINGS GETTING PUSH", annotationSomething[annotationSomething.length-1])
 
                         return line
