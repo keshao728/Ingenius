@@ -508,9 +508,5 @@ export default function TrackInfo() {
 
 
     </div>
-<<<<<<< HEAD
-  ) : (<h1></h1>)
-=======
   ) : (<div></div>)
->>>>>>> e322a5479d6dc20c61953378873eccae2b265cb4
 }
