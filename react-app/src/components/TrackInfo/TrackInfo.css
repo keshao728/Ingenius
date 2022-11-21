@@ -15,7 +15,8 @@
     display: flex;
     flex-direction: column;
     position: absolute;
-    left: 35%;
+    /* z-index: 2; */
+    left: 40%;
     top: 12%;
     width: 400px;
     color: black;
@@ -338,10 +339,43 @@
     }
 }
 
-@media (max-width:1200px){
-    .track_release,
+@media (max-width: 1200px) and (min-width: 801px) {
+    /* .track-infowrapper{
+        display:flex;
+        flex-direction:row;
+        left:50%;
+        /* border:5px solid red;
+    } */
+
+    .track_release{
+        top:32%;
+        left:60%;
+    }
+
     .track_producer{
-       visibility: hidden;
+        top:25%;
+        left:62%;
+    }
+
+    .track_title_artist{
+        left:60%;
+    }
+}
+
+@media (max-width: 800px){
+    .track_art{
+        top:10%;
+        padding-left: 20%;
+    }
+
+    .track_release{
+        top:32%;
+        left:60%;
+    }
+
+    .track_producer{
+        top:25%;
+        left:62%;
     }
 
     .track_title_artist{

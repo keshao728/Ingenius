@@ -307,50 +307,47 @@ export default function TrackInfo() {
   }
   return isLoaded ? (
     <div>
-      <div className="track-info-container">
-
-      </div>
-      <div className='track_art'>
-        <img
-          alt="album-cover"
-          className='album-cover'
-          src={track.track_art ? track.track_art : defaultalbum}>
-        </img>
-      </div>
-
-      <div className='track_title_artist'>
-        <div className='track_title'>
-          {track.track_title}
+      <div className="track-info-container"></div>
+        <div className='track_art'>
+          <img className='album-cover'
+            src={track.track_art ? track.track_art : defaultalbum}>
+          </img>
         </div>
-        <div className='track_artist'>
-          {track.artist}
+        <div className='track-infowrapper'>
+          <div className='track_title_artist'>
+            <div className='track_title'>
+              {track.track_title}
+            </div>
+            <div className='track_artist'>
+              {track.artist}
+            </div>
+            <div className='track-album'>
+              on {track.album}
+            </div>
+          </div>
+          <div className='track_producer'>
+            <div>
+              Produced by:
+            </div>
+            <div className='track_producer_name'>
+              {track.produced_by ? track.produced_by : 'Unknown'}
+            </div>
+          </div>
+          <div className='track_release'>
+            Release Date:
+            <div className='track_release_date'>
+              {track.release_date?.split(' ').slice(0, -2).slice(1).join(' ')}
+            </div>
+          </div>
         </div>
-        <div className='track-album'>
-          on {track.album}
+        <div className='buttons'>
+          <div className='button1'>
+            {user?.id === track.user_id && <EditTrackModal />}
+          </div>
+          <div className='button2'>
+            {user?.id === track.user_id && <DeleteTrackModal />}
+          </div>
         </div>
-      </div>
-      <div className='track_producer'>
-        <div>
-          Produced by:
-        </div>
-        <div className='track_producer_name'>
-          {track.produced_by ? track.produced_by : 'Unknown'}
-        </div>
-      </div>
-      <div className='track_release'>
-        Release Date:
-        <div className='track_release_date'>
-          {track.release_date?.split(' ').slice(0, -2).slice(1).join(' ')}
-        </div>
-      </div>
-      <div className='buttons'>
-        <div className='button1'>
-          {user?.id === track.user_id && <EditTrackModal />}
-        </div>
-        <div className='button2'>
-          {user?.id === track.user_id && <DeleteTrackModal />}
-        </div>
-      </div>
 
       <div className='body_page'>
         <div className='lyric-wrapper'>
