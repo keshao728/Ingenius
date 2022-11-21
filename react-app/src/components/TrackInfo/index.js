@@ -219,10 +219,6 @@ export default function TrackInfo() {
       // );
       // console.log('SSSSSSSSSIIIIIIIIIIIIIIIUUUUUUUUUUUUUUUUUUUUUUUUUU', found.split(','))
 
-
-
-
-
       setAnnotationId(id)
       setIsLoaded(true)
     }
@@ -231,10 +227,10 @@ export default function TrackInfo() {
       for (let annotation of annotations) {
         // console.log(annotation.span_ids.split(','))
         annotation.span_ids.split(',').map(anno =>
-          document.getElementById(anno).classList.add('annotated')
+          document.getElementById(anno)?.classList.add('annotated')
         )
         annotation.span_ids.split(',').map(anno =>
-          document.getElementById(anno).addEventListener('click', (e) => { setShowAnnotation(true); getAnno(e) })
+          document.getElementById(anno)?.addEventListener('click', (e) => { setShowAnnotation(true); getAnno(e) })
         )
 
 
@@ -384,8 +380,8 @@ export default function TrackInfo() {
                   setAnnotated={setAnnotated}
                   spanIds={spanIds} />}
             </div>
-            <div>
-              {<Annotations
+            <div >
+              {!annotated && <Annotations
                 setShowAnnotation={setShowAnnotation}
                 showAnnotation={showAnnotation}
                 annotationId={annotationId} />}
