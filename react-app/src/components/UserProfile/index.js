@@ -87,11 +87,12 @@ const UserAnnotations = ({ setUser }) => {
 
 
 
-  const lyricsOnPage = (lyrics) => {
-    console.log('LYRIC!!!', typeof(lyrics))
+  const lyricsOnPage = (lyric) => {
     const arr = []
-      const lyrics = [lyrics]
-      const lineByline = lyrics?.map(line => line.split(`\n`)).flat()
+    const lyrics = [lyric]
+    console.log('LYRICSS!!~~~~', lyrics)
+    console.log('LYRIC!!!', typeof(lyrics))
+    const lineByline = lyrics?.map(line => line.split(`\n`)).flat()
       const annotatedIndexes = annoIdx?.map(oneTrackIdx => oneTrackIdx.split(',')).flat()
       for (let index of annotatedIndexes) {
         for (let lyricIndex in lineByline) {
