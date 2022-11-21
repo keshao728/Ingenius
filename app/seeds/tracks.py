@@ -577,6 +577,7 @@ def seed_tracks():
         On the golden streets of the great wide valley
         These old chains around my feet
         They're pulling me back down
+
         [Chorus 2]
         Caroline, oh Caroline
         I'll be home just any old time
@@ -744,6 +745,7 @@ def seed_tracks():
         It’s just a matter of time
         I nearly tore myself in two
         Looking for you in my mind
+
         You told me you need me
         You didn't say why
         Hold on and trust that
@@ -752,6 +754,7 @@ def seed_tracks():
         You’re here by my side
         I've got you here
         I've got you here
+
         I've got you here
         I've got you here
         When the Sun is burning red
@@ -761,6 +764,7 @@ def seed_tracks():
         All my questions'll
         Be answered in the dark
         I've got you here
+
         I've got you here
         I need you to leave me
         But please don't ask why
@@ -769,6 +773,7 @@ def seed_tracks():
         I'm alive as long
         As you're here inside
         I've got you here
+
         I've got you here
         When the Sun is burning red
         We'll shine like diamonds
@@ -778,10 +783,12 @@ def seed_tracks():
         Be answered in the dark
         I've got you here
         I've got you here
+
         You're way behind the time
         I know what you don't
         From your head down to your toes
         You're a sheep in wolves’ clothes
+
         I've got you here
         I've got you here
         When the Sun is burning red
@@ -849,7 +856,7 @@ def seed_tracks():
         Brazen, game-face based on Azazel
         Oversized ears up, puke in the Meow Mix
         Shred a pair of earbuds, remedy his cowlick
-        [slurp]: Thanks Kirbs, looking like a milli
+        (slurp) Thanks Kirbs, looking like a milli
         Keep an old man sharp, keep a cold Chantilly
         Spun plum dizzy in a frisky moment
         Never lands on her feet though, I think she's broken
@@ -872,70 +879,65 @@ def seed_tracks():
 
     track14 = Track(
         user_id=2,
-        track_title="Sheep In Wolves Clothes",
-        artist="little hurricane",
-        album="Gold Fever",
-        release_date=date(2014, 4, 29),
+        track_title="Set It Free",
+        artist="Now, Now",
+        album="Saved",
+        release_date=date(2018, 5, 15),
         produced_by="",
         lyrics='''
-        You told to me stay here
-        I'll be right back
-        It’s just a matter of time
-        I nearly tore myself in two
-        Looking for you in my mind
-        You told me you need me
-        You didn't say why
-        Hold on and trust that
-        You would never lie
-        All I know is
-        You’re here by my side
-        I've got you here
-        I've got you here
-        I've got you here
-        I've got you here
-        When the Sun is burning red
-        We'll shine like diamonds
-        When our old lives are dead
-        Leave them behind us
-        All my questions'll
-        Be answered in the dark
-        I've got you here
-        I've got you here
-        I need you to leave me
-        But please don't ask why
-        I beg you to trust that
-        Everything will be fine
-        I'm alive as long
-        As you're here inside
-        I've got you here
-        I've got you here
-        When the Sun is burning red
-        We'll shine like diamonds
-        When our old lives are dead
-        Leave them behind us
-        All my questions'll
-        Be answered in the dark
-        I've got you here
-        I've got you here
-        You're way behind the time
-        I know what you don't
-        From your head down to your toes
-        You're a sheep in wolves’ clothes
-        I've got you here
-        I've got you here
-        When the Sun is burning red
-        We'll shine like diamonds
-        When our old lives are dead
-        Leave them behind us
-        All my questions'll
-        Be answered in the dark
-        I've got you here
-        I've got you here
-        I've got you here
-        I've got you here.
+        [Verse 1]
+        Oh, you make it look so easy
+        Your love came freely
+        She had her chances
+        Couldn't leave it in the past, yeah
+        She took advantage
+        She’s taking it for granted
+        You know I try so hard
+        But I understand it
+
+        [Pre-Chorus]
+        So if you say you're gone
+        I'll let it be
+        And hope you change your mind about me
+
+        [Chorus]
+        'Cause you look so sweet in the heat of summer
+        You drive me crazy when your hands start to wander
+        You’re lonely, honey, can’t you see what I see?
+        If you love me baby, you’ve gotta set it free
+
+        [Verse 2]
+        You’re looking that way, I just can’t stand it
+        I learned my lesson, but you break it like a habit
+        Oh, you can run from me, baby, but you won’t get far
+        Every time I close my eyes, you kiss me in the dark
+
+        [Pre-Chorus]
+        But if you say you’re gone
+        I'll let it be
+        And hope you change your mind about me
+
+        [Chorus]
+        ‘Cause you look so sweet in the heat of summer
+        You drive me crazy me when your hands start to wander
+        You’re lonely, honey, can’t you see what I see?
+        If you love me, baby, you’ve gotta set it free
+
+        [Bridge]
+        You look so sweet in the heat of summer
+        You drive me crazy me when your hands start to wander
+        You’re lonely, honey, can’t you see what I see?
+        If you love me, baby, you’ve gotta set it free
+
+        [Chorus]
+        'Cause you look so sweet in the heat of summer
+        You drive me crazy me when your hands start to wander
+        You’re lonely, honey, can’t you see what I see?
+        If you love me, baby, you’ve gotta set it free
+        If you love me, baby, you’ve gotta set it free
         ''',
-        track_art='https://t2.genius.com/unsafe/327x327/https%3A%2F%2Fimages.genius.com%2Fe45870466f6fb5973e3c181d00f81c40.1000x1000x1.jpg',
-        track_url='https://www.youtube.com/watch?v=7T_KKiQiolk',
+        track_art='https://t2.genius.com/unsafe/239x239/https%3A%2F%2Fimages.genius.com%2Fed3d8a9290572c4a301c9acc36f6ceb8.1000x1000x1.jpg',
+        track_url='https://www.youtube.com/watch?v=qoCue6H0cmw',
     )
 
 
