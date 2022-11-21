@@ -24,7 +24,7 @@ const UserAnnotations = ({ setUser }) => {
   // const tracks = useSelector(state => state.session.tracks)
 
   const annotationArr = Object.values(annotations)
-  console.log('annotationArr', annotationArr)
+  // console.log('annotationArr', annotationArr)
   // const tracksArr = Object.values(tracks)
   // console.log('TRACKARR', tracksArr)
   // const annoArrTracks =
@@ -58,9 +58,9 @@ const UserAnnotations = ({ setUser }) => {
   const annoIdx = annotationArr.map(anno => anno.span_ids)
   const annoTrackId = annotationArr.map(anno => anno.track_id)
   const annoTrack = annotationArr.map(anno => anno.track)
-  console.log('annoIDX', annoIdx) // ['15,16,17,18,19', '22,23,24,25,26,27', '22'] arr
+  // console.log('annoIDX', annoIdx) // ['15,16,17,18,19', '22,23,24,25,26,27', '22'] arr
   // console.log('annoTrackId', annoTrackId) // trackId = [1, 1, 2]
-  console.log('annoTrack', annoTrack) // [{…}, {…}, {…}]
+  // console.log('annoTrack', annoTrack) // [{…}, {…}, {…}]
   // const lyrics = annoTrack.map(track => track.lyrics)
   // console.log('LYRICS', lyrics[0]) // ["\n        [Verse 1]\n        Stressed out\n        Fe…for the taking\n ]
 
@@ -91,8 +91,8 @@ const UserAnnotations = ({ setUser }) => {
     const arr = []
     const lyrics = [lyric]
     const annoIdx = [annoIdxs]
-    console.log('LYRICSS!!~~~~', lyrics)
-    console.log('LYRIC!!!', typeof (lyrics))
+    // console.log('LYRICSS!!~~~~', lyrics)
+    // console.log('LYRIC!!!', typeof (lyrics))
     const lineByline = lyrics?.map(line => line.split(`\n`)).flat()
     const annotatedIndexes = annoIdx?.map(oneTrackIdx => oneTrackIdx.split(',')).flat()
     for (let index of annotatedIndexes) {
