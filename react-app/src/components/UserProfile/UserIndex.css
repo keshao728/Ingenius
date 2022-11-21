@@ -87,10 +87,13 @@
   margin-top: 5px;
   /* margin: 0px; */
   word-wrap: break-word;
+
 }
 
 #pp-annotation-lyric-line {
   background-color: #DDDDDDDD;
+  word-break: break-all
+
 }
 
 #pp-annotation-inner-content {
