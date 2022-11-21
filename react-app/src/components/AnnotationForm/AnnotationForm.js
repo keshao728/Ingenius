@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from "react-redux";
-import { createAnnotation} from '../../store/annotations';
+import { createAnnotation } from '../../store/annotations';
 // import { actionResetTrack, getOneTrack } from '../../store/tracks';
 // import { useParams } from 'react-router-dom';
 import LoginForm from "../auth/LoginForm";
@@ -29,25 +29,19 @@ const AnnotationForm = ({ setDocu, docu, setAnnotated, spanIds, setShowAnnotatio
   // console.log(setAnnotating)
   // console.log('oooooooooo', spanIds)
 
+  useEffect(() => {
+    const errors = []
+    if (!annotation || annotation === "" || isEmpty(annotation)) errors.push('Comment is Required')
+    if (annotation.length > 500) errors.push("Annotation must not exceed 500 characters")
+    setValidationErrors(errors)
+  }, [annotation])
+
 
   const openMenu = () => {
     if (showMenu) return;
 
     setShowMenu(true);
     setShowano(true)
-  };
-
-  const closeSubmit = (e) => {
-    e.preventDefault();
-    setShowMenu(false);
-    setAnnotated(false)
-
-    if (docu.length) {
-      for (let doc of docu)
-        doc.className = ''
-    }
-
-    // setAnnotating(false)
   };
 
   function isEmpty(str) {
@@ -70,7 +64,7 @@ const AnnotationForm = ({ setDocu, docu, setAnnotated, spanIds, setShowAnnotatio
 
     if (!validationErrors.length) {
       // setShowMenu(false);
-      setDisplayErrors(false)
+      // setDisplayErrors(false)
       const payload = {
         annotation_body: annotation,
         span_ids: spanIds
@@ -88,19 +82,23 @@ const AnnotationForm = ({ setDocu, docu, setAnnotated, spanIds, setShowAnnotatio
 
       if (docu.length) {
         for (let doc of docu)
-        doc.className = 'annotated'
+          doc.className = 'annotated'
       }
     }
   }
+  const closeSubmit = (e) => {
+    e.preventDefault();
+    setShowMenu(false);
+    setAnnotated(false)
 
-  useEffect(() => {
-    const errors = []
-    if (!annotation || annotation === "" || isEmpty(annotation)) errors.push('Comment is Required')
-    if (annotation.length > 200) errors.push("Please enter less than 200 characters")
+    if (docu.length) {
+      for (let doc of docu)
+        doc.className = ''
+    }
 
+    // setAnnotating(false)
+  };
 
-    setValidationErrors(errors)
-  }, [annotation])
 
   // useEffect(() => {
   //   dispatch(getOneTrack(trackId))
@@ -128,14 +126,11 @@ const AnnotationForm = ({ setDocu, docu, setAnnotated, spanIds, setShowAnnotatio
                   required
                   onChange={(e) => setAnnotation(e.target.value)}
                 />
-                {displayErrors && (
-                  <ul className="annotation-form-errors">
-                    {validationErrors.length > 0 &&
-                      validationErrors.map(error => (
-                        <li className="annotation-form-error-text" key={error}>{error}</li>
-                      ))}
-                  </ul>
-                )}
+                <ul className="annotation-form-errors">
+                  {displayErrors && validationErrors.length > 0 && validationErrors.map(error => (
+                    <li className="annotation-form-error-text" key={error}>{error}</li>
+                  ))}
+                </ul>
 
                 {/* <input hidden type='number' value={startIndex}></input>
                 <input hidden type='number' value={endIndex}></input> */}
