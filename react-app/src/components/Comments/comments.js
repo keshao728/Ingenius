@@ -6,6 +6,7 @@ import { NavLink, useParams } from "react-router-dom"
 import { getAllComments, createComment, deleteComment } from "../../store/comments";
 import LoginForm from "../auth/LoginForm";
 import SignUpForm from "../auth/SignUpForm";
+import defaultpro from '../Navigation/NavImage/ingeniousLogo.png';
 
 import * as moment from 'moment';
 // import { getOneTrack } from '../../store/tracks';
@@ -15,6 +16,7 @@ const AllComments = () => {
   const dispatch = useDispatch();
   const { trackId } = useParams();
   const sessionUser = useSelector((state) => state.session.user);
+  const pfp = useSelector(state => state.session.user?.profile_img)
   // console.log("THIS IS SESSION USER IN ALLCOMMENTS", sessionUser)
   // const track = useSelector(state => state.tracks)
 
@@ -101,7 +103,7 @@ const AllComments = () => {
           <label>
             <div className="commenter-img-input">
 
-              <img alt="comment-img" className="commenter-img" src={sessionUser.profile_img}></img>
+              <img alt="comment-img" className="commenter-img" src={pfp ? pfp : defaultpro}></img>
               <textarea
                 placeholder="Add a comment"
                 type="text"
@@ -211,7 +213,7 @@ const AllComments = () => {
                 <div className="individual-comment-display" key={comment?.id}>
                   <div className="individual-comment-header">
                     < NavLink to={`/users/${comment.user_id}`} >
-                      <img alt="comment-profile-img" className="comment-profile-img" src={comment?.commentter?.profile_img}></img>
+                      <img alt="comment-profile-img" className="comment-profile-img" src={comment?.commentter?.profile_img ? comment?.commentter?.profile_img : defaultpro}></img>
                     </NavLink>
                     <div className="comment-user">{comment?.commentter?.username}</div>
                     <div className="comment-time-stamp">{moment(comment.created_at).fromNow()}</div>
