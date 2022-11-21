@@ -87,9 +87,10 @@ const UserAnnotations = ({ setUser }) => {
 
 
 
-  const lyricsOnPage = (lyric) => {
+  const lyricsOnPage = (lyric, annoIdxs) => {
     const arr = []
     const lyrics = [lyric]
+    const annoIdx = [annoIdxs]
     console.log('LYRICSS!!~~~~', lyrics)
     console.log('LYRIC!!!', typeof(lyrics))
     const lineByline = lyrics?.map(line => line.split(`\n`)).flat()
@@ -266,7 +267,7 @@ const UserAnnotations = ({ setUser }) => {
           </div>
           <div id='pp-annotation-lyric-container'>
             <div id='pp-annotation-lyric'>
-              {lyricsOnPage(annotation.track.lyrics)}
+              {lyricsOnPage(annotation.track.lyrics, annotation.span_ids)}
             </div>
             <div>
               <img
