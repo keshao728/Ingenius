@@ -5,14 +5,14 @@ import { useDispatch } from 'react-redux';
 // import SignUpForm from './components/auth/SignUpForm';
 import NavBar from './components/Navigation/NavBar';
 import ActionNav from './components/Navigation/ActionNav';
-import ProtectedRoute from './components/auth/ProtectedRoute';
+// import ProtectedRoute from './components/auth/ProtectedRoute';
 import User from './components/User';
 import { authenticate } from './store/session';
 import HomePage from './components/HomePage/HomePage';
-import AllTracks from './components/Tracks';
+// import AllTracks from './components/Tracks';
 import AllComments from './components/Comments/comments';
 import TrackInfo from './components/TrackInfo';
-import Annotation from './components/Annotation/annotations';
+// import Annotation from './components/Annotation/annotations';
 // import AnnotationForm from './components/AnnotationForm/AnnotationForm';
 import CreateTrack from './components/TrackForm';
 import AllTrackNav from './components/Navigation/AllTrackNav';
@@ -30,7 +30,7 @@ function App() {
   }, [dispatch]);
 
   if (!loaded) {
-    return <h1></h1>;
+    return <div></div>;
   }
 
   // componentDidUpdate() {

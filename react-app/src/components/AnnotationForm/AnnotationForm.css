@@ -142,7 +142,7 @@
 .annotation-button {
   border: 1px solid black;
   border-radius: 25px;
-  padding: 5px 5px;
+  /* padding: 5px 5px; */
   font-weight: bold;
   background: none;
   font-size: 12px;
@@ -153,7 +153,7 @@
   /* left: -470px;
   top: -81px; */
   height: 29px;
-  width: 200px;
+  width: 210px;
 }
 
 @media (max-width: 1900px) {
@@ -165,18 +165,23 @@
 @media (max-width: 1800px) {
   .annotation-button {
     left: -380px;
+
   }
 }
 
 @media (max-width: 1600px) {
   .annotation-button {
     left: -340px;
+
+
   }
 }
 
 @media (max-width: 1400px) {
   .annotation-button {
     left: -300px;
+
+
   }
 }
 

@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { useParams, useHistory, Link, NavLink } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { getOneTrack } from '../../store/tracks';
 import EditTrackModal from '../TrackEditForm/index';
 import DeleteTrackModal from '../TrackDelete/index';
@@ -11,7 +11,7 @@ import './TrackInfo.css';
 import defaultalbum from './TrackImage/defaultalbum.png'
 import React from 'react';
 // import Vote from '../Annotation/vote';
-import { createAnnotation, actionResetAnnotation } from '../../store/annotations';
+// import { createAnnotation, actionResetAnnotation } from '../../store/annotations';
 import AnnotationForm from '../AnnotationForm/AnnotationForm';
 import DisplayLyrics from '../TrackLyrics';
 import Annotations from '../Annotation/annotations';
@@ -56,7 +56,7 @@ export default function TrackInfo() {
 
   // const annotations = useSelector(state => state.tracks.oneTrack.Annotations)
 
-  const [errors, setErrors] = useState([])
+  // const [errors, setErrors] = useState([])
 
 
   //annotation stuff
@@ -203,7 +203,7 @@ export default function TrackInfo() {
       // let siu = annotations.map(anno => anno.span_ids.split(',').map(e => e.includes(currentAnno)))
       // let siu = annotations.map(anno => anno.span_ids.split(',')?.find(e => e === currentAnno) ? anno?.id : null)
       let id = annotations?.filter(anno => anno.span_ids.split(',').find(e => e === currentAnno))[0].id
-      console.log('SSSSSSSSSIIIIIIIIIIIIIIIUUUUUUUUUUUUUUUUUUUUUUUUUU', annotations?.filter(anno => anno.span_ids.split(',').find(e => e === currentAnno)))
+      // console.log('SSSSSSSSSIIIIIIIIIIIIIIIUUUUUUUUUUUUUUUUUUUUUUUUUU', annotations?.filter(anno => anno.span_ids.split(',').find(e => e === currentAnno)))
 
 
 
@@ -445,7 +445,9 @@ export default function TrackInfo() {
 
             <div className='about-artist'>
               <div className='about-album-cover'>
-                <img className="about-cover"
+                <img
+                  alt="about-cover"
+                  className="about-cover"
                   src={track.track_art ? track.track_art : defaultalbum}>
 
                 </img>
@@ -486,7 +488,9 @@ export default function TrackInfo() {
               </div>
             </div>
           </div>
-          <ReactPlayer className="mv" width="750px" height="450px" url={track.track_url} />
+          {track.track_url ?
+            <ReactPlayer className="mv" width="750px" height="450px" url={track.track_url} /> : null}
+
           {/* <iframe
                         width="560"
                         height="315"
@@ -504,5 +508,9 @@ export default function TrackInfo() {
 
 
     </div>
+<<<<<<< HEAD
   ) : (<h1></h1>)
+=======
+  ) : (<div></div>)
+>>>>>>> e322a5479d6dc20c61953378873eccae2b265cb4
 }

@@ -1,13 +1,13 @@
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux';
-import { useState, useEffect, useRef } from 'react';
-import { NavLink, useParams } from 'react-router-dom'
-import { upvoteThunk, downvoteThunk, unvoteThunk, votecount } from '../../store/votes';
-import { getOneTrack, actionResetTrack } from '../../store/tracks';
+// import { useState, useEffect, useRef } from 'react';
+import { useParams } from 'react-router-dom'
+// import { upvoteThunk, downvoteThunk, unvoteThunk, votecount } from '../../store/votes';
+import { getOneTrack} from '../../store/tracks';
 import './vote.css'
 import './annotations.css'
 import AnnotationForm from '../AnnotationForm/AnnotationForm';
-import EditAnnotation from '../AnnotationEditForm/EditAnnotationForm';
+// import EditAnnotation from '../AnnotationEditForm/EditAnnotationForm';
 import Vote from './vote'
 // import { useEffect } from 'react';
 
@@ -16,7 +16,7 @@ export default function Annotations({ setShowAnnotation, showAnnotation, annotat
   // console.log(showAnnotation)
   // console.log('ANNOTATION ID', annotationId)
   const realId = annotationId
-  console.log('REAL ID', realId)
+  // console.log('REAL ID', realId)
   const dispatch = useDispatch();
   const { trackId } = useParams();
   // const [showAnnotation, setShowAnnotation] = useState(showAnnotation);
@@ -29,7 +29,7 @@ export default function Annotations({ setShowAnnotation, showAnnotation, annotat
   // }
 
   const annotations = useSelector((state) => state.tracks.oneTrack.Annotations);
-  console.log(annotations , "mic  check 1")
+  // console.log(annotations , "mic  check 1")
   // const [showAnnotation, setShowAnnotation] = useState(false)
 
   // useEffect(() => {
@@ -115,7 +115,7 @@ export default function Annotations({ setShowAnnotation, showAnnotation, annotat
   } else {
     const annotationsArr = Object.values(annotations);
     // const annotation = annotationsArr[0]
-    console.log('ANNOTATIONSARR', annotationsArr)
+    // console.log('ANNOTATIONSARR', annotationsArr)
     // console.log('BEBARAERLAJASD', annotationId)
     // const annotation = annotationsArr.map(anno => anno.span_ids)
     // for(let i=1; i<annotation.length; i++) {

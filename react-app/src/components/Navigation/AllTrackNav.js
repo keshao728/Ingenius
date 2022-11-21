@@ -6,7 +6,7 @@ import LogoutButton from '../auth/LogoutButton';
 import defaultpro from './NavImage/defaultpro.png';
 import singletrack from './NavImage/singletrack.png';
 import SignUpForm from '../auth/SignUpForm';
-import LoginForm from '../auth/LoginForm';
+// import LoginForm from '../auth/LoginForm';
 import { HashLink as Link } from 'react-router-hash-link';
 
 

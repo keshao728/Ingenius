@@ -28,7 +28,6 @@
     width: 100%;
     font-weight: bold;
     text-overflow: ellipsis;
-    /* overflow: hidden; */
     overflow-wrap: break-word;
     white-space: wrap;
 }
@@ -316,7 +315,6 @@
 
     .track_title_artist{
         left: 40%;
-        /* top: 23%; */
         font-size: 13px;
         margin-left:2%
     }

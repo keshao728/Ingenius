@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom'
-import { useDispatch, useSelector } from 'react-redux'
-import { editAnnotation, editUserPhoto, getUserInfo } from '../../store/session';
+// import { useParams } from 'react-router-dom'
+import { useDispatch } from 'react-redux'
+import {  editUserPhoto } from '../../store/session';
 import './pfpBanner.css'
-import defaultPro from '../UserProfile/Profile-Images/defaultpro.png'
+// import defaultPro from '../UserProfile/Profile-Images/defaultpro.png'
 const ImageForm = ({ setShowEdit, userInfo }) => {
   const dispatch = useDispatch()
 
@@ -13,7 +13,7 @@ const ImageForm = ({ setShowEdit, userInfo }) => {
   const [validationErrors, setValidationErrors] = useState([])
   const [showErrors, setShowErrors] = useState(false);
 
-  const current = useSelector(state => state.session.user)
+  // const current = useSelector(state => state.session.user)
 
 
   // const { userId } = useParams();

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { useParams, Redirect } from 'react-router-dom'
+import { Redirect } from 'react-router-dom'
 
 import { createTrack } from '../../store/tracks';
 import { useHistory } from 'react-router-dom';
