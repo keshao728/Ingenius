@@ -83,11 +83,14 @@
   display: inline-block;
   font-size: 14px;
   font-weight: bold;
-  background-color: #DDDDDD;
   padding: 5px 0px;
   margin-top: 5px;
   /* margin: 0px; */
   word-wrap: break-word;
+}
+
+#pp-annotation-lyric-line {
+  background-color: #DDDDDDDD;
 }
 
 #pp-annotation-inner-content {
