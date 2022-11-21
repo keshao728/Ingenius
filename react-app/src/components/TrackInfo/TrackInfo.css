@@ -1,22 +1,64 @@
+.main-div {
+    display: flex;
+    flex-direction: column;
+}
+
+.track-info-container {
+    display: flex;
+    flex-direction: row;
+    padding: 0 20%;
+    height: 280px;
+    background: #B395A9;
+    background: linear-gradient(to bottom, #B395A9 30%, #aa859b 90%);
+
+}
+
+.track-details-container {
+    display: flex;
+}
+
+.extra-info-container {
+    display: flex;
+    flex-direction: row;
+}
+
+.track-text-container{
+    display: flex;
+    flex-direction: row;
+    margin-left: 5%;
+}
+
+.button-container {
+    width: 100%;
+}
+
 .track_art {
     display: flex;
     flex-direction: column;
-    position: absolute;
+    /* position: absolute; */
     /* z-index: 2; */
-    left: 15%;
-    top: 12%;
+    /* left: 15%;
+    top: 12%; */
     object-fit: contain;
     height: 310px;
     width: 310px;
     object-fit: contain
 }
 
+.album-cover{
+    width:300px;
+    height:300px;
+    border: 1px solid rgb(189, 189, 189);
+    object-fit: cover;
+    /* box-shadow: 0px 0px 5px rgb(189, 189, 189); */
+}
+
 .track_title_artist {
     display: flex;
     flex-direction: column;
-    position: absolute;
-    left: 35%;
-    top: 12%;
+    /* position: absolute; */
+    /* left: 35%;
+    top: 12%; */
     width: 400px;
     color: black;
     font-size: 17px;
@@ -48,11 +90,11 @@
 .track_producer {
     display: flex;
     flex-direction: column;
-    position: absolute;
+    /* position: absolute; */
     /* z-index: 2; */
     font-size: 12px;
-    top: 12%;
-    left: 60%;
+    /* top: 12%; */
+    /* left: 60%; */
     color: black;
     text-overflow: ellipsis;
     /* overflow: hidden; */
@@ -74,24 +116,21 @@
 .track_release {
     display: flex;
     flex-direction: column;
-    position: absolute;
+    /* position: absolute; */
     /* z-index: 2; */
-    top: 12%;
-    left: 74%;
+    /* top: 12%; */
+    /* left: 74%; */
     color: black;
     font-size: 12px;
+    white-space: nowrap;
 }
 
 .track_release_date {
     font-size: 17px;
+    white-space: none;
 }
 
-.track-info-container {
-    height: 280px;
-    background: #B395A9;
-    background: linear-gradient(to bottom, #B395A9 30%, #aa859b 90%);
 
-}
 
 .body_page {
     padding: 0px 20%
@@ -291,22 +330,27 @@
     /* height: 30px; */
 }
 
-.album-cover{
-    width:300px;
-    height:300px;
-    margin-left: 15%;
-    border: 1px solid rgb(189, 189, 189);
-    object-fit: cover;
-    /* box-shadow: 0px 0px 5px rgb(189, 189, 189); */
+
+.footer {
+    margin-top: 80px;
+    /* margin-bottom: 100px; */
+    box-sizing: border-box;
+    background-color: black;
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    justify-content: center;
+    padding: 5% 0 8% 0;
+    max-height: 400px;
 }
 
-@media (max-width: 1800px) {
+
+
+/* @media (max-width: 1800px) {
     .track_art {
         left: 10%;
-        /* top: 23%; */
         height: 200px;
         width: 250px;
-        /* margin-bottom: 5px; */
     }
     .annotation-button{
         left: 50%;
@@ -320,12 +364,10 @@
 
     .track_title{
         font-size: 20px;
-        /* left:40% */
-        /* margin:2% */
+
     }
 
     .track_release{
-        /* top:23%; */
         margin-left:2%
     }
 
@@ -346,5 +388,21 @@
 
     .track_title_artist{
         left:60%;
+    }
+} */
+
+@media (max-width: 1300px) {
+
+    .extra-info-container {
+        flex-direction: column;
+    }
+}
+
+@media screen and (max-width: 1200px ) {
+    .track-details-container {
+        flex-direction: column;
+    }
+    .extra-info-container {
+        margin-top: 100px;
     }
 }
