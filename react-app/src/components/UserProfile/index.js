@@ -92,17 +92,21 @@ const UserAnnotations = ({ setUser }) => {
     const lyrics = [lyric]
     const annoIdx = [annoIdxs]
     console.log('LYRICSS!!~~~~', lyrics)
-    console.log('LYRIC!!!', typeof(lyrics))
+    console.log('LYRIC!!!', typeof (lyrics))
     const lineByline = lyrics?.map(line => line.split(`\n`)).flat()
-      const annotatedIndexes = annoIdx?.map(oneTrackIdx => oneTrackIdx.split(',')).flat()
-      for (let index of annotatedIndexes) {
-        for (let lyricIndex in lineByline) {
-          if (lyricIndex === index)
+    const annotatedIndexes = annoIdx?.map(oneTrackIdx => oneTrackIdx.split(',')).flat()
+    for (let index of annotatedIndexes) {
+      for (let lyricIndex in lineByline) {
+        if (lyricIndex === index)
           arr.push(lineByline[lyricIndex])
-        }
       }
+    }
     // console.log(arr)
-    return arr
+    return (
+      <div>
+        {arr.map(line => <div><span id='pp-annotation-lyric-line'>{line}</span></div>)}
+      </div>
+    )
   }
 
   // console.log('arr', arr)
