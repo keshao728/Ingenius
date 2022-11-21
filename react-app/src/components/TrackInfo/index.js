@@ -231,10 +231,10 @@ export default function TrackInfo() {
       for (let annotation of annotations) {
         // console.log(annotation.span_ids.split(','))
         annotation.span_ids.split(',').map(anno =>
-          document.getElementById(anno).classList.add('annotated')
+          document.getElementById(anno)?.classList.add('annotated')
         )
         annotation.span_ids.split(',').map(anno =>
-          document.getElementById(anno).addEventListener('click', (e) => { setShowAnnotation(true); getAnno(e) })
+          document.getElementById(anno)?.addEventListener('click', (e) => { setShowAnnotation(true); getAnno(e) })
         )
 
 
