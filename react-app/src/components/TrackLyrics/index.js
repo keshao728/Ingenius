@@ -1,16 +1,16 @@
-import { useState, useEffect, useRef } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { useParams, useHistory, Link, NavLink } from 'react-router-dom';
+import {  useEffect, useRef } from 'react';
+// import { useSelector} from 'react-redux';
+// import { useParams, useHistory, Link, NavLink } from 'react-router-dom';
 import './TrackLyric.css'
 
 
-export default function DisplayLyrics({ track, setAnnotating, setDocu }) {
+export default function DisplayLyrics({ track, setDocu }) {
 
     const ref = useRef();
-    const [Ref, setRef] = useState(null)
+    // const [Ref, setRef] = useState(null)
 
-    const [isSelected, setIsSelected] = useState(false)
-    const annotations = useSelector((state) => state.tracks.oneTrack.Annotations);
+    // const [isSelected, setIsSelected] = useState(false)
+    // const annotations = useSelector((state) => state.tracks.oneTrack.Annotations);
 
 
     // const handleClick = () => {

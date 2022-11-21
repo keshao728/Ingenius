@@ -1,17 +1,17 @@
 import { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { useParams, useHistory, Link, NavLink } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { getOneTrack } from '../../store/tracks';
 import EditTrackModal from '../TrackEditForm/index';
 import DeleteTrackModal from '../TrackDelete/index';
-import { actionResetTrack } from '../../store/tracks';
+// import { actionResetTrack } from '../../store/tracks';
 
 import ReactPlayer from 'react-player'
 import './TrackInfo.css';
 import defaultalbum from './TrackImage/defaultalbum.png'
 import React from 'react';
 // import Vote from '../Annotation/vote';
-import { createAnnotation, actionResetAnnotation } from '../../store/annotations';
+// import { createAnnotation, actionResetAnnotation } from '../../store/annotations';
 import AnnotationForm from '../AnnotationForm/AnnotationForm';
 import DisplayLyrics from '../TrackLyrics';
 import Annotations from '../Annotation/annotations';
@@ -25,19 +25,22 @@ export default function TrackInfo() {
   const dispatch = useDispatch()
   const track = useSelector(state => state.tracks.oneTrack)
   const user = useSelector(state => state.session.user)
+  const simonannotation = useSelector(state => state.annotations.allAnnotations)
   // console.log("awdeeeeeeeeeeeeeeeeeeeeeewwwwwadw", track)
-  const history = useHistory()
+  // const history = useHistory()
   const [showFact, setShowFact] = useState(true);
   const [isLoaded, setIsLoaded] = useState(false)
 
 
   useEffect(() => {
     dispatch(getOneTrack(trackId))
-    .then(()=>setIsLoaded(true))
+      .then(() => setIsLoaded(true))
 
 
-    return () => dispatch(actionResetTrack())
-  }, [dispatch, user, trackId])
+    // return () => dispatch(actionResetTrack())
+  }, [dispatch, user, trackId,
+    simonannotation
+  ])
 
 
   const openFact = () => {
@@ -53,7 +56,7 @@ export default function TrackInfo() {
 
   // const annotations = useSelector(state => state.tracks.oneTrack.Annotations)
 
-  const [errors, setErrors] = useState([])
+  // const [errors, setErrors] = useState([])
 
 
   //annotation stuff
@@ -162,7 +165,7 @@ export default function TrackInfo() {
 
   const annotations = useSelector((state) => state.tracks.oneTrack.Annotations);
 
-  const newAnnotation = useSelector(state => state.annotations.oneAnnotation)
+  // const newAnnotation = useSelector(state => state.annotations.oneAnnotation)
   // console.log('0000000000000000000000000000000000000000000000000000000000000', annotations)
   const [showAnnotation, setShowAnnotation] = useState(false)
 
@@ -216,10 +219,6 @@ export default function TrackInfo() {
       // );
       // console.log('SSSSSSSSSIIIIIIIIIIIIIIIUUUUUUUUUUUUUUUUUUUUUUUUUU', found.split(','))
 
-
-
-
-
       setAnnotationId(id)
       setIsLoaded(true)
     }
@@ -228,10 +227,10 @@ export default function TrackInfo() {
       for (let annotation of annotations) {
         // console.log(annotation.span_ids.split(','))
         annotation.span_ids.split(',').map(anno =>
-          document.getElementById(anno).classList.add('annotated')
+          document.getElementById(anno)?.classList.add('annotated')
         )
         annotation.span_ids.split(',').map(anno =>
-          document.getElementById(anno).addEventListener('click', (e) => { setShowAnnotation(true); getAnno(e) })
+          document.getElementById(anno)?.addEventListener('click', (e) => { setShowAnnotation(true); getAnno(e) })
         )
 
 
@@ -241,48 +240,50 @@ export default function TrackInfo() {
     }
     // console.log('-----------------------------------------------------------------------------', newAnnotation)
 
-    function getNewAnno(e) {
+    //   function getNewAnno(e) {
 
-      let currentAnno = e.currentTarget.id
-      // console.log('CURRENT ANNO', currentAnno)
-      // console.log('AAAAAAAAAAAAAAAANNNNNNNNNNNNDDDDDDDDDREW', newAnnotation?.span_ids.split(','))
+    //     let currentAnno = e.currentTarget.id
+    //     // console.log('CURRENT ANNO', currentAnno)
+    //     // console.log('AAAAAAAAAAAAAAAANNNNNNNNNNNNDDDDDDDDDREW', newAnnotation?.span_ids.split(','))
 
-      // console.log('SPLITTED', newAnnotation?.span_ids.split(','))
+    //     // console.log('SPLITTED', newAnnotation?.span_ids.split(','))
 
-      // console.log('FINDED', newAnnotation?.span_ids.split(',').find(e => e === currentAnno))
+    //     // console.log('FINDED', newAnnotation?.span_ids.split(',').find(e => e === currentAnno))
 
-      let id = newAnnotation?.span_ids.split(',').find(e => e === currentAnno)
+    //     let id = newAnnotation?.span_ids.split(',').find(e => e === currentAnno)
 
-      // console.log('AAAAAAAAAAAAAAAANNNNNNNNNNNNDDDDDDDDDREW', newAnnotation?.span_ids.split(','))
-      // console.log('AAAAAAAAAAAAAAAANNNNNNNNNNNNDDDDDDDDDREW', id)
+    //     // console.log('AAAAAAAAAAAAAAAANNNNNNNNNNNNDDDDDDDDDREW', newAnnotation?.span_ids.split(','))
+    //     console.log('AAAAAAAAAAAAAAAANNNNNNNNNNNNDDDDDDDDDREW', id)
 
 
-      setAnnotationId(id)
-      setIsLoaded(true)
+    //     // setAnnotationId(id)
+    //     setIsLoaded(true)
 
-    }
+    //   }
 
-    if (newAnnotation) {
+    //   if (newAnnotation) {
 
-      // console.log(annotation.span_ids.split(','))
-      // newAnnotation?.span_ids?.split(',').map(anno =>
-      //   document?.getElementById(anno).classList.add('annotated')
-      // )
-      // console.log('LLLLLLLLLLLLLLLLLLLLL',newAnnotation?.span_ids?.split(','))
-      // console.log('LLLLLLLLLLLLLLLLLLLLL',newAnnotation?.span_ids?.split(',').map(anno =>
-      //   document?.getElementById(anno)))
+    //     // console.log(annotation.span_ids.split(','))
+    //     // newAnnotation?.span_ids?.split(',').map(anno =>
+    //     //   document?.getElementById(anno).classList.add('annotated')
+    //     // )
+    //     // console.log('LLLLLLLLLLLLLLLLLLLLL',newAnnotation?.span_ids?.split(','))
+    //     // console.log('LLLLLLLLLLLLLLLLLLLLL',newAnnotation?.span_ids?.split(',').map(anno =>
+    //     //   document?.getElementById(anno)))
 
-      // console.log('LLLLLLLLLLLLLLLLLLLLL',newAnnotation?.span_ids?.split(',').map(anno =>
-      //   document?.getElementById(anno)?.addEventListener('click', (e) => { setShowAnnotation(true); getNewAnno(e) })))
-      newAnnotation?.span_ids?.split(',').map(anno =>
-        document?.getElementById(anno)?.addEventListener('click', (e) => { setShowAnnotation(true); getNewAnno(e) })
-      )
+    //     // console.log('LLLLLLLLLLLLLLLLLLLLL',newAnnotation?.span_ids?.split(',').map(anno =>
+    //     //   document?.getElementById(anno)?.addEventListener('click', (e) => { setShowAnnotation(true); getNewAnno(e) })))
+    //     newAnnotation?.span_ids?.split(',').map(anno =>
+    //       document?.getElementById(anno)?.addEventListener('click', (e) => { setShowAnnotation(true); getNewAnno(e) })
+    //     )
 
-      // console.log(splitted)
-    // console.log('-----------------------------------------------------------------------------')
-  }
+    //     // console.log(splitted)
+    //   // console.log('-----------------------------------------------------------------------------')
+    // }
 
-  }, [annotations, dispatch, showAnnotation, newAnnotation])
+  }, [annotations, dispatch, showAnnotation,
+    // newAnnotation
+  ])
 
 
   // end annotation stuff
@@ -297,53 +298,78 @@ export default function TrackInfo() {
   // },[showAnnotation])
 
 
-if (!Object.values(track).length){
-  return <div className='loading'>{" "}</div>
-}
+  if (!Object.values(track).length) {
+    return <div className='loading'>{" "}</div>
+  }
   return isLoaded ? (
-    <div>
+    <div className='main-div'>
+
       <div className="track-info-container">
 
-      </div>
-      <div className='track_art'>
-        <img className='album-cover'
-        src={track.track_art ? track.track_art : defaultalbum}>
-        </img>
+        <div className='track-art-container'>
+          <div className='track_art'>
+            <img
+              alt="album-cover"
+              className='album-cover'
+              src={track.track_art ? track.track_art : defaultalbum}>
+            </img>
+          </div>
+        </div>
+
+        <div className='track-text-container'>
+          <div className='track-details-container'>
+            <div className='track_title_artist'>
+              <div className='track_title'>
+                {track.track_title}
+              </div>
+
+              <div className='track_artist'>
+                {track.artist}
+              </div>
+
+              <div className='track-album'>
+                {track.album && `on ${track.album}`}
+              </div>
+            </div>
+
+            <div className='extra-info-container'>
+              <div className='extra-info-wrapper'>
+                <div className='track_producer'>
+                  <div>
+                    Produced by:
+                  </div>
+                  <div className='track_producer_name'>
+                    {track.produced_by ? track.produced_by : 'Unknown'}
+                  </div>
+                </div>
+
+                <div className='track_release'>
+                  Release Date:
+                  <div className='track_release_date'>
+                    {track.release_date?.split(' ').slice(0, -2).slice(1).join(' ')}
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
       </div>
 
-      <div className='track_title_artist'>
-        <div className='track_title'>
-          {track.track_title}
+
+      <div className='button-container'>
+        <div className='buttons'>
+          <div className='button1'>
+            {user?.id === track.user_id && <EditTrackModal />}
+          </div>
+          <div className='button2'>
+            {user?.id === track.user_id && <DeleteTrackModal />}
+          </div>
         </div>
-        <div className='track_artist'>
-          {track.artist}
-        </div>
-        <div className='track-album'>
-          on {track.album}
-        </div>
+
       </div>
-      <div className='track_producer'>
-        <div>
-          Produced by:
-        </div>
-        <div className='track_producer_name'>
-          {track.produced_by ? track.produced_by : 'Unknown'}
-        </div>
-      </div>
-      <div className='track_release'>
-        Release Date:
-        <div className='track_release_date'>
-          {track.release_date?.split(' ').slice(0, -2).slice(1).join(' ')}
-        </div>
-      </div>
-      <div className='buttons'>
-        <div className='button1'>
-          {user?.id === track.user_id && <EditTrackModal />}
-        </div>
-        <div className='button2'>
-          {user?.id === track.user_id && <DeleteTrackModal />}
-        </div>
-      </div>
+
 
       <div className='body_page'>
         <div className='lyric-wrapper'>
@@ -380,8 +406,8 @@ if (!Object.values(track).length){
                   setAnnotated={setAnnotated}
                   spanIds={spanIds} />}
             </div>
-            <div>
-              {<Annotations
+            <div >
+              {!annotated && <Annotations
                 setShowAnnotation={setShowAnnotation}
                 showAnnotation={showAnnotation}
                 annotationId={annotationId} />}
@@ -432,16 +458,18 @@ if (!Object.values(track).length){
                 Ingenius Answer
               </div>
               <div className='fact-text'>
-              To create an annotation,
-              click on any number of lines of lyrics to select them.
-              A button will appear to the bottom of the lyrics that reads “Start the Ingenius Annotation.” </div>
+                To create an annotation,
+                click on any number of lines of lyrics to select them.
+                A button will appear to the bottom of the lyrics that reads “Start the Ingenius Annotation.” </div>
             </div>
           )}
           <div className='about-artist-wrapper'>
 
             <div className='about-artist'>
               <div className='about-album-cover'>
-                <img className="about-cover"
+                <img
+                  alt="about-cover"
+                  className="about-cover"
                   src={track.track_art ? track.track_art : defaultalbum}>
 
                 </img>
@@ -482,7 +510,9 @@ if (!Object.values(track).length){
               </div>
             </div>
           </div>
-          <ReactPlayer className="mv" width="750px" height="450px" url={track.track_url} />
+          {track.track_url ?
+            <ReactPlayer className="mv" width="750px" height="450px" url={track.track_url} /> : null}
+
           {/* <iframe
                         width="560"
                         height="315"
@@ -500,5 +530,5 @@ if (!Object.values(track).length){
 
 
     </div>
-  ): (<h1></h1>)
+  ) : (<div></div>)
 }

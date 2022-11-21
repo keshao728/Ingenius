@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useHistory } from 'react-router-dom'
-import { editTrack, getOneTrack, actionResetTrack } from '../../store/tracks'
-import { useParams, Redirect } from 'react-router-dom'
+import { editTrack, getOneTrack } from '../../store/tracks'
+import { Redirect } from 'react-router-dom'
 import './EditTrackForm.css'
 
 
@@ -13,7 +13,7 @@ export default function EditTrack({ setModalOpen }) {
   // const { id } = useParams()
   const sessionUser = useSelector(state => state.session.user)
   const track = useSelector(state => state.tracks.oneTrack)
-  const user = useSelector(state => state.session.user)
+  // const user = useSelector(state => state.session.user)
 
   const date = new Date();
   const futureDate = date.getDate() + 3;

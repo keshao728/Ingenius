@@ -155,7 +155,6 @@ export const getUserInfo = (userId) => async dispatch => {
   let response = await fetch(`/api/users/${userId}/info`);
   if (response.ok) {
       let userInfo = await response.json();
-      console.log('IS IT WORKING YET', userInfo)
 
 
 
@@ -176,8 +175,6 @@ export const getUserInfo = (userId) => async dispatch => {
       // userInfo.annotations = userInfoObj
 
       await dispatch(actionGetUserInfo(userInfo));
-      console.log('HOW BOUT NOW', userInfo)
-      // console.log('HOW BOUT NOW222', userInfoObj)
       return userInfo
   }
   return null

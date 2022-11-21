@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from "react-redux";
-import { createAnnotation, actionResetAnnotation } from '../../store/annotations';
-import { actionResetTrack, getOneTrack } from '../../store/tracks';
-import { useParams } from 'react-router-dom';
+import { createAnnotation} from '../../store/annotations';
+// import { actionResetTrack, getOneTrack } from '../../store/tracks';
+// import { useParams } from 'react-router-dom';
 import LoginForm from "../auth/LoginForm";
 import "./AnnotationForm.css";
-
 
 const AnnotationForm = ({ setDocu, docu, setAnnotated, spanIds, setShowAnnotation }) => {
   const dispatch = useDispatch();
@@ -14,6 +13,7 @@ const AnnotationForm = ({ setDocu, docu, setAnnotated, spanIds, setShowAnnotatio
   const [displayErrors, setDisplayErrors] = useState(false)
   const [showMenu, setShowMenu] = useState(false);
   const [showano, setShowano] = useState(false)
+  // const { trackId } = useParams();
   // const [isLoaded, setIsLoaded] = useState(false)
 
   // const [startingIndex, setStaringtIndex] = useState(startIndex)
@@ -55,14 +55,6 @@ const AnnotationForm = ({ setDocu, docu, setAnnotated, spanIds, setShowAnnotatio
       return { border: "1px solid red" }
   }
 
-  useEffect(() => {
-    const errors = []
-    if (!annotation || annotation === "" || isEmpty(annotation)) errors.push('Comment is Required')
-    if (annotation.length > 200) errors.push("Please enter less than 200 characters")
-
-
-    setValidationErrors(errors)
-  }, [annotation])
 
   // useEffect(() => {
   //   return () => {
@@ -96,11 +88,23 @@ const AnnotationForm = ({ setDocu, docu, setAnnotated, spanIds, setShowAnnotatio
 
       if (docu.length) {
         for (let doc of docu)
-          doc.className = 'annotated'
+        doc.className = 'annotated'
       }
     }
   }
 
+  useEffect(() => {
+    const errors = []
+    if (!annotation || annotation === "" || isEmpty(annotation)) errors.push('Comment is Required')
+    if (annotation.length > 200) errors.push("Please enter less than 200 characters")
+
+
+    setValidationErrors(errors)
+  }, [annotation])
+
+  // useEffect(() => {
+  //   dispatch(getOneTrack(trackId))
+  // },[dispatch,getOneTrack])
 
   let sessionLinks;
   if (sessionUser) {

@@ -1,21 +1,25 @@
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux';
-import { useState, useEffect, useRef } from 'react';
-import { NavLink, useParams } from 'react-router-dom'
-import { upvoteThunk, downvoteThunk, unvoteThunk, votecount } from '../../store/votes';
-import { getOneTrack, actionResetTrack } from '../../store/tracks';
+// import { useState, useEffect, useRef } from 'react';
+import { useParams } from 'react-router-dom'
+// import { upvoteThunk, downvoteThunk, unvoteThunk, votecount } from '../../store/votes';
+import { getOneTrack} from '../../store/tracks';
 import './vote.css'
 import './annotations.css'
 import AnnotationForm from '../AnnotationForm/AnnotationForm';
-import EditAnnotation from '../AnnotationEditForm/EditAnnotationForm';
+// import EditAnnotation from '../AnnotationEditForm/EditAnnotationForm';
 import Vote from './vote'
 // import { useEffect } from 'react';
 
 
 export default function Annotations({ setShowAnnotation, showAnnotation, annotationId }) {
   // console.log(showAnnotation)
+  // console.log('ANNOTATION ID', annotationId)
+  const realId = annotationId
+  // console.log('REAL ID', realId)
   const dispatch = useDispatch();
-  // const { trackId } = useParams();
+  const { trackId } = useParams();
+  // const [showAnnotation, setShowAnnotation] = useState(showAnnotation);
   // const annoMenu = useRef(null)
   // const [isLoaded, setIsLoaded] = useState(false);
   // const sessionUser = useSelector((state) => state.session.user);
@@ -25,7 +29,7 @@ export default function Annotations({ setShowAnnotation, showAnnotation, annotat
   // }
 
   const annotations = useSelector((state) => state.tracks.oneTrack.Annotations);
-  // console.log(annotations)
+  // console.log(annotations , "mic  check 1")
   // const [showAnnotation, setShowAnnotation] = useState(false)
 
   // useEffect(() => {
@@ -93,9 +97,14 @@ export default function Annotations({ setShowAnnotation, showAnnotation, annotat
   //   else (document.getElementsByTagName('span').classList.remove('currently-annotating'))
   // },[annotations, showAnnotation])
 
+  // useEffect(async() => {
+  //   await dispatch(getOneTrack(trackId))
+  // },[dispatch,getOneTrack])
+
   const closeSubmit = (e) => {
     e.preventDefault();
-    setShowAnnotation(false);
+    setShowAnnotation(false)
+    dispatch(getOneTrack(trackId));
   };
 
   // let annotationLinks;
@@ -130,8 +139,10 @@ export default function Annotations({ setShowAnnotation, showAnnotation, annotat
       <>
 
         {showAnnotation &&
-          annotationsArr.map(anno => anno.id === annotationId ?
+          annotationsArr.map(anno => anno.id === realId ?
+<div>
 
+              <button type="button" className="cancel-show-anno" onClick={closeSubmit}>x</button>
             <div className='anno-wrap'>
               <div className="anno-child" key={anno.id} >
                 <div className='anno-title'>
@@ -143,7 +154,7 @@ export default function Annotations({ setShowAnnotation, showAnnotation, annotat
                 <div className='anno-vote'>
                   <Vote num={anno.id} />
                 </div>
-                <button type="button" className="cancel-show-anno" onClick={closeSubmit}>x</button>
+</div>
 
               </div>
             </div>
@@ -151,7 +162,10 @@ export default function Annotations({ setShowAnnotation, showAnnotation, annotat
 
 
 
-            : null)}
+            :
+            null
+            // <h1>wrong id</h1>
+            )}
 
       </>
 
