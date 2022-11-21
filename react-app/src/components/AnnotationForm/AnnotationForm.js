@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from "react-redux";
-import { createAnnotation} from '../../store/annotations';
+import { createAnnotation } from '../../store/annotations';
 // import { actionResetTrack, getOneTrack } from '../../store/tracks';
 // import { useParams } from 'react-router-dom';
 import LoginForm from "../auth/LoginForm";
@@ -28,6 +28,15 @@ const AnnotationForm = ({ setDocu, docu, setAnnotated, spanIds, setShowAnnotatio
   // console.log('adfasdfads', endIndex)
   // console.log(setAnnotating)
   // console.log('oooooooooo', spanIds)
+  const updateAnnotation = (e) => setAnnotation(e.target.value)
+
+
+  useEffect(() => {
+    const errors = []
+    if (!annotation || annotation === "" || isEmpty(annotation)) errors.push('Comment is Required')
+    if (annotation.length > 500) errors.push("Annotation must not exceed 500 characters")
+    setValidationErrors(errors)
+  }, [annotation])
 
 
   const openMenu = () => {
@@ -35,19 +44,6 @@ const AnnotationForm = ({ setDocu, docu, setAnnotated, spanIds, setShowAnnotatio
 
     setShowMenu(true);
     setShowano(true)
-  };
-
-  const closeSubmit = (e) => {
-    e.preventDefault();
-    setShowMenu(false);
-    setAnnotated(false)
-
-    if (docu.length) {
-      for (let doc of docu)
-        doc.className = ''
-    }
-
-    // setAnnotating(false)
   };
 
   function isEmpty(str) {
@@ -66,16 +62,16 @@ const AnnotationForm = ({ setDocu, docu, setAnnotated, spanIds, setShowAnnotatio
     e.preventDefault();
     // setShowMenu(false);
     setDisplayErrors(true)
-    setAnnotated(false)
+    setAnnotated(true)
 
     if (!validationErrors.length) {
       // setShowMenu(false);
-      setDisplayErrors(false)
+      // setDisplayErrors(false)
       const payload = {
         annotation_body: annotation,
         span_ids: spanIds
       }
-      setAnnotation("");
+      // setAnnotation("");
 
       let newAnnotation = await dispatch(createAnnotation(track.id, payload))
 
@@ -88,19 +84,23 @@ const AnnotationForm = ({ setDocu, docu, setAnnotated, spanIds, setShowAnnotatio
 
       if (docu.length) {
         for (let doc of docu)
-        doc.className = 'annotated'
+          doc.className = 'annotated'
       }
     }
   }
+  const closeSubmit = (e) => {
+    e.preventDefault();
+    setShowMenu(false);
+    setAnnotated(false)
 
-  useEffect(() => {
-    const errors = []
-    if (!annotation || annotation === "" || isEmpty(annotation)) errors.push('Comment is Required')
-    if (annotation.length > 200) errors.push("Please enter less than 200 characters")
+    if (docu.length) {
+      for (let doc of docu)
+        doc.className = ''
+    }
 
+    // setAnnotating(false)
+  };
 
-    setValidationErrors(errors)
-  }, [annotation])
 
   // useEffect(() => {
   //   dispatch(getOneTrack(trackId))
@@ -121,22 +121,12 @@ const AnnotationForm = ({ setDocu, docu, setAnnotated, spanIds, setShowAnnotatio
                 <textarea
                   placeholder="Don't just put the lyric in your own words - drop some knowledge!"
                   type="text"
-                  error
+                  // error
                   className="annotation-input"
                   value={annotation}
                   // onClick={openSubmit}
-                  required
-                  onChange={(e) => setAnnotation(e.target.value)}
-                />
-                {displayErrors && (
-                  <ul className="annotation-form-errors">
-                    {validationErrors.length > 0 &&
-                      validationErrors.map(error => (
-                        <li className="annotation-form-error-text" key={error}>{error}</li>
-                      ))}
-                  </ul>
-                )}
-
+                  onChange={updateAnnotation}
+                  required/>
                 {/* <input hidden type='number' value={startIndex}></input>
                 <input hidden type='number' value={endIndex}></input> */}
                 <input
@@ -147,8 +137,15 @@ const AnnotationForm = ({ setDocu, docu, setAnnotated, spanIds, setShowAnnotatio
 
               </label>
               <div className="annotation-submit-buttons">
-                <button className="button-create-annotation" type="submit" onSubmit={handleSubmit}> Save </button>
+                <button className="button-create-annotation" type="submit" > Save </button>
                 <button type="button" className="cancel-create-annotation" onClick={closeSubmit}>Cancel</button>
+              </div>
+              <div>
+              <ul className="annotation-form-errors">
+                {displayErrors && validationErrors.length > 0 && validationErrors.map(error => (
+                  <li className="annotation-form-error-text" key={error}>{error}</li>
+                ))}
+              </ul>
               </div>
             </div>
           </form>
