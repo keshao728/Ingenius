@@ -20,6 +20,14 @@
 .extra-info-container {
     display: flex;
     flex-direction: row;
+
+}
+
+.extra-info-wrapper {
+    display:flex;
+    flex-direction: row;
+    align-items: left;
+    column-gap: 60px;
 }
 
 .track-text-container{
@@ -429,6 +437,10 @@
     .extra-info-container {
         flex-direction: column;
     }
+    .extra-info-wrapper {
+        flex-direction: column;
+        row-gap: 50px;
+    }
 }
 
 @media screen and (max-width: 1200px ) {
@@ -436,6 +448,10 @@
         flex-direction: column;
     }
     .extra-info-container {
-        margin-top: 100px;
+        margin-top: 20%;
+        justify-content: space-evenly;
+    }
+    .extra-info-wrapper {
+        flex-direction: row;
     }
 }

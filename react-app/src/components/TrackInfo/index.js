@@ -335,23 +335,27 @@ export default function TrackInfo() {
                 {track.album && `on ${track.album}`}
               </div>
             </div>
+
             <div className='extra-info-container'>
-            <div className='track_producer'>
-              <div>
-                Produced by:
-              </div>
-              <div className='track_producer_name'>
-                {track.produced_by ? track.produced_by : 'Unknown'}
+              <div className='extra-info-wrapper'>
+                <div className='track_producer'>
+                  <div>
+                    Produced by:
+                  </div>
+                  <div className='track_producer_name'>
+                    {track.produced_by ? track.produced_by : 'Unknown'}
+                  </div>
+                </div>
+
+                <div className='track_release'>
+                  Release Date:
+                  <div className='track_release_date'>
+                    {track.release_date?.split(' ').slice(0, -2).slice(1).join(' ')}
+                  </div>
+                </div>
               </div>
             </div>
 
-            <div className='track_release'>
-              Release Date:
-              <div className='track_release_date'>
-                {track.release_date?.split(' ').slice(0, -2).slice(1).join(' ')}
-              </div>
-            </div>
-            </div>
           </div>
         </div>
 
