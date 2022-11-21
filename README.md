@@ -137,3 +137,7 @@ npm start
 
 ![Github](https://img.shields.io/badge/github-%230077B5.svg?style=for-the-badge&logo=github&logoColor=white)
 </a>
+<br>
+<br>
+<h2> Have a great day! </h2>
+<a href="https://imgur.com/nVjEQNZ"><img src="https://i.imgur.com/nVjEQNZ.png" title="source: imgur.com" /></a>
