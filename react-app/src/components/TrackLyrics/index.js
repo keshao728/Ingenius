@@ -127,6 +127,7 @@ export default function DisplayLyrics({ track, setDocu }) {
             {/* {track.lyrics?.split('\n').map((chunk, idx) => console.log(chunk))} */}
 
             {track.lyrics?.split('\n').map((chunk, idx) => <div ><span key={idx} className={''} id={idx} ref={ref} onClick={handleClick}>{chunk}</span></div>)}
+            {console.log("DAUJKFAEJFNLAWNDJANWKDJNAKWJDNKJAWNKWAJNKWJANKJANWDKJn", track.lyrics?.split('\n'))}
         </>
     )
 }

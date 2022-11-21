@@ -22,12 +22,17 @@ const UserAnnotations = ({ setUser }) => {
   const annotations = useSelector(state => state.session.annotations)
   const sessionUser = useSelector(state => state.session.user)
   // const tracks = useSelector(state => state.session.tracks)
-
+  const track = useSelector(state => state.tracks.oneTrack)
+  // { console.log("DAUJKFAEJFNLAWNDJANWKDJNAKWJDNKJAWNKWAJNKWJANKJANWDKJn", track.lyrics?.split('\n')) }
   const annotationArr = Object.values(annotations)
-  console.log('ANNOTATIONAAARR', annotationArr)
+  // const shibashakeit = annotationArr.map((annotation) => annotation.span_ids)
+
+
+  // const annotationIds = annotations?.span_ids.includes(",") ? annotations?.span_ids.split(",") : Array.from(annotations?.span_ids)
+  // console.log('ANNOTATIONAAARR', annotationArr)
   // const tracksArr = Object.values(tracks)
   // console.log('TRACKARR', tracksArr)
-  // const annoArrTracks = 
+  // const annoArrTracks =
 
 
   const sum = (a) => {
@@ -56,19 +61,19 @@ const UserAnnotations = ({ setUser }) => {
   const annoIdx = annotationArr.map(anno => anno.span_ids)
   const annoTrackId = annotationArr.map(anno => anno.track_id)
   const annoTrack = annotationArr.map(anno => anno.track)
-  console.log('annoIDX', annoIdx) // ['15,16,17,18,19', '22,23,24,25,26,27', '22'] arr
-  console.log('ANNOTRACKID', annoTrackId)
-  console.log('annoTrack', annoTrack)
+  // console.log('annoIDX', annoIdx) // ['15,16,17,18,19', '22,23,24,25,26,27', '22'] arr
+  // console.log('ANNOTRACKID', annoTrackId)
+  // console.log('annoTrack', annoTrack)
   const lyrics = annoTrack.map(track => track.lyrics)
-  console.log('LYRICS', lyrics) // ["\n        [Verse 1]\n        Stressed out\n        Fe…for the taking\n ]
+  // console.log('LYRICS', lyrics) // ["\n        [Verse 1]\n        Stressed out\n        Fe…for the taking\n ]
   const lineByline = lyrics.map(line => line.split(`\n`))
-  console.log('lineByline', lineByline) // [[],[],[]]
+  // console.log('lineByline', lineByline) // [[],[],[]]
 
 
-    
-    
+
+
   // });
-  
+
 
 
 
@@ -105,8 +110,8 @@ const UserAnnotations = ({ setUser }) => {
 
   if (!annotationArr) return null
   else return isLoaded &&
-    annotationArr.map(annotation => (
-
+    annotationArr.map((annotation, i) => (
+      // console.log('annotation', annotation),
       <div id='pp-annotations-outer-container' key={annotation.id}>
         <div id='pp-annotation-created-at'> {annotation.created_at?.split(' ').slice(0, -2).slice(1).join(' ')}</div>
         <div id='pp-annotation-inner-container'>
@@ -125,6 +130,39 @@ const UserAnnotations = ({ setUser }) => {
           <div id='pp-annotation-lyric-container'>
             <div id='pp-annotation-lyric'>
               lyrics
+            </div>
+            <div>
+              {annotationArr.map((annotation, i) => {
+                console.log('annotation', annotation)
+
+                //this is each individual spanIds
+                const spanArr = annotation.span_ids.includes(",") ? annotation.span_ids.split(",").map(Number) : [Number(annotation.span_ids)]
+                console.log('spanArr', spanArr)
+
+                // if (spanArr[i] === Number(annotation.span_ids.span_ids[i])) {
+                //splits every lyric individually
+                let annotationSomething = []
+
+                for (let i = 0; i < spanArr.length; i++) {
+                  annotationSomething.push(annotation.track.lyrics.split('\n')[spanArr[i]])
+
+                  console.log('annotationSofgffffffffffffmething', annotationSomething)
+                }
+                return (
+                  // <div>
+                  //   {annotationSomething}
+                  // </div>
+                  <div key={i}>
+                    {
+                      annotationSomething.map((line, i) => {
+                        console.log("THINGS GETTING PUSH", annotationSomething[annotationSomething.length-1])
+
+                        return line
+                      })}
+                  </div>
+                )
+                // }
+              })}
             </div>
             <div>
               <img
