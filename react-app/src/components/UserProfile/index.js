@@ -24,7 +24,7 @@ const UserAnnotations = ({ setUser }) => {
   // const tracks = useSelector(state => state.session.tracks)
 
   const annotationArr = Object.values(annotations)
-  console.log('ANNOTATIONAAARR', annotationArr)
+  console.log('annotationArr', annotationArr)
   // const tracksArr = Object.values(tracks)
   // console.log('TRACKARR', tracksArr)
   // const annoArrTracks = 
@@ -53,22 +53,144 @@ const UserAnnotations = ({ setUser }) => {
     setUser(user);
   }
 
+
+
   const annoIdx = annotationArr.map(anno => anno.span_ids)
   const annoTrackId = annotationArr.map(anno => anno.track_id)
   const annoTrack = annotationArr.map(anno => anno.track)
   console.log('annoIDX', annoIdx) // ['15,16,17,18,19', '22,23,24,25,26,27', '22'] arr
-  console.log('ANNOTRACKID', annoTrackId)
-  console.log('annoTrack', annoTrack)
+  // console.log('annoTrackId', annoTrackId) // trackId = [1, 1, 2]
+  console.log('annoTrack', annoTrack) // [{…}, {…}, {…}]
   const lyrics = annoTrack.map(track => track.lyrics)
-  console.log('LYRICS', lyrics) // ["\n        [Verse 1]\n        Stressed out\n        Fe…for the taking\n ]
-  const lineByline = lyrics.map(line => line.split(`\n`))
+  // console.log('LYRICS', lyrics[0]) // ["\n        [Verse 1]\n        Stressed out\n        Fe…for the taking\n ]
+
+  // const for (let )
+
+  const arr = []
+
+  const lineByline = lyrics.map(line => line.split(`\n`)).flat()
   console.log('lineByline', lineByline) // [[],[],[]]
 
+  const annotatedIndexes = annoIdx.map(oneTrackIdx => oneTrackIdx.split(',')).flat()
+  console.log('annotatedIndexes', annotatedIndexes)
 
+  for (let num of annotatedIndexes) {
+    console.log('num', num)
+    for (let tree in lineByline) {
+      if (tree === num)
+      arr.push(lineByline[tree])
+    }
     
-    
+  }
+  console.log('PLEASEEGOD',arr)
+
+  // console.log('arr', arr)
+  // const flat = lineByline.flat();
+  // console.log('flat', flat)
+  // for (let l of lineByline) {
+  //   for (let i = 0; i<l.length - 1; i++)
+  // }
+  // console.log ('PIUUUUUUUU ', annotationArr.map(anno => anno.track.lyrics.split('\n').map((section, idx) => anno.span_ids.split(',').filter(spanId => Number(spanId) === idx))))
+
+  // for (let i of num) {
+  //   i = +i
+  //   console.log('i', i)
+
+  //   arr.push(lineByline[i])
+  // }
+
+  // for (let i = 0; i < annotatedIndexes.length - 1; i++) {
+  //   for (let j = 0; j < i.length - 1; j++)
+  //   annotatedIndexes[[i][j]] = Number(annotatedIndexes[[i][j]])
+
+  // }
+  // console.log('simon-annoIDX', annotatedIndexes)
+
+  // annotatedIndexes.forEach(setOfNums => {
+  //   for (let nums of setOfNums) {
+  //     nums = +nums
+  //   }
   // });
-  
+
+  // const apple = annotatedIndexes.map(ele => ele)
+  // console.log('HOW BOUT NOW', apple) //[Array(5), Array(6), Array(1), Array(2)]
+  // console.log('1' == 1)
+
+  // const oneSong = lineByline[0]
+  // for (let i in oneSong) {
+  //   const oneLine = oneSong[i]
+  //   const oneLineIdx = i
+  //   console.log(i, oneSong[i])
+
+  // }
+
+  // annoIdx.forEach(ele => {
+  //   const individualSongSpans = ele.split(',')
+  //   console.log('individualSongSpans', individualSongSpans)
+  //   individualSongSpans.forEach(ele => {
+  //     console.log('ele', ele)
+  //   });
+
+  // })
+
+  // annoIdx.forEach(ele => {
+  //   let arr = []
+  //   const individualSongSpans = ele.split(',')
+  //   console.log('individualSongSpans', individualSongSpans)
+  //   individualSongSpans.forEach(oneSpan => {
+  //     console.log('oneSpan', oneSpan)
+  //     for (let i of lineByline) {
+  //       console.log('lineByline', i, lineByline[i])
+  //       console.log(Number(oneSpan) == lineByline[i])
+
+  //     }
+  //     // console.log('oneSpan', Number(oneSpan) == 15)
+  //   });
+  //   console.log('ARRRRR', arr)
+  //   return arr
+  // });
+
+  // const [arr1, arr2, arr3] = annotatedIndexes
+  // console.log('whatwhat', arr1)
+  // console.log('arr2', arr2)
+  // console.log('arr3', arr3)
+  // console.log('lookatme',[arr1, arr2, arr3])
+
+  // lineByline.forEach(line => {
+  //   consttest = line.filter(ele => annoIdx.includes(ele))
+  //   console.log('test', test)
+  // });
+
+
+  // const test = lineByline.filter(ele => annoIdx.includes(ele))
+  // console.log( 'TEST', test)
+
+  // const arr = lineByline
+  // annoIdx.forEach(span => {
+  //   let arr = []
+  //   console.log('SPAN', [span])
+  //   // const annoIdx = span.split(',')
+  //   console.log('annoIdxAnno', annoIdx)
+  //   console.log((lineByline[0].includes(annoIdx)))
+
+  // lineByline.forEach(line => {
+  //   const test = line.filter(ele => arrOfStrings.includes(ele))
+  //   console.log('CMONBABYYY', test)
+  // });
+
+  // console.log(arr)
+  // return arr
+  // });
+
+  // each line in lyrics has an index
+  // span in a
+
+
+
+
+
+  // });
+
 
 
 
