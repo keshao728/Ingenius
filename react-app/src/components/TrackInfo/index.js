@@ -332,7 +332,7 @@ export default function TrackInfo() {
               </div>
 
               <div className='track-album'>
-                on {track.album}
+                {track.album && `on ${track.album}`}
               </div>
             </div>
             <div className='extra-info-container'>

@@ -21,9 +21,14 @@ const UserAnnotations = ({ setUser }) => {
   // console.log('USERID', userId)
   const annotations = useSelector(state => state.session.annotations)
   const sessionUser = useSelector(state => state.session.user)
+  // const tracks = useSelector(state => state.session.tracks)
 
   const annotationArr = Object.values(annotations)
-  // console.log('ANNOTATIONAAARR', annotationArr)
+  console.log('ANNOTATIONAAARR', annotationArr)
+  // const tracksArr = Object.values(tracks)
+  // console.log('TRACKARR', tracksArr)
+  // const annoArrTracks = 
+
 
   const sum = (a) => {
     let sums = 0
@@ -47,6 +52,25 @@ const UserAnnotations = ({ setUser }) => {
     const user = await response.json();
     setUser(user);
   }
+
+  const annoIdx = annotationArr.map(anno => anno.span_ids)
+  const annoTrackId = annotationArr.map(anno => anno.track_id)
+  const annoTrack = annotationArr.map(anno => anno.track)
+  console.log('annoIDX', annoIdx) // ['15,16,17,18,19', '22,23,24,25,26,27', '22'] arr
+  console.log('ANNOTRACKID', annoTrackId)
+  console.log('annoTrack', annoTrack)
+  const lyrics = annoTrack.map(track => track.lyrics)
+  console.log('LYRICS', lyrics) // ["\n        [Verse 1]\n        Stressed out\n        Fe…for the taking\n ]
+  const lineByline = lyrics.map(line => line.split(`\n`))
+  console.log('lineByline', lineByline) // [[],[],[]]
+
+
+    
+    
+  // });
+  
+
+
 
   // document.getElementById("pp-annotation-edit")?.addEventListener("click", () => {
   //   document.getElementById("anno-edit-text-area").focus();
