@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 // import { useState, useEffect, useRef } from 'react';
 import { useParams } from 'react-router-dom'
 // import { upvoteThunk, downvoteThunk, unvoteThunk, votecount } from '../../store/votes';
-import { getOneTrack} from '../../store/tracks';
+import { getOneTrack } from '../../store/tracks';
 import './vote.css'
 import './annotations.css'
 import AnnotationForm from '../AnnotationForm/AnnotationForm';
@@ -101,10 +101,21 @@ export default function Annotations({ setShowAnnotation, showAnnotation, annotat
   //   await dispatch(getOneTrack(trackId))
   // },[dispatch,getOneTrack])
 
+
+
+  // const annotationsArr = Object.values(annotations);
+  // let spansToHighlight = (annotationsArr?.filter(anno => anno?.id === realId)[0]?.span_ids?.split(','))
+
+  // const removeHighlighter = () => {
+
+  //   spansToHighlight.map(spanId => document?.getElementById(spanId)?.classList.remove('now-annotating'))
+  // }
+
   const closeSubmit = (e) => {
     e.preventDefault();
     setShowAnnotation(false)
     dispatch(getOneTrack(trackId));
+    // removeHighlighter()
   };
 
   // let annotationLinks;
@@ -113,7 +124,20 @@ export default function Annotations({ setShowAnnotation, showAnnotation, annotat
       <AnnotationForm setShowAnnotation={setShowAnnotation} />
     )
   } else {
+
     const annotationsArr = Object.values(annotations);
+
+
+    // let spansToHighlight = (annotationsArr?.filter(anno => anno?.id === realId)[0]?.span_ids?.split(','))
+
+    // const highlighter = () => {
+
+    //   spansToHighlight.map(spanId => document?.getElementById(spanId)?.classList.add('now-annotating'))
+    // }
+
+
+
+
     // const annotation = annotationsArr[0]
     // console.log('ANNOTATIONSARR', annotationsArr)
     // console.log('BEBARAERLAJASD', annotationId)
@@ -140,22 +164,21 @@ export default function Annotations({ setShowAnnotation, showAnnotation, annotat
 
         {showAnnotation &&
           annotationsArr.map(anno => anno.id === realId ?
-<div>
-
+            <div>
+            {/* {highlighter()} */}
               <button type="button" className="cancel-show-anno" onClick={closeSubmit}>x</button>
-            <div className='anno-wrap'>
-              <div className="anno-child" key={anno.id} >
-                <div className='anno-title'>
-                  Ingenius Annotation
+              <div className='anno-wrap'>
+                <div className="anno-child" key={anno.id} >
+                  <div className='anno-title'>
+                    Ingenius Annotation
+                  </div>
+                  <div className='anno-body'>
+                    {anno.annotation_body}
+                  </div>
+                  <div className='anno-vote'>
+                    <Vote num={anno.id} />
+                  </div>
                 </div>
-                <div className='anno-body'>
-                  {anno.annotation_body}
-                </div>
-                <div className='anno-vote'>
-                  <Vote num={anno.id} />
-                </div>
-</div>
-
               </div>
             </div>
 
@@ -165,7 +188,7 @@ export default function Annotations({ setShowAnnotation, showAnnotation, annotat
             :
             null
             // <h1>wrong id</h1>
-            )}
+          )}
 
       </>
 
