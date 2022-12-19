@@ -326,13 +326,13 @@ const HomePage = () => {
       <div className="chart-page" id="charts">
 
         <div className="chart-heading">CHARTS</div>
-        {allTracks.slice(0, showTracks).map((track) => {
+        {allTracks.slice(0, showTracks).map((track,index) => {
           return (
             <div key={track.id} className="all-tracks">
               <NavLink class="tracks-navlink" to={`/tracks/${track.id}`} onClick={() => window.scrollTo(0, 0)}>
                 <div className="individual-tracks">
                   <div className="track-num">
-                    {track.id}
+                    {index+1}
                   </div>
                   <div className="track-cover-name">
                     <div>
