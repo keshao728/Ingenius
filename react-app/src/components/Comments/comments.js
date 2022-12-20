@@ -6,7 +6,7 @@ import { NavLink, useParams } from "react-router-dom"
 import { getAllComments, createComment, deleteComment } from "../../store/comments";
 import LoginForm from "../auth/LoginForm";
 import SignUpForm from "../auth/SignUpForm";
-import defaultpro from '../Navigation/NavImage/ingeniousLogo.png';
+import defaultpro from '../Navigation/NavImage/defaultpro.png';
 
 import * as moment from 'moment';
 // import { getOneTrack } from '../../store/tracks';
